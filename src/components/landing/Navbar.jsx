@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import GradientButton from "../shared/GradientButton";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "../utils";
+import { createPageUrl } from "../../utils";
 
 const navLinks = [
   { label: "How It Works", href: "/HowItWorks" },

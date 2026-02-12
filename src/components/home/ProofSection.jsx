@@ -4,7 +4,7 @@ import SectionWrapper from "../shared/SectionWrapper";
 import GlassCard from "../shared/GlassCard";
 import { Quote, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "../utils";
+import { createPageUrl } from "../../utils";
 
 export default function ProofSection() {
   return (
