@@ -32,7 +32,7 @@ const capabilities = [
 
 export default function AttractSolution() {
   return (
-    <SectionWrapper className="bg-gradient-to-b from-transparent to-[rgba(250,152,47,0.02)]">
+    <SectionWrapper id="solution" aria-label="AI solution capabilities" className="bg-gradient-to-b from-transparent to-[rgba(250,152,47,0.02)]">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

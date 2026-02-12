@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <SectionWrapper id="cta">
+    <SectionWrapper id="cta" aria-label="Call to action">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -9,7 +9,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative px-5 sm:px-6 md:px-8 pt-16 pb-8 border-t border-[rgba(255,255,255,0.06)]">
+    <footer id="footer" aria-label="Footer navigation and information" className="relative px-5 sm:px-6 md:px-8 pt-16 pb-8 border-t border-[rgba(255,255,255,0.06)]">
       <div className="max-w-[1140px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand column */}
