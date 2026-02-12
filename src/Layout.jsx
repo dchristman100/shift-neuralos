@@ -1,14 +1,39 @@
 import React from "react";
 import Navbar from "./components/landing/Navbar";
 import BrandNavbar from "./components/brand/BrandNavbar";
+import AttractNavbar from "./components/attract/AttractNavbar";
 import Footer from "./components/landing/Footer";
 
 export default function Layout({ children, currentPageName }) {
   // Determine which navbar to show based on page
   const isBrandPage = ['BrandHome', 'About', 'Platform', 'Roofing', 'Resources', 'Contact', 'Careers'].includes(currentPageName);
+  const isAttractPage = ['AttractHome', 'AttractHowItWorks', 'AttractEmptyPipeline', 'AttractResults', 'AttractPricing', 'AttractBook'].includes(currentPageName);
   
   // Determine schema markup type based on page
   const getSchemaMarkup = () => {
+    if (isAttractPage) {
+      return {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ShiFt Attract",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI-powered lead generation system for roofing contractors. Multi-channel campaigns that fill your pipeline 24/7.",
+        "url": "https://attract.shiftnow.io",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free Pipeline Audit"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "eWorkForce Technologies Inc.",
+          "url": "https://shiftnow.io"
+        }
+      };
+    }
+    
     if (isBrandPage) {
       return {
         "@context": "https://schema.org",
@@ -146,7 +171,7 @@ export default function Layout({ children, currentPageName }) {
         }
       `}</style>
 
-        {isBrandPage ? <BrandNavbar /> : <Navbar />}
+        {isAttractPage ? <AttractNavbar /> : isBrandPage ? <BrandNavbar /> : <Navbar />}
         {children}
         <Footer />
       </div>

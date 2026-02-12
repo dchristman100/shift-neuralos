@@ -57,9 +57,15 @@ import BrandHome from './pages/BrandHome';
 import About from './pages/About';
 import Platform from './pages/Platform';
 import Roofing from './pages/Roofing';
-import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import Resources from './pages/Resources';
+import AttractHome from './pages/AttractHome';
+import AttractHowItWorks from './pages/AttractHowItWorks';
+import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
+import AttractResults from './pages/AttractResults';
+import AttractPricing from './pages/AttractPricing';
+import AttractBook from './pages/AttractBook';
 import __Layout from './Layout.jsx';
 
 
@@ -74,9 +80,15 @@ export const PAGES = {
     "About": About,
     "Platform": Platform,
     "Roofing": Roofing,
-    "Resources": Resources,
     "Contact": Contact,
     "Careers": Careers,
+    "Resources": Resources,
+    "AttractHome": AttractHome,
+    "AttractHowItWorks": AttractHowItWorks,
+    "AttractEmptyPipeline": AttractEmptyPipeline,
+    "AttractResults": AttractResults,
+    "AttractPricing": AttractPricing,
+    "AttractBook": AttractBook,
 }
 
 export const pagesConfig = {
