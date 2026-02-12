@@ -16,7 +16,7 @@ const comparisons = [
 
 export default function ComparisonTable() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="comparison" aria-label="Feature comparison">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

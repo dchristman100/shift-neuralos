@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export default function HeroNew() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 md:px-8 pt-32 pb-20 overflow-hidden">
+    <section id="hero" aria-label="Hero section" className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 md:px-8 pt-32 pb-20 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div

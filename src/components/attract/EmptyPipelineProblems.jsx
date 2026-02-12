@@ -35,7 +35,7 @@ const problems = [
 
 export default function EmptyPipelineProblems() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="problems" aria-label="Common pipeline problems">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

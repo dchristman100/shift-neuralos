@@ -30,7 +30,7 @@ const steps = [
 
 export default function ConversionPath() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="conversion-path" aria-label="Conversion path steps">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

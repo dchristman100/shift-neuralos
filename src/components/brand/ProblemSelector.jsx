@@ -46,7 +46,7 @@ const problems = [
 
 export default function ProblemSelector() {
   return (
-    <SectionWrapper id="problem-selector">
+    <SectionWrapper id="problem-selector" aria-label="Revenue gap diagnostic selector">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

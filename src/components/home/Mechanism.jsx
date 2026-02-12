@@ -38,7 +38,7 @@ const stages = [
 
 export default function Mechanism() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="how-it-works" aria-label="How the conversion mechanism works">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

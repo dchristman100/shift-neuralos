@@ -5,7 +5,7 @@ import { Magnet, Target, ArrowRight, Sparkles, Clock, Users, TrendingUp } from "
 
 export default function TwoProducts() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="products" aria-label="ShiFt product offerings">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
