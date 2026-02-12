@@ -66,6 +66,7 @@ import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
 import AttractResults from './pages/AttractResults';
 import AttractPricing from './pages/AttractPricing';
 import AttractBook from './pages/AttractBook';
+import ExportPackage from './pages/ExportPackage';
 import __Layout from './Layout.jsx';
 
 
@@ -89,6 +90,7 @@ export const PAGES = {
     "AttractResults": AttractResults,
     "AttractPricing": AttractPricing,
     "AttractBook": AttractBook,
+    "ExportPackage": ExportPackage,
 }
 
 export const pagesConfig = {
