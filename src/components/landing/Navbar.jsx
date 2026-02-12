@@ -37,9 +37,9 @@ export default function Navbar() {
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
           {/* Logo + Product Badge */}
           <div className="flex items-center gap-3">
-            <a href="https://shiftnow.io" className="font-display font-bold text-xl text-white">
+            <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
               ShiFt<span className="shift-gradient-text">.</span>
-            </a>
+            </Link>
             <div className="hidden sm:flex items-center px-3 py-1 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider"
               style={{
                 background: "rgba(245,74,72,0.12)",
@@ -71,8 +71,8 @@ export default function Navbar() {
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(255,255,255,0.08)"
               }}>
-              <a
-                href="https://attract.shiftnow.io"
+              <Link
+                to={createPageUrl("AttractHome")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
                 style={{
                   color: "#9DA3B4",
@@ -82,9 +82,9 @@ export default function Navbar() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
                 Attract
-              </a>
-              <a
-                href="https://go.shiftnow.io"
+              </Link>
+              <Link
+                to={createPageUrl("Home")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
                 style={{
                   background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
@@ -94,7 +94,7 @@ export default function Navbar() {
               >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#F54A48", boxShadow: "0 0 8px rgba(245,74,72,0.5)" }}></span>
                 Convert
-              </a>
+              </Link>
             </div>
             
             <GradientButton size="sm">See My Number</GradientButton>
