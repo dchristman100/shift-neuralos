@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "../components/shared/SectionWrapper";
 import { Layers, Zap, Brain, BarChart3, Shield, Code } from "lucide-react";
-import GradientButton from "../shared/GradientButton";
+import GradientButton from "../components/shared/GradientButton";
 import { ArrowRight } from "lucide-react";
 
 export default function Platform() {

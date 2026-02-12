@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "../components/shared/SectionWrapper";
 import { Mail, Phone, MapPin } from "lucide-react";
-import GradientButton from "../shared/GradientButton";
+import GradientButton from "../components/shared/GradientButton";
 
 export default function Contact() {
   return (
