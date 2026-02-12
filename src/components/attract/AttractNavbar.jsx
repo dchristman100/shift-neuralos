@@ -37,9 +37,9 @@ export default function AttractNavbar() {
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
           {/* Logo + Product Badge */}
           <div className="flex items-center gap-3">
-            <a href="https://shiftnow.io" className="font-display font-bold text-xl text-white">
+            <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
               ShiFt
-            </a>
+            </Link>
             <div className="px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-widest"
               style={{
                 background: "rgba(250,152,47,0.15)",
@@ -71,8 +71,8 @@ export default function AttractNavbar() {
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(255,255,255,0.08)"
               }}>
-              <a
-                href="https://attract.shiftnow.io"
+              <Link
+                to={createPageUrl("AttractHome")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
                 style={{
                   color: "#FA982F",
@@ -83,9 +83,9 @@ export default function AttractNavbar() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FA982F]"
                   style={{ boxShadow: "0 0 8px rgba(250,152,47,0.5)" }}></span>
                 Attract
-              </a>
-              <a
-                href="https://go.shiftnow.io"
+              </Link>
+              <Link
+                to={createPageUrl("Home")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:text-white"
                 style={{
                   color: "#9DA3B4",
@@ -95,7 +95,7 @@ export default function AttractNavbar() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
                 Convert
-              </a>
+              </Link>
             </div>
             
             <GradientButton size="sm" variant="primary" className="!bg-gradient-to-r from-[#FA982F] to-[#F54A48]">

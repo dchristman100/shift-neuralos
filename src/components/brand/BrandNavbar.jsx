@@ -62,8 +62,8 @@ export default function BrandNavbar() {
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(255,255,255,0.08)"
               }}>
-              <a
-                href="https://attract.shiftnow.io"
+              <Link
+                to={createPageUrl("AttractHome")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:text-white"
                 style={{
                   color: "#9DA3B4",
@@ -73,9 +73,9 @@ export default function BrandNavbar() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
                 Attract
-              </a>
-              <a
-                href="https://go.shiftnow.io"
+              </Link>
+              <Link
+                to={createPageUrl("Home")}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:text-white"
                 style={{
                   color: "#9DA3B4",
@@ -85,7 +85,7 @@ export default function BrandNavbar() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
                 Convert
-              </a>
+              </Link>
             </div>
             
             <GradientButton size="sm">Find Your Gap</GradientButton>
