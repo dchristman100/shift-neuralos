@@ -1,36 +1,77 @@
 import React from "react";
 import Navbar from "./components/landing/Navbar";
+import BrandNavbar from "./components/brand/BrandNavbar";
 import Footer from "./components/landing/Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, currentPageName }) {
+  // Determine which navbar to show based on page
+  const isBrandPage = ['BrandHome', 'About', 'Platform', 'Roofing', 'Resources', 'Contact', 'Careers'].includes(currentPageName);
+  
+  // Determine schema markup type based on page
+  const getSchemaMarkup = () => {
+    if (isBrandPage) {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ShiFt NeuralOS",
+        "alternateName": "eWorkForce Technologies Inc.",
+        "url": "https://shiftnow.io",
+        "logo": "https://shiftnow.io/logo.svg",
+        "description": "AI Revenue Operating System for roofing contractors",
+        "sameAs": [
+          "https://linkedin.com/company/shiftnow",
+          "https://twitter.com/shiftnow"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "ShiFt Attract",
+              "url": "https://attract.shiftnow.io"
+            },
+            {
+              "@type": "Offer",
+              "name": "ShiFt Convert",
+              "url": "https://go.shiftnow.io"
+            }
+          ]
+        }
+      };
+    }
+    
+    return {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ShiFt Convert",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI-powered lead conversion system for roofing contractors. Responds in 30 seconds, qualifies leads instantly, and books appointments automatically.",
+      "url": "https://go.shiftnow.io",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free Revenue Leak Calculator"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "eWorkForce Technologies Inc.",
+        "url": "https://shiftnow.io"
+      }
+    };
+  };
+  
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "ShiFt Convert",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "description": "AI-powered lead conversion system for roofing contractors. Responds in 30 seconds, qualifies leads instantly, and books appointments automatically.",
-          "url": "https://go.shiftnow.io",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Free Revenue Leak Calculator"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "eWorkForce Technologies Inc.",
-            "url": "https://shiftnow.io"
-          }
-        })
+        __html: JSON.stringify(getSchemaMarkup())
       }} />
       <div className="shift-app min-h-screen" style={{ background: "#070820" }}>
         <style>{`
@@ -105,7 +146,7 @@ export default function Layout({ children }) {
         }
       `}</style>
 
-        <Navbar />
+        {isBrandPage ? <BrandNavbar /> : <Navbar />}
         {children}
         <Footer />
       </div>
