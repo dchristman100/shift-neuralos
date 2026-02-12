@@ -60,7 +60,7 @@ export default function BrandHero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
-              <GradientButton size="lg">
+              <GradientButton size="lg" onClick={() => document.getElementById('problem-selector')?.scrollIntoView({ behavior: 'smooth' })}>
                 Find Your Gap
                 <ArrowRight className="w-5 h-5" />
               </GradientButton>

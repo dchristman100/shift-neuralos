@@ -88,7 +88,14 @@ export default function BrandNavbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm">Find Your Gap</GradientButton>
+            <GradientButton size="sm" onClick={() => {
+              const problemSelector = document.getElementById('problem-selector');
+              if (problemSelector) {
+                problemSelector.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = createPageUrl("BrandHome");
+              }
+            }}>Find Your Gap</GradientButton>
           </div>
 
           {/* Mobile menu button */}
