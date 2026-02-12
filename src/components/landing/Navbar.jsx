@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GradientButton from "../shared/GradientButton";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "../utils";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Results", href: "#testimonials" },
-  { label: "Pricing", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "How It Works", href: "/HowItWorks" },
+  { label: "Revenue Leaks", href: "/RevenueLeaks" },
+  { label: "Results", href: "/Results" },
+  { label: "Pricing", href: "/Pricing" },
 ];
 
 export default function Navbar() {
@@ -23,43 +25,85 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 sm:px-6 md:px-8 ${
-          scrolled
-            ? "py-3 backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)]"
-            : "py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 sm:px-6 md:px-8`}
         style={{
-          background: scrolled ? "rgba(7,8,32,0.85)" : "transparent",
+          height: "72px",
+          background: scrolled ? "rgba(7,8,32,0.92)" : "rgba(7,8,32,0.85)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <div className="max-w-[1140px] mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="font-display font-bold text-xl text-white">
-            ShiFt<span className="shift-gradient-text">.</span>
-          </a>
+        <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
+          {/* Logo + Product Badge */}
+          <div className="flex items-center gap-3">
+            <a href="https://shiftnow.io" className="font-display font-bold text-xl text-white">
+              ShiFt<span className="shift-gradient-text">.</span>
+            </a>
+            <div className="hidden sm:flex items-center px-3 py-1 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider"
+              style={{
+                background: "rgba(245,74,72,0.12)",
+                border: "1px solid rgba(245,74,72,0.3)",
+                color: "#F54A48"
+              }}>
+              Convert
+            </div>
+          </div>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={createPageUrl(link.href.replace("/", ""))}
                 className="font-body text-sm text-[rgba(255,255,255,0.55)] hover:text-white transition-colors duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <GradientButton size="sm">Get Started</GradientButton>
+          {/* Desktop Right Side - Product Pills + CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Product Pills */}
+            <div className="flex items-center gap-1 rounded-lg p-1"
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)"
+              }}>
+              <a
+                href="https://attract.shiftnow.io"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
+                style={{
+                  color: "#9DA3B4",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)"
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+                Attract
+              </a>
+              <a
+                href="https://go.shiftnow.io"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
+                style={{
+                  background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
+                  border: "1px solid rgba(245,74,72,0.3)",
+                  color: "#F8F9FC"
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#F54A48", boxShadow: "0 0 8px rgba(245,74,72,0.5)" }}></span>
+                Convert
+              </a>
+            </div>
+            
+            <GradientButton size="sm">See My Number</GradientButton>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-white"
+            className="lg:hidden p-2 text-white"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -80,18 +124,18 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={createPageUrl(link.href.replace("/", ""))}
                   onClick={() => setMobileOpen(false)}
                   className="font-display text-2xl font-semibold text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-4">
                 <GradientButton size="lg" className="w-full">
-                  Get Started
+                  See My Number
                 </GradientButton>
               </div>
             </div>

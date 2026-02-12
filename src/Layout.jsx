@@ -4,8 +4,36 @@ import Footer from "./components/landing/Footer";
 
 export default function Layout({ children }) {
   return (
-    <div className="shift-app min-h-screen" style={{ background: "#070820" }}>
-      <style>{`
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "ShiFt Convert",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "description": "AI-powered lead conversion system for roofing contractors. Responds in 30 seconds, qualifies leads instantly, and books appointments automatically.",
+          "url": "https://go.shiftnow.io",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free Revenue Leak Calculator"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "eWorkForce Technologies Inc.",
+            "url": "https://shiftnow.io"
+          }
+        })
+      }} />
+      <div className="shift-app min-h-screen" style={{ background: "#070820" }}>
+        <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap');
 
         :root {
@@ -77,9 +105,10 @@ export default function Layout({ children }) {
         }
       `}</style>
 
-      <Navbar />
-      {children}
-      <Footer />
-    </div>
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+    </>
   );
 }
