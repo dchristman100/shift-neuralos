@@ -47,50 +47,50 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import Book from './pages/Book';
-import Home from './pages/Home';
-import HowItWorks from './pages/HowItWorks';
-import Pricing from './pages/Pricing';
-import Results from './pages/Results';
-import RevenueLeaks from './pages/RevenueLeaks';
-import BrandHome from './pages/BrandHome';
 import About from './pages/About';
-import Platform from './pages/Platform';
-import Roofing from './pages/Roofing';
-import Contact from './pages/Contact';
-import Careers from './pages/Careers';
-import Resources from './pages/Resources';
+import AttractBook from './pages/AttractBook';
+import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
 import AttractHome from './pages/AttractHome';
 import AttractHowItWorks from './pages/AttractHowItWorks';
-import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
-import AttractResults from './pages/AttractResults';
 import AttractPricing from './pages/AttractPricing';
-import AttractBook from './pages/AttractBook';
+import AttractResults from './pages/AttractResults';
+import Book from './pages/Book';
+import BrandHome from './pages/BrandHome';
+import Careers from './pages/Careers';
+import Contact from './pages/Contact';
 import ExportPackage from './pages/ExportPackage';
+import Home from './pages/Home';
+import HowItWorks from './pages/HowItWorks';
+import Platform from './pages/Platform';
+import Pricing from './pages/Pricing';
+import Resources from './pages/Resources';
+import Results from './pages/Results';
+import RevenueLeaks from './pages/RevenueLeaks';
+import Roofing from './pages/Roofing';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Book": Book,
-    "Home": Home,
-    "HowItWorks": HowItWorks,
-    "Pricing": Pricing,
-    "Results": Results,
-    "RevenueLeaks": RevenueLeaks,
-    "BrandHome": BrandHome,
     "About": About,
-    "Platform": Platform,
-    "Roofing": Roofing,
-    "Contact": Contact,
-    "Careers": Careers,
-    "Resources": Resources,
+    "AttractBook": AttractBook,
+    "AttractEmptyPipeline": AttractEmptyPipeline,
     "AttractHome": AttractHome,
     "AttractHowItWorks": AttractHowItWorks,
-    "AttractEmptyPipeline": AttractEmptyPipeline,
-    "AttractResults": AttractResults,
     "AttractPricing": AttractPricing,
-    "AttractBook": AttractBook,
+    "AttractResults": AttractResults,
+    "Book": Book,
+    "BrandHome": BrandHome,
+    "Careers": Careers,
+    "Contact": Contact,
     "ExportPackage": ExportPackage,
+    "Home": Home,
+    "HowItWorks": HowItWorks,
+    "Platform": Platform,
+    "Pricing": Pricing,
+    "Resources": Resources,
+    "Results": Results,
+    "RevenueLeaks": RevenueLeaks,
+    "Roofing": Roofing,
 }
 
 export const pagesConfig = {

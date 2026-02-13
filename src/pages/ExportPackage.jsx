@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronRight, Copy, Check } from "lucide-react";
+import { ChevronDown, ChevronRight, Copy, Check, FileCode } from "lucide-react";
 
 export default function ExportPackage() {
   const [expandedSections, setExpandedSections] = useState({});
