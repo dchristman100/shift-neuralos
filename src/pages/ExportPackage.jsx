@@ -2516,8 +2516,628 @@ function toggleFaq(button) {
 }`
     },
 
+    "Revenue Leaks Page": {
+    html: `<!-- Revenue Leaks Deep Dive Page -->
+    <section class="section">
+    <div class="section-inner text-center mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    The Three Revenue Leaks <span class="shift-gradient-text">Draining Your Business</span>
+    </h1>
+    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
+    You're losing $35K-$100K+ every month. Here's exactly where.
+    </p>
+    </div>
+    </section>
+
+    <!-- Leak #1: Missed Calls -->
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(245,74,72,0.03));">
+    <div class="section-inner">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div>
+    <div class="flex items-center gap-3 mb-6">
+    <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background: rgba(245,74,72,0.12);">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07..."/>
+      </svg>
+    </div>
+    <div>
+      <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(255,255,255,0.5);">Leak #1</div>
+      <h2 class="font-display text-3xl font-bold text-white">Missed Calls</h2>
+    </div>
+    </div>
+
+    <h3 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+    42% of Leads Call After Hours
+    </h3>
+
+    <p class="font-body text-lg mb-6" style="color: rgba(255,255,255,0.6);">
+    Your phone rings at 6:47 PM. A homeowner with hail damage wants an inspection. They leave a voicemail. You call back at 9 AM the next day. Too late—your competitor already booked them at 7:12 PM.
+    </p>
+
+    <div class="glass-card p-6 mb-8" style="background: rgba(245,74,72,0.08); border-color: rgba(245,74,72,0.2);">
+    <div class="font-display text-4xl font-bold mb-2" style="color: #F54A48;">$12K-$35K</div>
+    <div class="font-body" style="color: rgba(255,255,255,0.7);">Average monthly revenue lost to missed calls</div>
+    </div>
+    </div>
+
+    <!-- Calculator sidebar -->
+    <div class="glass-card p-8">
+    <div class="font-mono text-xs uppercase tracking-wider mb-6" style="color: rgba(255,255,255,0.5);">
+    Calculate Your Missed Call Cost
+    </div>
+    <div class="space-y-6">
+    <div>
+      <label class="form-label">Monthly incoming calls</label>
+      <input type="number" placeholder="100" class="form-input" />
+    </div>
+    <div>
+      <label class="form-label">Average job value</label>
+      <input type="number" placeholder="12000" class="form-input" />
+    </div>
+    <div class="glass-card p-6" style="background: linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12));">
+      <div class="font-body text-sm mb-2" style="color: rgba(255,255,255,0.7);">Estimated monthly loss:</div>
+      <div class="font-display text-3xl font-bold" style="color: #F54A48;">$28,400</div>
+    </div>
+    <button class="btn-primary w-full">Get Full Revenue Audit</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Leak #2 & #3 follow similar pattern -->`
+    },
+
+    "About Page": {
+    html: `<!-- About Page -->
+    <section class="section">
+    <div class="section-inner text-center max-w-4xl mx-auto mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    We're Building the <span class="shift-gradient-text">Operating System</span><br/>for AI-First Business
+    </h1>
+    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
+    ShiFt started with one question: Why do great contractors lose to faster, not better, competitors?
+    </p>
+    </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(245,74,72,0.02));">
+    <div class="section-inner max-w-4xl mx-auto">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 text-center">Our Mission</h2>
+
+    <div class="glass-card p-8 md:p-12 mb-12">
+    <p class="font-body text-xl md:text-2xl leading-relaxed text-white text-center mb-8">
+    "To give every contractor the same AI advantage that only enterprise companies could afford—and make it roofing-specific."
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-6">
+    <div class="text-center">
+    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style="background: rgba(245,74,72,0.12);">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </div>
+    <div class="font-display text-lg font-bold text-white mb-2">Speed over size</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Fast response wins deals</div>
+    </div>
+
+    <div class="text-center">
+    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style="background: rgba(250,152,47,0.12);">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      </svg>
+    </div>
+    <div class="font-display text-lg font-bold text-white mb-2">AI over headcount</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Scale without hiring</div>
+    </div>
+
+    <div class="text-center">
+    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style="background: rgba(72,187,120,0.12);">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+      </svg>
+    </div>
+    <div class="font-display text-lg font-bold text-white mb-2">Roofing-specific</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Built for your industry</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section">
+    <div class="section-inner max-w-4xl mx-auto">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">Our Values</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+    <div class="glass-card p-6">
+    <h3 class="font-display text-xl font-bold text-white mb-3">Presence over perfection</h3>
+    <p class="font-body" style="color: rgba(255,255,255,0.6);">Show up fast, iterate constantly</p>
+    </div>
+    <div class="glass-card p-6">
+    <h3 class="font-display text-xl font-bold text-white mb-3">Speed over sophistication</h3>
+    <p class="font-body" style="color: rgba(255,255,255,0.6);">First responder wins the deal</p>
+    </div>
+    <div class="glass-card p-6">
+    <h3 class="font-display text-xl font-bold text-white mb-3">Results over rhetoric</h3>
+    <p class="font-body" style="color: rgba(255,255,255,0.6);">ROI talks, everything else walks</p>
+    </div>
+    <div class="glass-card p-6">
+    <h3 class="font-display text-xl font-bold text-white mb-3">Coherence over chaos</h3>
+    <p class="font-body" style="color: rgba(255,255,255,0.6);">Simple systems beat complex ones</p>
+    </div>
+    </div>
+    </div>
+    </section>`
+    },
+
+    "Attract Home Page": {
+    html: `<!-- Attract Home Hero -->
+    <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="section-inner text-center">
+    <div class="hero-badge">
+    <span class="pulse-dot"></span>
+    <span class="font-mono">AI Lead Generation for Roofing Contractors</span>
+    </div>
+
+    <h1 class="hero-headline font-display">
+    Empty Pipeline?<br/>
+    <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Fill It While You Sleep.</span>
+    </h1>
+
+    <p class="hero-subheadline">
+    Multi-channel AI campaigns that bring qualified roofing leads to your door. No agency. No guesswork. Just predictable pipeline growth.
+    </p>
+
+    <div class="hero-ctas">
+    <a href="#audit" class="btn-primary btn-lg" style="background: linear-gradient(135deg, #FA982F, #F54A48);">
+    Audit My Pipeline
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+    </a>
+    <a href="#demo" class="btn-outline btn-lg">
+    See AI Lead Gen Demo
+    </a>
+    </div>
+
+    <p class="hero-micro font-mono">
+    Free pipeline audit · See channel recommendations · No commitment
+    </p>
+    </div>
+    </section>
+
+    <!-- Then include EmptyPipelineProblems section (already documented) -->
+    <!-- Then include AttractSolution section (already documented) -->`
+    },
+
+    "Attract Empty Pipeline Page": {
+    html: `<!-- Empty Pipeline Problems Page -->
+    <section class="section">
+    <div class="section-inner text-center max-w-4xl mx-auto mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    The <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Empty Pipeline</span> Problem
+    </h1>
+    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
+    Why roofing contractors lose $35K-$100K+ monthly to broken lead generation systems
+    </p>
+    </div>
+    </section>
+
+    <!-- Use the EmptyPipelineProblems section from earlier -->
+
+    <!-- Cost Stats Section -->
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(250,152,47,0.02));">
+    <div class="section-inner max-w-4xl mx-auto">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+    The Real Cost of an <span style="color: #FA982F;">Empty Pipeline</span>
+    </h2>
+
+    <div class="glass-card p-8 md:p-12 mb-8">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div>
+    <div class="font-display text-5xl font-black mb-2" style="color: #FA982F;">$3.2K</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Wasted monthly on ineffective marketing</div>
+    </div>
+    <div>
+    <div class="font-display text-5xl font-black mb-2" style="color: #F54A48;">67%</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Struggle with lead consistency</div>
+    </div>
+    <div>
+    <div class="font-display text-5xl font-black mb-2" style="color: #48BB78;">43%</div>
+    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Over-dependent on referrals</div>
+    </div>
+    </div>
+    </div>
+
+    <div class="text-center">
+    <a href="#calculator" class="btn-primary btn-lg" style="background: linear-gradient(to right, #FA982F, #F54A48);">
+    Calculate My Revenue Leak
+    </a>
+    </div>
+    </div>
+    </section>`
+    },
+
+    "Attract How It Works Page": {
+    html: `<!-- Attract How It Works - 30 Day Timeline -->
+    <section class="section">
+    <div class="section-inner text-center max-w-4xl mx-auto mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    How ShiFt Attract <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Fills Your Pipeline</span>
+    </h1>
+    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
+    AI-powered lead generation that works while you sleep
+    </p>
+    </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(250,152,47,0.02));">
+    <div class="section-inner max-w-5xl mx-auto">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white text-center mb-14">
+    From Zero to Full Pipeline in <span style="color: #FA982F;">30 Days</span>
+    </h2>
+
+    <!-- Timeline Items -->
+    <div class="timeline">
+    <!-- Day 1-3 -->
+    <div class="timeline-item">
+    <div class="timeline-icon" style="background: rgba(250,152,47,0.2);">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+      <circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6"/>
+    </svg>
+    </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-content glass-card p-8">
+    <span class="timeline-badge" style="background: rgba(250,152,47,0.15); color: #FA982F;">Day 1-3</span>
+    <h3 class="font-display text-2xl font-bold text-white mb-4">Platform Configuration</h3>
+    <p class="font-body mb-4" style="color: rgba(255,255,255,0.7);">
+      We connect to your systems, define your service area, and configure AI targeting parameters.
+    </p>
+    <div class="font-body text-sm font-semibold" style="color: #FA982F;">✓ Ready to launch</div>
+    </div>
+    </div>
+
+    <!-- Repeat pattern for Day 4-7, Day 8-21, Day 22-30 -->
+    </div>
+    </div>
+    </section>`,
+    css: `.timeline {
+    position: relative;
+    }
+
+    .timeline-item {
+    position: relative;
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    }
+
+    .timeline-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .timeline-connector {
+    position: absolute;
+    left: 31px;
+    top: 64px;
+    width: 2px;
+    height: calc(100% + 32px);
+    background: linear-gradient(180deg, rgba(250,152,47,0.5), rgba(250,152,47,0.1));
+    }
+
+    .timeline-item:last-child .timeline-connector {
+    display: none;
+    }
+
+    .timeline-content {
+    flex: 1;
+    padding-bottom: 48px;
+    }
+
+    .timeline-badge {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    }`
+    },
+
+    "Attract Pricing Page": {
+    html: `<!-- Attract Pricing Page -->
+    <section class="section">
+    <div class="section-inner text-center max-w-4xl mx-auto mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    Simple, <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Transparent</span> Pricing
+    </h1>
+    <p class="font-body text-xl mb-4" style="color: rgba(255,255,255,0.6);">
+    Choose the plan that fits your pipeline goals
+    </p>
+    <p class="font-mono text-sm" style="color: rgba(255,255,255,0.4);">
+    Plus ad spend (minimum $2,000/month recommended)
+    </p>
+    </div>
+    </section>
+
+    <section class="section">
+    <div class="section-inner">
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- Starter Package -->
+    <div class="pricing-card">
+    <div class="text-center mb-6">
+    <h3 class="font-display text-2xl font-bold text-white mb-2">Starter</h3>
+    <div class="flex items-baseline justify-center gap-1 mb-3">
+      <span class="font-display text-5xl font-black text-white">$997</span>
+      <span class="font-body text-sm" style="color: rgba(255,255,255,0.6);">/month</span>
+    </div>
+    <p class="font-body text-sm" style="color: rgba(255,255,255,0.6);">
+      Perfect for single-location contractors testing AI lead generation
+    </p>
+    </div>
+
+    <ul class="pricing-features mb-8">
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 3 primary channels (Google, Facebook, Local SEO)</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 50-75 monthly leads target</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Basic AI optimization</li>
+    </ul>
+
+    <button class="btn-outline w-full">Start with Starter</button>
+    </div>
+
+    <!-- Growth (Featured) -->
+    <div class="pricing-card pricing-card-featured" style="background: linear-gradient(135deg, rgba(250,152,47,0.08), rgba(245,74,72,0.04)); border-color: rgba(250,152,47,0.3); transform: scale(1.05);">
+    <div class="pricing-badge" style="background: rgba(250,152,47,0.2); color: #FA982F;">Most Popular</div>
+
+    <div class="text-center mb-6">
+    <h3 class="font-display text-2xl font-bold text-white mb-2">Growth</h3>
+    <div class="flex items-baseline justify-center gap-1 mb-3">
+      <span class="font-display text-5xl font-black" style="color: #FA982F;">$1,997</span>
+      <span class="font-body text-sm" style="color: rgba(255,255,255,0.6);">/month</span>
+    </div>
+    <p class="font-body text-sm" style="color: rgba(255,255,255,0.6);">
+      For established contractors ready to scale pipeline
+    </p>
+    </div>
+
+    <ul class="pricing-features mb-8">
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> All channels (Google, Facebook, Instagram, TikTok, YouTube, SEO)</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 125-175 monthly leads target</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Advanced AI optimization</li>
+    </ul>
+
+    <button class="btn-primary w-full" style="background: linear-gradient(to right, #FA982F, #F54A48);">Scale with Growth</button>
+    </div>
+
+    <!-- Scale Package -->
+    <div class="pricing-card">
+    <div class="text-center mb-6">
+    <h3 class="font-display text-2xl font-bold text-white mb-2">Scale</h3>
+    <div class="flex items-baseline justify-center gap-1 mb-3">
+      <span class="font-display text-5xl font-black text-white">Custom</span>
+    </div>
+    <p class="font-body text-sm" style="color: rgba(255,255,255,0.6);">
+      Enterprise solution for multi-location operations
+    </p>
+    </div>
+
+    <ul class="pricing-features mb-8">
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Multi-location management</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Custom lead targets</li>
+    <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Dedicated success manager</li>
+    </ul>
+
+    <button class="btn-outline w-full">Talk to Sales</button>
+    </div>
+    </div>
+    </div>
+    </section>`
+    },
+
+    "Booking Page (Calendar Embed)": {
+    html: `<!-- Booking Page Template -->
+    <section class="section">
+    <div class="section-inner">
+    <div class="grid lg:grid-cols-2 gap-12">
+    <!-- Left: What to Expect -->
+    <div>
+    <h1 class="font-display text-4xl md:text-5xl font-black text-white mb-6">
+    Book Your Revenue <span class="shift-gradient-text">Reality Session</span>
+    </h1>
+    <p class="font-body text-lg mb-8" style="color: rgba(255,255,255,0.6);">
+    15 minutes. Your specific numbers. Zero obligation.
+    </p>
+
+    <div class="glass-card p-8 mb-8">
+    <h2 class="font-display text-xl font-bold text-white mb-6">What to Expect:</h2>
+
+    <div class="space-y-5">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(245,74,72,0.12);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-display text-base font-semibold text-white mb-1">Your Revenue Leak Analysis</div>
+          <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">
+            We'll analyze YOUR specific revenue leaks based on your numbers
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat for other benefits -->
+    </div>
+    </div>
+
+    <div class="glass-card p-6" style="background: rgba(72,187,120,0.08); border-color: rgba(72,187,120,0.2);">
+    <div class="flex items-center gap-3 mb-3">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+      <div class="font-display text-lg font-semibold text-white">Trusted by 847+ Roofing Companies</div>
+    </div>
+    <p class="font-body text-sm" style="color: rgba(255,255,255,0.6);">
+      From solo operators to 50-person teams, roofing contractors across the country use ShiFt.
+    </p>
+    </div>
+    </div>
+
+    <!-- Right: Calendar Embed -->
+    <div class="sticky top-24">
+    <div class="glass-card p-8">
+    <div class="text-center mb-6">
+      <div class="font-mono text-xs uppercase tracking-wider mb-2" style="color: rgba(255,255,255,0.5);">Step 1</div>
+      <h3 class="font-display text-2xl font-bold text-white">Select Your Time</h3>
+    </div>
+
+    <!-- Calendar placeholder -->
+    <div class="rounded-xl overflow-hidden mb-6" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); min-height: 500px;">
+      <div class="flex items-center justify-center h-full p-12 text-center">
+        <div>
+          <svg class="w-16 h-16 mx-auto mb-4 opacity-20" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          <p class="font-mono text-sm" style="color: rgba(255,255,255,0.4);">
+            Calendar embed goes here<br/>(Calendly, Cal.com, or similar)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 font-body text-sm" style="color: rgba(255,255,255,0.6);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        15-minute session
+      </div>
+      <div class="flex items-center gap-2 font-body text-sm" style="color: rgba(255,255,255,0.6);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        No credit card required
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>`
+    },
+
+    "Platform Page": {
+    html: `<!-- Platform Architecture Page -->
+    <section class="section">
+    <div class="section-inner text-center mb-20">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+    The Complete <span class="shift-gradient-text">Neural Stack</span>
+    </h1>
+    <p class="font-body text-xl max-w-3xl mx-auto" style="color: rgba(255,255,255,0.6);">
+    Four layers working in perfect sync to maximize your revenue
+    </p>
+    </div>
+    </section>
+
+    <!-- Stack Layers -->
+    <section class="section">
+    <div class="section-inner max-w-4xl mx-auto space-y-6">
+    <!-- Layer 1: Business Foundation -->
+    <div class="glass-card p-8">
+    <div class="flex items-center gap-4 mb-4">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(255,255,255,0.08);">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    </svg>
+    </div>
+    <div>
+    <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(255,255,255,0.5);">Layer 1</div>
+    <h3 class="font-display text-2xl font-bold text-white">Your Business Foundation</h3>
+    </div>
+    </div>
+    <p class="font-body" style="color: rgba(255,255,255,0.7);">
+    Your existing CRM, calendar, and tools. ShiFt plugs in seamlessly.
+    </p>
+    </div>
+
+    <!-- Layer 2: Attract -->
+    <div class="glass-card p-8" style="background: rgba(250,152,47,0.08); border-color: rgba(250,152,47,0.2);">
+    <div class="flex items-center gap-4 mb-4">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(250,152,47,0.15);">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+      <circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6"/>
+    </svg>
+    </div>
+    <div>
+    <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(250,152,47,0.7);">Layer 2</div>
+    <h3 class="font-display text-2xl font-bold text-white">ShiFt Attract</h3>
+    </div>
+    </div>
+    <p class="font-body mb-4" style="color: rgba(255,255,255,0.7);">
+    AI-powered lead generation. Multi-channel campaigns that fill your pipeline.
+    </p>
+    <a href="/attract" class="font-mono text-sm font-semibold uppercase tracking-wider" style="color: #FA982F;">
+    Explore Attract →
+    </a>
+    </div>
+
+    <!-- Layer 3: Convert -->
+    <div class="glass-card p-8" style="background: rgba(245,74,72,0.08); border-color: rgba(245,74,72,0.2);">
+    <div class="flex items-center gap-4 mb-4">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(245,74,72,0.15);">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/>
+    </svg>
+    </div>
+    <div>
+    <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(245,74,72,0.7);">Layer 3</div>
+    <h3 class="font-display text-2xl font-bold text-white">ShiFt Convert</h3>
+    </div>
+    </div>
+    <p class="font-body mb-4" style="color: rgba(255,255,255,0.7);">
+    AI-powered lead conversion. Instant response, qualification, and booking.
+    </p>
+    <a href="/convert" class="font-mono text-sm font-semibold uppercase tracking-wider" style="color: #F54A48;">
+    Explore Convert →
+    </a>
+    </div>
+
+    <!-- Layer 4: Insights -->
+    <div class="glass-card p-8">
+    <div class="flex items-center gap-4 mb-4">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(72,187,120,0.15);">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+    </svg>
+    </div>
+    <div>
+    <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(255,255,255,0.5);">Layer 4</div>
+    <h3 class="font-display text-2xl font-bold text-white">Revenue Insights & Analytics</h3>
+    </div>
+    </div>
+    <p class="font-body" style="color: rgba(255,255,255,0.7);">
+    Real-time visibility into every dollar spent and earned.
+    </p>
+    </div>
+    </div>
+    </section>`
+    },
+
     "Complete HTML Page Template": {
-      html: `<!DOCTYPE html>
+    html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
