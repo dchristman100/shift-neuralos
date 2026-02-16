@@ -2078,6 +2078,444 @@ function toggleFaq(button) {
 }`
     },
 
+    "How It Works Page (Full)": {
+      html: `<!-- Full How It Works Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How ShiFt Convert Works</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Include navbar from Navigation section -->
+  
+  <main class="pt-24">
+    <!-- Flow Section -->
+    <section class="section">
+      <div class="section-inner text-center">
+        <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+          How ShiFt Convert <span class="shift-gradient-text">Plugs Your Revenue Leaks</span>
+        </h1>
+        <p class="font-body text-xl max-w-3xl mx-auto" style="color: rgba(255,255,255,0.6);">
+          From first contact to booked appointment—without lifting a finger
+        </p>
+        
+        <!-- Flow Steps -->
+        <div class="flex flex-wrap justify-center items-center gap-4 mt-16">
+          <div class="rounded-xl px-6 py-3 backdrop-blur-xl border font-mono text-sm font-semibold" 
+               style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            Lead Arrives
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <div class="rounded-xl px-6 py-3 backdrop-blur-xl border font-mono text-sm font-semibold" 
+               style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            AI Responds (30 sec)
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <div class="rounded-xl px-6 py-3 backdrop-blur-xl border font-mono text-sm font-semibold" 
+               style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            AI Qualifies
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <div class="rounded-xl px-6 py-3 backdrop-blur-xl border font-mono text-sm font-semibold" 
+               style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            AI Books
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <div class="rounded-xl px-6 py-3 backdrop-blur-xl border font-mono text-sm font-semibold" 
+               style="background: linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12)); border-color: rgba(245,74,72,0.3); color: #F54A48;">
+            You Close
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 1: Instant Capture -->
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(245,74,72,0.02));">
+      <div class="section-inner">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center px-4 py-2 rounded-full mb-6 font-mono text-xs font-semibold uppercase tracking-wider"
+                 style="background: rgba(245,74,72,0.12); color: #F54A48; border: 1px solid rgba(245,74,72,0.3);">
+              Stage 1
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+              Instant Capture
+            </h2>
+            <p class="font-body text-lg mb-8" style="color: rgba(255,255,255,0.6);">
+              Every lead that comes in—phone, web form, text, Facebook—gets an instant AI response in under 30 seconds.
+            </p>
+          </div>
+          <div class="glass-card" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+            <svg width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2" opacity="0.3">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07..."/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 2 & 3 follow similar pattern -->
+  </main>
+  
+  <!-- Include footer from Footer section -->
+  <script src="script.js"></script>
+</body>
+</html>`,
+      notes: "Stages 2 and 3 follow same pattern as Stage 1. See full components above for details."
+    },
+
+    "Pricing Page": {
+      html: `<!-- Pricing Cards Grid -->
+<section class="section">
+  <div class="section-inner">
+    <h1 class="font-display text-center text-4xl md:text-6xl font-black text-white mb-20">
+      Pricing That Pays <span class="shift-gradient-text">For Itself</span>
+    </h1>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Starter Tier -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-title">Starter</h3>
+          <p class="pricing-card-subtitle">For 1-2 person teams</p>
+        </div>
+        <div class="pricing-card-price">
+          <span class="price-value">Custom</span>
+          <span class="price-label">Pricing</span>
+        </div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Multi-channel AI response (30 sec)</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Basic lead qualification</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Calendar integration</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Up to 100 leads/month</li>
+        </ul>
+        <button class="btn-outline w-full">Get Started</button>
+      </div>
+
+      <!-- Growth Tier (Most Popular) -->
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-title">Growth</h3>
+          <p class="pricing-card-subtitle">For 3-10 person teams</p>
+        </div>
+        <div class="pricing-card-price">
+          <span class="price-value">Custom</span>
+          <span class="price-label">Pricing</span>
+        </div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Everything in Starter</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Advanced AI qualification</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Up to 500 leads/month</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Priority support</li>
+        </ul>
+        <button class="btn-primary w-full">Most Popular</button>
+      </div>
+
+      <!-- Scale Tier -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-title">Scale</h3>
+          <p class="pricing-card-subtitle">For 10+ person teams</p>
+        </div>
+        <div class="pricing-card-price">
+          <span class="price-value">Custom</span>
+          <span class="price-label">Pricing</span>
+        </div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Everything in Growth</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Unlimited leads</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> API access</li>
+          <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Dedicated success manager</li>
+        </ul>
+        <button class="btn-outline w-full">Contact Sales</button>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.pricing-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.pricing-card-featured {
+  background: linear-gradient(135deg, rgba(245,74,72,0.08), rgba(250,152,47,0.08));
+  border-color: rgba(245,74,72,0.3);
+  transform: scale(1.05);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #F54A48, #FA982F);
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pricing-card-header {
+  margin-bottom: 24px;
+}
+
+.pricing-card-title {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.pricing-card-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.pricing-card-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.price-value {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.price-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.w-full {
+  width: 100%;
+}`
+    },
+
+    "Contact Page": {
+      html: `<!-- Contact Page Layout -->
+<section class="section">
+  <div class="section-inner">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Left: Form -->
+      <div>
+        <h1 class="font-display text-4xl md:text-5xl font-black text-white mb-6">
+          Get in <span class="shift-gradient-text">Touch</span>
+        </h1>
+        <p class="font-body text-lg mb-8" style="color: rgba(255,255,255,0.6);">
+          Questions about ShiFt? Want to see a demo? We're here to help.
+        </p>
+
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Company</label>
+            <input type="text" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">What brings you here?</label>
+            <select class="form-input">
+              <option>Schedule a demo</option>
+              <option>Get pricing</option>
+              <option>Ask a question</option>
+              <option>Partnership inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea rows="5" class="form-input"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary btn-lg w-full">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Contact Info -->
+      <div class="sticky top-24">
+        <div class="glass-card p-8">
+          <h3 class="font-display text-2xl font-bold text-white mb-6">
+            Contact Information
+          </h3>
+          
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <a href="mailto:hello@shiftnow.io" class="contact-info-value">hello@shiftnow.io</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07..."/>
+              </svg>
+              <div>
+                <div class="contact-info-label">Phone</div>
+                <a href="tel:+15551234567" class="contact-info-value">(555) 123-4567</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <div class="contact-info-label">Address</div>
+                <div class="contact-info-value">
+                  123 Innovation Drive<br />San Francisco, CA 94105
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(245,74,72,0.5);
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+}
+
+.contact-info-item svg {
+  flex-shrink: 0;
+}
+
+.contact-info-label {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+
+.contact-info-value {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info-value:hover {
+  color: #F54A48;
+}`
+    },
+
     "Complete HTML Page Template": {
       html: `<!DOCTYPE html>
 <html lang="en">
