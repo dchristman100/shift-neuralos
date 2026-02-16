@@ -972,6 +972,1112 @@ mobileLinks.forEach(link => {
 </script>`
     },
 
+    "Problem Cards Section (Home)": {
+      html: `<section class="section" id="revenue-leaks" aria-label="Revenue leak problems">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #F54A48;">The Problem</span>
+      <h2 class="section-title font-display">
+        Every Day, Money Walks Out Your Door
+      </h2>
+      <p class="section-description">
+        These three leaks drain $35K-$100K+ monthly from the average roofing company
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <!-- Problem Card 1 -->
+      <div class="problem-card" style="--accent-color: #F54A48;">
+        <div class="problem-accent"></div>
+        <div class="problem-icon" style="background: rgba(245,74,72,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h3 class="problem-title font-display">Missed Calls = Missed Revenue</h3>
+        <p class="problem-body">42% of calls come after 5pm. Your voicemail isn't closing deals.</p>
+        <div class="problem-stat">
+          <div class="problem-stat-value shift-gradient-text">$12K-$35K</div>
+          <div class="problem-stat-label">lost monthly</div>
+        </div>
+        <div class="problem-pain">
+          Every missed call is a job your competitor wins.
+        </div>
+      </div>
+
+      <!-- Problem Card 2 -->
+      <div class="problem-card" style="--accent-color: #FA982F;">
+        <div class="problem-accent"></div>
+        <div class="problem-icon" style="background: rgba(250,152,47,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+            <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/>
+          </svg>
+        </div>
+        <h3 class="problem-title font-display">Junk Leads Eat Your Time</h3>
+        <p class="problem-body">You're paying for leads that were never going to buy.</p>
+        <div class="problem-stat">
+          <div class="problem-stat-value shift-gradient-text">$8K-$25K</div>
+          <div class="problem-stat-label">wasted monthly</div>
+        </div>
+        <div class="problem-pain">
+          Bad leads don't just waste money—they waste your sales team's energy.
+        </div>
+      </div>
+
+      <!-- Problem Card 3 -->
+      <div class="problem-card" style="--accent-color: #48BB78;">
+        <div class="problem-accent"></div>
+        <div class="problem-icon" style="background: rgba(72,187,120,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+            <path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10zM8 12h8"/>
+          </svg>
+        </div>
+        <h3 class="problem-title font-display">Invisible Buyers Choose Competitors</h3>
+        <p class="problem-body">High-intent buyers are researching you. You just can't see them.</p>
+        <div class="problem-stat">
+          <div class="problem-stat-value shift-gradient-text">$15K-$40K</div>
+          <div class="problem-stat-label">missed monthly</div>
+        </div>
+        <div class="problem-pain">
+          They wanted to buy from you. You just weren't fast enough.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .problem-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.problem-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.problem-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-4px);
+}
+
+.problem-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 4px 0 0 4px;
+}
+
+.problem-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.problem-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.problem-body {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+}
+
+.problem-stat {
+  margin-bottom: 16px;
+}
+
+.problem-stat-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.problem-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}
+
+.problem-pain {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+}`
+    },
+
+    "Comparison Table Section": {
+      html: `<section class="section" id="comparison" aria-label="Feature comparison">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #FA982F;">The Reality</span>
+      <h2 class="section-title font-display">
+        Your Current Approach vs. ShiFt Convert
+      </h2>
+    </div>
+
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="comparison-header">Metric</th>
+            <th class="comparison-header comparison-header-center">Your Current Setup</th>
+            <th class="comparison-header comparison-header-center">With ShiFt Convert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="comparison-metric">After-hours response</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>Voicemail</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">30 seconds</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="comparison-metric">Lead qualification</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>Manual</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">AI-instant</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="comparison-metric">Appointment booking</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>Back-and-forth</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">Automated</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="comparison-metric">Follow-up consistency</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>When you remember</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">100% automated</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="comparison-metric">Lead source tracking</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>"I think it was..."</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">Real-time dashboard</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="comparison-metric">Monthly revenue leaked</td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-bad" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+              <span>$35K-$100K+</span>
+            </td>
+            <td class="comparison-value">
+              <svg class="comparison-icon-good" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span class="comparison-value-good">$0</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-cta">
+      <a href="#calculator" class="btn-primary btn-lg">
+        See Your Specific Numbers
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>`,
+      css: `.comparison-table-wrapper {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-header {
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: left;
+  padding: 20px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.comparison-header-center {
+  text-align: center;
+}
+
+.comparison-metric {
+  padding: 20px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+tr:last-child .comparison-metric {
+  border-bottom: none;
+}
+
+.comparison-value {
+  padding: 20px 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+tr:last-child .comparison-value {
+  border-bottom: none;
+}
+
+.comparison-icon-bad,
+.comparison-icon-good {
+  flex-shrink: 0;
+}
+
+.comparison-value-good {
+  font-weight: 700;
+  color: #48BB78;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 40px;
+}`
+    },
+
+    "Three-Stage Mechanism Section": {
+      html: `<section class="section" id="how-it-works" aria-label="How the conversion mechanism works">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #48BB78;">The Solution</span>
+      <h2 class="section-title font-display">
+        Three Fixes for Three Leaks
+      </h2>
+      <p class="section-description">
+        ShiFt Convert plugs every hole in your revenue bucket
+      </p>
+    </div>
+
+    <div class="mechanism-grid">
+      <!-- Stage 1 -->
+      <div class="mechanism-card">
+        <div class="mechanism-stage-badge" style="background: rgba(245,74,72,0.12); color: #F54A48; border-color: rgba(245,74,72,0.25);">
+          Stage 1
+        </div>
+        <div class="mechanism-icon" style="background: rgba(245,74,72,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="mechanism-fixes" style="color: rgba(255,255,255,0.4);">
+          Fixes: Leak #1 (Missed Calls)
+        </div>
+        <h3 class="mechanism-title font-display">AI Answers in 30 Seconds</h3>
+        <p class="mechanism-description">
+          Phone, web, text, Facebook—every lead gets an instant response. No voicemail. No missed opportunities.
+        </p>
+        <div class="mechanism-stat">
+          <div class="mechanism-stat-value" style="color: #F54A48;">30 sec</div>
+          <div class="mechanism-stat-label">response time</div>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="mechanism-card">
+        <div class="mechanism-stage-badge" style="background: rgba(250,152,47,0.12); color: #FA982F; border-color: rgba(250,152,47,0.25);">
+          Stage 2
+        </div>
+        <div class="mechanism-icon" style="background: rgba(250,152,47,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <div class="mechanism-fixes" style="color: rgba(255,255,255,0.4);">
+          Fixes: Leak #2 (Junk Leads)
+        </div>
+        <h3 class="mechanism-title font-display">AI Separates Gold from Garbage</h3>
+        <p class="mechanism-description">
+          Our AI asks the right questions, scores every lead, and only passes qualified buyers to your team.
+        </p>
+        <div class="mechanism-stat">
+          <div class="mechanism-stat-value" style="color: #FA982F;">73%</div>
+          <div class="mechanism-stat-label">better lead quality</div>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="mechanism-card">
+        <div class="mechanism-stage-badge" style="background: rgba(72,187,120,0.12); color: #48BB78; border-color: rgba(72,187,120,0.25);">
+          Stage 3
+        </div>
+        <div class="mechanism-icon" style="background: rgba(72,187,120,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+        </div>
+        <div class="mechanism-fixes" style="color: rgba(255,255,255,0.4);">
+          Fixes: Leak #3 (Invisible Buyers)
+        </div>
+        <h3 class="mechanism-title font-display">AI Books the Appointment</h3>
+        <p class="mechanism-description">
+          Qualified leads get booked instantly. No back-and-forth. No delays. Just appointments on your calendar.
+        </p>
+        <div class="mechanism-stat">
+          <div class="mechanism-stat-value" style="color: #48BB78;">3.2x</div>
+          <div class="mechanism-stat-label">more appointments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.mechanism-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .mechanism-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mechanism-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mechanism-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-4px);
+}
+
+.mechanism-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+}
+
+.mechanism-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease;
+}
+
+.mechanism-card:hover .mechanism-icon {
+  transform: scale(1.1);
+}
+
+.mechanism-fixes {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.mechanism-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.mechanism-description {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+}
+
+.mechanism-stat {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.mechanism-stat-value {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.mechanism-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}`
+    },
+
+    "Proof/Testimonial Section": {
+      html: `<section class="section" id="proof" aria-label="Social proof and results">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #FA982F;">Proof</span>
+      <h2 class="section-title font-display">
+        From Revenue Leak to <span class="shift-gradient-text">Revenue Machine</span>
+      </h2>
+    </div>
+
+    <div class="testimonial-card glass-card">
+      <svg class="testimonial-quote" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(245,74,72,0.3)" stroke-width="2">
+        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+      </svg>
+
+      <blockquote class="testimonial-quote-text">
+        "We were losing $47K a month to missed calls alone. ShiFt caught every lead we were missing—now our calendar is full and our close rate is up 34%."
+      </blockquote>
+
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">JT</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name font-display">Jake Torres</div>
+          <div class="testimonial-role">Owner, Titan Roofing Services</div>
+          <div class="testimonial-location font-mono">Dallas, TX</div>
+        </div>
+      </div>
+
+      <div class="testimonial-stats">
+        <div class="testimonial-stat">
+          <div class="testimonial-stat-value shift-gradient-text">$750K → $7M</div>
+          <div class="testimonial-stat-label">6-Year Growth</div>
+        </div>
+        <div class="testimonial-stat">
+          <div class="testimonial-stat-value shift-gradient-text">34%</div>
+          <div class="testimonial-stat-label">Close Rate Increase</div>
+        </div>
+        <div class="testimonial-stat">
+          <div class="testimonial-stat-value shift-gradient-text">89%</div>
+          <div class="testimonial-stat-label">Show Rate</div>
+        </div>
+      </div>
+
+      <div class="testimonial-cta">
+        <a href="/case-study.html" class="testimonial-link font-mono">
+          Read Full Case Study
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.testimonial-card {
+  padding: 48px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 32px 24px;
+  }
+}
+
+.testimonial-quote {
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+
+.testimonial-quote-text {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: white;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .testimonial-quote-text {
+    font-size: 1.5rem;
+  }
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F54A48, #FA982F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonial-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.testimonial-role {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+
+.testimonial-location {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.testimonial-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .testimonial-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonial-stat {
+  text-align: center;
+}
+
+.testimonial-stat-value {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .testimonial-stat-value {
+    font-size: 2.25rem;
+  }
+}
+
+.testimonial-stat-label {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.testimonial-cta {
+  text-align: center;
+}
+
+.testimonial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F54A48;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.testimonial-link:hover {
+  opacity: 0.8;
+}`
+    },
+
+    "Conversion Path/Steps Section": {
+      html: `<section class="section" id="conversion-path" aria-label="Conversion path steps">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #F54A48;">Your Next Step</span>
+      <h2 class="section-title font-display">
+        See Your Number in <span class="shift-gradient-text">60 Seconds</span>
+      </h2>
+    </div>
+
+    <div class="conversion-steps">
+      <!-- Step 1 -->
+      <div class="conversion-step">
+        <div class="conversion-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="conversion-step-card glass-card">
+          <div class="conversion-step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <div class="conversion-step-label font-mono">Step 1: Calculate</div>
+          <h3 class="conversion-step-title font-display">Answer 5 Questions</h3>
+          <p class="conversion-step-description">Your revenue, lead volume, and current close rate</p>
+          <div class="conversion-step-time">60 seconds</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="conversion-step">
+        <div class="conversion-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="conversion-step-card glass-card">
+          <div class="conversion-step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="conversion-step-label font-mono">Step 2: Experience</div>
+          <h3 class="conversion-step-title font-display">See ShiFt in Action</h3>
+          <p class="conversion-step-description">Experience how AI handles your actual leads</p>
+          <div class="conversion-step-time">Live demo</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="conversion-step">
+        <div class="conversion-step-card glass-card">
+          <div class="conversion-step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+            </svg>
+          </div>
+          <div class="conversion-step-label font-mono">Step 3: Book</div>
+          <h3 class="conversion-step-title font-display">Reality Session</h3>
+          <p class="conversion-step-description">Custom audit of your specific revenue leaks</p>
+          <div class="conversion-step-time">15 minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="#calculator" class="btn-primary btn-lg">
+        Calculate My Revenue Leak
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>`,
+      css: `.conversion-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .conversion-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.conversion-step {
+  position: relative;
+}
+
+.conversion-arrow {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .conversion-arrow {
+    display: block;
+    position: absolute;
+    top: 48px;
+    right: -28px;
+    z-index: 10;
+  }
+  
+  .conversion-step:last-child .conversion-arrow {
+    display: none;
+  }
+}
+
+.conversion-step-card {
+  text-align: center;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.conversion-step-card:hover {
+  transform: translateY(-4px);
+}
+
+.conversion-step-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12));
+  border: 1px solid rgba(245,74,72,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conversion-step-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.conversion-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.conversion-step-description {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+.conversion-step-time {
+  display: inline-flex;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(250,152,47,0.12);
+  color: #FA982F;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+}`
+    },
+
+    "FAQ Section": {
+      html: `<section class="section" id="faq" aria-label="Frequently asked questions">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color: #F54A48;">FAQ</span>
+      <h2 class="section-title font-display">
+        Questions? <span class="shift-gradient-text">Answered.</span>
+      </h2>
+    </div>
+
+    <div class="faq-list">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How long does setup take?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>48 hours from signing to live. We handle everything—integration, testing, training. You just show up.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Will this replace my team?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>No. ShiFt handles repetitive work—qualifying, scheduling, follow-up. Your team closes qualified appointments, not chasing dead leads.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What if leads don't like talking to AI?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>They don't care—they care about speed. Our AI responds in 30 seconds. Your competitor's voicemail doesn't. We've handled 10,000+ conversations. 89% show rate proves it works.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Do I need long-term contracts?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>No. Month-to-month. Cancel anytime. We bet on results, not contracts.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How much does ShiFt cost?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Plans start at $997/month. If you're leaking $35K-$100K, it's a no-brainer. Book a call to see exact pricing for your volume.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #F54A48;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: rgba(255,255,255,0.4);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: #F54A48;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-bottom: 24px;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+}`,
+      js: `// FAQ Accordion
+function toggleFaq(button) {
+  const faqItem = button.parentElement;
+  const isActive = faqItem.classList.contains('active');
+  
+  // Close all FAQ items
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // Open clicked item if it wasn't active
+  if (!isActive) {
+    faqItem.classList.add('active');
+  }
+}`
+    },
+
+    "Utility CSS Classes": {
+      css: `/* Section Header Utilities */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: 80px;
+  }
+}
+
+.section-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.section-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  max-width: 672px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section-description {
+    font-size: 1.125rem;
+  }
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 40px;
+}`
+    },
+
     "Complete HTML Page Template": {
       html: `<!DOCTYPE html>
 <html lang="en">
@@ -1013,22 +2119,55 @@ mobileLinks.forEach(link => {
 <body>
   <!-- Navigation -->
   <nav class="nav" id="main-nav">
-    <!-- Nav content here -->
+    <!-- Copy nav HTML from "Navigation Bar" section -->
   </nav>
 
   <!-- Main Content -->
   <main>
     <!-- Hero Section -->
     <section class="hero" id="hero" aria-label="Hero section">
-      <!-- Hero content here -->
+      <!-- Copy hero HTML from "Hero Section" section -->
     </section>
 
-    <!-- Other sections... -->
+    <!-- Problem Cards -->
+    <section class="section" id="revenue-leaks">
+      <!-- Copy from "Problem Cards Section" -->
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section" id="comparison">
+      <!-- Copy from "Comparison Table Section" -->
+    </section>
+
+    <!-- Three-Stage Mechanism -->
+    <section class="section" id="how-it-works">
+      <!-- Copy from "Three-Stage Mechanism Section" -->
+    </section>
+
+    <!-- Proof/Testimonial -->
+    <section class="section" id="proof">
+      <!-- Copy from "Proof/Testimonial Section" -->
+    </section>
+
+    <!-- Conversion Path -->
+    <section class="section" id="conversion-path">
+      <!-- Copy from "Conversion Path/Steps Section" -->
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <!-- Copy from "FAQ Section" -->
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="cta">
+      <!-- Copy CTA HTML from "CTA Section" below -->
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <!-- Footer content here -->
+    <!-- Copy footer HTML from "Footer" section -->
   </footer>
 
   <!-- JavaScript -->
