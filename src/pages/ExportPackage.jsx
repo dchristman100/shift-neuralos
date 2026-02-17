@@ -2016,6 +2016,278 @@ function toggleFaq(button) {
 }`
     },
 
+    "How It Works - Flow Diagram": {
+      html: `<!-- How It Works Flow Diagram -->
+<section class="section">
+  <div class="section-inner text-center">
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
+      How ShiFt Convert <span class="shift-gradient-text">Plugs Your Revenue Leaks</span>
+    </h1>
+    <p class="font-body text-xl max-w-3xl mx-auto mb-16" style="color: rgba(255,255,255,0.6);">
+      From first contact to booked appointment—without lifting a finger
+    </p>
+    
+    <!-- Flow Steps -->
+    <div class="flow-container">
+      <div class="flow-step">Lead Arrives</div>
+      <svg class="flow-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+      <div class="flow-step">AI Responds (30 sec)</div>
+      <svg class="flow-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+      <div class="flow-step">AI Qualifies</div>
+      <svg class="flow-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+      <div class="flow-step">AI Books</div>
+      <svg class="flow-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+      <div class="flow-step flow-step-final">You Close</div>
+    </div>
+  </div>
+</section>`,
+      css: `.flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .flow-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.flow-step {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+.flow-step-final {
+  background: linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12));
+  border-color: rgba(245,74,72,0.3);
+  color: #F54A48;
+}
+
+.flow-arrow {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .flow-arrow {
+    display: block;
+  }
+}`
+    },
+
+    "How It Works - Stage Cards": {
+      html: `<!-- Three Stage Cards for How It Works -->
+<section class="section">
+  <div class="section-inner">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Stage 1: Instant Capture -->
+      <div class="stage-card">
+        <div class="stage-badge" style="background: rgba(245,74,72,0.12); color: #F54A48; border: 1px solid rgba(245,74,72,0.3);">
+          Stage 1
+        </div>
+        <div class="stage-icon" style="background: rgba(245,74,72,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h3 class="stage-title font-display">Instant Capture</h3>
+        <p class="stage-description font-body">
+          Every lead that comes in—phone, web form, text, Facebook—gets an instant AI response in under 30 seconds.
+        </p>
+        <div class="stage-stat">
+          <div class="stage-stat-value" style="color: #F54A48;">30 sec</div>
+          <div class="stage-stat-label font-mono">response time</div>
+        </div>
+      </div>
+
+      <!-- Stage 2: AI Qualification -->
+      <div class="stage-card">
+        <div class="stage-badge" style="background: rgba(250,152,47,0.12); color: #FA982F; border: 1px solid rgba(250,152,47,0.3);">
+          Stage 2
+        </div>
+        <div class="stage-icon" style="background: rgba(250,152,47,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20zM9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+          </svg>
+        </div>
+        <h3 class="stage-title font-display">AI Qualification</h3>
+        <p class="stage-description font-body">
+          Our AI asks the right questions to separate high-intent buyers from tire kickers. Lead scoring happens in real-time.
+        </p>
+        <div class="stage-stat">
+          <div class="stage-stat-value" style="color: #FA982F;">73%</div>
+          <div class="stage-stat-label font-mono">better lead quality</div>
+        </div>
+      </div>
+
+      <!-- Stage 3: Automated Booking -->
+      <div class="stage-card">
+        <div class="stage-badge" style="background: rgba(72,187,120,0.12); color: #48BB78; border: 1px solid rgba(72,187,120,0.3);">
+          Stage 3
+        </div>
+        <div class="stage-icon" style="background: rgba(72,187,120,0.12);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+        </div>
+        <h3 class="stage-title font-display">Automated Booking</h3>
+        <p class="stage-description font-body">
+          Qualified leads get booked instantly onto your calendar. No back-and-forth. Just confirmed appointments.
+        </p>
+        <div class="stage-stat">
+          <div class="stage-stat-value" style="color: #48BB78;">3.2x</div>
+          <div class="stage-stat-label font-mono">more appointments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`,
+      css: `.stage-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stage-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-4px);
+}
+
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stage-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.stage-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.stage-description {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.stage-stat {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.stage-stat-value {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stage-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}`
+    },
+
+    "How It Works - Integrations Grid": {
+      html: `<!-- Integration Tools Grid -->
+<section class="section">
+  <div class="section-inner">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+        Works With Your Existing Tools
+      </h2>
+      <p class="font-body text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.6);">
+        Setup in 24 hours, not 24 days. ShiFt integrates seamlessly with the tools you already use.
+      </p>
+    </div>
+    
+    <div class="integrations-grid">
+      <div class="integration-item">GoHighLevel</div>
+      <div class="integration-item">Calendly</div>
+      <div class="integration-item">Google Calendar</div>
+      <div class="integration-item">Zapier</div>
+      <div class="integration-item">Slack</div>
+      <div class="integration-item">HubSpot</div>
+      <div class="integration-item">Salesforce</div>
+      <div class="integration-item">Zoom</div>
+    </div>
+  </div>
+</section>`,
+      css: `.integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .integrations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.integration-item {
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.integration-item:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+  border-color: rgba(245,74,72,0.3);
+}`
+    },
+
     "Utility CSS Classes": {
       css: `/* Section Header Utilities */
 .section-header {
