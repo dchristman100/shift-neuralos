@@ -3547,6 +3547,27 @@ function toggleFaq(button) {
           </div>
         </div>
 
+        <div className="rounded-2xl p-8 mb-12" style={{
+          background: "rgba(72,187,120,0.08)",
+          border: "1px solid rgba(72,187,120,0.2)"
+        }}>
+          <h2 className="font-display text-2xl font-bold text-white mb-4">📄 Finding HTML for Full Pages</h2>
+          <div className="space-y-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+            <p><strong className="text-white">Home Page:</strong> Combine "Hero Section" + "Problem Cards Section" + "Comparison Table Section" + "Three-Stage Mechanism" + "Proof/Testimonial" + "Conversion Path" + "FAQ Section"</p>
+            <p><strong className="text-white">How It Works:</strong> See "How It Works - Flow Diagram" + "How It Works - Stage Cards" + "How It Works - Integrations Grid"</p>
+            <p><strong className="text-white">Revenue Leaks:</strong> See "Revenue Leaks Page" section below</p>
+            <p><strong className="text-white">Pricing:</strong> See "Pricing Page" section below</p>
+            <p><strong className="text-white">Contact:</strong> See "Contact Page" section below</p>
+            <p><strong className="text-white">About:</strong> See "About Page" section below</p>
+            <p><strong className="text-white">Attract Pages:</strong> See "Attract Home Page", "Attract Empty Pipeline Page", "Attract How It Works Page", "Attract Pricing Page"</p>
+            <p><strong className="text-white">Booking:</strong> See "Booking Page (Calendar Embed)" section below</p>
+            <p><strong className="text-white">Platform:</strong> See "Platform Page" section below</p>
+            <p className="pt-3 border-t" style={{ borderColor: "rgba(72,187,120,0.3)", color: "#48BB78" }}>
+              💡 <strong>Tip:</strong> Scroll through all sections below. Each page has its complete HTML ready to copy!
+            </p>
+          </div>
+        </div>
+
         {/* Component Sections */}
         <div className="space-y-4">
           {Object.entries(documentation).map(([title, content]) => (
