@@ -1691,81 +1691,82 @@ tr:last-child .comparison-value {
 
     "Conversion Path/Steps Section": {
       html: `<section class="section" id="conversion-path" aria-label="Conversion path steps">
-  <div class="section-inner">
+    <div class="section-inner">
     <div class="section-header">
-      <span class="section-label" style="color: #F54A48;">Your Next Step</span>
-      <h2 class="section-title font-display">
-        See Your Number in <span class="shift-gradient-text">60 Seconds</span>
-      </h2>
+    <span class="section-label" style="color: #F54A48;">Your Next Step</span>
+    <h2 class="section-title font-display">
+      See Your Number in <span class="shift-gradient-text">60 Seconds</span>
+    </h2>
     </div>
 
     <div class="conversion-steps">
-      <!-- Step 1 -->
-      <div class="conversion-step">
-        <div class="conversion-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-        <div class="conversion-step-card glass-card">
-          <div class="conversion-step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/>
-            </svg>
-          </div>
-          <div class="conversion-step-label font-mono">Step 1: Calculate</div>
-          <h3 class="conversion-step-title font-display">Answer 5 Questions</h3>
-          <p class="conversion-step-description">Your revenue, lead volume, and current close rate</p>
-          <div class="conversion-step-time">60 seconds</div>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="conversion-step">
-        <div class="conversion-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-        <div class="conversion-step-card glass-card">
-          <div class="conversion-step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </div>
-          <div class="conversion-step-label font-mono">Step 2: Experience</div>
-          <h3 class="conversion-step-title font-display">See ShiFt in Action</h3>
-          <p class="conversion-step-description">Experience how AI handles your actual leads</p>
-          <div class="conversion-step-time">Live demo</div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="conversion-step">
-        <div class="conversion-step-card glass-card">
-          <div class="conversion-step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-            </svg>
-          </div>
-          <div class="conversion-step-label font-mono">Step 3: Book</div>
-          <h3 class="conversion-step-title font-display">Reality Session</h3>
-          <p class="conversion-step-description">Custom audit of your specific revenue leaks</p>
-          <div class="conversion-step-time">15 minutes</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-cta">
-      <a href="#calculator" class="btn-primary btn-lg">
-        Calculate My Revenue Leak
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Step 1 -->
+    <div class="conversion-step">
+      <div class="conversion-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
-      </a>
+      </div>
+      <div class="conversion-step-card glass-card">
+        <div class="conversion-step-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <div class="conversion-step-label font-mono">Step 1: Calculate</div>
+        <h3 class="conversion-step-title font-display">Answer 5 Questions</h3>
+        <p class="conversion-step-description">Your revenue, lead volume, and current close rate</p>
+        <div class="conversion-step-time">60 seconds</div>
+      </div>
     </div>
-  </div>
-</section>`,
+
+    <!-- Step 2 -->
+    <div class="conversion-step">
+      <div class="conversion-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+      <div class="conversion-step-card glass-card">
+        <div class="conversion-step-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <div class="conversion-step-label font-mono">Step 2: Experience</div>
+        <h3 class="conversion-step-title font-display">See ShiFt in Action</h3>
+        <p class="conversion-step-description">Experience how AI handles your actual leads</p>
+        <div class="conversion-step-time">Live demo</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="conversion-step">
+      <div class="conversion-step-card glass-card">
+        <div class="conversion-step-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+        </div>
+        <div class="conversion-step-label font-mono">Step 3: Book</div>
+        <h3 class="conversion-step-title font-display">Reality Session</h3>
+        <p class="conversion-step-description">Custom audit of your specific revenue leaks</p>
+        <div class="conversion-step-time">15 minutes</div>
+      </div>
+    </div>
+    </div>
+
+    <!-- CTA links to calculator -->
+    <div class="section-cta">
+    <a href="https://calc.shiftnow.io" class="btn-primary btn-lg">
+      See My Number
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+    </div>
+    </div>
+    </section>`,
       css: `.conversion-steps {
   display: grid;
   grid-template-columns: 1fr;
