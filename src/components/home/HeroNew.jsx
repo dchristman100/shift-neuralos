@@ -71,7 +71,7 @@ export default function HeroNew() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex items-center justify-center gap-4 mb-6"
         >
-          <GradientButton size="lg">
+          <GradientButton size="lg" href="https://calc.shiftnow.io">
             Calculate My Revenue Leak
             <ArrowRight className="w-5 h-5" />
           </GradientButton>
