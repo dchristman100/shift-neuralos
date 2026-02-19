@@ -547,46 +547,43 @@ mobileLinks.forEach(link => {
 
     "Hero Section": {
       html: `<section class="hero" id="hero" aria-label="Hero section">
-  <div class="hero-bg"></div>
-  
-  <div class="section-inner">
+    <div class="hero-bg"></div>
+
+    <div class="section-inner text-center">
     <!-- Badge -->
     <div class="hero-badge">
-      <span class="pulse-dot"></span>
-      <span class="font-mono">Live Revenue Leak Calculator</span>
+    <span class="pulse-dot"></span>
+    <span class="font-mono">Calculating Live Revenue Leaks for 847+ Roofing Companies</span>
     </div>
 
     <!-- Headline -->
     <h1 class="hero-headline font-display">
-      You're Losing <span class="shift-gradient-text">$47,000/Month</span>
-      <br/>in Hidden Revenue Leaks
+    <span class="shift-gradient-text">Three Revenue Leaks</span><br/>
+    Are Costing You $35K-$100K+ Every Month
     </h1>
 
     <!-- Subheadline -->
     <p class="hero-subheadline">
-      Most roofing companies lose 34% of potential revenue to slow responses, 
-      junk leads, and missed opportunities. Calculate your exact leak in 60 seconds.
+    Missed calls. Junk leads. Invisible buyers. Your competitors are capturing these opportunities
+    while you sleep. See exactly how much they're costing <strong style="color: #F54A48;">YOUR</strong> business.
     </p>
 
-    <!-- CTAs -->
-    <div class="hero-ctas">
-      <a href="#calculator" class="btn-primary btn-lg">
-        Calculate My Revenue Leak
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <a href="#demo" class="btn-outline btn-lg">
-        Watch 2-Min Demo
-      </a>
+    <!-- CTA (single button, links to calculator) -->
+    <div class="hero-ctas" style="justify-content: center;">
+    <a href="https://calc.shiftnow.io" class="btn-primary btn-lg">
+      Calculate My Revenue Leak
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
     </div>
 
     <!-- Micro-commitment -->
     <p class="hero-micro font-mono">
-      Takes 60 seconds · No email required · See results instantly
+    60 seconds. No credit card. Just your real number.
     </p>
-  </div>
-</section>`,
+    </div>
+    </section>`,
       css: `.hero {
   position: relative;
   min-height: 100vh;
