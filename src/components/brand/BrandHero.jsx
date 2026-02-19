@@ -64,15 +64,6 @@ export default function BrandHero() {
                 Find Your Gap
                 <ArrowRight className="w-5 h-5" />
               </GradientButton>
-              <button className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-mono font-semibold uppercase tracking-wide border transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  borderColor: "rgba(255,255,255,0.15)",
-                  color: "white",
-                }}>
-                <Play className="w-5 h-5" />
-                Watch Platform Demo
-              </button>
             </div>
 
             {/* Trust bar */}
