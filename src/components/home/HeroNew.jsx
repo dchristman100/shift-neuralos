@@ -69,21 +69,12 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+          className="flex items-center justify-center gap-4 mb-6"
         >
           <GradientButton size="lg">
             Calculate My Revenue Leak
             <ArrowRight className="w-5 h-5" />
           </GradientButton>
-          <button className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-mono font-semibold uppercase tracking-wide border transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              borderColor: "rgba(255,255,255,0.15)",
-              color: "white",
-            }}>
-            <Play className="w-5 h-5" />
-            Watch 2-Min Demo
-          </button>
         </motion.div>
 
         {/* Micro-commitment */}
