@@ -17,8 +17,8 @@ export default function BrandHero() {
       </div>
 
       <div className="relative max-w-[1140px] mx-auto">
-        <div className="max-w-3xl">
-          {/* Copy */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -73,7 +73,92 @@ export default function BrandHero() {
             </p>
           </motion.div>
 
+          {/* Right: Revenue Stack Diagram */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="space-y-4">
+              {/* Layer 4: Revenue Reality */}
+              <div className="rounded-2xl p-6 backdrop-blur-xl border text-center"
+                style={{
+                  background: "linear-gradient(135deg, rgba(72,187,120,0.12), rgba(72,187,120,0.08))",
+                  borderColor: "rgba(72,187,120,0.3)",
+                }}>
+                <div className="font-display text-lg font-bold text-white mb-1">
+                  REVENUE REALITY
+                </div>
+                <div className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  What's actually happening
+                </div>
+              </div>
 
+              {/* Arrow */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-8" style={{ background: "linear-gradient(180deg, rgba(72,187,120,0.5), rgba(245,74,72,0.5))" }} />
+              </div>
+
+              {/* Layer 3: Convert */}
+              <div className="rounded-2xl p-6 backdrop-blur-xl border"
+                style={{
+                  background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.08))",
+                  borderColor: "rgba(245,74,72,0.3)",
+                }}>
+                <div className="font-display text-lg font-bold text-white mb-1">
+                  CONVERT
+                </div>
+                <div className="font-body text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  AI Lead Conversion & Booking
+                </div>
+                <a href="https://go.shiftnow.io" className="font-mono text-xs font-semibold" style={{ color: "#F54A48" }}>
+                  → go.shiftnow.io
+                </a>
+              </div>
+
+              {/* Arrow */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-8" style={{ background: "linear-gradient(180deg, rgba(245,74,72,0.5), rgba(250,152,47,0.5))" }} />
+              </div>
+
+              {/* Layer 2: Attract */}
+              <div className="rounded-2xl p-6 backdrop-blur-xl border"
+                style={{
+                  background: "linear-gradient(135deg, rgba(250,152,47,0.12), rgba(250,152,47,0.08))",
+                  borderColor: "rgba(250,152,47,0.3)",
+                }}>
+                <div className="font-display text-lg font-bold text-white mb-1">
+                  ATTRACT
+                </div>
+                <div className="font-body text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  AI Lead Generation
+                </div>
+                <a href="https://attract.shiftnow.io" className="font-mono text-xs font-semibold" style={{ color: "#FA982F" }}>
+                  → attract.shiftnow.io
+                </a>
+              </div>
+
+              {/* Arrow */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-8" style={{ background: "linear-gradient(180deg, rgba(250,152,47,0.5), rgba(255,255,255,0.2))" }} />
+              </div>
+
+              {/* Layer 1: Your Business */}
+              <div className="rounded-2xl p-6 backdrop-blur-xl border text-center"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  borderColor: "rgba(255,255,255,0.08)",
+                }}>
+                <div className="font-display text-lg font-bold text-white mb-1">
+                  YOUR BUSINESS
+                </div>
+                <div className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  Where you are now
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
