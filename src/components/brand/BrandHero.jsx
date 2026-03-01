@@ -17,8 +17,8 @@ export default function BrandHero() {
       </div>
 
       <div className="relative max-w-[1140px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Copy */}
+        <div className="max-w-3xl">
+          {/* Copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
