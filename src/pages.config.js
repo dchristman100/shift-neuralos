@@ -66,6 +66,9 @@ import Resources from './pages/Resources';
 import Results from './pages/Results';
 import RevenueLeaks from './pages/RevenueLeaks';
 import Roofing from './pages/Roofing';
+import ExportBrandNeuralOS from './pages/ExportBrandNeuralOS';
+import ExportAttract from './pages/ExportAttract';
+import ExportConvert from './pages/ExportConvert';
 import __Layout from './Layout.jsx';
 
 
@@ -89,6 +92,9 @@ export const PAGES = {
     "Results": Results,
     "RevenueLeaks": RevenueLeaks,
     "Roofing": Roofing,
+    "ExportBrandNeuralOS": ExportBrandNeuralOS,
+    "ExportAttract": ExportAttract,
+    "ExportConvert": ExportConvert,
 }
 
 export const pagesConfig = {
