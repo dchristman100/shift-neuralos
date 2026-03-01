@@ -2501,98 +2501,25 @@ function toggleFaq(button) {
     },
 
     "Complete HTML Page Template": {
-    html: `<!DOCTYPE html>
+      html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AI-powered lead conversion system for roofing contractors. Calculate your revenue leak in 60 seconds.">
-  <meta name="keywords" content="roofing leads, lead conversion, AI automation, revenue leak">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="ShiFt Convert - AI Lead Conversion">
-  <meta property="og:description" content="Stop losing money to slow responses and junk leads. Convert more with AI.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://go.shiftnow.io">
-  
   <title>ShiFt Convert - AI Lead Conversion for Roofing Contractors</title>
-  
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
-  
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ShiFt Convert",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "AI-powered lead conversion system for roofing contractors.",
-    "url": "https://go.shiftnow.io"
-  }
-  </script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav" id="main-nav">
-    <!-- Copy nav HTML from "Navigation Bar" section -->
-  </nav>
-
-  <!-- Main Content -->
+  <nav class="nav" id="main-nav"><!-- Nav from Navigation Bar section --></nav>
   <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero" aria-label="Hero section">
-      <!-- Copy hero HTML from "Hero Section" section -->
-    </section>
-
-    <!-- Problem Cards -->
-    <section class="section" id="revenue-leaks">
-      <!-- Copy from "Problem Cards Section" -->
-    </section>
-
-    <!-- Comparison Table -->
-    <section class="section" id="comparison">
-      <!-- Copy from "Comparison Table Section" -->
-    </section>
-
-    <!-- Three-Stage Mechanism -->
-    <section class="section" id="how-it-works">
-      <!-- Copy from "Three-Stage Mechanism Section" -->
-    </section>
-
-    <!-- Proof/Testimonial -->
-    <section class="section" id="proof">
-      <!-- Copy from "Proof/Testimonial Section" -->
-    </section>
-
-    <!-- Conversion Path -->
-    <section class="section" id="conversion-path">
-      <!-- Copy from "Conversion Path/Steps Section" -->
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <!-- Copy from "FAQ Section" -->
-    </section>
-
-    <!-- CTA -->
-    <section class="section" id="cta">
-      <!-- Copy CTA HTML from "CTA Section" below -->
-    </section>
+    <!-- Hero: use "Hero Section (ShiFt Convert)" or "Hero Section (ShiFt NeuralOS)" -->
+    <!-- Problem Cards, Comparison Table, Three-Stage Mechanism, Proof, Conversion Path, FAQ sections -->
   </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <!-- Copy footer HTML from "Footer" section -->
-  </footer>
-
-  <!-- JavaScript -->
+  <footer class="footer"><!-- Footer section --></footer>
   <script src="script.js"></script>
 </body>
 </html>`
