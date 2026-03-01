@@ -545,7 +545,7 @@ mobileLinks.forEach(link => {
 }`
     },
 
-    "Hero Section": {
+    "Hero Section (ShiFt Convert - go.shiftnow.io)": {
       html: `<section class="hero" id="hero" aria-label="Hero section">
     <div class="hero-bg"></div>
 
