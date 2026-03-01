@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import GradientButton from "../shared/GradientButton";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function BrandHero() {
   return (
