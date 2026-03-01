@@ -2945,37 +2945,33 @@ function toggleFaq(button) {
     "Attract Home Page": {
     html: `<!-- Attract Home Hero -->
     <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" style="background: radial-gradient(circle, rgba(250,152,47,0.2) 0%, rgba(245,74,72,0.1) 40%, transparent 70%);"></div>
 
     <div class="section-inner text-center">
-    <div class="hero-badge">
-    <span class="pulse-dot"></span>
-    <span class="font-mono">AI Lead Generation for Roofing Contractors</span>
+    <div class="hero-badge" style="background: rgba(250,152,47,0.08); border-color: rgba(250,152,47,0.3);">
+    <span class="pulse-dot" style="background: #FA982F;"></span>
+    <span class="font-mono" style="color: #FA982F;">AI Lead Generation for Roofing Contractors</span>
     </div>
 
     <h1 class="hero-headline font-display">
-    Empty Pipeline?<br/>
-    <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Fill It While You Sleep.</span>
+    Your <span style="background: linear-gradient(to right, #FA982F, #F54A48); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pipeline Is Empty</span> Because Your Marketing Isn't Working
     </h1>
 
     <p class="hero-subheadline">
-    Multi-channel AI campaigns that bring qualified roofing leads to your door. No agency. No guesswork. Just predictable pipeline growth.
+    You're spending on ads, SEO, and agencies—but the phone isn't ringing. ShiFt Attract uses AI to generate qualified leads across every channel, 24 hours a day.
     </p>
 
-    <div class="hero-ctas">
+    <div class="hero-ctas" style="justify-content: center;">
     <a href="#audit" class="btn-primary btn-lg" style="background: linear-gradient(135deg, #FA982F, #F54A48);">
     Audit My Pipeline
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
     </a>
-    <a href="#demo" class="btn-outline btn-lg">
-    See AI Lead Gen Demo
-    </a>
     </div>
 
     <p class="hero-micro font-mono">
-    Free pipeline audit · See channel recommendations · No commitment
+    Free pipeline audit. See exactly where leads should be coming from.
     </p>
     </div>
     </section>
