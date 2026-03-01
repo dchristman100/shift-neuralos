@@ -2023,61 +2023,7 @@ function toggleFaq(button) {
     },
 
     "How It Works - Integrations Grid": {
-      html: `<!-- Integration Tools Grid -->
-<section class="section">
-  <div class="section-inner">
-    <div class="text-center mb-16">
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
-        Works With Your Existing Tools
-      </h2>
-      <p class="font-body text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.6);">
-        Setup in 24 hours, not 24 days. ShiFt integrates seamlessly with the tools you already use.
-      </p>
-    </div>
-    
-    <div class="integrations-grid">
-      <div class="integration-item">GoHighLevel</div>
-      <div class="integration-item">Calendly</div>
-      <div class="integration-item">Google Calendar</div>
-      <div class="integration-item">Zapier</div>
-      <div class="integration-item">Slack</div>
-      <div class="integration-item">HubSpot</div>
-      <div class="integration-item">Salesforce</div>
-      <div class="integration-item">Zoom</div>
-    </div>
-  </div>
-</section>`,
-      css: `.integrations-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .integrations-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.integration-item {
-  padding: 24px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.integration-item:hover {
-  background: rgba(255,255,255,0.06);
-  transform: translateY(-2px);
-  border-color: rgba(245,74,72,0.3);
-}`
+      notes: "2-col mobile / 4-col desktop grid. Items: GoHighLevel, Calendly, Google Calendar, Zapier, Slack, HubSpot, Salesforce, Zoom. Each is a glass card (rgba white 0.04 bg) with Montserrat Alternates font, hover lifts and shows coral border."
     },
 
     "Utility CSS Classes": {
