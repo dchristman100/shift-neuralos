@@ -2435,75 +2435,7 @@ function toggleFaq(button) {
     },
 
     "Revenue Leaks Page": {
-    html: `<!-- Revenue Leaks Deep Dive Page -->
-    <section class="section">
-    <div class="section-inner text-center mb-20">
-    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
-    The Three Revenue Leaks <span class="shift-gradient-text">Draining Your Business</span>
-    </h1>
-    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
-    You're losing $35K-$100K+ every month. Here's exactly where.
-    </p>
-    </div>
-    </section>
-
-    <!-- Leak #1: Missed Calls -->
-    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(245,74,72,0.03));">
-    <div class="section-inner">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-    <div>
-    <div class="flex items-center gap-3 mb-6">
-    <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background: rgba(245,74,72,0.12);">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07..."/>
-      </svg>
-    </div>
-    <div>
-      <div class="font-mono text-xs uppercase tracking-wider" style="color: rgba(255,255,255,0.5);">Leak #1</div>
-      <h2 class="font-display text-3xl font-bold text-white">Missed Calls</h2>
-    </div>
-    </div>
-
-    <h3 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-    42% of Leads Call After Hours
-    </h3>
-
-    <p class="font-body text-lg mb-6" style="color: rgba(255,255,255,0.6);">
-    Your phone rings at 6:47 PM. A homeowner with hail damage wants an inspection. They leave a voicemail. You call back at 9 AM the next day. Too late—your competitor already booked them at 7:12 PM.
-    </p>
-
-    <div class="glass-card p-6 mb-8" style="background: rgba(245,74,72,0.08); border-color: rgba(245,74,72,0.2);">
-    <div class="font-display text-4xl font-bold mb-2" style="color: #F54A48;">$12K-$35K</div>
-    <div class="font-body" style="color: rgba(255,255,255,0.7);">Average monthly revenue lost to missed calls</div>
-    </div>
-    </div>
-
-    <!-- Calculator sidebar -->
-    <div class="glass-card p-8">
-    <div class="font-mono text-xs uppercase tracking-wider mb-6" style="color: rgba(255,255,255,0.5);">
-    Calculate Your Missed Call Cost
-    </div>
-    <div class="space-y-6">
-    <div>
-      <label class="form-label">Monthly incoming calls</label>
-      <input type="number" placeholder="100" class="form-input" />
-    </div>
-    <div>
-      <label class="form-label">Average job value</label>
-      <input type="number" placeholder="12000" class="form-input" />
-    </div>
-    <div class="glass-card p-6" style="background: linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12));">
-      <div class="font-body text-sm mb-2" style="color: rgba(255,255,255,0.7);">Estimated monthly loss:</div>
-      <div class="font-display text-3xl font-bold" style="color: #F54A48;">$28,400</div>
-    </div>
-    <button class="btn-primary w-full">Get Full Revenue Audit</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-    <!-- Leak #2 & #3 follow similar pattern -->`
+      notes: "Headline: 'The Three Revenue Leaks Draining Your Business'. 3 sections (one per leak), each 2-col grid. Left: leak label badge + icon, h3 stat headline, story paragraph, coral glass card with dollar range stat. Right: mini calculator glass card (inputs for call volume + job value, result display, CTA button). Leaks: #1 Missed Calls ($12K-$35K), #2 Junk Leads ($8K-$25K), #3 Invisible Buyers ($15K-$40K)."
     },
 
     "About Page": {
