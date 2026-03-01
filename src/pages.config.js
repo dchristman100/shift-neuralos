@@ -58,7 +58,6 @@ import Book from './pages/Book';
 import BrandHome from './pages/BrandHome';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
-import ExportPackage from './pages/ExportPackage';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
 import Platform from './pages/Platform';
@@ -82,7 +81,6 @@ export const PAGES = {
     "BrandHome": BrandHome,
     "Careers": Careers,
     "Contact": Contact,
-    "ExportPackage": ExportPackage,
     "Home": Home,
     "HowItWorks": HowItWorks,
     "Platform": Platform,
