@@ -2481,51 +2481,7 @@ function toggleFaq(button) {
     },
 
     "Attract Empty Pipeline Page": {
-    html: `<!-- Empty Pipeline Problems Page -->
-    <section class="section">
-    <div class="section-inner text-center max-w-4xl mx-auto mb-20">
-    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-6">
-    The <span class="bg-gradient-to-r from-[#FA982F] to-[#F54A48] bg-clip-text text-transparent">Empty Pipeline</span> Problem
-    </h1>
-    <p class="font-body text-xl" style="color: rgba(255,255,255,0.6);">
-    Why roofing contractors lose $35K-$100K+ monthly to broken lead generation systems
-    </p>
-    </div>
-    </section>
-
-    <!-- Use the EmptyPipelineProblems section from earlier -->
-
-    <!-- Cost Stats Section -->
-    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(250,152,47,0.02));">
-    <div class="section-inner max-w-4xl mx-auto">
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-    The Real Cost of an <span style="color: #FA982F;">Empty Pipeline</span>
-    </h2>
-
-    <div class="glass-card p-8 md:p-12 mb-8">
-    <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div>
-    <div class="font-display text-5xl font-black mb-2" style="color: #FA982F;">$3.2K</div>
-    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Wasted monthly on ineffective marketing</div>
-    </div>
-    <div>
-    <div class="font-display text-5xl font-black mb-2" style="color: #F54A48;">67%</div>
-    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Struggle with lead consistency</div>
-    </div>
-    <div>
-    <div class="font-display text-5xl font-black mb-2" style="color: #48BB78;">43%</div>
-    <div class="font-body text-sm" style="color: rgba(255,255,255,0.6);">Over-dependent on referrals</div>
-    </div>
-    </div>
-    </div>
-
-    <div class="text-center">
-    <a href="#calculator" class="btn-primary btn-lg" style="background: linear-gradient(to right, #FA982F, #F54A48);">
-    Calculate My Revenue Leak
-    </a>
-    </div>
-    </div>
-    </section>`
+      notes: "Headline: 'The Empty Pipeline Problem' (orange-to-coral gradient on 'Empty Pipeline'). Stats glass card (3-col): $3.2K wasted monthly (orange), 67% struggle with consistency (coral), 43% over-dependent on referrals (green). CTA button links to calculator, uses orange-to-coral gradient. Include EmptyPipelineProblems cards section (3 problems: Inconsistent Lead Flow, Ineffective Marketing Spend, Over-reliance on Referrals)."
     },
 
     "Attract How It Works Page": {
