@@ -3,12 +3,14 @@ import Navbar from "./components/landing/Navbar";
 import BrandNavbar from "./components/brand/BrandNavbar";
 import AttractNavbar from "./components/attract/AttractNavbar";
 import Footer from "./components/landing/Footer";
+import CallWidget from "./components/CallWidget";
+import { useRetellCall } from "./hooks/useRetellCall";
 
 export default function Layout({ children, currentPageName }) {
   // Determine which navbar to show based on page
   const isBrandPage = ['BrandHome', 'About', 'Platform', 'Roofing', 'Resources', 'Contact', 'Careers'].includes(currentPageName);
   const isAttractPage = ['AttractHome', 'AttractHowItWorks', 'AttractEmptyPipeline', 'AttractResults', 'AttractPricing', 'AttractBook'].includes(currentPageName);
-  
+  const { callStatus, startCall, hangUpCall, isAgentTalking } = useRetellCall();
   // Determine schema markup type based on page
   const getSchemaMarkup = () => {
     if (isAttractPage) {
@@ -173,6 +175,12 @@ export default function Layout({ children, currentPageName }) {
 
         {isAttractPage ? <AttractNavbar /> : isBrandPage ? <BrandNavbar /> : <Navbar />}
         {children}
+          <CallWidget
+          callStatus={callStatus}
+          startCall={startCall}
+          hangUpCall={hangUpCall}
+          isAgentTalking={isAgentTalking}
+        />
         <Footer />
       </div>
     </>
