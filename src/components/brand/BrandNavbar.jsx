@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "../../utils";
 
 const navLinks = [
+  { label: "Packages", href: "/Packages" },
   { label: "Platform", href: "/Platform" },
   { label: "Roofing", href: "/Roofing" },
   { label: "Resources", href: "/Resources" },
