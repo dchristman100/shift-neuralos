@@ -52,7 +52,6 @@ import AttractBook from './pages/AttractBook';
 import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
 import AttractHome from './pages/AttractHome';
 import AttractHowItWorks from './pages/AttractHowItWorks';
-import AttractPricing from './pages/AttractPricing';
 import AttractResults from './pages/AttractResults';
 import Book from './pages/Book';
 import BrandHome from './pages/BrandHome';
@@ -64,7 +63,6 @@ import ExportConvert from './pages/ExportConvert';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
 import Platform from './pages/Platform';
-import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
 import Results from './pages/Results';
 import RevenueLeaks from './pages/RevenueLeaks';
@@ -79,7 +77,6 @@ export const PAGES = {
     "AttractEmptyPipeline": AttractEmptyPipeline,
     "AttractHome": AttractHome,
     "AttractHowItWorks": AttractHowItWorks,
-    "AttractPricing": AttractPricing,
     "AttractResults": AttractResults,
     "Book": Book,
     "BrandHome": BrandHome,
@@ -91,7 +88,6 @@ export const PAGES = {
     "Home": Home,
     "HowItWorks": HowItWorks,
     "Platform": Platform,
-    "Pricing": Pricing,
     "Resources": Resources,
     "Results": Results,
     "RevenueLeaks": RevenueLeaks,
