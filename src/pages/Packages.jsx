@@ -163,9 +163,9 @@ export default function Packages() {
         borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "0 40px",
         display: "flex", alignItems: "center", justifyContent: "space-between"
       }}>
-        <div className="pkg-font-display" style={{ fontSize: "26px", fontWeight: 900 }}>
+        <a href="/" className="pkg-font-display" style={{ fontSize: "26px", fontWeight: 900, color: "#fff", textDecoration: "none" }}>
           Shi<span style={{ color: "#F54A48" }}>F</span>t
-        </div>
+        </a>
         <div className="pkg-nav-links" style={{ display: "flex", gap: "32px" }}>
           {[
             { label: "How It Works", id: "how" },
