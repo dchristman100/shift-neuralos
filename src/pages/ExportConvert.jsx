@@ -12,7 +12,7 @@ const CONVERT_NAV_HTML = `<!-- SHIFT CONVERT NAVBAR -->
       <a href="/how-it-works" class="shift-nav-link">How It Works</a>
       <a href="/revenue-leaks" class="shift-nav-link">Revenue Leaks</a>
       <a href="/results" class="shift-nav-link">Results</a>
-      <a href="/pricing" class="shift-nav-link">Pricing</a>
+      <a href="/packages" class="shift-nav-link">Packages</a>
     </div>
     <div class="shift-nav-right">
       <div class="shift-product-pills">
@@ -33,7 +33,7 @@ const CONVERT_NAV_HTML = `<!-- SHIFT CONVERT NAVBAR -->
     <a href="/how-it-works" class="shift-mobile-link font-display">How It Works</a>
     <a href="/revenue-leaks" class="shift-mobile-link font-display">Revenue Leaks</a>
     <a href="/results" class="shift-mobile-link font-display">Results</a>
-    <a href="/pricing" class="shift-mobile-link font-display">Pricing</a>
+    <a href="/packages" class="shift-mobile-link font-display">Packages</a>
     <a href="https://calc.shiftnow.io" class="btn-primary">See My Number</a>
   </div>
 </nav>`;
