@@ -1,186 +1,329 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SectionWrapper from "../components/shared/SectionWrapper";
 import { Check, ArrowRight } from "lucide-react";
+import SectionWrapper from "../components/shared/SectionWrapper";
 import GradientButton from "../components/shared/GradientButton";
 
-const tiers = [
-  {
-    name: "Starter",
-    subtitle: "For 1-2 person teams",
-    price: "Custom",
+const planOptions = {
+  ACTIVATE: {
+    plan_name: "ACTIVATE",
+    // type: "Core Package",
+    price: 7500,
+    buildprice: 5000,
     features: [
-      "Multi-channel AI response (30 sec)",
-      "Basic lead qualification",
-      "Calendar integration",
-      "Email support",
-      "Up to 100 leads/month",
+      { text: "Google Business Profile Optimization" },
+      { text: "Local Services Ads (managed + spend included)" },
+      { text: "24/7 AI Lead Response - 3-second reply" },
+      { text: "AI Qualification + Appointment Booking" },
+      { text: "Live deal-tracking dashboard" },
+      { text: "Facebook Ads", disabled: true },
+      { text: "Retargeting", disabled: true },
+      { text: "SMS + Email Reactivation", disabled: true },
     ],
-    bestFor: "Just starting to scale",
-    cta: "Get Started",
+  },
+  AMPLIFY: {
+    plan_name: "AMPLIFY",
+    // type: "Core Package",
+    price: 10000,
+    buildprice: 5000,
+    features: [
+      { text: "Google Business Profile Optimization" },
+      { text: "Local Services Ads (managed + spend included)" },
+      { text: "24/7 AI Lead Response - 3-second reply" },
+      { text: "AI Qualification + Appointment Booking" },
+      { text: "Live deal-tracking dashboard" },
+      { text: "Facebook Ads (managed + spend included)" },
+      { text: "Retargeting", disabled: true },
+      { text: "SMS + Email Reactivation", disabled: true },
+    ],
+  },
+  DOMINATE: {
+    plan_name: "DOMINATE",
+    // type: "Core Package",
+    price: 15000,
+    buildprice: 5000,
+    features: [
+      { text: "Google Business Profile Optimization" },
+      { text: "Local Services Ads (managed + spend included)" },
+      { text: "24/7 AI Lead Response - 3-second reply" },
+      { text: "AI Qualification + Appointment Booking" },
+      { text: "Live deal-tracking dashboard" },
+      { text: "Facebook Ads (managed + spend included)" },
+      { text: "Retargeting - all channels" },
+      { text: "SMS + Email Reactivation System" },
+    ],
+  },
+};
+
+const packages = [
+  {
+    ...planOptions.ACTIVATE,
+    packageNumber: "PACKAGE 01",
+    description:
+      "Turn on your AI revenue machine. Organic dominance + local intent ads + AI conversion running 24/7.",
+    roi: "$15K/mo",
+    guaranteed: "2+ ROI",
+    adSpend: "Included",
+    cta: "Start with ACTIVATE",
+    accent: "#F54A48",
+    titleColor: "#FF5A52",
   },
   {
-    name: "Growth",
-    subtitle: "For 3-10 person teams",
-    price: "Custom",
-    features: [
-      "Everything in Starter",
-      "Advanced AI qualification & scoring",
-      "Multi-location support",
-      "CRM integrations",
-      "Priority support",
-      "Up to 500 leads/month",
-      "Custom AI training",
-    ],
-    bestFor: "Ready to dominate",
-    cta: "Most Popular",
+    ...planOptions.AMPLIFY,
+    packageNumber: "PACKAGE 02",
+    description:
+      "Widen the funnel. Add Facebook and push your AI machine into a higher gear.",
+    roi: "$30K/mo",
+    guaranteed: "3+ ROI",
+    adSpend: "Included",
+    cta: "Start with AMPLIFY",
     popular: true,
+    accent: "#FF8E2B",
+    titleColor: "#FF9E2F",
   },
   {
-    name: "Scale",
-    subtitle: "For 10+ person teams",
-    price: "Custom",
-    features: [
-      "Everything in Growth",
-      "Unlimited leads",
-      "Dedicated success manager",
-      "Custom integrations",
-      "White-label options",
-      "Advanced analytics dashboard",
-      "API access",
-    ],
-    bestFor: "Market leaders",
-    cta: "Contact Sales",
+    ...planOptions.DOMINATE,
+    packageNumber: "PACKAGE 03",
+    description:
+      "Own every channel. Capture new leads AND recover every lead that got away.",
+    roi: "$60K/mo",
+    guaranteed: "4+ ROI",
+    adSpend: "Included",
+    cta: "Start with DOMINATE",
+    accent: "#FFD52E",
+    titleColor: "#FFE92E",
   },
 ];
+
+const formatCurrency = (value) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(value);
 
 export default function Pricing() {
   return (
     <main className="pt-24">
-      {/* Hero */}
       <SectionWrapper>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-20 text-center"
         >
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Pricing That Pays{" "}
-            <span className="shift-gradient-text">For Itself</span>
+          <h1 className="font-display text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl">
+            Pricing That Pays <span className="shift-gradient-text">For Itself</span>
           </h1>
-          <p className="font-body text-xl max-w-3xl mx-auto mb-8"
-            style={{ color: "rgba(255,255,255,0.6)" }}>
+          <p
+            className="mx-auto mb-8 max-w-3xl font-body text-xl"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+          >
             Less than your worst salesperson. More reliable than your best one.
           </p>
-          <p className="font-mono text-sm tracking-wider uppercase"
-            style={{ color: "rgba(255,255,255,0.4)" }}>
-            Calculate your ROI first →
+          <p
+            className="font-mono text-sm uppercase tracking-wider"
+            style={{ color: "rgba(255,255,255,0.4)" }}
+          >
+            Build fee + monthly management. Calculate your ROI first.
           </p>
         </motion.div>
       </SectionWrapper>
 
-      {/* Pricing Cards */}
       <SectionWrapper>
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {tiers.map((tier, i) => (
+        <div className="mb-20 grid gap-8 md:grid-cols-3">
+          {packages.map((pkg, i) => (
             <motion.div
-              key={i}
+              key={pkg.plan_name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative rounded-2xl p-8 backdrop-blur-xl border ${
-                tier.popular ? "md:-translate-y-4" : ""
-              }`}
+              className={`relative overflow-hidden rounded-2xl border p-4 sm:p-5 backdrop-blur-xl ${pkg.popular ? "md:-translate-y-4" : ""
+                }`}
               style={{
-                background: tier.popular
-                  ? "linear-gradient(135deg, rgba(245,74,72,0.08), rgba(250,152,47,0.08))"
-                  : "rgba(255,255,255,0.04)",
-                borderColor: tier.popular ? "rgba(245,74,72,0.3)" : "rgba(255,255,255,0.08)",
+                background: "linear-gradient(180deg, rgba(11,17,68,0.98), rgba(7,13,55,0.98))",
+                borderColor: pkg.popular ? "rgba(255,142,43,0.95)" : "rgba(255,255,255,0.12)",
+                boxShadow: pkg.popular ? "0 0 0 1px rgba(255,142,43,0.25)" : "none",
               }}
             >
-              {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider"
+              <div
+                className="absolute left-0 top-0 h-[3px] w-full"
+                style={{ background: pkg.accent }}
+              />
+              {pkg.popular && (
+                <div
+                  className="absolute right-4 top-4 rounded-md px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider"
                   style={{
-                    background: "linear-gradient(135deg, #F54A48, #FA982F)",
-                    color: "white",
-                  }}>
+                    background: "linear-gradient(135deg, #FF7D25, #FF5A52)",
+                    color: "#FFF5EA",
+                  }}
+                >
                   Most Popular
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="font-display text-2xl font-bold text-white mb-2">
-                  {tier.name}
+              <div className="mb-6 pt-3">
+                <div
+                  className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em]"
+                  style={{ color: "rgba(196,208,255,0.45)" }}
+                >
+                  {pkg.packageNumber}
+                </div>
+                <h3
+                  className="mb-3 font-display text-3xl font-black uppercase leading-none"
+                  style={{ color: pkg.titleColor }}
+                >
+                  {pkg.plan_name}
                 </h3>
-                <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  {tier.subtitle}
+                <p className="max-w-[26ch] font-body text-xs leading-5" style={{ color: "#AAB3D6" }}>
+                  {pkg.description}
                 </p>
               </div>
 
-              <div className="mb-8">
-                <div className="font-display text-4xl font-bold text-white mb-1">
-                  {tier.price}
+              <div className="mb-6 space-y-4">
+
+                {/* Build Price */}
+                <div className="flex justify-between items-center">
+                  <div
+                    className="font-mono text-[10px] uppercase tracking-[0.26em]"
+                    style={{ color: "rgba(196,208,255,0.38)" }}
+                  >
+                    30-Day Build Period
+                  </div>
+
+                  <div className="font-display text-1xl font-black text-white">
+                    {formatCurrency(pkg.buildprice)}
+                  </div>
                 </div>
-                <div className="font-mono text-xs uppercase tracking-wider"
-                  style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Pricing
+
+                {/* Monthly Retainer */}
+                <div className="flex justify-between items-center">
+                  <div
+                    className="font-mono text-[10px] uppercase tracking-[0.26em]"
+                    style={{ color: "rgba(196,208,255,0.38)" }}
+                  >
+                    Monthly Retainer
+                  </div>
+
+                  <div className="font-display text-1xl font-black text-white">
+                    {formatCurrency(pkg.price)}
+                    <span
+                      className="ml-1 font-body text-xs font-normal"
+                      style={{ color: "rgba(196,208,255,0.58)" }}
+                    >
+                      /mo
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="mb-6 grid grid-cols-3 gap-2">
+                <div
+                  className="rounded-lg border px-3 py-3"
+                  style={{
+                    background: "rgba(255,255,255,0.035)",
+                    borderColor: "rgba(255,255,255,0.05)",
+                  }}
+                >
+                  <div
+                    className="mb-1 font-mono text-[9px] uppercase tracking-[0.24em]"
+                    style={{ color: "rgba(196,208,255,0.35)" }}
+                  >
+                    ROI Min
+                  </div>
+                  <div className="font-display text-sm font-black text-white">{pkg.roi}</div>
+                </div>
+                <div
+                  className="rounded-lg border px-3 py-3"
+                  style={{
+                    background: "rgba(255,255,255,0.035)",
+                    borderColor: "rgba(255,255,255,0.05)",
+                  }}
+                >
+                  <div
+                    className="mb-1 font-mono text-[9px] uppercase tracking-[0.24em]"
+                    style={{ color: "rgba(196,208,255,0.35)" }}
+                  >
+                    Guaranteed
+                  </div>
+                  <div className="font-display text-sm font-black" style={{ color: "#F7F0C8" }}>
+                    {pkg.guaranteed}
+                  </div>
+                </div>
+                <div
+                  className="rounded-lg border px-3 py-3"
+                  style={{
+                    background: "rgba(255,255,255,0.035)",
+                    borderColor: "rgba(255,255,255,0.05)",
+                  }}
+                >
+                  <div
+                    className="mb-1 font-mono text-[9px] uppercase tracking-[0.24em]"
+                    style={{ color: "rgba(196,208,255,0.35)" }}
+                  >
+                    Ad Spend
+                  </div>
+                  <div className="font-display text-sm font-black" style={{ color: "#4CDE7A" }}>
+                    {pkg.adSpend}
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-3 mb-8">
-                {tier.features.map((feature, fi) => (
-                  <div key={fi} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5"
-                      style={{ color: tier.popular ? "#F54A48" : "#48BB78" }} />
-                    <span className="font-body text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-                      {feature}
+              <div className="mb-8 space-y-2.5">
+                {pkg.features.map((feature) => (
+                  <div key={feature.text} className="flex items-start gap-3">
+                    <Check
+                      className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
+                      style={{
+                        color: feature.disabled
+                          ? "rgba(158,172,220,0.22)"
+                          : "#FF5A52",
+                      }}
+                    />
+                    <span
+                      className="font-body text-xs leading-5"
+                      style={{
+                        color: feature.disabled ? "rgba(122,136,183,0.55)" : "#F1F4FF",
+                        textDecoration: feature.disabled ? "none" : "none",
+                      }}
+                    >
+                      {feature.text}
                     </span>
                   </div>
                 ))}
               </div>
-
-              <div className="pt-6 border-t mb-6" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-                <div className="font-body text-xs mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Best for:
-                </div>
-                <div className="font-display text-sm font-semibold" style={{ color: tier.popular ? "#F54A48" : "white" }}>
-                  {tier.bestFor}
-                </div>
-              </div>
-
-              {tier.popular ? (
-                <GradientButton className="w-full">
-                  {tier.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </GradientButton>
-              ) : (
-                <button className="w-full px-6 py-3 rounded-lg font-mono font-semibold uppercase tracking-wide border transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    color: "white",
-                  }}>
-                  {tier.cta}
-                </button>
-              )}
+              <button
+                className="w-full rounded-lg border px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  background: pkg.popular
+                    ? "linear-gradient(135deg, #FF8E2B, #FF5A52)"
+                    : "rgba(255,255,255,0.02)",
+                  borderColor: pkg.popular ? "transparent" : "rgba(110,126,186,0.35)",
+                  color: "#FFFFFF",
+                }}
+              >
+                <span className="inline-flex items-center gap-1.5">
+                  {pkg.cta}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </button>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* ROI Calculator Preview */}
       <SectionWrapper className="bg-gradient-to-b from-transparent to-[rgba(245,74,72,0.03)]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="mx-auto max-w-4xl"
         >
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-6 font-display text-3xl font-bold text-white md:text-4xl">
               See Your ROI Before You Buy
             </h2>
             <p className="font-body text-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
@@ -188,21 +331,25 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border"
+          <div
+            className="rounded-2xl border p-8 backdrop-blur-xl md:p-10"
             style={{
               background: "rgba(255,255,255,0.04)",
               borderColor: "rgba(255,255,255,0.08)",
             }}
           >
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="mb-8 grid gap-8 md:grid-cols-2">
               <div>
-                <label className="font-body text-sm mb-2 block" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <label
+                  className="mb-2 block font-body text-sm"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
+                >
                   Monthly Revenue
                 </label>
                 <input
                   type="number"
                   placeholder="500000"
-                  className="w-full px-4 py-3 rounded-lg font-body"
+                  className="w-full rounded-lg px-4 py-3 font-body"
                   style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -211,13 +358,16 @@ export default function Pricing() {
                 />
               </div>
               <div>
-                <label className="font-body text-sm mb-2 block" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <label
+                  className="mb-2 block font-body text-sm"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
+                >
                   Monthly Leads
                 </label>
                 <input
                   type="number"
                   placeholder="150"
-                  className="w-full px-4 py-3 rounded-lg font-body"
+                  className="w-full rounded-lg px-4 py-3 font-body"
                   style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -226,13 +376,16 @@ export default function Pricing() {
                 />
               </div>
               <div>
-                <label className="font-body text-sm mb-2 block" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <label
+                  className="mb-2 block font-body text-sm"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
+                >
                   Current Close Rate (%)
                 </label>
                 <input
                   type="number"
                   placeholder="25"
-                  className="w-full px-4 py-3 rounded-lg font-body"
+                  className="w-full rounded-lg px-4 py-3 font-body"
                   style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -241,13 +394,16 @@ export default function Pricing() {
                 />
               </div>
               <div>
-                <label className="font-body text-sm mb-2 block" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <label
+                  className="mb-2 block font-body text-sm"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
+                >
                   After-Hours Lead %
                 </label>
                 <input
                   type="number"
                   placeholder="42"
-                  className="w-full px-4 py-3 rounded-lg font-body"
+                  className="w-full rounded-lg px-4 py-3 font-body"
                   style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -257,15 +413,16 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="rounded-xl p-6 mb-6"
+            <div
+              className="mb-6 rounded-xl p-6"
               style={{
                 background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
                 border: "1px solid rgba(245,74,72,0.3)",
               }}
             >
-              <div className="grid sm:grid-cols-3 gap-6">
+              <div className="grid gap-6 sm:grid-cols-3">
                 <div>
-                  <div className="font-body text-xs mb-2" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <div className="mb-2 font-body text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
                     Monthly Revenue Leaked
                   </div>
                   <div className="font-display text-2xl font-bold" style={{ color: "#F54A48" }}>
@@ -273,7 +430,7 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-body text-xs mb-2" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <div className="mb-2 font-body text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
                     Projected Recovery
                   </div>
                   <div className="font-display text-2xl font-bold" style={{ color: "#48BB78" }}>
@@ -281,48 +438,44 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-body text-xs mb-2" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <div className="mb-2 font-body text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
                     ROI Timeline
                   </div>
-                  <div className="font-display text-2xl font-bold text-white">
-                    32 days
-                  </div>
+                  <div className="font-display text-2xl font-bold text-white">32 days</div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-xl p-5 backdrop-blur-xl border mb-6"
+            <div
+              className="mb-6 rounded-xl border p-5 backdrop-blur-xl"
               style={{
                 background: "rgba(255,255,255,0.04)",
                 borderColor: "rgba(255,255,255,0.08)",
               }}
             >
-              <div className="font-body text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+              <div className="mb-3 font-body text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
                 Recommended Package:
               </div>
-              <div className="font-display text-xl font-bold shift-gradient-text">
-                Growth Tier
-              </div>
+              <div className="shift-gradient-text font-display text-xl font-bold">AMPLIFY</div>
             </div>
 
             <GradientButton size="lg" className="w-full">
               Get Custom ROI Report
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="h-5 w-5" />
             </GradientButton>
           </div>
         </motion.div>
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white md:text-4xl">
             Pricing Questions
           </h2>
 
@@ -334,28 +487,26 @@ export default function Pricing() {
               },
               {
                 q: "Is there a setup fee?",
-                a: "No hidden fees. Everything is included in your monthly subscription.",
+                a: "The build fee covers setup, launch, and system configuration. Ongoing optimization is included in your monthly management fee.",
               },
               {
                 q: "Can I switch plans?",
-                a: "Absolutely. Upgrade or downgrade anytime as your business needs change.",
+                a: "Yes. You can move up as your team, lead volume, and channel mix expand.",
               },
               {
                 q: "What if I'm not satisfied?",
-                a: "30-day money-back guarantee. If ShiFt doesn't deliver ROI in the first month, we refund you.",
+                a: "We focus on measurable revenue outcomes. If there is a concern, we review performance and adjust the system with you directly.",
               },
-            ].map((faq, i) => (
+            ].map((faq) => (
               <div
-                key={i}
-                className="rounded-xl p-6 backdrop-blur-xl border"
+                key={faq.q}
+                className="rounded-xl border p-6 backdrop-blur-xl"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   borderColor: "rgba(255,255,255,0.08)",
                 }}
               >
-                <div className="font-display text-lg font-semibold text-white mb-3">
-                  {faq.q}
-                </div>
+                <div className="mb-3 font-display text-lg font-semibold text-white">{faq.q}</div>
                 <div className="font-body" style={{ color: "rgba(255,255,255,0.6)" }}>
                   {faq.a}
                 </div>
