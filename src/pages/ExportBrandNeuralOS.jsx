@@ -83,7 +83,7 @@ const NAV_HTML = `<!-- SHIFT NEURALAOS NAVBAR -->
       <a href="/how-it-works" class="shift-nav-link">How It Works</a>
       <a href="/revenue-leaks" class="shift-nav-link">Revenue Leaks</a>
       <a href="/results" class="shift-nav-link">Results</a>
-      <a href="/pricing" class="shift-nav-link">Pricing</a>
+      <a href="/packages" class="shift-nav-link">Packages</a>
     </div>
     <div class="shift-nav-right">
       <div class="shift-product-pills">
@@ -104,7 +104,7 @@ const NAV_HTML = `<!-- SHIFT NEURALAOS NAVBAR -->
     <a href="/how-it-works" class="shift-mobile-link font-display">How It Works</a>
     <a href="/revenue-leaks" class="shift-mobile-link font-display">Revenue Leaks</a>
     <a href="/results" class="shift-mobile-link font-display">Results</a>
-    <a href="/pricing" class="shift-mobile-link font-display">Pricing</a>
+    <a href="/packages" class="shift-mobile-link font-display">Packages</a>
     <a href="#calculator" class="btn-primary">Find Your Gap</a>
   </div>
 </nav>`;
@@ -539,7 +539,7 @@ const FOOTER_HTML = `<!-- FOOTER -->
         <h4 class="shift-footer-heading font-mono">Product</h4>
         <ul class="shift-footer-links">
           <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/packages">Packages</a></li>
           <li><a href="/attract">ShiFt Attract</a></li>
           <li><a href="/convert">ShiFt Convert</a></li>
         </ul>

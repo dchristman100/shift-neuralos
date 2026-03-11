@@ -52,23 +52,22 @@ import AttractBook from './pages/AttractBook';
 import AttractEmptyPipeline from './pages/AttractEmptyPipeline';
 import AttractHome from './pages/AttractHome';
 import AttractHowItWorks from './pages/AttractHowItWorks';
-import AttractPricing from './pages/AttractPricing';
 import AttractResults from './pages/AttractResults';
 import Book from './pages/Book';
 import BrandHome from './pages/BrandHome';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import ExportAttract from './pages/ExportAttract';
+import ExportBrandNeuralOS from './pages/ExportBrandNeuralOS';
+import ExportConvert from './pages/ExportConvert';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
 import Platform from './pages/Platform';
-import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
 import Results from './pages/Results';
 import RevenueLeaks from './pages/RevenueLeaks';
 import Roofing from './pages/Roofing';
-import ExportBrandNeuralOS from './pages/ExportBrandNeuralOS';
-import ExportAttract from './pages/ExportAttract';
-import ExportConvert from './pages/ExportConvert';
+import Packages from './pages/Packages';
 import __Layout from './Layout.jsx';
 
 
@@ -78,23 +77,22 @@ export const PAGES = {
     "AttractEmptyPipeline": AttractEmptyPipeline,
     "AttractHome": AttractHome,
     "AttractHowItWorks": AttractHowItWorks,
-    "AttractPricing": AttractPricing,
     "AttractResults": AttractResults,
     "Book": Book,
     "BrandHome": BrandHome,
     "Careers": Careers,
     "Contact": Contact,
+    "ExportAttract": ExportAttract,
+    "ExportBrandNeuralOS": ExportBrandNeuralOS,
+    "ExportConvert": ExportConvert,
     "Home": Home,
     "HowItWorks": HowItWorks,
     "Platform": Platform,
-    "Pricing": Pricing,
     "Resources": Resources,
     "Results": Results,
     "RevenueLeaks": RevenueLeaks,
     "Roofing": Roofing,
-    "ExportBrandNeuralOS": ExportBrandNeuralOS,
-    "ExportAttract": ExportAttract,
-    "ExportConvert": ExportConvert,
+    "Packages": Packages,
 }
 
 export const pagesConfig = {

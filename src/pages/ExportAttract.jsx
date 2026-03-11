@@ -11,7 +11,7 @@ const ATTRACT_NAV_HTML = `<!-- SHIFT ATTRACT NAVBAR -->
     <div class="shift-nav-links">
       <a href="/attract/how-it-works" class="shift-nav-link">How It Works</a>
       <a href="/attract/results" class="shift-nav-link">Results</a>
-      <a href="/attract/pricing" class="shift-nav-link">Pricing</a>
+      <a href="/packages" class="shift-nav-link">Packages</a>
       <a href="/attract/book" class="shift-nav-link">Book Audit</a>
     </div>
     <div class="shift-nav-right">
@@ -32,7 +32,7 @@ const ATTRACT_NAV_HTML = `<!-- SHIFT ATTRACT NAVBAR -->
   <div class="shift-mobile-menu" id="shift-mobile-menu">
     <a href="/attract/how-it-works" class="shift-mobile-link font-display">How It Works</a>
     <a href="/attract/results" class="shift-mobile-link font-display">Results</a>
-    <a href="/attract/pricing" class="shift-mobile-link font-display">Pricing</a>
+    <a href="/packages" class="shift-mobile-link font-display">Packages</a>
     <a href="#audit" class="btn-primary">Audit My Pipeline</a>
   </div>
 </nav>`;
@@ -424,7 +424,7 @@ const ATTRACT_CTA_HTML = `<!-- ATTRACT CTA SECTION -->
             Get Free Audit
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="/attract/pricing" class="btn-outline btn-lg">View Pricing</a>
+          <a href="/packages" class="btn-outline btn-lg">View Packages</a>
         </div>
         <p class="shift-cta-micro font-mono">Free audit · No commitment · Results in 48 hours</p>
       </div>
