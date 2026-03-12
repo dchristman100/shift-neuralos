@@ -69,6 +69,8 @@ import RevenueLeaks from './pages/RevenueLeaks';
 import Roofing from './pages/Roofing';
 import Packages from './pages/Packages';
 import __Layout from './Layout.jsx';
+import Pricing from './pages/Pricing.jsx';
+import AttractPricing from './pages/AttractPricing.jsx'
 
 
 export const PAGES = {
@@ -93,6 +95,8 @@ export const PAGES = {
     "RevenueLeaks": RevenueLeaks,
     "Roofing": Roofing,
     "Packages": Packages,
+    "Pricing" : Pricing,
+    "AttractPricing" : AttractPricing,
 }
 
 export const pagesConfig = {

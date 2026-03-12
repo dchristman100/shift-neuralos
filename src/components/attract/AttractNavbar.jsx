@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Packages", href: "/Packages" },
   { label: "Empty Pipeline", href: "/AttractEmptyPipeline" },
   { label: "Results", href: "/AttractResults" },
+  { label: "Pricing", href: "/Pricing" },
 ];
 
 export default function AttractNavbar() {
