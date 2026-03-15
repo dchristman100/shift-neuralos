@@ -7,7 +7,7 @@ const footerLinks = {
   Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
 };
 
-export default function Footer() {
+export default function Footer({ dotColor = "#FFD700" }) {
   return (
     <footer id="footer" aria-label="Footer navigation and information" className="relative px-5 sm:px-6 md:px-8 pt-16 pb-8 border-t border-[rgba(255,255,255,0.06)]">
       <div className="max-w-[1140px] mx-auto">
@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-display font-bold text-xl text-white mb-3">
-              ShiFt<span className="shift-gradient-text">.</span>
+              ShiFt<span style={{ color: dotColor }}>.</span>
             </div>
             <p className="font-body text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">
               The AI Revenue Operating System for roofing contractors.
