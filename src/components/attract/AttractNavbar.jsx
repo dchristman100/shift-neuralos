@@ -7,10 +7,9 @@ import { createPageUrl } from "../../utils";
 
 const navLinks = [
   { label: "How It Works", href: "/AttractHowItWorks" },
-  { label: "Packages", href: "/Packages" },
   { label: "Empty Pipeline", href: "/AttractEmptyPipeline" },
   { label: "Results", href: "/AttractResults" },
-  { label: "Pricing", href: "/Pricing" },
+  { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
 ];
 
 export default function AttractNavbar() {
