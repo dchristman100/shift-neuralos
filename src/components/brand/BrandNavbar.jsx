@@ -39,7 +39,7 @@ export default function BrandNavbar() {
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
           {/* Logo */}
           <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
-            ShiFt<span className="shift-gradient-text"> NeuralOS™</span>
+            ShiFt<span style={{ color: "#FFD700" }}>.</span><span className="shift-gradient-text" style={{ fontSize: "14px", fontWeight: 500 }}> NeuralOS™</span>
           </Link>
 
           {/* Desktop links */}

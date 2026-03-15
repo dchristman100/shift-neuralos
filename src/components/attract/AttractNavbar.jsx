@@ -38,7 +38,7 @@ export default function AttractNavbar() {
           {/* Logo + Product Badge */}
           <div className="flex items-center gap-3">
             <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
-              ShiFt
+              ShiFt<span style={{ color: "#FFD700" }}>.</span>
             </Link>
             <div className="px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-widest"
               style={{
