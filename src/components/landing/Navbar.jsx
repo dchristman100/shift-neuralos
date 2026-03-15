@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Logo + Product Badge */}
           <div className="flex items-center gap-3">
             <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
-              ShiFt<span style={{ color: "#FFD700" }}>.</span>
+              ShiFt<span style={{ color: "#F54A48" }}>.</span>
             </Link>
             <div className="hidden sm:flex items-center px-3 py-1 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider"
               style={{
