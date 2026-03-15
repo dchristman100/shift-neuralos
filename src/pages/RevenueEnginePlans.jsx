@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
+import RevenueLeakCalculator from "../components/revenue/RevenueLeakCalculator";
 
 export default function RevenueEnginePlans() {
   const [activeTab, setActiveTab] = useState("features");
@@ -286,6 +287,13 @@ export default function RevenueEnginePlans() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── REVENUE LEAK CALCULATOR ── */}
+      <section className="rep-section" style={{ background: "#0D0F33" }}>
+        <div className="rep-inner">
+          <RevenueLeakCalculator onScrollToPackages={scrollToPackages} />
         </div>
       </section>
 
