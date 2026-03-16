@@ -18,6 +18,9 @@ import Blog from './pages/Blog';
 import Features from './pages/Features';
 import Integrations from './pages/Integrations';
 import CaseStudies from './pages/CaseStudies';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
