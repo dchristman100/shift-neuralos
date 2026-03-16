@@ -409,7 +409,7 @@ export default function TermsOfService() {
                 <P>Client may not assign this Agreement without ShiFt's prior written consent. ShiFt may assign this Agreement in connection with a merger, acquisition, or sale of all or substantially all of its assets.</P>
               </SubSection>
               <SubSection title="19.5 Notices">
-                <P>Notices must be in writing and delivered by email (with confirmation) or certified mail. Notices to ShiFt: <a href="mailto:hello@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>hello@shiftnow.io</a>, Atlanta, Georgia. Notices to Client: the email address on file in Client's account.</P>
+                <P>Notices must be in writing and delivered by email (with confirmation) or certified mail. Notices to ShiFt: <a href="mailto:hello@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>hello@shiftnow.io</a>, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004. Notices to Client: the email address on file in Client's account.</P>
               </SubSection>
               <SubSection title="19.6 No Agency">
                 <P>The parties are independent contractors. Nothing in this Agreement creates a partnership, joint venture, agency, or employment relationship.</P>
