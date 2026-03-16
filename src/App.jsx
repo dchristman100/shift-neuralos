@@ -10,6 +10,10 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import CallWidget from '@/components/ui/callwidget';
 import RevenueEnginePlans from './pages/RevenueEnginePlans';
 import ExportRevenueEnginePlans from './pages/ExportRevenueEnginePlans';
+import ExportHowItWorks from './pages/ExportHowItWorks';
+import ExportRevenueLeaks from './pages/ExportRevenueLeaks';
+import ExportResults from './pages/ExportResults';
+import ExportAttractEmptyPipeline from './pages/ExportAttractEmptyPipeline';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -63,6 +67,10 @@ const AuthenticatedApp = () => {
       ))}
       <Route path="/RevenueEnginePlans" element={<LayoutWrapper currentPageName="RevenueEnginePlans"><RevenueEnginePlans /></LayoutWrapper>} />
       <Route path="/ExportRevenueEnginePlans" element={<LayoutWrapper currentPageName="ExportRevenueEnginePlans"><ExportRevenueEnginePlans /></LayoutWrapper>} />
+      <Route path="/ExportHowItWorks" element={<LayoutWrapper currentPageName="ExportHowItWorks"><ExportHowItWorks /></LayoutWrapper>} />
+      <Route path="/ExportRevenueLeaks" element={<LayoutWrapper currentPageName="ExportRevenueLeaks"><ExportRevenueLeaks /></LayoutWrapper>} />
+      <Route path="/ExportResults" element={<LayoutWrapper currentPageName="ExportResults"><ExportResults /></LayoutWrapper>} />
+      <Route path="/ExportAttractEmptyPipeline" element={<LayoutWrapper currentPageName="ExportAttractEmptyPipeline"><ExportAttractEmptyPipeline /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
