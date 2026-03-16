@@ -252,7 +252,7 @@ export default function CookiePolicy() {
               <BulletList items={[
                 "Email: privacy@shiftnow.io",
                 "Website: ShiFtNow.io",
-                "Address: ShiFt NeuralOS™, Atlanta, Georgia, United States",
+                "Address: ShiFt NeuralOS™, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004",
               ]} />
             </Section>
 

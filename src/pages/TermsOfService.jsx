@@ -420,7 +420,7 @@ export default function TermsOfService() {
               <BulletList items={[
                 "Email: legal@shiftnow.io",
                 "General: hello@shiftnow.io",
-                "Address: ShiFt NeuralOS™, Atlanta, Georgia, United States",
+                "Address: ShiFt NeuralOS™, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004",
                 "Website: ShiFtNow.io",
               ]} />
             </Section>
