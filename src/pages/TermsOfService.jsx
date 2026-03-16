@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "../components/shared/SectionWrapper";
-import { ChevronDown } from "lucide-react";
 
 function Section({ number, title, children }) {
   return (
@@ -46,7 +45,7 @@ function P({ children, caps = false }) {
   );
 }
 
-function AlertBox({ children, color = "#F54A48" }) {
+function AlertBox({ children, color = "#F54A48", icon = "⚠️" }) {
   return (
     <div className="rounded-xl p-5 mb-5 border" style={{ background: `${color}0D`, borderColor: `${color}33` }}>
       <p className="font-body text-sm font-semibold" style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.75 }}>{children}</p>
@@ -54,11 +53,13 @@ function AlertBox({ children, color = "#F54A48" }) {
   );
 }
 
-const tierData = [
-  { tier: "ACTIVATE", revShare: "15%", monthlyFee: "$1,997/mo" },
-  { tier: "AMPLIFY", revShare: "12%", monthlyFee: "$3,497/mo" },
-  { tier: "DOMINATE", revShare: "10%", monthlyFee: "$8,997/mo" },
-];
+function InfoBox({ children }) {
+  return (
+    <div className="rounded-xl p-5 mb-5 border" style={{ background: "rgba(72,187,120,0.06)", borderColor: "rgba(72,187,120,0.25)" }}>
+      <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.75 }}>{children}</p>
+    </div>
+  );
+}
 
 export default function TermsOfService() {
   return (
@@ -73,361 +74,367 @@ export default function TermsOfService() {
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">Terms of Service</h1>
             <p className="font-display text-lg font-semibold text-white mb-3">ShiFt NeuralOS™ | ShiFtNow.io</p>
-            <div className="flex items-center justify-center gap-6 font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+            <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
               <span>Effective Date: March 15, 2026</span>
               <span>·</span>
               <span>Last Updated: March 15, 2026</span>
+              <span>·</span>
+              <span>Governing Jurisdiction: Cherokee County, Georgia</span>
             </div>
           </div>
 
           <div className="max-w-3xl mx-auto rounded-2xl p-8 md:p-12" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
 
-            <AlertBox>PLEASE READ THESE TERMS OF SERVICE CAREFULLY. BY ACCESSING OR USING THE SHIFTNOW.IO PLATFORM, YOU AGREE TO BE BOUND BY THESE TERMS. IF YOU DO NOT AGREE, DO NOT ACCESS OR USE THE PLATFORM.</AlertBox>
+            <AlertBox>
+              PLEASE READ THESE TERMS OF SERVICE CAREFULLY. BY ACCESSING OR USING THE SHIFTNOW.IO PLATFORM, OR BY EXECUTING A SHIFTCLIENT AGREEMENT OR QUICK START AGREEMENT, YOU AGREE TO BE BOUND BY THESE TERMS IN THEIR ENTIRETY. IF YOU DO NOT AGREE, DO NOT ACCESS OR USE THE PLATFORM AND DO NOT EXECUTE ANY AGREEMENT.
+            </AlertBox>
 
-            <Section number="1" title="Definitions">
-              <P>As used in these Terms of Service:</P>
+            {/* Section 0 */}
+            <Section number="0" title="Incorporation Into Client Agreements">
+              <P>These Terms of Service ("ToS") are incorporated by reference into and form a legally binding part of every ShiFt Client Agreement and ShiFt Quick Start Agreement executed by any Client. By signing either agreement, Client expressly acknowledges and agrees that:</P>
               <BulletList items={[
-                '"Agreement" means these Terms of Service together with any Order Form, Statement of Work, or other agreement referencing these Terms.',
+                "These Terms of Service are read, reviewed, and agreed to in their entirety as part of the signing process",
+                "In the event of any conflict between the terms of the Client Agreement or Quick Start Agreement and these Terms of Service, these Terms of Service control, except where the Client Agreement or Quick Start Agreement contains more specific or more restrictive provisions, in which case the more protective provision for ShiFt governs",
+                "These Terms of Service are available at ShiFtNow.io/terms and may be updated by ShiFt with 30 days' written notice to Client's registered email address",
+                "Client's continued use of the Platform after the effective date of any update constitutes acceptance of the updated Terms",
+              ]} />
+              <InfoBox>
+                <strong>Where To Find This Document</strong> — ShiFtNow.io/terms — A current copy is always maintained at this URL. The version in effect on the date of your Agreement execution governs your engagement.
+              </InfoBox>
+            </Section>
+
+            {/* Section 1 */}
+            <Section number="1" title="Definitions">
+              <P>As used in these Terms of Service and in all incorporated Client Agreements:</P>
+              <BulletList items={[
+                '"Agreement" means these Terms of Service together with the executed ShiFt Client Agreement or Quick Start Agreement, and any Order Form or RevShare Addendum.',
                 '"Client" or "you" means the roofing contractor business and its authorized users that access or use the Platform.',
                 '"End Users" means homeowners, property owners, and other third parties whose information is processed through the Platform on behalf of Client.',
-                '"NeuralOS" or "Platform" means the ShiFt NeuralOS™ AI Revenue Operating System, including all software, AI models, APIs, dashboards, mobile applications, and services provided by ShiFt.',
-                '"Revenue Activation Fee" or "RAF" means the one-time onboarding and activation fee of $5,000 payable by Client upon execution of an Order Form.',
-                '"RevShare" or "Revenue Share" means the percentage of Platform-Attributed Revenue owed to ShiFt as set forth in the applicable tier.',
-                '"Platform-Attributed Revenue" means revenue from jobs booked, confirmed, or converted through the Platform as determined by the Attribution Methodology.',
-                '"Attribution Methodology" means ShiFt\'s proprietary method for determining which revenue is attributable to the Platform, as described in Section 5.',
-                '"Tier" refers to the applicable service tier: ACTIVATE (15% RevShare), AMPLIFY (12% RevShare), or DOMINATE (10% RevShare).',
-                '"Revenue Floor" means the minimum amount of Platform-Attributed Revenue that must be generated within a 90-day period to trigger billing under the Revenue Floor Guarantee.',
-                '"ShiFt," "we," "us," or "our" means ShiFt NeuralOS™, operated by David Christman, Atlanta, Georgia.',
+                '"Platform" or "NeuralOS" means the ShiFt NeuralOS™ AI Revenue Operating System, including all software, AI models, APIs, dashboards, and services.',
+                '"Revenue Activation Fee" or "RAF" means the one-time fee of $5,000 payable by Client at signing, covering the full 90-Day Initial Term.',
+                '"RevShare" or "Revenue Share" means the percentage of Platform-Attributed Revenue owed to ShiFt, commencing after the 90-Day Milestone and as agreed in a RevShare Addendum.',
+                '"Platform-Attributed Revenue" means revenue from jobs booked, confirmed, or converted through the Platform, as determined by the Attribution Methodology.',
+                '"90-Day Initial Term" means the first 90 calendar days of Client\'s engagement, commencing on the date the RAF payment clears.',
+                '"90-Day Milestone" means the review meeting held no later than Day 90 at which both Parties review Platform performance and agree on post-Initial-Term RevShare rates and continuation terms.',
+                '"RevShare Addendum" means the written agreement executed by both Parties at or after the 90-Day Milestone setting the applicable RevShare rate and post-Initial-Term terms.',
+                '"Revenue Floor" means the minimum Platform-Attributed Revenue target established in the RevShare Addendum for each 90-day post-Initial-Term period.',
+                '"ShiFt," "we," "us," or "our" means ShiFt NeuralOS™ (eWorkForce Technologies Inc.), operated by David Christman, Cherokee County, Georgia.',
               ]} />
             </Section>
 
+            {/* Section 2 */}
             <Section number="2" title="Acceptance and Eligibility">
               <SubSection title="2.1 Acceptance">
-                <P>By clicking "I Agree," signing an Order Form, or accessing the Platform, you agree to be bound by this Agreement. If you are entering into this Agreement on behalf of a business entity, you represent that you have authority to bind that entity.</P>
+                <P>By clicking "I Agree," signing a Client Agreement or Quick Start Agreement, or accessing the Platform, you agree to be bound by these Terms and all incorporated documents. If acting on behalf of a business entity, you represent you have authority to bind that entity.</P>
               </SubSection>
               <SubSection title="2.2 Eligibility">
-                <P>You may use the Platform only if you:</P>
-                <BulletList items={[
-                  "Are a roofing contractor operating a legitimate business in the United States",
-                  "Are at least 18 years of age or the age of majority in your jurisdiction",
-                  "Have the legal capacity and authority to enter into this Agreement",
-                  "Are not prohibited from using the Platform under applicable law",
-                  "Have paid the Revenue Activation Fee as required by your Order Form",
-                ]} />
+                <P>You may use the Platform only if you are a legitimate U.S. roofing contractor, at least 18 years of age, with legal authority to enter this Agreement, and not prohibited by applicable law from doing so.</P>
               </SubSection>
               <SubSection title="2.3 Modifications">
-                <P>We reserve the right to modify these Terms at any time. We will provide at least 30 days' notice of material changes by email to your registered address. Continued use after the effective date constitutes acceptance. If you do not accept modified Terms, you may terminate your account before the effective date.</P>
+                <P>ShiFt may update these Terms with 30 days' written notice. Continued use after the effective date constitutes acceptance. If you reject modified Terms, you may provide written termination notice per Section 15 before the effective date.</P>
               </SubSection>
             </Section>
 
+            {/* Section 3 */}
             <Section number="3" title="Platform License and Restrictions">
               <SubSection title="3.1 License Grant">
-                <P>Subject to your compliance with this Agreement and payment of all applicable fees, ShiFt grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Platform solely for your internal business operations as a roofing contractor during the term of this Agreement.</P>
+                <P>Subject to compliance with this Agreement and payment of all applicable fees, ShiFt grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Platform solely for your internal roofing business operations during the term of this Agreement.</P>
               </SubSection>
               <SubSection title="3.2 Restrictions">
                 <P>You may not:</P>
                 <BulletList items={[
-                  "Sublicense, resell, rent, lease, or otherwise transfer your rights to the Platform",
-                  "Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Platform",
+                  "Sublicense, resell, rent, lease, or transfer Platform access to any third party",
+                  "Reverse engineer, decompile, or attempt to derive Platform source code",
                   "Modify, adapt, or create derivative works based on the Platform",
                   "Use the Platform to build a competing product or service",
-                  "Access the Platform through automated means (bots, scrapers) not provided or authorized by ShiFt",
-                  "Use the Platform in violation of any applicable law, including TCPA, CAN-SPAM, FTC regulations, or state telemarketing laws",
+                  "Use the Platform in violation of TCPA, CAN-SPAM, FTC regulations, or any telemarketing law",
                   "Input false, misleading, or fraudulent information into the Platform",
-                  "Use the Platform to harass, abuse, or harm End Users",
-                  "Share your account credentials with unauthorized parties",
-                  "Attempt to circumvent any security features of the Platform",
+                  "Share account credentials with unauthorized parties or attempt to circumvent security features",
                 ]} />
               </SubSection>
             </Section>
 
-            <Section number="4" title="Revenue Activation Fee (RAF)">
-              <SubSection title="4.1 Payment">
-                <P>A Revenue Activation Fee of $5,000 (five thousand dollars) is due and payable upon execution of your Order Form and prior to Platform activation. The RAF is non-refundable except as expressly provided in Section 7 (Revenue Floor Guarantee).</P>
+            {/* Section 4 */}
+            <Section number="4" title="90-Day Initial Term — Non-Cancelable Commitment">
+              <SubSection title="4.1 Revenue Activation Fee (RAF)">
+                <P>A Revenue Activation Fee of $5,000 is due and payable at signing and prior to Platform activation. The RAF covers the full 90-Day Initial Term: Platform configuration, AI model calibration, integration setup, onboarding session, and Roofing Playbook Vault access. The RAF is not a deposit.</P>
               </SubSection>
-              <SubSection title="4.2 What the RAF Covers">
-                <P>The RAF covers: initial Platform configuration, roofing-specific AI model calibration, integration setup, 90-minute onboarding session, and access to the ShiFt Roofing Playbook Vault. The RAF does not constitute a deposit against RevShare obligations.</P>
+              <SubSection title="4.2 Non-Cancelable Commitment">
+                <AlertBox>
+                  ⛔ 90-DAY NON-CANCELABLE COMMITMENT — THIS AGREEMENT CONSTITUTES A BINDING 90-DAY COMMITMENT THAT CANNOT BE CANCELLED, REVOKED, WITHDRAWN, OR TERMINATED BY CLIENT FOR ANY REASON DURING THE INITIAL TERM. ShiFt immediately allocates dedicated infrastructure, AI model training, and operational resources upon execution. These costs are incurred in reliance on Client's commitment. Accordingly, NO CANCELLATION RIGHT EXISTS DURING THE INITIAL 90-DAY TERM.
+                </AlertBox>
+                <P>The following actions are not available to Client during the Initial Term and will not be honored by ShiFt:</P>
+                <BulletList items={[
+                  "Cancellation requests of any kind — written, verbal, or electronic",
+                  "Requests to pause, suspend, or freeze the Agreement or Platform access",
+                  "Requests for refund, credit, or partial return of the RAF",
+                  "Cancellation based on dissatisfaction, change of business circumstances, or change of mind",
+                  "Cancellation based on failure to onboard, failure to use the Platform, or business closure",
+                ]} />
               </SubSection>
-              <SubSection title="4.3 Payment Methods">
-                <P>The RAF may be paid by ACH transfer, wire transfer, or credit card. Payment must clear before Platform activation begins. ShiFt may, in its sole discretion, offer installment arrangements for the RAF through approved financing channels.</P>
+              <SubSection title="4.3 ShiFt's Right to Terminate During Initial Term">
+                <P>While Client has no cancellation right, ShiFt may terminate during the Initial Term immediately upon: (a) Client's chargeback initiation; (b) material breach of TCPA obligations; (c) fraud or criminal conduct; or (d) unauthorized Platform use. The RAF remains fully earned and non-refundable upon any such termination.</P>
+              </SubSection>
+              <SubSection title="4.4 The 90-Day Milestone">
+                <P>No later than Day 80, ShiFt will schedule the 90-Day Milestone Review. Both Parties will review Platform performance and agree on continuation terms. Either party may elect not to continue by providing written notice by Day 85. Failure to provide such notice results in automatic continuation under ShiFt's then-current standard terms until written notice is provided.</P>
               </SubSection>
             </Section>
 
-            <Section number="5" title="RevShare Fees and Billing">
-              <SubSection title="5.1 RevShare Rate by Tier">
+            {/* Section 5 */}
+            <Section number="5" title="No Refunds. No Chargebacks. No Cancellations.">
+              <AlertBox>
+                ⛔ ALL SALES ARE FINAL — ALL FEES PAID TO SHIFT ARE FINAL, IRREVOCABLE, AND NON-REFUNDABLE. This includes the Revenue Activation Fee, all RevShare payments, and any other amounts paid under this Agreement. No refund, partial refund, credit, exchange, or adjustment will be issued under any circumstances — including dissatisfaction, failure to achieve revenue results, early termination, change of business, or any other reason. YOU WAIVE ALL RIGHTS TO SEEK RETURN OF ANY AMOUNTS PAID UNDER THIS AGREEMENT.
+              </AlertBox>
+              <SubSection title="5.1 Absolute Prohibition on Chargebacks">
+                <AlertBox>
+                  CHARGEBACK PROHIBITION — BREACH OF CONTRACT: Initiating, facilitating, or assisting in any chargeback, payment reversal, or payment dispute with your payment processor, bank, or card issuer in connection with any amount paid under this Agreement constitutes MATERIAL BREACH OF CONTRACT, regardless of outcome. Any amount paid to ShiFt represents earned compensation for services rendered and is not subject to reversal through any payment channel.
+                </AlertBox>
+                <P>In the event Client initiates a chargeback or payment dispute, the following occur immediately and automatically:</P>
+                <BulletList items={[
+                  "Immediate, permanent termination of all Platform access and services — with no reinstatement",
+                  "The full disputed amount plus a chargeback processing fee of $500 per occurrence becomes immediately due as liquidated damages (the Parties agree this amount reasonably approximates ShiFt's actual harm and is not a penalty)",
+                  "ShiFt's legal counsel will pursue collection of all amounts owed, including the original payment, the $500 fee, attorneys' fees, court costs, and all collection costs",
+                  "Client's business information, chargeback history, and relevant documentation will be reported to applicable fraud prevention databases and payment processor risk networks",
+                  "ShiFt will submit all evidence of this Agreement, Client's acknowledgements, and services rendered to the bank or card issuer to contest and reverse the chargeback",
+                  "Any referral credits, ShiFt Circle incentives, or RevShare rate reductions are permanently forfeited",
+                ]} />
+                <AlertBox color="#FA982F">
+                  ⚖️ LEGAL REMEDIES PRESERVED — CLIENT ACKNOWLEDGES THAT INITIATING A CHARGEBACK AFTER SIGNING THIS AGREEMENT AND RECEIVING SERVICES MAY CONSTITUTE FRAUD AND CRIMINAL CONDUCT UNDER APPLICABLE STATE AND FEDERAL LAW. ShiFt expressly reserves all legal remedies at law and in equity, including civil action for breach of contract, unjust enrichment, fraud, and misrepresentation. Remedies may be pursued concurrently; election of one remedy does not preclude others.
+                </AlertBox>
+              </SubSection>
+              <SubSection title="5.2 Mandatory Pre-Dispute Process">
+                <P>If Client believes ShiFt has made a billing error, Client must contact ShiFt in writing at <a href="mailto:legal@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>legal@shiftnow.io</a> within 30 days of the disputed invoice before initiating any payment dispute or chargeback. ShiFt will review and respond within 10 business days. This good-faith dispute process is the exclusive method for resolving billing disagreements. Bypassing this process and proceeding directly to a chargeback constitutes bad faith and breach of this Agreement.</P>
+              </SubSection>
+            </Section>
+
+            {/* Section 6 */}
+            <Section number="6" title="RevShare Fees and Billing (Post-90-Day Milestone)">
+              <SubSection title="6.1 RevShare Rates">
+                <P>RevShare does not apply during the Initial 90-Day Term. Rates are determined at the 90-Day Milestone and confirmed in a RevShare Addendum. Current tier structure with target ROI projections (rates TBD, ROI targets not guaranteed):</P>
                 <div className="rounded-xl overflow-hidden border mb-5" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
                   <table className="w-full">
                     <thead>
                       <tr style={{ background: "rgba(255,255,255,0.04)" }}>
-                        {["Tier", "RevShare Rate", "Monthly Platform Fee"].map(h => (
+                        {["Tier", "RevShare Rate", "Target ROI (Not Guaranteed)"].map(h => (
                           <th key={h} className="px-5 py-3 text-left font-mono text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>{h}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
-                      {tierData.map((row, i) => (
+                      {[
+                        { tier: "ACTIVATE", rate: "TBD at 90-Day Milestone", roi: "3x–4x", color: "#F54A48" },
+                        { tier: "AMPLIFY", rate: "TBD at 90-Day Milestone", roi: "5x–6x", color: "#FA982F" },
+                        { tier: "DOMINATE", rate: "TBD at 90-Day Milestone", roi: "7x–8x+", color: "#FFD700" },
+                      ].map((row, i) => (
                         <tr key={i} style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                          <td className="px-5 py-3 font-display font-bold text-sm" style={{ color: i === 0 ? "#F54A48" : i === 1 ? "#FA982F" : "#FFD700" }}>{row.tier}</td>
-                          <td className="px-5 py-3 font-mono text-sm text-white">{row.revShare}</td>
-                          <td className="px-5 py-3 font-mono text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{row.monthlyFee}</td>
+                          <td className="px-5 py-3 font-display font-bold text-sm" style={{ color: row.color }}>{row.tier}</td>
+                          <td className="px-5 py-3 font-mono text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{row.rate}</td>
+                          <td className="px-5 py-3 font-mono text-sm font-bold" style={{ color: "#48BB78" }}>{row.roi}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
+                <AlertBox color="#48BB78">
+                  * ROI TARGETS ARE NOT GUARANTEES: The Target ROI figures (3x–4x for ACTIVATE, 5x–6x for AMPLIFY, 7x–8x+ for DOMINATE) are projections based on historical Platform performance data and industry benchmarks. They represent expected ranges, not guaranteed outcomes. Actual results depend on market conditions, storm season timing, Client responsiveness, geographic location, team capacity, and other variables outside ShiFt's control. ShiFt makes no warranty as to any specific revenue multiple. The Revenue Floor Guarantee billing pause in Section 7 is the sole performance commitment made by ShiFt.
+                </AlertBox>
+                <P>RevShare rates are TBD and will be mutually agreed at the 90-Day Milestone Review. No RevShare is charged during the Initial Term. The $5,000 RAF is the sole payment obligation during the first 90 days.</P>
               </SubSection>
-              <SubSection title="5.2 Attribution Methodology">
-                <P>Platform-Attributed Revenue includes revenue from:</P>
-                <BulletList items={[
-                  "Jobs booked through the Platform's AI call answering, SMS follow-up, or automated booking features",
-                  "Appointments confirmed through the Platform's calendar integration",
-                  "Jobs resulting from referrals generated through the ShiFt Circle where the Platform tracked the referral chain",
-                  "Storm-surge leads captured and converted through the Platform's storm protocol",
-                ]} />
-                <P>Platform-Attributed Revenue does NOT include:</P>
-                <BulletList items={[
-                  "Jobs booked entirely through your existing channels with no Platform involvement",
-                  "Renewal or repeat jobs from customers who initially contracted with you prior to Platform activation, unless re-engaged through the Platform",
-                  "Revenue from jobs cancelled prior to payment",
-                ]} />
+              <SubSection title="6.2 Attribution Methodology">
+                <P>Platform-Attributed Revenue includes: jobs booked through AI call answering, SMS follow-up, or automated booking; appointments confirmed through calendar integration; storm-surge leads captured through the storm protocol; and referrals tracked through the ShiFt Circle. It excludes jobs booked entirely through Client's existing channels with no Platform involvement, repeat jobs from pre-activation customers not re-engaged through the Platform, and cancelled jobs.</P>
               </SubSection>
-              <SubSection title="5.3 Reporting and Billing Cycle">
-                <P>ShiFt will generate monthly RevShare invoices based on Platform-Attributed Revenue data. Invoices are due within 15 days of issuance. Client is responsible for accurately reporting job completion and revenue amounts through the Platform dashboard within 5 business days of job completion.</P>
+              <SubSection title="6.3 Reporting and Billing Cycle">
+                <P>Client must report Platform-generated job completions and associated revenue within 5 business days of completion. ShiFt issues monthly RevShare invoices due within 15 days. Disputed amounts must be raised within 30 days of receipt. Undisputed amounts are binding.</P>
               </SubSection>
-              <SubSection title="5.4 Quarterly True-Up">
-                <P>A quarterly true-up reconciliation will be conducted to verify RevShare calculations. Either party may request a true-up audit with 10 days' written notice. Disputed amounts must be raised within 30 days of invoice receipt. Undisputed amounts are due as billed.</P>
+              <SubSection title="6.4 Quarterly True-Up">
+                <P>A quarterly true-up reconciliation verifies RevShare calculations. Either party may request an audit with 10 days' written notice.</P>
               </SubSection>
-              <SubSection title="5.5 Late Payments">
-                <P>Undisputed invoices not paid within 30 days of the due date accrue interest at 1.5% per month (or the maximum lawful rate, whichever is lower). ShiFt may suspend Platform access for accounts more than 45 days past due after providing 10 days' written notice.</P>
+              <SubSection title="6.5 Late Payments">
+                <P>Undisputed invoices not paid within 30 days of the due date accrue interest at 1.5% per month (or the maximum lawful rate). ShiFt may suspend Platform access for accounts more than 45 days past due after 10 days' written notice.</P>
               </SubSection>
-              <SubSection title="5.6 Taxes">
-                <P>Client is responsible for all applicable sales, use, excise, or similar taxes on Platform services, excluding taxes on ShiFt's net income. If ShiFt is required to collect taxes, they will be added to invoices.</P>
+              <SubSection title="6.6 Automatic Billing Authorization">
+                <P>Upon execution of a RevShare Addendum, Client expressly authorizes ShiFt to automatically charge Client's payment method on file for all RevShare amounts due without further notice. Client waives any right to dispute such charges as unauthorized. Client is responsible for maintaining a valid payment method at all times. No automatic RevShare billing occurs during the Initial 90-Day Term.</P>
               </SubSection>
             </Section>
 
-            <Section number="6" title="Tier Migration">
-              <P>As your roofing business grows, you may qualify for a higher Tier with a lower RevShare rate. Tier upgrades are available when trailing 12-month Platform-Attributed Revenue meets the applicable threshold. Tier upgrades take effect on the first day of the following billing cycle after qualification is confirmed. Tier downgrades are not permitted without ShiFt's prior written consent.</P>
-              <P>The ShiFt Circle referral program provides permanent RevShare rate reductions as specified in the ShiFt Circle program terms, subject to a minimum rate floor of 8%.</P>
-            </Section>
-
-            <Section number="7" title="Revenue Floor Guarantee">
-              <SubSection title="7.1 Guarantee Description">
-                <P>ShiFt guarantees that for each 90-day performance period following Platform activation, the Platform will generate at least the Revenue Floor amount in Platform-Attributed Revenue for Client's Tier. The Revenue Floor for each Tier is specified in your Order Form.</P>
+            {/* Section 7 */}
+            <Section number="7" title="Revenue Floor Guarantee (Post-90-Day Milestone Only)">
+              <P>Following execution of a RevShare Addendum, ShiFt guarantees that for each 90-day performance period, the Platform will generate at least the Revenue Floor amount specified in the Addendum. The Revenue Floor Guarantee does not apply during the Initial 90-Day Term.</P>
+              <AlertBox>
+                BILLING PAUSE — NOT A REFUND: If the Platform fails to generate the Revenue Floor in a 90-day period, ShiFt will pause RevShare billing for the subsequent 30 days while services continue. No cash is returned. The RAF is never refundable. This billing pause is the sole and exclusive remedy for performance shortfalls.
+              </AlertBox>
+              <SubSection title="7.1 Guarantee Conditions">
+                <P>The Revenue Floor Guarantee applies only when: (a) Client completed onboarding within 14 days of RAF payment; (b) account is in good standing with no past-due balances; (c) Client has not disabled Platform features without ShiFt's consent; (d) Client has responded to Platform-generated leads within commercially reasonable time; and (e) Client has provided accurate, timely revenue reporting.</P>
               </SubSection>
-              <SubSection title="7.2 Billing Pause Mechanism">
-                <P>If the Platform fails to generate the applicable Revenue Floor during a 90-day performance period (as measured from the start of your billing cycle), ShiFt will:</P>
-                <BulletList items={[
-                  "Pause monthly RevShare billing for the subsequent 30-day period",
-                  "Continue providing all Platform services during the paused period without charge",
-                  "Resume billing only when the Revenue Floor is met on a trailing 90-day basis",
-                ]} />
-                <AlertBox>IMPORTANT: The Revenue Floor Guarantee is a BILLING PAUSE — not a refund, cancellation right, or money-back guarantee. The RAF is non-refundable. ShiFt does not guarantee specific revenue outcomes; the guarantee applies only to the billing pause described above.</AlertBox>
-              </SubSection>
-              <SubSection title="7.3 Guarantee Conditions">
-                <P>The Revenue Floor Guarantee applies only when:</P>
-                <BulletList items={[
-                  "Client has completed Platform setup and onboarding within 14 days of RAF payment",
-                  "Client's Platform account is active and in good standing (no past-due balances)",
-                  "Client has not materially modified, disabled, or restricted Platform features",
-                  "Client has responded to Platform-generated leads within commercially reasonable time",
-                  "Client has provided accurate and complete business information",
-                ]} />
-              </SubSection>
-              <SubSection title="7.4 Guarantee Exclusions">
-                <P>The Revenue Floor Guarantee does not apply to revenue shortfalls caused by:</P>
-                <BulletList items={[
-                  "Force majeure events, natural disasters, or weather events not constituting storm-season activation",
-                  "Changes in applicable law that prevent Platform operation",
-                  "Client's failure to honor booked appointments",
-                  "Client's account suspension due to non-payment or ToS violation",
-                  "Client's discontinuation of advertising or lead generation activities that were active at signup",
-                ]} />
+              <SubSection title="7.2 Guarantee Exclusions">
+                <P>The billing pause does not apply when revenue shortfall results from: Client's failure to honor appointments; Client's discontinuation of advertising active at onboarding; account suspension for non-payment or Agreement violation; force majeure events; or changes in law restricting Platform operation.</P>
               </SubSection>
             </Section>
 
+            {/* Section 8 */}
             <Section number="8" title="TCPA and Telemarketing Compliance">
-              <SubSection title="8.1 Client Obligations">
-                <P>Client represents, warrants, and covenants that:</P>
-                <BulletList items={[
-                  "Client has obtained and will maintain all legally required prior express written consents from End Users before the Platform makes automated calls or sends automated text messages on Client's behalf, including consents required under TCPA, 47 U.S.C. § 227",
-                  "Client will comply with all federal and state telemarketing laws, including the National Do Not Call Registry requirements, state do-not-call laws, and applicable calling-time restrictions",
-                  "Client will promptly communicate all End User opt-out requests to ShiFt within 24 hours",
-                  "Client will not instruct the Platform to contact any individual who has previously opted out or requested no further contact",
-                  "Client will maintain accurate and complete consent records for a minimum of 5 years and make them available to ShiFt upon request",
-                ]} />
+              <P>The Platform makes automated calls and sends automated SMS messages to End Users on Client's behalf. These activities are subject to the Telephone Consumer Protection Act (TCPA), 47 U.S.C. § 227.</P>
+              <SubSection title="8.1 Client's Obligations">
+                <P>Client represents, warrants, and covenants that it has obtained and will maintain all legally required prior express written consents; will comply with all Do-Not-Call laws; will communicate opt-out requests to ShiFt within 24 hours; will not contact individuals who have opted out; and will maintain consent records for 5 years.</P>
               </SubSection>
-              <SubSection title="8.2 ShiFt TCPA Commitments">
-                <P>ShiFt will:</P>
-                <BulletList items={[
-                  "Honor opt-out commands (e.g., STOP, UNSUBSCRIBE) in automated SMS messages within the Platform",
-                  "Include legally required identification information in automated communications",
-                  "Provide Client with configurable time-of-day restrictions for automated outreach",
-                ]} />
+              <SubSection title="8.2 ShiFt's TCPA Commitments">
+                <P>ShiFt will honor opt-out commands (STOP, UNSUBSCRIBE) in automated SMS messages; include legally required identification in automated communications; and provide Client with configurable time-of-day restrictions.</P>
               </SubSection>
               <SubSection title="8.3 TCPA Indemnification">
-                <AlertBox>CLIENT AGREES TO INDEMNIFY, DEFEND, AND HOLD HARMLESS SHIFT, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS FROM ANY CLAIMS, DAMAGES, FINES, PENALTIES, ATTORNEYS' FEES, AND COSTS ARISING FROM: (A) CLIENT'S FAILURE TO OBTAIN REQUIRED TCPA CONSENTS; (B) CLIENT'S VIOLATION OF ANY TELEMARKETING LAWS; OR (C) ANY UNAUTHORIZED USE OF THE PLATFORM BY CLIENT OR CLIENT'S END USERS.</AlertBox>
+                <AlertBox>
+                  ⚖️ TCPA INDEMNIFICATION — CLIENT AGREES TO INDEMNIFY, DEFEND, AND HOLD HARMLESS SHIFT, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS FROM ANY AND ALL CLAIMS, DAMAGES, FINES, PENALTIES, REGULATORY ACTIONS, ATTORNEYS' FEES, AND COSTS ARISING FROM: (A) CLIENT'S FAILURE TO OBTAIN REQUIRED TCPA CONSENTS; (B) CLIENT'S VIOLATION OF ANY TELEMARKETING LAW; OR (C) ANY UNAUTHORIZED USE OF THE PLATFORM TO CONTACT END USERS.
+                </AlertBox>
               </SubSection>
             </Section>
 
+            {/* Section 9 */}
             <Section number="9" title="Intellectual Property">
               <SubSection title="9.1 ShiFt IP">
-                <P>ShiFt retains all right, title, and interest in and to the Platform, including all software, AI models, algorithms, interfaces, designs, trademarks (including ShiFt NeuralOS™), and all related intellectual property. Nothing in this Agreement transfers any IP rights to Client.</P>
+                <P>ShiFt retains all right, title, and interest in and to the Platform, including all software, AI models, algorithms, interfaces, designs, and trademarks (including ShiFt NeuralOS™). Nothing in this Agreement transfers any IP rights to Client.</P>
               </SubSection>
               <SubSection title="9.2 Client Data">
-                <P>Client retains ownership of Client's business data and End User data provided to the Platform. Client grants ShiFt a limited license to process Client data solely to provide the Platform services. Client represents that it has all rights to provide such data to ShiFt.</P>
+                <P>Client retains ownership of its business data and End User data. Client grants ShiFt a limited license to process such data solely to provide Platform services.</P>
               </SubSection>
-              <SubSection title="9.3 Feedback">
-                <P>If you provide ShiFt with feedback, suggestions, or ideas about the Platform, you grant ShiFt a perpetual, irrevocable, royalty-free license to use such feedback without restriction or compensation.</P>
-              </SubSection>
-              <SubSection title="9.4 Aggregated Data">
-                <P>ShiFt may use aggregated, de-identified data derived from Platform usage to improve the Platform, develop new features, and publish industry benchmarks. Such aggregated data does not identify individual Clients.</P>
+              <SubSection title="9.3 Feedback and Aggregated Data">
+                <P>Client grants ShiFt a perpetual, royalty-free license to use any feedback provided without restriction. ShiFt may use aggregated, de-identified Platform data to improve the Platform and publish industry benchmarks.</P>
               </SubSection>
             </Section>
 
+            {/* Section 10 */}
             <Section number="10" title="Confidentiality">
-              <P>Each party agrees to maintain the confidentiality of the other party's non-public business information disclosed in connection with this Agreement ("Confidential Information") and not to disclose it to third parties without prior written consent. Confidential Information excludes information that: (a) is or becomes publicly known through no breach of this Agreement; (b) was rightfully known before disclosure; (c) is independently developed; or (d) must be disclosed by law (with prompt notice to the disclosing party).</P>
-              <P>The RevShare rates, Revenue Floor amounts, and financial terms of your specific agreement with ShiFt are Confidential Information of both parties.</P>
+              <P>Each party agrees to maintain the confidentiality of the other party's non-public business information and not to disclose it to third parties without prior written consent. Exceptions apply for information that becomes publicly known without breach, was rightfully known before disclosure, is independently developed, or must be disclosed by law. The financial terms of each Client's specific agreement with ShiFt are Confidential Information of both parties.</P>
             </Section>
 
+            {/* Section 11 */}
             <Section number="11" title="Data Protection">
-              <P>ShiFt's collection and processing of personal information is governed by our Privacy Policy, incorporated herein by reference. To the extent ShiFt processes personal information of End Users on Client's behalf, ShiFt acts as a service provider/data processor. Client acts as the data controller and is responsible for ensuring lawful bases for processing, including obtaining all required End User consents.</P>
-              <P>Client agrees to enter into a Data Processing Agreement ("DPA") upon request, to the extent required by applicable privacy laws including the California Consumer Privacy Act (CCPA) or other applicable state or federal privacy regulations.</P>
+              <P>ShiFt's collection and processing of personal information is governed by the ShiFt Privacy Policy, incorporated herein by reference and available at ShiFtNow.io/privacy. To the extent ShiFt processes End User data on Client's behalf, ShiFt acts as a data processor and Client acts as the data controller. Client agrees to execute a Data Processing Agreement (DPA) upon request where required by applicable privacy law.</P>
             </Section>
 
+            {/* Section 12 */}
             <Section number="12" title="Warranties and Disclaimers">
               <SubSection title="12.1 ShiFt Warranties">
-                <BulletList items={[
-                  "The Platform will perform materially in accordance with its documentation under normal use conditions",
-                  "ShiFt will implement industry-standard security measures as described in the Privacy Policy",
-                  "ShiFt has the right to provide the Platform as described in this Agreement",
-                ]} />
+                <P>ShiFt warrants that the Platform will perform materially in accordance with its documentation under normal use conditions; ShiFt will implement industry-standard security measures; and ShiFt has the right to provide the Platform as described.</P>
               </SubSection>
               <SubSection title="12.2 Client Warranties">
-                <BulletList items={[
-                  "All information provided to ShiFt is accurate and complete",
-                  "Client has obtained all required TCPA consents and complies with all telemarketing laws",
-                  "Client's use of the Platform complies with all applicable laws",
-                  "Client is a legitimate roofing contractor with the authority to enter this Agreement",
-                ]} />
+                <P>Client warrants that all information provided is accurate and complete; Client has obtained all required TCPA consents; Client's use of the Platform complies with all applicable laws; and Client is a legitimate roofing contractor with authority to enter this Agreement.</P>
               </SubSection>
               <SubSection title="12.3 Disclaimer of Warranties">
-                <AlertBox>EXCEPT AS EXPRESSLY SET FORTH IN SECTION 12.1, THE PLATFORM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR UNINTERRUPTED SERVICE. SHIFT DOES NOT WARRANT THAT THE PLATFORM WILL BE ERROR-FREE OR THAT ANY PARTICULAR REVENUE RESULTS WILL BE ACHIEVED. THE REVENUE FLOOR GUARANTEE IS THE SOLE REMEDY FOR SERVICE PERFORMANCE SHORTFALLS.</AlertBox>
+                <AlertBox color="#FA982F">
+                  📋 WARRANTY DISCLAIMER — EXCEPT AS SET FORTH IN SECTION 12.1, THE PLATFORM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR UNINTERRUPTED SERVICE. SHIFT DOES NOT WARRANT ANY PARTICULAR REVENUE OUTCOME. THE REVENUE FLOOR GUARANTEE BILLING PAUSE IS THE SOLE REMEDY FOR PERFORMANCE SHORTFALLS.
+                </AlertBox>
               </SubSection>
             </Section>
 
+            {/* Section 13 */}
             <Section number="13" title="Limitation of Liability">
-              <AlertBox>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW: (A) IN NO EVENT WILL EITHER PARTY BE LIABLE TO THE OTHER FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING LOST PROFITS, LOST REVENUE, OR LOSS OF DATA, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; (B) SHIFT'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT WILL NOT EXCEED THE GREATER OF: (I) THE TOTAL REVSHARE FEES PAID BY CLIENT IN THE 12 MONTHS PRECEDING THE CLAIM, OR (II) $10,000.</AlertBox>
-              <P>The limitations above do not apply to: (1) Client's TCPA indemnification obligations under Section 8.3; (2) Client's payment obligations; (3) either party's gross negligence or willful misconduct; or (4) either party's violation of the other's intellectual property rights.</P>
+              <AlertBox>
+                ⚖️ LIMITATION OF LIABILITY — TO THE MAXIMUM EXTENT PERMITTED BY LAW: (A) NEITHER PARTY WILL BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING LOST PROFITS OR LOST REVENUE; AND (B) SHIFT'S TOTAL LIABILITY WILL NOT EXCEED THE GREATER OF: (I) TOTAL REVSHARE FEES PAID BY CLIENT IN THE 12 MONTHS PRECEDING THE CLAIM, OR (II) $10,000. THESE LIMITATIONS DO NOT APPLY TO: CLIENT'S TCPA INDEMNIFICATION OBLIGATIONS; CLIENT'S PAYMENT OBLIGATIONS; EITHER PARTY'S GROSS NEGLIGENCE OR WILLFUL MISCONDUCT; OR IP RIGHTS VIOLATIONS.
+              </AlertBox>
             </Section>
 
+            {/* Section 14 */}
             <Section number="14" title="Indemnification">
               <SubSection title="14.1 Client's Indemnification Obligations">
-                <P>Client agrees to indemnify, defend, and hold harmless ShiFt, its affiliates, officers, directors, employees, agents, licensors, and service providers from any claims, damages, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from:</P>
-                <BulletList items={[
-                  "Client's breach of this Agreement, including TCPA violations",
-                  "Client's violation of any applicable law",
-                  "Client's use of the Platform in a manner not permitted by this Agreement",
-                  "Client's provision of inaccurate or misleading information",
-                  "Claims by End Users arising from Client's business operations",
-                ]} />
+                <P>Client agrees to indemnify, defend, and hold harmless ShiFt, its affiliates, officers, directors, employees, and agents from any claims, damages, liabilities, costs, and expenses (including attorneys' fees) arising from: Client's breach of this Agreement; Client's TCPA violations; Client's violation of any applicable law; Client's provision of inaccurate information; or claims by End Users arising from Client's business operations.</P>
               </SubSection>
               <SubSection title="14.2 ShiFt's Indemnification Obligations">
-                <P>ShiFt agrees to indemnify, defend, and hold harmless Client from third-party claims alleging that the Platform itself (excluding Client data or Client's use) infringes any United States intellectual property right, provided Client promptly notifies ShiFt of such claim.</P>
+                <P>ShiFt agrees to indemnify Client from third-party claims alleging that the Platform itself (excluding Client data or Client's use) infringes any U.S. intellectual property right, provided Client promptly notifies ShiFt.</P>
               </SubSection>
             </Section>
 
+            {/* Section 15 */}
             <Section number="15" title="Term and Termination">
               <SubSection title="15.1 Term">
-                <P>This Agreement commences on the date Client pays the RAF and continues on a month-to-month basis unless terminated as provided herein. There is no minimum contract term after the initial RAF payment.</P>
+                <P>This Agreement commences on the date Client pays the RAF. The Initial 90-Day Term is non-cancelable as set forth in Section 4. After the Initial Term and execution of a RevShare Addendum, the Agreement continues month-to-month until terminated.</P>
               </SubSection>
               <SubSection title="15.2 Termination by Client">
-                <P>Client may terminate this Agreement at any time by providing 30 days' written notice to ShiFt. The RAF is non-refundable upon termination.</P>
+                <P>After the Initial Term, Client may terminate with 30 days' written notice to <a href="mailto:legal@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>legal@shiftnow.io</a>. All accrued RevShare amounts remain due. The RAF is non-refundable upon termination.</P>
               </SubSection>
               <SubSection title="15.3 Termination by ShiFt">
-                <P>ShiFt may terminate this Agreement:</P>
-                <BulletList items={[
-                  "Immediately upon Client's material breach of Sections 3.2 (Restrictions), 8 (TCPA Compliance), or 9 (Intellectual Property)",
-                  "Upon 30 days' written notice for any reason",
-                  "Immediately if Client becomes insolvent or subject to bankruptcy proceedings",
-                ]} />
+                <P>ShiFt may terminate immediately upon: chargeback initiation; material TCPA breach; fraud; unauthorized Platform use; or Client insolvency. ShiFt may terminate with 30 days' written notice for any reason at its discretion.</P>
               </SubSection>
               <SubSection title="15.4 Effect of Termination">
-                <BulletList items={[
-                  "Client's license to use the Platform terminates immediately",
-                  "All outstanding RevShare amounts become immediately due and payable",
-                  "ShiFt will provide Client with a data export of Client's business data within 30 days",
-                  "Confidentiality, indemnification, limitation of liability, and dispute resolution provisions survive termination",
-                ]} />
+                <P>Upon termination: Platform access is revoked; all outstanding amounts become immediately due; ShiFt will provide a data export within 30 days upon written request; and Sections 5, 8, 9, 10, 12, 13, 14, and 17 survive indefinitely.</P>
               </SubSection>
             </Section>
 
+            {/* Section 16 */}
             <Section number="16" title="The ShiFt Circle — Referral Program">
               <BulletList items={[
-                "Eligibility: Client must have been active on the Platform for at least 61 days and have at least one confirmed booked job",
-                "Demo Referral Incentive: $500 credit applied to Client's RevShare balance for each referred prospect who completes a Revenue Demo",
-                "Qualified Client Incentive: RAF waiver for referred Client plus 1% permanent RevShare rate reduction for referring Client, upon referred Client's activation",
-                "Milestone Reductions: Additional 1% reduction at 3, 5, and 10 qualified referrals",
-                "Minimum Rate Floor: 8% RevShare regardless of referral credits",
-                "Attribution Window: 90 days from initial referral",
-                "ShiFt reserves the right to modify or discontinue the ShiFt Circle program with 60 days' notice, with earned credits grandfathered",
+                "Eligibility: Day 61+ with at least one confirmed booked job",
+                "Demo Referral Incentive: $500 RevShare credit",
+                "Qualified Client Incentive: RAF waiver for referred Client plus 1% permanent rate reduction for referring Client",
+                "Milestone Reductions: additional 1% at 3, 5, and 10 qualified referrals",
+                "Minimum Rate Floor: 8%",
+                "Attribution Window: 90 days",
+                "ShiFt may modify or discontinue the ShiFt Circle with 60 days' notice; earned credits are grandfathered",
               ]} />
             </Section>
 
+            {/* Section 17 */}
             <Section number="17" title="Dispute Resolution and Arbitration">
-              <SubSection title="17.1 Informal Resolution">
-                <P>Before initiating formal dispute resolution, the parties agree to attempt good-faith resolution by providing written notice of the dispute to the other party and negotiating for at least 30 days.</P>
+              <SubSection title="17.1 Mandatory Pre-Dispute Process">
+                <P>Before any formal proceeding, the party asserting a dispute must deliver written notice to <a href="mailto:legal@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>legal@shiftnow.io</a> and negotiate in good faith for at least 30 days.</P>
               </SubSection>
               <SubSection title="17.2 Binding Arbitration">
-                <AlertBox>EXCEPT AS PROVIDED IN SECTION 17.4, ANY DISPUTE ARISING OUT OF OR RELATING TO THIS AGREEMENT WILL BE RESOLVED BY BINDING ARBITRATION ADMINISTERED BY THE AMERICAN ARBITRATION ASSOCIATION (AAA) UNDER ITS COMMERCIAL ARBITRATION RULES. ARBITRATION WILL TAKE PLACE IN ATLANTA, GEORGIA, OR REMOTELY BY AGREEMENT. THE ARBITRATOR'S AWARD IS FINAL AND BINDING AND MAY BE ENTERED AS A JUDGMENT IN ANY COURT OF COMPETENT JURISDICTION.</AlertBox>
+                <AlertBox>
+                  ⚖️ BINDING ARBITRATION — ANY AND ALL DISPUTES ARISING OUT OF OR RELATING TO THIS AGREEMENT WILL BE RESOLVED BY BINDING ARBITRATION administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules, seated in Cherokee County, Georgia, or remotely by agreement. The arbitrator's decision is final and enforceable. CLIENT WAIVES THE RIGHT TO A JURY TRIAL AND TO PARTICIPATE IN ANY CLASS ACTION OR COLLECTIVE PROCEEDING. ALL CLAIMS MUST BE BROUGHT ON AN INDIVIDUAL BASIS.
+                </AlertBox>
               </SubSection>
-              <SubSection title="17.3 Class Action Waiver">
-                <AlertBox>CLIENT WAIVES ANY RIGHT TO BRING CLAIMS AGAINST SHIFT AS A CLASS ACTION, COLLECTIVE ACTION, OR REPRESENTATIVE ACTION. ALL DISPUTES MUST BE BROUGHT ON AN INDIVIDUAL BASIS.</AlertBox>
+              <SubSection title="17.3 Exceptions to Arbitration">
+                <P>Either party may seek injunctive relief in courts located in Cherokee County, Georgia for: (a) IP rights protection; (b) breach of confidentiality; or (c) claims for which arbitration is prohibited by law.</P>
               </SubSection>
-              <SubSection title="17.4 Exceptions to Arbitration">
-                <P>Either party may seek injunctive or equitable relief in a court of competent jurisdiction for: (a) protection of intellectual property rights; (b) breach of confidentiality obligations; or (c) claims for which arbitration is prohibited by law.</P>
-              </SubSection>
-              <SubSection title="17.5 Governing Law">
-                <P>This Agreement is governed by the laws of the State of Georgia, without regard to conflict-of-laws principles. Federal courts and state courts located in Atlanta, Georgia have exclusive jurisdiction for matters exempt from arbitration.</P>
+              <SubSection title="17.4 Governing Law">
+                <P>This Agreement is governed by the laws of the State of Georgia, without regard to conflict-of-laws principles. Courts in Cherokee County, Georgia have exclusive jurisdiction for matters exempt from arbitration.</P>
               </SubSection>
             </Section>
 
+            {/* Section 18 */}
             <Section number="18" title="Force Majeure">
-              <P>Neither party is liable for delays or failures in performance resulting from causes beyond that party's reasonable control, including natural disasters, acts of government, pandemics, telecommunications failures, or other force majeure events. This provision does not excuse Client's obligation to pay outstanding RevShare amounts.</P>
+              <P>Neither party is liable for delays caused by events beyond their reasonable control, including natural disasters, pandemics, government actions, or telecommunications failures. This provision does not excuse Client's payment obligations.</P>
             </Section>
 
+            {/* Section 19 */}
             <Section number="19" title="General Provisions">
               <SubSection title="19.1 Entire Agreement">
-                <P>This Agreement, together with any Order Form and ShiFt's Privacy Policy and Cookie Policy, constitutes the entire agreement between the parties regarding the Platform and supersedes all prior agreements.</P>
+                <P>This Agreement, together with the executed Client Agreement or Quick Start Agreement, any RevShare Addendum, and the ShiFt Privacy Policy and Cookie Policy, constitutes the entire agreement between the Parties and supersedes all prior agreements.</P>
               </SubSection>
               <SubSection title="19.2 Severability">
-                <P>If any provision of this Agreement is found unenforceable, the remaining provisions continue in full force and effect.</P>
+                <P>If any provision is unenforceable, the remaining provisions continue in full force.</P>
               </SubSection>
               <SubSection title="19.3 Waiver">
-                <P>Failure to enforce any provision of this Agreement does not constitute a waiver of the right to enforce it in the future.</P>
+                <P>Failure to enforce any provision does not waive the right to enforce it in the future.</P>
               </SubSection>
               <SubSection title="19.4 Assignment">
-                <P>Client may not assign this Agreement without ShiFt's prior written consent. ShiFt may assign this Agreement in connection with a merger, acquisition, or sale of all or substantially all of its assets.</P>
+                <P>Client may not assign this Agreement without ShiFt's prior written consent. ShiFt may assign in connection with a business transfer or acquisition.</P>
               </SubSection>
               <SubSection title="19.5 Notices">
-                <P>Notices must be in writing and delivered by email (with confirmation) or certified mail. Notices to ShiFt: <a href="mailto:hello@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>hello@shiftnow.io</a>, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004. Notices to Client: the email address on file in Client's account.</P>
+                <P>Formal notices to ShiFt: <a href="mailto:legal@shiftnow.io" className="hover:text-white transition-colors" style={{ color: "#F54A48" }}>legal@shiftnow.io</a>, Cherokee County, Georgia. Notices to Client: the email address on record in Client's account.</P>
               </SubSection>
-              <SubSection title="19.6 No Agency">
-                <P>The parties are independent contractors. Nothing in this Agreement creates a partnership, joint venture, agency, or employment relationship.</P>
+              <SubSection title="19.6 Electronic Signatures">
+                <P>This Agreement may be executed electronically. Electronic signatures have the same legal effect as handwritten signatures under the E-SIGN Act and applicable state law.</P>
+              </SubSection>
+              <SubSection title="19.7 No Agency">
+                <P>The Parties are independent contractors. Nothing herein creates a partnership, joint venture, agency, or employment relationship.</P>
               </SubSection>
             </Section>
 
+            {/* Section 20 */}
             <Section number="20" title="Contact Information">
               <BulletList items={[
-                "Email: legal@shiftnow.io",
+                "Legal: legal@shiftnow.io",
                 "General: hello@shiftnow.io",
-                "Address: ShiFt NeuralOS™, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004",
+                "Jurisdiction: Cherokee County, Georgia",
                 "Website: ShiFtNow.io",
               ]} />
             </Section>
 
             <div className="mt-10 pt-8 border-t text-center" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-              <p className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-                ShiFt NeuralOS™ — Terms of Service — Effective March 15, 2026
+              <p className="font-mono text-xs mb-2" style={{ color: "rgba(255,255,255,0.25)" }}>
+                ShiFt NeuralOS™ — Terms of Service — Effective March 15, 2026 — Cherokee County, Georgia
+              </p>
+              <p className="font-body text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
+                This document is incorporated by reference into all ShiFt Client Agreements and Quick Start Agreements. It should be reviewed by qualified legal counsel prior to publication.
               </p>
             </div>
           </div>
