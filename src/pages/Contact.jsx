@@ -144,8 +144,8 @@ export default function Contact() {
                       <div className="font-body text-sm mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>
                         Phone
                       </div>
-                      <a href="tel:+15551234567" className="font-body text-white hover:text-[#FA982F] transition-colors">
-                        (555) 123-4567
+                      <a href="tel:+17074448669" className="font-body text-white hover:text-[#FA982F] transition-colors">
+                        (707) SHIFT-NOW
                       </a>
                     </div>
                   </div>
@@ -156,9 +156,13 @@ export default function Contact() {
                         Address
                       </div>
                       <div className="font-body text-white">
-                        123 Innovation Drive
+                        ShiFt NeuralOS
                         <br />
-                        San Francisco, CA 94105
+                        12460 Crabapple Road
+                        <br />
+                        Ste 202-522
+                        <br />
+                        Alpharetta, GA 30004
                       </div>
                     </div>
                   </div>
