@@ -343,9 +343,15 @@ export default function RevenueEnginePlans() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px" }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FA982F" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                  <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FA982F", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 3 per market</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(245,74,72,0.1)", border: "1px solid rgba(245,74,72,0.3)", borderRadius: "999px", padding: "5px 12px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F54A48" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#F54A48", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>Exclusive Leads</span>
+                  </div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FA982F" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FA982F", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 3 per market</span>
+                  </div>
                 </div>
 
                 <button className="rep-btn-ghost" style={{ marginBottom: "24px" }}
@@ -411,9 +417,15 @@ export default function RevenueEnginePlans() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px" }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FA982F" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                  <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FA982F", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 3 per market</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(245,74,72,0.1)", border: "1px solid rgba(245,74,72,0.3)", borderRadius: "999px", padding: "5px 12px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F54A48" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#F54A48", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>Exclusive Leads</span>
+                  </div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FA982F" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FA982F", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 3 per market</span>
+                  </div>
                 </div>
 
                 <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" rel="noreferrer" className="rep-btn-primary" style={{ marginBottom: "24px", textDecoration: "none" }}>
@@ -467,9 +479,15 @@ export default function RevenueEnginePlans() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px" }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                  <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FFD700", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 1 per market</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.35)", borderRadius: "999px", padding: "5px 12px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FFD700", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>Exclusive Leads + Exclusive Market</span>
+                  </div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    <span className="rep-font-mono" style={{ fontSize: "10px", color: "#FFD700", textTransform: "uppercase", letterSpacing: "0.1em" }}>Limited to 1 per market</span>
+                  </div>
                 </div>
 
                 <button className="rep-btn-ghost" style={{ marginBottom: "24px", borderColor: "rgba(255,215,0,0.2)", color: "#FFD700" }}
