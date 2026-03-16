@@ -95,11 +95,11 @@ export default function TermsOfService() {
               <BulletList items={[
                 "These Terms of Service are read, reviewed, and agreed to in their entirety as part of the signing process",
                 "In the event of any conflict between the terms of the Client Agreement or Quick Start Agreement and these Terms of Service, these Terms of Service control, except where the Client Agreement or Quick Start Agreement contains more specific or more restrictive provisions, in which case the more protective provision for ShiFt governs",
-                "These Terms of Service are available at ShiFtNow.io/terms and may be updated by ShiFt with 30 days' written notice to Client's registered email address",
+                "These Terms of Service are available at ShiFtNow.io/TermsOfService and may be updated by ShiFt with 30 days' written notice to Client's registered email address",
                 "Client's continued use of the Platform after the effective date of any update constitutes acceptance of the updated Terms",
               ]} />
               <InfoBox>
-                <strong>Where To Find This Document</strong> — ShiFtNow.io/terms — A current copy is always maintained at this URL. The version in effect on the date of your Agreement execution governs your engagement.
+                <strong>Where To Find This Document</strong> — ShiFtNow.io/TermsOfService — A current copy is always maintained at this URL. The version in effect on the date of your Agreement execution governs your engagement.
               </InfoBox>
             </Section>
 
