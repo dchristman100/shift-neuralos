@@ -318,7 +318,7 @@ export default function RevenueEnginePlans() {
               <div style={{ padding: "36px 32px", flex: 1, display: "flex", flexDirection: "column" }}>
                 <div className="rep-font-mono" style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "8px" }}>ICP: $1M–$3M Revenue</div>
                 <div className="rep-font-display" style={{ fontSize: "36px", fontWeight: 900, letterSpacing: "-1px", color: "#F54A48", marginBottom: "8px" }}>ACTIVATE</div>
-                <div className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "24px" }}>Your Revenue Engine on Organic</div>
+                <div className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "24px" }}>Your Revenue Engine on Organic - GBP &amp; SEO</div>
 
                 <div style={{ background: "rgba(245,74,72,0.06)", border: "1px solid rgba(245,74,72,0.15)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
                   <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
@@ -329,7 +329,7 @@ export default function RevenueEnginePlans() {
                   <div className="rep-font-display" style={{ fontSize: "40px", fontWeight: 900, letterSpacing: "-1px", color: "#fff", marginBottom: "4px" }}>$1,997<span style={{ fontSize: "18px", fontWeight: 500, color: "rgba(255,255,255,0.4)" }}>/mo</span></div>
                   {[
                     ["Revenue Engine Operation", "$1,297"],
-                    ["Lead Intelligence (Organic)", "$700"],
+                    ["Lead Intelligence (Organic - GBP & SEO)", "$700"],
                   ].map(([l, v]) => (
                     <div key={l} style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", fontSize: "12px", fontFamily: "'DM Sans', sans-serif" }}>
                       <span style={{ color: "rgba(255,255,255,0.45)" }}>{l}</span>
@@ -338,7 +338,7 @@ export default function RevenueEnginePlans() {
                   ))}
                   <div style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", fontSize: "12px", fontFamily: "'DM Sans', sans-serif" }}>
                     <span style={{ color: "rgba(255,255,255,0.45)" }}>RevShare on incremental revenue</span>
-                    <span style={{ color: "#FA982F", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>15%</span>
+                    <span style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}>N/A</span>
                   </div>
                 </div>
 
@@ -399,9 +399,13 @@ export default function RevenueEnginePlans() {
                       <span style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'JetBrains Mono', monospace" }}>{v}</span>
                     </div>
                   ))}
+                  <div style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", fontSize: "12px", fontFamily: "'DM Sans', sans-serif" }}>
+                    <span style={{ color: "rgba(255,255,255,0.45)" }}>Paid Social Ads (Facebook/IG)</span>
+                    <span style={{ color: "#FA982F", fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}>+$1,500 add-on</span>
+                  </div>
                   <div style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", fontSize: "12px", fontFamily: "'DM Sans', sans-serif" }}>
                     <span style={{ color: "rgba(255,255,255,0.45)" }}>RevShare on incremental revenue</span>
-                    <span style={{ color: "#FA982F", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>12%</span>
+                    <span style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}>N/A</span>
                   </div>
                 </div>
 
@@ -456,7 +460,7 @@ export default function RevenueEnginePlans() {
                   ))}
                   <div style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", fontSize: "12px", fontFamily: "'DM Sans', sans-serif" }}>
                     <span style={{ color: "rgba(255,255,255,0.45)" }}>RevShare on incremental revenue</span>
-                    <span style={{ color: "#FA982F", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>10%</span>
+                    <span style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}>N/A</span>
                   </div>
                 </div>
 
@@ -493,8 +497,12 @@ export default function RevenueEnginePlans() {
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "20px 28px", textAlign: "center" }}>
             <p className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
               All packages require a one-time <strong style={{ color: "rgba(255,255,255,0.7)" }}>$5,000 Revenue Engine Installation</strong> fee, collected at signing.
-              Ad spend (AMPLIFY/DOMINATE) paid directly by you to Google/Meta — never through ShiFt.
+              Ad spend paid directly by you to Google/Meta — never through ShiFt.
             </p>
+            <div style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(250,152,47,0.08)", border: "1px solid rgba(250,152,47,0.25)", borderRadius: "8px", padding: "8px 16px" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FA982F" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              <span className="rep-font-mono" style={{ fontSize: "11px", color: "#FA982F", letterSpacing: "0.05em" }}>Client is responsible for all Ad Spend — applies to all packages</span>
+            </div>
           </div>
         </div>
       </section>
