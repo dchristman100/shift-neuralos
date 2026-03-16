@@ -278,7 +278,7 @@ export default function PrivacyPolicy() {
                 <P>Submit privacy requests to:</P>
                 <BulletList items={[
                   "Email: privacy@shiftnow.io",
-                  "Mail: ShiFt NeuralOS™, Attn: Privacy Officer, Atlanta, GA",
+                  "Mail: ShiFt NeuralOS™, Attn: Privacy Officer, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004",
                 ]} />
                 <P>We may need to verify your identity before processing your request. We will not discriminate against you for exercising your privacy rights.</P>
               </SubSection>
@@ -308,7 +308,7 @@ export default function PrivacyPolicy() {
               <P>For privacy-related questions, requests, or concerns, contact us:</P>
               <BulletList items={[
                 "Email: privacy@shiftnow.io",
-                "Mail: ShiFt NeuralOS™, Attn: Privacy Officer, Atlanta, GA",
+                "Mail: ShiFt NeuralOS™, Attn: Privacy Officer, 12460 Crabapple Road, Ste 202-522, Alpharetta, GA 30004",
                 "Website: ShiFtNow.io",
               ]} />
             </Section>
