@@ -323,6 +323,7 @@ export default function RevenueEnginePlans() {
                 <div style={{ background: "rgba(245,74,72,0.06)", border: "1px solid rgba(245,74,72,0.15)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
                   <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
                   <div className="rep-font-display" style={{ fontSize: "20px", fontWeight: 800, color: "#F54A48" }}>$15K–$30K/mo</div>
+                  <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "6px", fontWeight: 700 }}>3x–4x Target ROI Expected</div>
                 </div>
 
                 <div style={{ marginBottom: "24px" }}>
@@ -386,6 +387,7 @@ export default function RevenueEnginePlans() {
                 <div style={{ background: "rgba(245,74,72,0.08)", border: "1px solid rgba(245,74,72,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
                   <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
                   <div className="rep-font-display rep-grad-text" style={{ fontSize: "20px", fontWeight: 800 }}>$30K–$60K/mo</div>
+                  <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "6px", fontWeight: 700 }}>5x–6x Target ROI Expected</div>
                 </div>
 
                 <div style={{ marginBottom: "24px" }}>
@@ -445,6 +447,7 @@ export default function RevenueEnginePlans() {
                 <div style={{ background: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
                   <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
                   <div className="rep-font-display" style={{ fontSize: "20px", fontWeight: 800, color: "#FFD700" }}>$60K–$120K/mo</div>
+                  <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "6px", fontWeight: 700 }}>7x–8x+ Target ROI Expected</div>
                 </div>
 
                 <div style={{ marginBottom: "24px" }}>
