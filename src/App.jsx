@@ -75,6 +75,10 @@ const AuthenticatedApp = () => {
       <Route path="/ExportRevenueLeaks" element={<LayoutWrapper currentPageName="ExportRevenueLeaks"><ExportRevenueLeaks /></LayoutWrapper>} />
       <Route path="/ExportResults" element={<LayoutWrapper currentPageName="ExportResults"><ExportResults /></LayoutWrapper>} />
       <Route path="/ExportAttractEmptyPipeline" element={<LayoutWrapper currentPageName="ExportAttractEmptyPipeline"><ExportAttractEmptyPipeline /></LayoutWrapper>} />
+      <Route path="/Blog" element={<LayoutWrapper currentPageName="Blog"><Blog /></LayoutWrapper>} />
+      <Route path="/Features" element={<LayoutWrapper currentPageName="Features"><Features /></LayoutWrapper>} />
+      <Route path="/Integrations" element={<LayoutWrapper currentPageName="Integrations"><Integrations /></LayoutWrapper>} />
+      <Route path="/CaseStudies" element={<LayoutWrapper currentPageName="CaseStudies"><CaseStudies /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
