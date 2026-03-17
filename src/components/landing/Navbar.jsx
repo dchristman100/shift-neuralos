@@ -114,7 +114,7 @@ export default function Navbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm" className="whitespace-nowrap w-32">See My Number</GradientButton>
+            <GradientButton size="sm" className="whitespace-nowrap w-32" href="/ROICalculator">See My ROI</GradientButton>
           </div>
         </div>
       </nav>

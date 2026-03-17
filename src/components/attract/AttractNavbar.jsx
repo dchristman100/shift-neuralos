@@ -110,8 +110,8 @@ export default function AttractNavbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm" variant="primary" className="whitespace-nowrap w-32 !bg-gradient-to-r from-[#FA982F] to-[#F54A48]">
-              Audit My Pipeline
+            <GradientButton size="sm" variant="primary" className="whitespace-nowrap w-32 !bg-gradient-to-r from-[#FA982F] to-[#F54A48]" href="/ROICalculator">
+              See My ROI
             </GradientButton>
           </div>
 
