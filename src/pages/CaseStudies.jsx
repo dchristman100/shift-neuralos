@@ -1,77 +1,119 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "../components/shared/SectionWrapper";
 import GradientButton from "../components/shared/GradientButton";
-import { ArrowRight, TrendingUp, DollarSign, Calendar, Users } from "lucide-react";
-import { Link } from "react-router-dom";
-import { createPageUrl } from "../utils";
+import RevenueGrowthChart from "../components/case-studies/RevenueGrowthChart";
+import { cases, SIZE_FILTERS, GROWTH_FILTERS } from "../components/case-studies/caseStudiesData";
+import { ArrowRight } from "lucide-react";
 
-const cases = [
-  {
-    company: "Titan Roofing Services",
-    location: "Dallas, TX",
-    package: "Convert",
-    color: "#F54A48",
-    headline: "From $750K to $7M in 6 Years",
-    problem: "Missing 42% of inbound leads. No after-hours coverage. $47K lost in a single storm month.",
-    result: "ShiFt implemented in 36 hours. Lead capture rate went from 58% to 98%. Revenue compounded to $7M+ by 2026.",
-    stats: [
-      { icon: DollarSign, value: "$7M+", label: "Annual Revenue" },
-      { icon: TrendingUp, value: "427%", label: "ROI on ShiFt" },
-      { icon: Calendar, value: "89%", label: "Show Rate" },
-      { icon: Users, value: "3.2×", label: "More Appointments" },
-    ],
-    quote: "ShiFt didn't just fix our lead problem — it became the foundation of our entire growth strategy.",
-    person: "Jake Torres, Owner",
-    featured: true,
-  },
-  {
-    company: "Storm Pros Roofing",
-    location: "Houston, TX",
-    package: "Convert",
-    color: "#FA982F",
-    headline: "$72K Booked in 30 Days",
-    problem: "Paying $6,500/month for leads. Only 18 out of 120 qualified. Sales team burned out on junk.",
-    result: "AI qualification eliminated tire-kickers before they hit the calendar. First 30 days: 340 conversations, 47 appointments, 9 jobs won.",
-    stats: [
-      { icon: DollarSign, value: "$72K", label: "Revenue in 30 days" },
-      { icon: Users, value: "47", label: "Appointments Booked" },
-      { icon: Calendar, value: "9", label: "Jobs Won" },
-      { icon: TrendingUp, value: "20×", label: "Monthly ROI" },
-    ],
-    quote: "We were spending $6,500/month on leads. Only 18 out of 120 were actually qualified. ShiFt's AI filters out the garbage before it hits my team.",
-    person: "Michael R., Owner",
-    featured: false,
-  },
-  {
-    company: "Summit Roofing Group",
-    location: "Denver, CO",
-    package: "Attract + Convert",
-    color: "#48BB78",
-    headline: "Pipeline Filled Year-Round",
-    problem: "Referral-dependent business. Pipeline dried up in off-season. No consistent lead generation.",
-    result: "ShiFt Attract built a multi-channel lead engine. Combined with Convert's AI qualification, booked jobs in January exceeded the previous August peak.",
-    stats: [
-      { icon: TrendingUp, value: "3×", label: "Off-Season Revenue" },
-      { icon: Calendar, value: "100%", label: "Lead Capture Rate" },
-      { icon: DollarSign, value: "$38K", label: "Added Monthly Revenue" },
-      { icon: Users, value: "0", label: "Extra Headcount Needed" },
-    ],
-    quote: "We stopped dreading winter. The pipeline keeps filling whether we're working or not.",
-    person: "Sarah M., Operations Director",
-    featured: false,
-  },
-];
+function FilterPills({ label, options, active, onChange }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="font-mono text-xs uppercase tracking-wider mr-1" style={{ color: "rgba(255,255,255,0.3)" }}>{label}</span>
+      {options.map(o => {
+        const isActive = active === o.key;
+        return (
+          <button
+            key={o.key}
+            onClick={() => onChange(o.key)}
+            className="font-mono text-xs uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-200"
+            style={{
+              background: isActive ? "#F54A48" : "rgba(255,255,255,0.05)",
+              color: isActive ? "#fff" : "rgba(255,255,255,0.5)",
+              border: `1px solid ${isActive ? "#F54A48" : "rgba(255,255,255,0.1)"}`,
+            }}
+          >
+            {o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function CaseCard({ c, index }) {
+  return (
+    <motion.div
+      layout
+      key={c.id}
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.97 }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="rounded-2xl overflow-hidden"
+      style={{ border: `1px solid ${c.color}33` }}
+    >
+      <div style={{ height: "3px", background: c.color }} />
+      <div className="p-7 md:p-9" style={{ background: `${c.color}08` }}>
+        {/* Header */}
+        <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+          <div>
+            <div className="flex items-center gap-3 mb-2 flex-wrap">
+              <span className="font-mono text-xs px-2 py-1 rounded uppercase tracking-wider"
+                style={{ background: `${c.color}18`, color: c.color, border: `1px solid ${c.color}33` }}>
+                {c.package}
+              </span>
+              <span className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>{c.location}</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white">{c.company}</h2>
+          </div>
+          <div className="font-display text-xl md:text-2xl font-black" style={{ color: c.color }}>{c.headline}</div>
+        </div>
+
+        {/* Problem / Result */}
+        <div className="grid md:grid-cols-2 gap-6 mb-7">
+          <div>
+            <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>The Problem</div>
+            <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.75 }}>{c.problem}</p>
+          </div>
+          <div>
+            <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>The Result</div>
+            <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.75 }}>{c.result}</p>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          {c.stats.map((s, si) => (
+            <div key={si} className="rounded-xl p-4 text-center"
+              style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="font-display text-xl font-black mb-1" style={{ color: c.color }}>{s.value}</div>
+              <div className="font-mono text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Quote */}
+        <div className="rounded-xl p-5" style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.06)" }}>
+          <p className="font-body text-sm italic mb-2" style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.75 }}>"{c.quote}"</p>
+          <div className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>— {c.person}</div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function CaseStudies() {
+  const [sizeFilter, setSizeFilter] = useState("all");
+  const [growthFilter, setGrowthFilter] = useState("all");
+
+  const filtered = useMemo(() => cases.filter(c => {
+    const sizeMatch = sizeFilter === "all" || c.size === sizeFilter;
+    const growthMatch = growthFilter === "all" || c.growthMilestone === growthFilter;
+    return sizeMatch && growthMatch;
+  }), [sizeFilter, growthFilter]);
+
+  const chartCases = filtered.length > 0 ? filtered : cases;
+
   return (
     <main className="pt-24">
       <SectionWrapper>
+        {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full mb-6 font-mono text-xs font-semibold uppercase tracking-wider"
             style={{ background: "rgba(245,74,72,0.12)", color: "#F54A48", border: "1px solid rgba(245,74,72,0.3)" }}>
@@ -86,68 +128,59 @@ export default function CaseStudies() {
           </p>
         </motion.div>
 
-        <div className="space-y-8 mb-20">
-          {cases.map((c, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl overflow-hidden"
-              style={{ border: `1px solid ${c.color}33` }}
+        {/* ── FILTER BAR ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="rounded-2xl p-5 mb-8 flex flex-col sm:flex-row gap-5 flex-wrap items-start"
+          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
+        >
+          <FilterPills label="Size" options={SIZE_FILTERS} active={sizeFilter} onChange={setSizeFilter} />
+          <div className="hidden sm:block w-px self-stretch" style={{ background: "rgba(255,255,255,0.08)" }} />
+          <FilterPills label="Growth" options={GROWTH_FILTERS} active={growthFilter} onChange={setGrowthFilter} />
+          {(sizeFilter !== "all" || growthFilter !== "all") && (
+            <button
+              onClick={() => { setSizeFilter("all"); setGrowthFilter("all"); }}
+              className="ml-auto font-mono text-xs px-3 py-1.5 rounded-full transition-all"
+              style={{ color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.1)", background: "transparent" }}
             >
-              {/* Top bar */}
-              <div style={{ height: "3px", background: c.color }} />
-              <div className="p-8 md:p-10" style={{ background: `${c.color}08` }}>
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-mono text-xs px-2 py-1 rounded uppercase tracking-wider"
-                        style={{ background: `${c.color}18`, color: c.color, border: `1px solid ${c.color}33` }}>
-                        {c.package}
-                      </span>
-                      <span className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>{c.location}</span>
-                    </div>
-                    <h2 className="font-display text-2xl md:text-3xl font-bold text-white">{c.company}</h2>
-                  </div>
-                  <div className="font-display text-2xl md:text-3xl font-black" style={{ color: c.color }}>{c.headline}</div>
-                </div>
+              Clear filters
+            </button>
+          )}
+        </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>The Problem</div>
-                    <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7 }}>{c.problem}</p>
-                  </div>
-                  <div>
-                    <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>The Result</div>
-                    <p className="font-body text-sm" style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7 }}>{c.result}</p>
-                  </div>
-                </div>
+        {/* ── CHART ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-10"
+        >
+          <RevenueGrowthChart cases={chartCases} />
+        </motion.div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                  {c.stats.map((s, si) => (
-                    <div key={si} className="rounded-xl p-4 text-center"
-                      style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                      <div className="font-display text-2xl font-black mb-1" style={{ color: c.color }}>{s.value}</div>
-                      <div className="font-mono text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <div className="rounded-xl p-5" style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <p className="font-body text-sm italic mb-3" style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
-                    "{c.quote}"
-                  </p>
-                  <div className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>— {c.person}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/* ── CASE CARDS ── */}
+        <div className="space-y-6 mb-20">
+          <AnimatePresence mode="popLayout">
+            {filtered.length > 0 ? (
+              filtered.map((c, i) => <CaseCard key={c.id} c={c} index={i} />)
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-center py-20"
+              >
+                <p className="font-mono text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>
+                  No case studies match these filters. Try adjusting your selection.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
+        {/* ── CTA ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
