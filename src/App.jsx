@@ -31,7 +31,7 @@ import LeakDetector from './pages/LeakDetector';
 import ROICalculator from './pages/ROICalculator';
 import DocumentsDownload from './pages/DocumentsDownload';
 import CustomerPortal from './pages/CustomerPortal';
-import CampaignInsights from './pages/CampaignInsights';
+
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -104,7 +104,7 @@ const AuthenticatedApp = () => {
       <Route path="/ROICalculator" element={<LayoutWrapper currentPageName="ROICalculator"><ROICalculator /></LayoutWrapper>} />
       <Route path="/DocumentsDownload" element={<LayoutWrapper currentPageName="DocumentsDownload"><DocumentsDownload /></LayoutWrapper>} />
       <Route path="/CustomerPortal" element={<LayoutWrapper currentPageName="CustomerPortal"><CustomerPortal /></LayoutWrapper>} />
-      <Route path="/CampaignInsights" element={<LayoutWrapper currentPageName="CampaignInsights"><CampaignInsights /></LayoutWrapper>} />
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
