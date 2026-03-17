@@ -29,6 +29,7 @@ import NeuralOSDashboard from './pages/NeuralOSDashboard';
 import Onboarding from './pages/Onboarding';
 import LeakDetector from './pages/LeakDetector';
 import ROICalculator from './pages/ROICalculator';
+import DocumentsDownload from './pages/DocumentsDownload';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -99,6 +100,7 @@ const AuthenticatedApp = () => {
       <Route path="/Onboarding" element={<LayoutWrapper currentPageName="Onboarding"><Onboarding /></LayoutWrapper>} />
       <Route path="/LeakDetector" element={<LayoutWrapper currentPageName="LeakDetector"><LeakDetector /></LayoutWrapper>} />
       <Route path="/ROICalculator" element={<LayoutWrapper currentPageName="ROICalculator"><ROICalculator /></LayoutWrapper>} />
+      <Route path="/DocumentsDownload" element={<LayoutWrapper currentPageName="DocumentsDownload"><DocumentsDownload /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
