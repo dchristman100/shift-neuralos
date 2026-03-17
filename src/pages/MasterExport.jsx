@@ -782,10 +782,25 @@ export default function MasterExport() {
 
   const toggle = (id) => setExpanded(p => ({ ...p, [id]: !p[id] }));
 
-  const handleCopy = (code, id) => {
-    navigator.clipboard.writeText(code);
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
+  const handleCopy = async (code, id) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(id);
+      setTimeout(() => setCopied(null), 2000);
+    } catch {
+      // Fallback for large strings or permission issues
+      const ta = document.createElement("textarea");
+      ta.value = code;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      setCopied(id);
+      setTimeout(() => setCopied(null), 2000);
+    }
   };
 
   const handleFullSiteExport = () => {
