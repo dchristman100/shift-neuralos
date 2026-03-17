@@ -9,9 +9,13 @@ const navLinks = [
   { label: "How It Works", href: "/HowItWorks" },
   { label: "Revenue Leaks", href: "/RevenueLeaks" },
   { label: "Results", href: "/Results" },
-  { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
+  { label: "Demo", href: "/NeuralOSDashboard" },
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
-  { label: "Leak Detector", href: "/LeakDetector" },
+];
+
+const sideMenuLinks = [
+  { label: "Portal", href: "/CustomerPortal" },
+  { label: "About", href: "/About" },
 ];
 
 export default function Navbar() {
@@ -37,8 +41,15 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
-          {/* Logo + Product Badge */}
-          <div className="flex items-center gap-3">
+          {/* Hamburger Menu + Logo */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 text-white lg:hidden"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
             <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
               ShiFt<span style={{ color: "#F54A48" }}>.</span>
             </Link>
@@ -101,15 +112,6 @@ export default function Navbar() {
             
             <GradientButton size="sm">See My Number</GradientButton>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </nav>
 
@@ -135,6 +137,18 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <div className="pt-6 border-t border-white/10 flex flex-col gap-4">
+                {sideMenuLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={createPageUrl(link.href.replace("/", ""))}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-body text-lg text-[rgba(255,255,255,0.65)] hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
               <div className="pt-4">
                 <GradientButton size="lg" className="w-full">
                   See My Number
