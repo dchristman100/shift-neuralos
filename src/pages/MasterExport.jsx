@@ -1025,12 +1025,12 @@ export default function MasterExport() {
                 {downloading ? "Downloading..." : "Download Full Site HTML"}
               </button>
               <button
-                onClick={() => handleCopy(buildFullSite(), "full-site")}
+                onClick={() => { const html = buildFullSite(); handleCopy(html, "full-site"); }}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-mono text-sm font-bold uppercase tracking-wider transition-all"
                 style={{ background: copied === "full-site" ? "rgba(72,187,120,0.15)" : "rgba(255,255,255,0.06)", border: `1px solid ${copied === "full-site" ? "rgba(72,187,120,0.3)" : "rgba(255,255,255,0.15)"}`, color: copied === "full-site" ? "#48BB78" : "white" }}
               >
                 {copied === "full-site" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                {copied === "full-site" ? "Copied to Clipboard!" : "Copy Full Site HTML"}
+                {copied === "full-site" ? `Copied! (${Math.round(buildFullSite().length / 1024)}KB)` : "Copy Full Site HTML"}
               </button>
             </div>
           </div>
