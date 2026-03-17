@@ -461,6 +461,9 @@ const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPr
   /TermsOfService     → Terms of Service (Effective March 15, 2026)
   /CookiePolicy       → Cookie Policy (Effective March 15, 2026)
 
+  ── NEURALAOS DASHBOARD PREVIEW ──────────────────────────────────────────
+  /NeuralOSDashboard  → Dashboard Preview (live KPIs, lead qualification feed, revenue charts, activity log)
+
   ── EXPORT PAGES (Internal Dev Tool) ────────────────────────────────────
   /MasterExport       → This page — full site export hub
   /ExportBrandNeuralOS → NeuralOS Brand: global CSS, nav, all sections
