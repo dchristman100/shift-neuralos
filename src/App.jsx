@@ -16,7 +16,7 @@ import ExportHowItWorks from './pages/ExportHowItWorks';
 import ExportRevenueLeaks from './pages/ExportRevenueLeaks';
 import ExportResults from './pages/ExportResults';
 import ExportAttractEmptyPipeline from './pages/ExportAttractEmptyPipeline';
-import Blog from './pages/Blog';
+import Blog from './pages/Blog.jsx';
 import Features from './pages/Features';
 import Integrations from './pages/Integrations';
 import CaseStudies from './pages/CaseStudies';
