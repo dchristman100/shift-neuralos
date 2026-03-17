@@ -804,16 +804,136 @@ export default function MasterExport() {
     }
   };
 
-  const handleFullSiteExport = () => {
+  const makePageHtml = (title, navHtml, bodyHtml, extraCss = "") => `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>${title} · ShiFt NeuralOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+${GLOBAL_CSS}
+${NAV_CSS}
+${FOOTER_CSS}
+${extraCss}
+  </style>
+</head>
+<body>
+${navHtml}
+<main style="padding-top:72px;">
+${bodyHtml}
+</main>
+${FOOTER_HTML}
+<script>${NAV_JS}
+${FAQ_JS_CODE}</script>
+</body>
+</html>`;
+
+  const handleFullSiteExport = async () => {
     setDownloading(true);
-    const html = buildFullSite();
-    const blob = new Blob([html], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "ShiFtNeuralOS-FullSite.html";
-    a.click();
-    URL.revokeObjectURL(url);
+
+    // 1. Download the single combined HTML (existing behaviour)
+    const singleHtml = buildFullSite();
+    const singleBlob = new Blob([singleHtml], { type: "text/html" });
+    const singleUrl = URL.createObjectURL(singleBlob);
+    const singleA = document.createElement("a");
+    singleA.href = singleUrl;
+    singleA.download = "ShiFtNeuralOS-FullSite.html";
+    singleA.click();
+    URL.revokeObjectURL(singleUrl);
+
+    // 2. Build ZIP with every page as its own file
+    const zip = new JSZip();
+
+    // Shared assets
+    zip.file("assets/global.css", GLOBAL_CSS);
+    zip.file("assets/nav.css", NAV_CSS);
+    zip.file("assets/footer.css", FOOTER_CSS);
+    zip.file("assets/nav.js", NAV_JS);
+    zip.file("assets/faq.js", FAQ_JS_CODE);
+
+    // NeuralOS Brand pages
+    zip.file("index.html", singleHtml);
+    zip.file("neuralaos-home.html", makePageHtml("NeuralOS Home", NEURALAOS_NAV_HTML, NEURALAOS_HOME_HTML));
+
+    // Convert pages
+    zip.file("convert/index.html", makePageHtml("ShiFt Convert", CONVERT_NAV_HTML, CONVERT_HOME_HTML));
+    zip.file("convert/how-it-works.html", makePageHtml("How It Works · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">How ShiFt Convert Works</h1><p class="shift-section-desc">Full content available at /ExportHowItWorks</p></div></section>`));
+    zip.file("convert/revenue-leaks.html", makePageHtml("Revenue Leaks · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">The Three Revenue Leaks</h1><p class="shift-section-desc">Full content available at /ExportRevenueLeaks</p></div></section>`));
+    zip.file("convert/results.html", makePageHtml("Results · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">From $750K to $7M</h1><p class="shift-section-desc">Full content available at /ExportResults</p></div></section>`));
+    zip.file("convert/book.html", makePageHtml("Book a Call · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Book a Strategy Call</h1><p class="shift-section-desc">Full content available at /ExportBookACall</p></div></section>`));
+
+    // Attract pages
+    zip.file("attract/index.html", makePageHtml("ShiFt Attract", ATTRACT_NAV_HTML, ATTRACT_HOME_HTML));
+    zip.file("attract/empty-pipeline.html", makePageHtml("Empty Pipeline · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">The Empty Pipeline Problem</h1><p class="shift-section-desc">Full content available at /ExportAttractEmptyPipeline</p></div></section>`));
+    zip.file("attract/how-it-works.html", makePageHtml("How It Works · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">How ShiFt Attract Works</h1><p class="shift-section-desc">Full content available at /ExportAttract</p></div></section>`));
+    zip.file("attract/results.html", makePageHtml("Results · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Pipeline Results</h1><p class="shift-section-desc">Full content available at /ExportAttract</p></div></section>`));
+    zip.file("attract/book.html", makePageHtml("Book a Pipeline Audit · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Book a Pipeline Audit</h1><p class="shift-section-desc">Full content available at /ExportBookACall</p></div></section>`));
+
+    // Revenue Engine Plans
+    zip.file("revenue-engine-plans.html", makePageHtml("Revenue Engine Plans", NEURALAOS_NAV_HTML, REVENUE_PLANS_HTML));
+
+    // Shared brand pages
+    const brandPages = [
+      ["about", "About"],
+      ["careers", "Careers"],
+      ["blog", "Blog"],
+      ["contact", "Contact"],
+      ["features", "Features"],
+      ["integrations", "Integrations"],
+      ["case-studies", "Case Studies"],
+      ["platform", "Platform"],
+      ["roofing", "Roofing for Contractors"],
+      ["resources", "Resources"],
+    ];
+    brandPages.forEach(([slug, title]) => {
+      zip.file(`${slug}.html`, makePageHtml(title, NEURALAOS_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">${title}</h1><p class="shift-section-desc">Full content available at /ExportBrandNeuralOS</p></div></section>`));
+    });
+
+    // README
+    zip.file("README.txt", `ShiFt NeuralOS — Full Site Export
+===================================
+Generated: ${new Date().toISOString()}
+
+Files included:
+  index.html                  → NeuralOS brand home (fully assembled)
+  neuralaos-home.html         → NeuralOS home (nav + hero + footer)
+  revenue-engine-plans.html   → Plans page (Activate / Amplify / Dominate)
+  convert/index.html          → ShiFt Convert home
+  convert/how-it-works.html   → Convert: How It Works
+  convert/revenue-leaks.html  → Convert: Revenue Leaks
+  convert/results.html        → Convert: Results (Titan case study)
+  convert/book.html           → Convert: Book a Call
+  attract/index.html          → ShiFt Attract home
+  attract/empty-pipeline.html → Attract: Empty Pipeline
+  attract/how-it-works.html   → Attract: How It Works
+  attract/results.html        → Attract: Results
+  attract/book.html           → Attract: Book a Pipeline Audit
+  about.html, careers.html, blog.html, contact.html, features.html,
+  integrations.html, case-studies.html, platform.html, roofing.html, resources.html
+
+  assets/global.css           → Global CSS (include on every page)
+  assets/nav.css              → Navbar CSS
+  assets/footer.css           → Footer CSS
+  assets/nav.js               → Navbar JS (mobile toggle + scroll)
+  assets/faq.js               → FAQ accordion JS
+
+Usage:
+  - Open index.html directly in a browser to preview
+  - For Elementor/WordPress: paste assets/global.css into Additional CSS,
+    then paste each page's <main> content into HTML widgets
+  - All links point to https://shiftnow.io/... (absolute URLs)
+`);
+
+    const zipBlob = await zip.generateAsync({ type: "blob" });
+    const zipUrl = URL.createObjectURL(zipBlob);
+    const zipA = document.createElement("a");
+    zipA.href = zipUrl;
+    zipA.download = "ShiFtNeuralOS-FullSite.zip";
+    zipA.click();
+    URL.revokeObjectURL(zipUrl);
+
     setTimeout(() => setDownloading(false), 1500);
   };
 
