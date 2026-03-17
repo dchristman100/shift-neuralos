@@ -438,16 +438,16 @@ const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPr
   ── NEURALAOS BRAND SITE ──────────────────────────────────────────────────
   /                   → NeuralOS Home (Hero + Problem Selector + Two Products + Proof + CTA)
   /BrandHome          → Brand Home (same as above, React route)
-  /platform           → Platform Page (NeuralOS system overview)
-  /roofing            → Roofing Page (industry-specific landing)
-  /resources          → Resources Page (guides, tools, downloads)
-  /about              → About Page (company mission & values)
-  /careers            → Careers Page (open positions)
-  /blog               → Blog Page (roofing revenue articles)
-  /contact            → Contact Page (form + info)
-  /features           → Features Page (AI tools breakdown)
-  /integrations       → Integrations Page (CRM, calendar, ad platforms)
-  /case-studies       → Case Studies Page (contractor success stories)
+  /Platform           → Platform Page (NeuralOS system overview)
+  /Roofing            → Roofing Page (industry-specific landing)
+  /Resources          → Resources Page (guides, tools, downloads)
+  /About              → About Page (company mission & values)
+  /Careers            → Careers Page (open positions)
+  /Blog               → Blog Page (revenue intelligence articles for roofing contractors — category filter, featured post, article grid)
+  /Contact            → Contact Page (form + info)
+  /Features           → Features Page (AI tools breakdown)
+  /Integrations       → Integrations Page (CRM, calendar, ad platforms)
+  /CaseStudies        → Case Studies Page (contractor success stories — Titan, Storm Pros, Summit)
 
   ── REVENUE ENGINE PLANS ─────────────────────────────────────────────────
   /RevenueEnginePlans → Revenue Engine Plans (Activate / Amplify / Dominate)
@@ -478,15 +478,17 @@ const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPr
   /NeuralOSDashboard  → Dashboard Preview (live KPIs, lead qualification feed, revenue charts, activity log)
 
   ── EXPORT PAGES (Internal Dev Tool) ────────────────────────────────────
-  /MasterExport       → This page — full site export hub
-  /ExportBrandNeuralOS → NeuralOS Brand: global CSS, nav, all sections
-  /ExportConvert      → ShiFt Convert: full page section-by-section
-  /ExportAttract      → ShiFt Attract: full page section-by-section
-  /ExportRevenueEnginePlans → Revenue Engine Plans: full page
-  /ExportHowItWorks   → Convert: How It Works (per-section HTML/CSS)
-  /ExportRevenueLeaks → Convert: Revenue Leaks (per-section HTML/CSS)
-  /ExportResults      → Convert: Results / Case Study (per-section HTML/CSS)
+  /MasterExport              → This page — full site export hub
+  /ExportBrandNeuralOS       → NeuralOS Brand: global CSS, nav, all sections
+  /ExportConvert             → ShiFt Convert: full page section-by-section
+  /ExportAttract             → ShiFt Attract: full page section-by-section
+  /ExportRevenueEnginePlans  → Revenue Engine Plans: full page
+  /ExportHowItWorks          → Convert: How It Works (per-section HTML/CSS)
+  /ExportRevenueLeaks        → Convert: Revenue Leaks (per-section HTML/CSS)
+  /ExportResults             → Convert: Results / Case Study (per-section HTML/CSS)
   /ExportAttractEmptyPipeline → Attract: Empty Pipeline (per-section HTML/CSS)
+  /ExportDashboardPreview    → NeuralOS Dashboard Preview (KPI row, lead table, trust strip)
+  /ExportBookACall           → Book a Call page (hero + calendar widget embed)
 -->`;
 
 const FAQ_JS_CODE = `function shiftToggleFaq(btn){var item=btn.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.shift-faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}`;
@@ -1076,7 +1078,7 @@ Usage:
         { id: "brand-resources", title: "Resources Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Resources -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Guides, calculators, playbooks, and tools for roofing contractors -->` }] },
         { id: "brand-about", title: "About Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /About -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Mission → Pillars → Values -->` }] },
         { id: "brand-careers", title: "Careers Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Careers -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Core Values → Open Positions -->` }] },
-        { id: "brand-blog", title: "Blog Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Blog -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Featured Article → Article Grid -->` }] },
+        { id: "brand-blog", title: "Blog Page", exportPagePath: "Blog", items: [{ label: "INFO", code: `<!-- Route: /Blog\n     URL:   ShiFtNow.io/Blog\n     Purpose: Revenue intelligence content hub for roofing contractors\n     Sections:\n       - Hero (Revenue Intelligence for Roofing Contractors)\n       - Category filter pills (All / Strategy / AI & Automation / Case Study / Lead Gen / Operations)\n       - Featured post card (highlighted, gradient top bar)\n       - Article grid (3-col, animated with framer-motion, category badges)\n     Data source: content/blog-posts.js (JS module, 6 posts)\n     Posts:\n       - "Why Roofing Contractors Lose $47K in a Single Storm Season" (Strategy, Featured)\n       - "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever" (AI & Automation)\n       - "From $750K to $7M: How Titan Roofing Dominated Dallas" (Case Study)\n       - "Google Local Service Ads for Roofers: A Complete 2026 Guide" (Lead Gen)\n       - "The Empty Pipeline Problem — And the Only Real Fix" (Operations)\n       - "What Roofing Contractors Get Wrong About AI" (AI & Automation)\n     Export: React-only page (framer-motion animations) — use static HTML stub below for WordPress -->\n<!-- STATIC BLOG STUB for WordPress/Elementor: -->` }] },
         { id: "brand-contact", title: "Contact Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Contact -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Contact Form + Contact Info (email, phone, address) -->` }] },
         { id: "brand-features", title: "Features Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Features -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Feature Cards (AI Response / Qualification / Booking / Follow-Up / Analytics) -->` }] },
         { id: "brand-integrations", title: "Integrations Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Integrations -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Integration Categories (CRM / Calendar / Ads / Comms / Automation) -->` }] },
