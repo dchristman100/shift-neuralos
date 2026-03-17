@@ -358,24 +358,24 @@ const NEURALAOS_HOME_HTML = `<!-- NEURALAOS HOME: Hero + Problem Selector + Two 
   </section>
 </main>`;
 
-const CONVERT_HOME_HTML = `<!-- CONVERT HOME: Hero + Problem Cards + Comparison + Mechanism + Proof + Conversion Path + FAQ + CTA -->
-<!-- Use Global CSS + Convert Nav + Footer from above -->
-<!-- See ExportConvert for complete section-by-section breakdown -->
+const CONVERT_HOME_HTML = `<!-- CONVERT HOME: Now component-based (HeroNew, ProblemCards, etc.) -->
+<!-- This export will be dynamically generated from current component structure -->
+<!-- For now: Fetch /Home directly or use the three-card Revenue Leak Calculator embedded below -->
 <main style="padding-top:72px;">
   <section class="shift-hero" id="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;">
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,74,72,.12) 0%,transparent 70%);pointer-events:none;"></div>
     <div class="section-inner" style="position:relative;">
       <div class="font-mono" style="display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#F54A48;">
         <span style="width:8px;height:8px;background:#F54A48;border-radius:50%;flex-shrink:0;"></span>
-        Calculating Live Revenue Leaks
+        Three Revenue Leaks Analysis
       </div>
       <h1 class="font-display" style="font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;">
-        <span class="shift-gradient-text">Three Revenue Leaks</span><br/>Are Costing You $35K–$100K+
+        Stop Losing Leads.<br/><span class="shift-gradient-text">Start Booking Jobs.</span>
       </h1>
       <p style="font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;">
         Missed calls. Junk leads. Invisible buyers. See exactly how much they're costing your business.
       </p>
-      <a href="https://calc.shiftnow.io" class="btn-primary" style="padding:18px 40px;font-size:1rem;">Calculate My Revenue Leak →</a>
+      <a href="/Home" class="btn-primary" style="padding:18px 40px;font-size:1rem;">View Full Convert Page →</a>
     </div>
   </section>
 </main>`;
