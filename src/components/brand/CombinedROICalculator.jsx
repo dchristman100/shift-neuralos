@@ -60,14 +60,14 @@ export default function CombinedROICalculator() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center p-4 overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={e => e.stopPropagation()}
-              className="relative rounded-2xl w-full max-w-md my-8"
+              className="relative rounded-2xl w-full max-w-md mt-8 mb-8"
               style={{
                 background: "#0D0F33",
                 border: "1px solid rgba(245,74,72,0.3)",
