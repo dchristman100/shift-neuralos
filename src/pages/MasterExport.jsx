@@ -477,6 +477,9 @@ const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPr
   ── NEURALAOS DASHBOARD PREVIEW ──────────────────────────────────────────
   /NeuralOSDashboard  → Dashboard Preview (live KPIs, lead qualification feed, revenue charts, activity log)
 
+  ── DOCUMENTATION & RESOURCES ────────────────────────────────────────────
+  /DocumentsDownload  → Documents Download Page (PRD & FTRD markdown downloads)
+
   ── EXPORT PAGES (Internal Dev Tool) ────────────────────────────────────
   /MasterExport              → This page — full site export hub
   /ExportBrandNeuralOS       → NeuralOS Brand: global CSS, nav, all sections
@@ -1118,6 +1121,79 @@ Usage:
         { id: "legal-privacy", title: "Privacy Policy", exportPagePath: "PrivacyPolicy", items: [{ label: "INFO", code: `<!-- Route: /PrivacyPolicy\n     URL:   ShiFtNow.io/PrivacyPolicy\n     Effective: March 15, 2026\n     Sections: 13 sections covering data collection, TCPA, sharing, retention, user rights (CCPA), contact -->\n<!-- Full text rendered at /PrivacyPolicy in the React app -->` }] },
         { id: "legal-tos", title: "Terms of Service", exportPagePath: "TermsOfService", items: [{ label: "INFO", code: `<!-- Route: /TermsOfService\n     URL:   ShiFtNow.io/TermsOfService\n     Effective: March 15, 2026 | Version 21\n     Jurisdiction: Cherokee County, Georgia\n     Sections: 0–20 covering Definitions, 90-Day Non-Cancelable Term, No Refunds/Chargebacks, RevShare, Revenue Floor, TCPA, IP, Arbitration -->\n<!-- Full text rendered at /TermsOfService in the React app -->` }] },
         { id: "legal-cookies", title: "Cookie Policy", exportPagePath: "CookiePolicy", items: [{ label: "INFO", code: `<!-- Route: /CookiePolicy\n     URL:   ShiFtNow.io/CookiePolicy\n     Effective: March 15, 2026\n     Sections: 12 sections covering cookie types (Necessary / Functional / Analytics / Marketing), consent, GPC, CCPA, Platform cookies -->\n<!-- Full text rendered at /CookiePolicy in the React app -->` }] },
+      ],
+    },
+    {
+      title: "Downloadable Documentation",
+      color: "#63B3ED",
+      dotColor: "#63B3ED",
+      badge: "PDF · Markdown · Reference Docs",
+      exportPagePath: "DocumentsDownload",
+      sections: [
+        {
+          id: "documents-download",
+          title: "Documents Download Page",
+          exportPagePath: "DocumentsDownload",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /DocumentsDownload
+    URL:   ShiFtNow.io/DocumentsDownload
+    Purpose: User-facing page for downloading PRD & FTRD markdown documents
+    Sections:
+      - Hero (ShiFt Platform Documentation)
+      - Two Document Cards:
+        1. PRD_ShiFt_Platform.md (16KB, download button)
+        2. FTRD_ShiFt_Platform.md (37KB, download button)
+      - Info box linking to docs/ folder
+    Features:
+      - Click to download markdown files
+      - File metadata (size, format)
+      - Responsive card grid
+      - Framer Motion animations on entrance
+    Export: React-only page (uses backend downloadDocument function) -->`
+          }]
+        },
+      ],
+    },
+    {
+      title: "Backend Functions",
+      color: "#F54A48",
+      dotColor: "#F54A48",
+      badge: "Documentation · Exports",
+      sections: [
+        {
+          id: "backend-functions",
+          title: "Backend Functions Developed",
+          items: [{
+            label: "downloadDocument",
+            code: `// Function: downloadDocument
+    // File: functions/downloadDocument.js
+    // Purpose: Serve markdown documents for download (PRD, FTRD)
+    // Endpoint: /api/downloadDocument?filename=PRD_ShiFt_Platform.md
+    // Method: GET
+    // Returns: Markdown file blob with Content-Disposition: attachment
+    // 
+    // Usage:
+    // fetch(\`/api/downloadDocument?filename=PRD_ShiFt_Platform.md\`)
+    //   .then(res => res.blob())
+    //   .then(blob => {
+    //     const url = URL.createObjectURL(blob);
+    //     const a = document.createElement('a');
+    //     a.href = url;
+    //     a.download = 'PRD_ShiFt_Platform.md';
+    //     a.click();
+    //   });
+    //
+    // Documents Available:
+    // - PRD_ShiFt_Platform.md (Product Requirements Document, ~16KB)
+    // - FTRD_ShiFt_Platform.md (Functional & Technical Requirements, ~37KB)
+    //
+    // Response Headers:
+    // - Content-Type: text/markdown; charset=utf-8
+    // - Content-Disposition: attachment; filename="..."
+    // - Status: 200 OK (success) or 404 (document not found)`
+          }]
+        },
       ],
     },
     {
