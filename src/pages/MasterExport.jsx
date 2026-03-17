@@ -616,7 +616,7 @@ ${NEURALAOS_NAV_HTML}
         <p class="shift-section-desc">Every roofing contractor leaks revenue somewhere. Tell us where yours is hiding.</p>
       </div>
       <div class="shift-problem-grid">
-        <a href="/attract" class="shift-problem-card" style="--card-color:#FA982F;">
+        <a href="https://shiftnow.io/AttractHome" class="shift-problem-card" style="--card-color:#FA982F;">
           <div class="shift-problem-icon" style="background:rgba(250,152,47,.12);">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M1 12h6m6 0h6"/></svg>
           </div>
@@ -624,7 +624,7 @@ ${NEURALAOS_NAV_HTML}
           <p class="shift-problem-body">Not enough leads coming in. Marketing isn't producing consistent results.</p>
           <div class="shift-problem-link font-mono" style="color:#FA982F;">→ ShiFt Attract</div>
         </a>
-        <a href="/convert" class="shift-problem-card" style="--card-color:#F54A48;">
+        <a href="https://shiftnow.io/Home" class="shift-problem-card" style="--card-color:#F54A48;">
           <div class="shift-problem-icon" style="background:rgba(245,74,72,.12);">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
@@ -632,7 +632,7 @@ ${NEURALAOS_NAV_HTML}
           <p class="shift-problem-body">Leads coming in but not converting. Slow response, bad follow-up, no-shows.</p>
           <div class="shift-problem-link font-mono" style="color:#F54A48;">→ ShiFt Convert</div>
         </a>
-        <a href="/" class="shift-problem-card" style="--card-color:#48BB78;">
+        <a href="https://shiftnow.io" class="shift-problem-card" style="--card-color:#48BB78;">
           <div class="shift-problem-icon" style="background:rgba(72,187,120,.12);">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
           </div>
@@ -663,7 +663,7 @@ ${NEURALAOS_NAV_HTML}
             <li><span class="shift-check" style="color:#FA982F;">✓</span> Storm & property intelligence</li>
             <li><span class="shift-check" style="color:#FA982F;">✓</span> Predictable lead volume</li>
           </ul>
-          <a href="/attract" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Explore Attract →</a>
+          <a href="https://shiftnow.io/AttractHome" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Explore Attract →</a>
         </div>
         <div class="shift-product-card shift-product-convert">
           <div class="shift-product-badge font-mono" style="color:#F54A48;background:rgba(245,74,72,.12);border-color:rgba(245,74,72,.3);">ShiFt Convert</div>
@@ -675,7 +675,7 @@ ${NEURALAOS_NAV_HTML}
             <li><span class="shift-check" style="color:#F54A48;">✓</span> Automated appointment booking</li>
             <li><span class="shift-check" style="color:#F54A48;">✓</span> 24/7 follow-up sequences</li>
           </ul>
-          <a href="/convert" class="btn-primary">Explore Convert →</a>
+          <a href="https://shiftnow.io/Home" class="btn-primary">Explore Convert →</a>
         </div>
       </div>
     </div>
@@ -702,7 +702,7 @@ ${NEURALAOS_NAV_HTML}
           <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$8,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
         </div>
       </div>
-      <a href="/RevenueEnginePlans" class="btn-primary" style="padding:16px 40px;">View Revenue Engine Plans →</a>
+      <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary" style="padding:16px 40px;">View Revenue Engine Plans →</a>
     </div>
   </section>
 
@@ -752,7 +752,7 @@ ${NEURALAOS_NAV_HTML}
           <p class="shift-cta-desc">Get a free revenue audit and see exactly how much money you're leaving on the table.</p>
           <div class="shift-cta-buttons">
             <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary btn-lg">Book a Strategy Call →</a>
-            <a href="/RevenueEnginePlans" class="btn-outline btn-lg">View Plans</a>
+            <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-outline btn-lg">View Plans</a>
           </div>
           <p class="shift-cta-micro font-mono">Live in 7 days · 90-Day Revenue Floor · No long-term contracts</p>
         </div>
