@@ -162,34 +162,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--shift-navy);color:#fff;li
 const NEURALAOS_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
   <div class="shift-nav-inner">
     <div class="shift-nav-logo-group">
-      <a href="/" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
+      <a href="https://shiftnow.io" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
       <span class="shift-nav-badge font-mono" style="color:#FFD700;background:rgba(255,215,0,0.10);border-color:rgba(255,215,0,0.3);">NeuralOS™</span>
     </div>
     <div class="shift-nav-links">
-      <a href="/revenue-engine-plans" class="shift-nav-link">Revenue Engine Plans</a>
-      <a href="/dashboard-preview" class="shift-nav-link">Dashboard Preview</a>
-      <a href="/platform" class="shift-nav-link">Platform</a>
-      <a href="/roofing" class="shift-nav-link">Roofing</a>
-      <a href="/about" class="shift-nav-link">About</a>
-      <a href="/contact" class="shift-nav-link">Contact</a>
+      <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-nav-link">Revenue Engine Plans</a>
+      <a href="https://shiftnow.io/NeuralOSDashboard" class="shift-nav-link">Dashboard Preview</a>
+      <a href="https://shiftnow.io/Platform" class="shift-nav-link">Platform</a>
+      <a href="https://shiftnow.io/Roofing" class="shift-nav-link">Roofing</a>
+      <a href="https://shiftnow.io/About" class="shift-nav-link">About</a>
+      <a href="https://shiftnow.io/Contact" class="shift-nav-link">Contact</a>
     </div>
     <div class="shift-nav-right">
       <div class="shift-product-pills">
-        <a href="/attract" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
-        <a href="/convert" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
+        <a href="https://shiftnow.io/AttractHome" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
+        <a href="https://shiftnow.io/Home" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
       </div>
-      <a href="/revenue-engine-plans" class="btn-primary shift-btn-sm">Find Your Gap</a>
+      <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary shift-btn-sm">Find Your Gap</a>
     </div>
     <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
   </div>
   <div class="shift-mobile-menu" id="shift-mobile-menu">
-    <a href="/revenue-engine-plans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
-    <a href="/dashboard-preview" class="shift-mobile-link font-display">Dashboard Preview</a>
-    <a href="/platform" class="shift-mobile-link font-display">Platform</a>
-    <a href="/roofing" class="shift-mobile-link font-display">Roofing</a>
-    <a href="/about" class="shift-mobile-link font-display">About</a>
-    <a href="/contact" class="shift-mobile-link font-display">Contact</a>
-    <a href="/revenue-engine-plans" class="btn-primary">Find Your Gap</a>
+    <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
+    <a href="https://shiftnow.io/NeuralOSDashboard" class="shift-mobile-link font-display">Dashboard Preview</a>
+    <a href="https://shiftnow.io/Platform" class="shift-mobile-link font-display">Platform</a>
+    <a href="https://shiftnow.io/Roofing" class="shift-mobile-link font-display">Roofing</a>
+    <a href="https://shiftnow.io/About" class="shift-mobile-link font-display">About</a>
+    <a href="https://shiftnow.io/Contact" class="shift-mobile-link font-display">Contact</a>
+    <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary">Find Your Gap</a>
   </div>
 </nav>`;
 
@@ -291,27 +291,27 @@ const FOOTER_HTML = `<footer class="shift-footer" id="footer">
       <div>
         <h4 class="shift-footer-heading font-mono">Product</h4>
         <ul class="shift-footer-links">
-          <li><a href="/features">Features</a></li>
-          <li><a href="/revenue-engine-plans">Revenue Engine Plans</a></li>
-          <li><a href="/integrations">Integrations</a></li>
-          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="https://shiftnow.io/Features">Features</a></li>
+          <li><a href="https://shiftnow.io/RevenueEnginePlans">Revenue Engine Plans</a></li>
+          <li><a href="https://shiftnow.io/Integrations">Integrations</a></li>
+          <li><a href="https://shiftnow.io/CaseStudies">Case Studies</a></li>
         </ul>
       </div>
       <div>
         <h4 class="shift-footer-heading font-mono">Company</h4>
         <ul class="shift-footer-links">
-          <li><a href="/about">About</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://shiftnow.io/About">About</a></li>
+          <li><a href="https://shiftnow.io/Careers">Careers</a></li>
+          <li><a href="https://shiftnow.io/Blog">Blog</a></li>
+          <li><a href="https://shiftnow.io/Contact">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4 class="shift-footer-heading font-mono">Legal</h4>
         <ul class="shift-footer-links">
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/terms-of-service">Terms of Service</a></li>
-          <li><a href="/cookie-policy">Cookie Policy</a></li>
+          <li><a href="https://shiftnow.io/PrivacyPolicy">Privacy Policy</a></li>
+          <li><a href="https://shiftnow.io/TermsOfService">Terms of Service</a></li>
+          <li><a href="https://shiftnow.io/CookiePolicy">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
