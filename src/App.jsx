@@ -8,7 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import CallWidget from '@/components/ui/callwidget';
-import Layout from './layout.jsx';
+
 import RevenueEnginePlans from './pages/RevenueEnginePlans';
 import ExportRevenueEnginePlans from './pages/ExportRevenueEnginePlans';
 import ExportDashboardPreview from './pages/ExportDashboardPreview';
@@ -29,7 +29,7 @@ import NeuralOSDashboard from './pages/NeuralOSDashboard';
 import Onboarding from './pages/Onboarding';
 import LeakDetector from './pages/LeakDetector';
 
-const { Pages, Layout: _, mainPage } = pagesConfig;
+const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
 const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
 
