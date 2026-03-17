@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function GradientButton({ children, onClick, href, size = "default", variant = "primary", className = "" }) {
   const sizes = {
@@ -20,7 +21,8 @@ export default function GradientButton({ children, onClick, href, size = "defaul
     ${sizes[size]} ${variants[variant]} ${className}
   `;
 
-  const Comp = href ? "a" : "button";
+  const isInternal = href && href.startsWith('/');
+  const Comp = isInternal ? Link : href ? "a" : "button";
 
   return (
     <motion.div
@@ -29,7 +31,8 @@ export default function GradientButton({ children, onClick, href, size = "defaul
       className="inline-block"
     >
       <Comp
-        href={href}
+        to={isInternal ? href : undefined}
+        href={!isInternal ? href : undefined}
         onClick={onClick}
         className={baseClasses}
         style={variant === "primary" ? {
