@@ -156,9 +156,9 @@ const NEURALAOS_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
     </div>
     <div class="shift-nav-links">
       <a href="/revenue-engine-plans" class="shift-nav-link">Revenue Engine Plans</a>
+      <a href="/dashboard-preview" class="shift-nav-link">Dashboard Preview</a>
       <a href="/platform" class="shift-nav-link">Platform</a>
       <a href="/roofing" class="shift-nav-link">Roofing</a>
-      <a href="/resources" class="shift-nav-link">Resources</a>
       <a href="/about" class="shift-nav-link">About</a>
       <a href="/contact" class="shift-nav-link">Contact</a>
     </div>
@@ -192,6 +192,7 @@ const CONVERT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
       <a href="/how-it-works" class="shift-nav-link">How It Works</a>
       <a href="/revenue-leaks" class="shift-nav-link">Revenue Leaks</a>
       <a href="/results" class="shift-nav-link">Results</a>
+      <a href="/dashboard-preview" class="shift-nav-link">Dashboard Preview</a>
       <a href="/revenue-engine-plans" class="shift-nav-link">Revenue Engine Plans</a>
     </div>
     <div class="shift-nav-right">
@@ -611,6 +612,23 @@ export default function MasterExport() {
       exportPagePath: "ExportAttract",
       sections: [
         { id: "attract-home", title: "Attract Home Page (Hero + Full Assembly)", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
+      ],
+    },
+    {
+      title: "NeuralOS Dashboard Preview Page",
+      color: "#63B3ED",
+      dotColor: "#63B3ED",
+      badge: "Trust-Building · Prospect-Facing",
+      exportPagePath: "NeuralOSDashboard",
+      sections: [
+        {
+          id: "neuralaos-dashboard",
+          title: "NeuralOS Dashboard Preview",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /NeuralOSDashboard\n     URL:   ShiFtNow.io/NeuralOSDashboard\n     Purpose: High-fidelity mock-up of the contractor portal shown to prospects to build trust\n     Sections:\n       - Live KPI row (AI conversations, bookings, avg response, monthly revenue, close rate, ROI)\n       - 8-week platform-attributed revenue line chart\n       - Leads vs Booked 7-day bar chart\n       - Filterable AI Lead Intelligence table (status, lead score, est. value, AI response time)\n       - Live AI Activity Log (booked / qualifying / follow-up / inbound / storm events)\n       - Trust strip (Live in 7 Days / Every Lead Captured / Full Transparency / 90-Day Floor)\n       - CTA → Book a Strategy Call\n     Nav: Linked from NeuralOS Brand Navbar and ShiFt Convert Navbar as "Dashboard Preview"\n     Export: React-only page (recharts + framer-motion) — no static HTML equivalent -->`
+          }]
+        },
       ],
     },
     {
