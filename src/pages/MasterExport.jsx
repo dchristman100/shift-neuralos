@@ -173,9 +173,9 @@ const NEURALAOS_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
   </div>
   <div class="shift-mobile-menu" id="shift-mobile-menu">
     <a href="/revenue-engine-plans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
+    <a href="/dashboard-preview" class="shift-mobile-link font-display">Dashboard Preview</a>
     <a href="/platform" class="shift-mobile-link font-display">Platform</a>
     <a href="/roofing" class="shift-mobile-link font-display">Roofing</a>
-    <a href="/resources" class="shift-mobile-link font-display">Resources</a>
     <a href="/about" class="shift-mobile-link font-display">About</a>
     <a href="/contact" class="shift-mobile-link font-display">Contact</a>
     <a href="/revenue-engine-plans" class="btn-primary">Find Your Gap</a>
@@ -208,6 +208,7 @@ const CONVERT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
     <a href="/how-it-works" class="shift-mobile-link font-display">How It Works</a>
     <a href="/revenue-leaks" class="shift-mobile-link font-display">Revenue Leaks</a>
     <a href="/results" class="shift-mobile-link font-display">Results</a>
+    <a href="/dashboard-preview" class="shift-mobile-link font-display">Dashboard Preview</a>
     <a href="/revenue-engine-plans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
     <a href="https://calc.shiftnow.io" class="btn-primary">See My Number</a>
   </div>
@@ -564,7 +565,7 @@ export default function MasterExport() {
       title: "ShiFt NeuralOS Header",
       color: "#FFD700",
       dotColor: "#FFD700",
-      badge: "Revenue Engine Plans · Platform · Roofing · Resources · About · Contact",
+      badge: "Revenue Engine Plans · Dashboard Preview · Platform · Roofing · About · Contact",
       exportPagePath: "ExportBrandNeuralOS",
       sections: [
         { id: "neuralaos-nav", title: "NeuralOS Navigation Bar", items: [{ label: "HTML", code: NEURALAOS_NAV_HTML }] },
