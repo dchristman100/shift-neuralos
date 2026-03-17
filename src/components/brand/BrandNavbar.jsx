@@ -8,13 +8,13 @@ import { createPageUrl } from "../../utils";
 
 const navLinks = [
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
-  { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
+  { label: "Demo", href: "/NeuralOSDashboard" },
   { label: "Platform", href: "/Platform" },
   { label: "Roofing", href: "/Roofing" },
-  { label: "Portal", href: "/CustomerPortal" },
 ];
 
-const aboutMenu = [
+const sideMenuLinks = [
+  { label: "Portal", href: "/CustomerPortal" },
   { label: "About", href: "/About" },
   { label: "Contact", href: "/Contact" },
 ];
@@ -43,10 +43,19 @@ export default function BrandNavbar() {
         }}
       >
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
-          {/* Logo */}
-          <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
-            ShiFt<span style={{ color: "#FFD700" }}>.</span><span className="shift-gradient-text" style={{ fontSize: "14px", fontWeight: 500 }}> NeuralOS™</span>
-          </Link>
+          {/* Hamburger + Logo */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-white"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
+              ShiFt<span style={{ color: "#FFD700" }}>.</span><span className="shift-gradient-text" style={{ fontSize: "14px", fontWeight: 500 }}> NeuralOS™</span>
+            </Link>
+          </div>
 
           {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-8">
@@ -59,48 +68,6 @@ export default function BrandNavbar() {
                 {link.label}
               </Link>
             ))}
-
-            {/* About Dropdown */}
-            <div className="relative group">
-              <button
-                className="font-body text-sm text-[rgba(255,255,255,0.55)] hover:text-white transition-colors duration-200 flex items-center gap-1"
-                onMouseEnter={() => setAboutOpen(true)}
-                onMouseLeave={() => setAboutOpen(false)}
-              >
-                About
-                <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-              </button>
-
-              <AnimatePresence>
-                {aboutOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    onMouseEnter={() => setAboutOpen(true)}
-                    onMouseLeave={() => setAboutOpen(false)}
-                    className="absolute top-full left-0 mt-2 w-48 rounded-lg"
-                    style={{
-                      background: "rgba(13, 15, 51, 0.95)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      backdropFilter: "blur(10px)"
-                    }}
-                  >
-                    <div className="py-2">
-                      {aboutMenu.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={createPageUrl(item.href.replace("/", ""))}
-                          className="block px-4 py-2 font-body text-sm text-[rgba(255,255,255,0.55)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
           </div>
 
           {/* Desktop Right Side - Product Pills + CTA */}
@@ -140,14 +107,7 @@ export default function BrandNavbar() {
             <CombinedROICalculator />
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+
         </div>
       </nav>
 
@@ -174,39 +134,17 @@ export default function BrandNavbar() {
                 </Link>
               ))}
 
-              {/* Mobile About Menu */}
-              <div>
-                <button
-                  onClick={() => setAboutOpen(!aboutOpen)}
-                  className="font-display text-2xl font-semibold text-white flex items-center gap-2 w-full"
-                >
-                  About
-                  <ChevronDown className={`w-5 h-5 transition-transform ${aboutOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {aboutOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="mt-3 pl-4 flex flex-col gap-3"
-                    >
-                      {aboutMenu.slice(1).map((item) => (
-                        <Link
-                          key={item.label}
-                          to={createPageUrl(item.href.replace("/", ""))}
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setAboutOpen(false);
-                          }}
-                          className="font-body text-lg text-[rgba(255,255,255,0.65)] hover:text-white"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
+                {sideMenuLinks.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={createPageUrl(item.href.replace("/", ""))}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-body text-lg text-[rgba(255,255,255,0.65)] hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
 
               <div className="pt-4">
