@@ -628,9 +628,9 @@ export default function MasterExport() {
       dotColor: "#F54A48",
       badge: "How It Works · Revenue Leaks · Results · Book",
       sections: [
-        { id: "convert-how-it-works", title: "Convert: How It Works", exportPagePath: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
-        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", exportPagePath: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
-        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", exportPagePath: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
+        { id: "convert-how-it-works", title: "Convert: How It Works", badge: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
+        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", badge: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
+        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", badge: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
         { id: "convert-book", title: "Convert: Book a Call", items: [{ label: "INFO", code: `<!-- Book page embeds the booking calendar widget -->\n<!-- Route: /Book -->\n<!-- Embed: <div style="min-height:700px;"><iframe src="https://makea.shiftnow.io/widget/bookings/reality" width="100%" height="700" frameborder="0"></iframe></div> -->` }] },
       ],
     },
