@@ -623,35 +623,69 @@ export default function MasterExport() {
       ],
     },
     {
-      title: "All Other Pages",
+      title: "ShiFt Convert — Inner Pages",
+      color: "#F54A48",
+      dotColor: "#F54A48",
+      badge: "How It Works · Revenue Leaks · Results · Book",
+      sections: [
+        { id: "convert-how-it-works", title: "Convert: How It Works", exportPagePath: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
+        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", exportPagePath: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
+        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", exportPagePath: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
+        { id: "convert-book", title: "Convert: Book a Call", items: [{ label: "INFO", code: `<!-- Book page embeds the booking calendar widget -->\n<!-- Route: /Book -->\n<!-- Embed: <div style="min-height:700px;"><iframe src="https://makea.shiftnow.io/widget/bookings/reality" width="100%" height="700" frameborder="0"></iframe></div> -->` }] },
+      ],
+    },
+    {
+      title: "ShiFt Attract — Inner Pages",
+      color: "#FA982F",
+      dotColor: "#FA982F",
+      badge: "How It Works · Empty Pipeline · Results · Pricing · Book",
+      sections: [
+        { id: "attract-how-it-works", title: "Attract: How It Works", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
+        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
+        { id: "attract-results", title: "Attract: Results & Pipeline Proof", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
+        { id: "attract-pricing", title: "Attract: Pricing", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
+        { id: "attract-book", title: "Attract: Book a Pipeline Audit", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Embed: Pipeline Audit booking widget + qualifier form -->` }] },
+      ],
+    },
+    {
+      title: "ShiFt NeuralOS Brand — Inner Pages",
+      color: "#FFD700",
+      dotColor: "#FFD700",
+      badge: "Platform · Roofing · Resources · About · Careers · Blog · Contact · Features · Integrations · Case Studies",
+      exportPagePath: "ExportBrandNeuralOS",
+      sections: [
+        { id: "brand-platform", title: "Platform Page", items: [{ label: "INFO", code: `<!-- Route: /Platform -->\n<!-- Sections: NeuralOS system overview, AI modules, tech stack, integration diagram -->` }] },
+        { id: "brand-roofing", title: "Roofing Industry Page", items: [{ label: "INFO", code: `<!-- Route: /Roofing -->\n<!-- Sections: Roofing-specific pain points, ShiFt solution for contractors, testimonials -->` }] },
+        { id: "brand-resources", title: "Resources Page", items: [{ label: "INFO", code: `<!-- Route: /Resources -->\n<!-- Sections: Guides, calculators, playbooks, and tools for roofing contractors -->` }] },
+        { id: "brand-about", title: "About Page", items: [{ label: "INFO", code: `<!-- Route: /About -->\n<!-- Sections: Hero → Mission → Pillars → Values -->` }] },
+        { id: "brand-careers", title: "Careers Page", items: [{ label: "INFO", code: `<!-- Route: /Careers -->\n<!-- Sections: Hero → Core Values → Open Positions -->` }] },
+        { id: "brand-blog", title: "Blog Page", items: [{ label: "INFO", code: `<!-- Route: /Blog -->\n<!-- Sections: Hero → Featured Article → Article Grid -->` }] },
+        { id: "brand-contact", title: "Contact Page", items: [{ label: "INFO", code: `<!-- Route: /Contact -->\n<!-- Sections: Contact Form + Contact Info (email, phone, address) -->` }] },
+        { id: "brand-features", title: "Features Page", items: [{ label: "INFO", code: `<!-- Route: /Features -->\n<!-- Sections: Hero → Feature Cards (AI Response / Qualification / Booking / Follow-Up / Analytics) -->` }] },
+        { id: "brand-integrations", title: "Integrations Page", items: [{ label: "INFO", code: `<!-- Route: /Integrations -->\n<!-- Sections: Hero → Integration Categories (CRM / Calendar / Ads / Comms / Automation) -->` }] },
+        { id: "brand-case-studies", title: "Case Studies Page", items: [{ label: "INFO", code: `<!-- Route: /CaseStudies -->\n<!-- Sections: Hero → Individual Case Study Cards (stats + testimonials) -->` }] },
+      ],
+    },
+    {
+      title: "Legal Pages",
+      color: "#6B7C93",
+      dotColor: "#9DA3B4",
+      badge: "Privacy · Terms · Cookies",
+      sections: [
+        { id: "legal-privacy", title: "Privacy Policy", items: [{ label: "INFO", code: `<!-- Route: /PrivacyPolicy\n     URL:   ShiFtNow.io/PrivacyPolicy\n     Effective: March 15, 2026\n     Sections: 13 sections covering data collection, TCPA, sharing, retention, user rights (CCPA), contact -->\n<!-- Full text rendered at /PrivacyPolicy in the React app -->` }] },
+        { id: "legal-tos", title: "Terms of Service", items: [{ label: "INFO", code: `<!-- Route: /TermsOfService\n     URL:   ShiFtNow.io/TermsOfService\n     Effective: March 15, 2026 | Version 21\n     Jurisdiction: Cherokee County, Georgia\n     Sections: 0–20 covering Definitions, 90-Day Non-Cancelable Term, No Refunds/Chargebacks, RevShare, Revenue Floor, TCPA, IP, Arbitration -->\n<!-- Full text rendered at /TermsOfService in the React app -->` }] },
+        { id: "legal-cookies", title: "Cookie Policy", items: [{ label: "INFO", code: `<!-- Route: /CookiePolicy\n     URL:   ShiFtNow.io/CookiePolicy\n     Effective: March 15, 2026\n     Sections: 12 sections covering cookie types (Necessary / Functional / Analytics / Marketing), consent, GPC, CCPA, Platform cookies -->\n<!-- Full text rendered at /CookiePolicy in the React app -->` }] },
+      ],
+    },
+    {
+      title: "Complete URL Map — All Pages",
       color: "#6B7C93",
       dotColor: "#9DA3B4",
       sections: [
         {
-          id: "other-pages",
-          title: "Other Pages — URL Reference + Sub-Export Links",
-          items: [
-            { label: "URL MAP", code: OTHER_PAGES_HTML },
-          ]
-        },
-        {
-          id: "other-export-links",
-          title: "Section Export Pages (How It Works / Revenue Leaks / Results / Empty Pipeline)",
-          items: [
-            {
-              label: "INFO",
-              code: `<!-- Individual section export pages available at:
-  /ExportHowItWorks       → Convert: How It Works (all HTML/CSS per section)
-  /ExportRevenueLeaks     → Convert: Revenue Leaks (all HTML/CSS per section)
-  /ExportResults          → Convert: Results / Case Study (all HTML/CSS per section)
-  /ExportAttractEmptyPipeline → Attract: Empty Pipeline (all HTML/CSS per section)
-  /ExportBrandNeuralOS    → NeuralOS Brand Home (global CSS, nav, all sections)
-  /ExportAttract          → ShiFt Attract full page
-  /ExportConvert          → ShiFt Convert full page
-  /ExportRevenueEnginePlans → Revenue Engine Plans full page
--->`
-            }
-          ]
+          id: "all-pages-url-map",
+          title: "Full Site URL Reference (All Routes)",
+          items: [{ label: "URL MAP", code: OTHER_PAGES_HTML }]
         },
       ],
     },
