@@ -1156,6 +1156,176 @@ Usage:
       ],
     },
     {
+      title: "Customer Portal & Analytics",
+      color: "#63B3ED",
+      dotColor: "#63B3ED",
+      badge: "Authenticated · Dashboard · Billing",
+      sections: [
+        {
+          id: "customer-portal",
+          title: "Customer Portal (Authenticated)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /CustomerPortal
+    URL:   ShiFtNow.io/CustomerPortal
+    Purpose: Authenticated dashboard for customers to manage subscriptions, billing, leads, and revenue
+    Sections:
+      - Billing Overview (current plan, next billing date, status)
+      - Invoice History (downloadable PDFs, payment status)
+      - Payment Methods (secure Stripe link)
+      - Revenue Floor Status (90-day guarantee progress)
+      - Lead Management (lead list with status filters, search)
+      - Revenue Report (KPI cards, revenue trends, conversion funnel)
+    Auth: Requires login via Base44 auth
+    Components: BillingOverview, InvoiceHistory, PaymentMethods, RevenueFloorStatus, LeadManagement, RevenueReport
+    Export: React-only (uses base44 SDK for auth and data) -->`
+          }]
+        },
+      ],
+    },
+    {
+      title: "Contractor Tools & Calculators",
+      color: "#FFD700",
+      dotColor: "#FFD700",
+      badge: "Interactive · Analytics · Real-Time",
+      sections: [
+        {
+          id: "roi-calculator",
+          title: "ROI Calculator (Interactive)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /ROICalculator
+    URL:   ShiFtNow.io/ROICalculator
+    Purpose: Interactive calculator showing combined Attract + Convert ROI impact
+    Sections:
+      - Input controls: Monthly revenue, leads, close rate, pipeline growth, leak percentages
+      - Attract ROI (pipeline growth impact)
+      - Convert ROI (revenue leak plugging)
+      - Total Combined ROI calculation
+    Features:
+      - Real-time calculation as user adjusts inputs
+      - Separated Attract/Convert impact visualization
+      - Annual projection display
+      - CTA to book strategy call
+    Export: React-only page (uses form inputs and basic math) -->`
+          }]
+        },
+        {
+          id: "leak-detector",
+          title: "Revenue Leak Detector (Live CRM Analysis)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /LeakDetector
+    URL:   ShiFtNow.io/LeakDetector
+    Purpose: Interactive CRM analyzer that identifies and suggests fixes for revenue leaks
+    Sections:
+      - Live leak detection (Missed Follow-Up, Slow Response, Unclosed High-Intent)
+      - Category filtering and severity badges
+      - Summary KPIs (revenue at risk, critical leaks, fixes applied)
+      - Individual leak cards with:
+        * Estimated revenue impact
+        * Severity level
+        * Recommended fix
+        * Confirm/Execute modal
+      - All-fixed celebration state
+    Features:
+      - Mock CRM data analysis
+      - Interactive fix confirmation modal
+      - Animated leak card transitions
+      - Re-scan CRM button
+    Export: React-only page (interactive state management) -->`
+          }]
+        },
+        {
+          id: "campaign-insights",
+          title: "Campaign Insights (ROI Dashboard)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /CampaignInsights
+    URL:   ShiFtNow.io/CampaignInsights
+    Purpose: Campaign attribution dashboard comparing ROI across lead sources (Google, Meta, Organic)
+    Sections:
+      - KPI row: Total Spend, Revenue, Leads, Avg ROI
+      - Spend vs Revenue bar chart
+      - ROI comparison bar chart
+      - 4-week revenue trend line chart
+      - Detailed performance table (Source, Spend, Revenue, Leads, Booked, ROI, Cost/Lead)
+      - CTA to book strategy call
+    Features:
+      - Mock attribution data for 3 sources
+      - Recharts visualizations
+      - Responsive grid layout
+      - Framer Motion animations
+    Export: React-only page (uses mock data, can be connected to backend API) -->`
+          }]
+        },
+      ],
+    },
+    {
+      title: "Content & Resources",
+      color: "#48BB78",
+      dotColor: "#48BB78",
+      badge: "Blog · Articles · Marketing",
+      sections: [
+        {
+          id: "blog",
+          title: "Blog (Revenue Intelligence Content Hub)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /Blog
+    URL:   ShiFtNow.io/Blog
+    Purpose: Revenue intelligence content hub for roofing contractors
+    Sections:
+      - Hero (Revenue Intelligence for Roofing Contractors)
+      - Category filter pills (All / Strategy / AI & Automation / Case Study / Lead Gen / Operations)
+      - Featured post card (highlighted, gradient top bar)
+      - Article grid (3-col, animated with framer-motion, category badges)
+    Data source: content/blog-posts.js (JS module, 6 posts)
+    Posts:
+      - "Why Roofing Contractors Lose $47K in a Single Storm Season" (Strategy, Featured)
+      - "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever" (AI & Automation)
+      - "From $750K to $7M: How Titan Roofing Dominated Dallas" (Case Study)
+      - "Google Local Service Ads for Roofers: A Complete 2026 Guide" (Lead Gen)
+      - "The Empty Pipeline Problem — And the Only Real Fix" (Operations)
+      - "What Roofing Contractors Get Wrong About AI" (AI & Automation)
+    Export: React-only page (framer-motion animations) -->`
+          }]
+        },
+      ],
+    },
+    {
+      title: "Dashboard & Preview Pages",
+      color: "#63B3ED",
+      dotColor: "#63B3ED",
+      badge: "Live Dashboard · KPIs · Real-Time",
+      sections: [
+        {
+          id: "neuralaos-dashboard",
+          title: "NeuralOS Dashboard Preview (Live)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /NeuralOSDashboard
+    URL:   ShiFtNow.io/NeuralOSDashboard
+    Purpose: High-fidelity mock-up of the contractor portal shown to prospects to build trust
+    Sections:
+      - Live KPI row (AI conversations, bookings, avg response, monthly revenue, close rate, ROI)
+      - 8-week platform-attributed revenue line chart
+      - Leads vs Booked 7-day bar chart
+      - Filterable AI Lead Intelligence table (status, lead score, est. value, AI response time)
+      - Live AI Activity Log (booked / qualifying / follow-up / inbound / storm events)
+      - Trust strip (Live in 7 Days / Every Lead Captured / Full Transparency / 90-Day Floor)
+      - CTA → Book a Strategy Call
+    Features:
+      - Live counter hooks for real-time KPI updates
+      - Recharts visualizations
+      - Animated lead rows and activity log
+      - Framer Motion entrance effects
+    Export: React-only page (recharts + framer-motion) -->`
+          }]
+        },
+      ],
+    },
+    {
       title: "Backend Functions",
       color: "#F54A48",
       dotColor: "#F54A48",
@@ -1206,7 +1376,84 @@ Usage:
           id: "all-pages-url-map",
           title: "Full Site URL Reference (All Routes)",
           exportPagePath: "MasterExport",
-          items: [{ label: "URL MAP", code: OTHER_PAGES_HTML }]
+          items: [{
+            label: "URL MAP",
+            code: `<!-- COMPLETE SITE SITEMAP & ROUTING ──────────────────────────────────
+  
+  ── BRAND SITE (NeuralOS) ─────────────────────────────────────────────
+  /                    → Redirect to /BrandHome
+  /BrandHome           → NeuralOS home (hero + problem selector + products + proof + CTA)
+  /Platform            → Platform overview (NeuralOS system)
+  /Roofing             → Industry-specific landing (roofing contractors)
+  /Resources           → Resources hub (guides, playbooks, tools)
+  /About               → Company mission & values
+  /Careers             → Open positions & culture
+  /Contact             → Contact form & info (nested under About in nav)
+  /Features            → Product features (AI tools breakdown)
+  /Integrations        → Supported integrations (CRM, Calendar, Ads)
+  /CaseStudies         → Case studies (contractor success stories)
+  /Blog                → Blog (revenue intelligence content hub)
+
+  ── REVENUE ENGINE PLANS ──────────────────────────────────────────────
+  /RevenueEnginePlans  → Pricing (Activate / Amplify / Dominate packages)
+
+  ── SHIFTCONVERT PRODUCT ──────────────────────────────────────────────
+  /Home                → Convert home (revenue leaks hero)
+  /HowItWorks          → Convert: How it works (3-stage process)
+  /RevenueLeaks        → Convert: Revenue leak breakdown
+  /Results             → Convert: Results & case study
+  /Book                → Convert: Book a call
+
+  ── SHIFTATTRACT PRODUCT ──────────────────────────────────────────────
+  /AttractHome         → Attract home (empty pipeline hero)
+  /AttractHowItWorks   → Attract: How it works
+  /AttractEmptyPipeline → Attract: Empty pipeline problem
+  /AttractResults      → Attract: Results & proof
+  /AttractPricing      → Attract: Pricing tiers
+  /AttractBook         → Attract: Book pipeline audit
+  /CampaignInsights    → Campaign Insights (ROI dashboard - Google/Meta/Organic)
+
+  ── CONTRACTOR TOOLS & DASHBOARDS ─────────────────────────────────────
+  /NeuralOSDashboard   → Dashboard preview (high-fidelity mock, live KPIs, lead table)
+  /ROICalculator       → Interactive ROI calculator (Attract + Convert combined)
+  /LeakDetector        → Revenue leak detector (CRM analysis tool)
+  /CampaignInsights    → Campaign insights (attribution & ROI by source)
+
+  ── AUTHENTICATED CUSTOMER PORTAL ──────────────────────────────────────
+  /CustomerPortal      → Customer portal (billing, invoices, leads, revenue reports)
+                         - Requires authentication
+                         - Sections: Billing, Invoices, Payment Methods, Revenue Floor, Leads, Revenue Report
+
+  ── DOCUMENTATION ─────────────────────────────────────────────────────
+  /DocumentsDownload   → Download PRD & FTRD markdown documents
+  /MasterExport        → This page (code export hub)
+
+  ── LEGAL ─────────────────────────────────────────────────────────────
+  /PrivacyPolicy       → Privacy policy (effective March 15, 2026)
+  /TermsOfService      → Terms of service (effective March 15, 2026)
+  /CookiePolicy        → Cookie policy (effective March 15, 2026)
+
+  ── ONBOARDING ────────────────────────────────────────────────────────
+  /Onboarding          → Multi-step customer onboarding (CRM, KPIs, AI config)
+
+  ── EXPORT PAGES (Developer Tool) ─────────────────────────────────────
+  /MasterExport              → This page (main export hub)
+  /ExportBrandNeuralOS       → Brand: global CSS, nav, all sections
+  /ExportConvert             → Convert: full page
+  /ExportAttract             → Attract: full page
+  /ExportRevenueEnginePlans  → Revenue Engine Plans: full page
+  /ExportHowItWorks          → Convert: How It Works
+  /ExportRevenueLeaks        → Convert: Revenue Leaks
+  /ExportResults             → Convert: Results / Case Study
+  /ExportAttractEmptyPipeline → Attract: Empty Pipeline
+  /ExportDashboardPreview    → NeuralOS Dashboard Preview
+  /ExportBookACall           → Book a Call page
+
+  ── FULL ROUTE COUNT ──────────────────────────────────────────────────
+  Total pages implemented: 30+
+  Total functionality: 3 main products (NeuralOS, Attract, Convert) + 4 tools + 1 portal
+-->`
+          }]
         },
       ],
     },
