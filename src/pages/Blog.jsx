@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "../components/shared/SectionWrapper";
 import { ArrowRight } from "lucide-react";
-import posts from "../content/blog-posts.json";
+import posts from "../content/blog-posts";
 
 const CATEGORY_COLORS = {
   "Strategy":        "#F54A48",
