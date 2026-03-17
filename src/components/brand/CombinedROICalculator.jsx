@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
-import GradientButton from "../shared/GradientButton";
 
 export default function CombinedROICalculator() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +67,7 @@ export default function CombinedROICalculator() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={e => e.stopPropagation()}
-              className="relative rounded-2xl w-full max-w-xl my-8"
+              className="relative rounded-2xl w-full max-w-md my-8"
               style={{
                 background: "#0D0F33",
                 border: "1px solid rgba(245,74,72,0.3)",
@@ -77,45 +76,45 @@ export default function CombinedROICalculator() {
               {/* Close button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-lg transition-colors"
+                className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg transition-colors z-10"
               >
                 <X className="w-5 h-5 text-white" />
               </button>
 
               {/* Content */}
-              <div className="p-6 md:p-8">
+              <div className="p-6">
                 {step === 1 && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2">ShiFt ROI Calculator</h2>
-                    <p className="font-body text-xs md:text-sm text-[rgba(255,255,255,0.5)] mb-6">
+                    <h2 className="font-display text-lg font-bold text-white mb-1">ShiFt ROI Calculator</h2>
+                    <p className="font-body text-xs text-[rgba(255,255,255,0.5)] mb-5">
                       See the combined revenue impact of Attract + Convert
                     </p>
 
-                    <div className="space-y-6 mb-8">
+                    <div className="space-y-3 mb-5">
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
                           Annual Revenue
                         </label>
                         <div className="flex items-center gap-2">
-                          <span className="text-white font-semibold">$</span>
+                          <span className="text-white font-semibold text-sm">$</span>
                           <input
                             type="number"
                             name="monthlyRevenue"
                             value={formData.monthlyRevenue}
                             onChange={handleChange}
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                             placeholder="Monthly revenue"
                           />
-                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-sm">(monthly avg)</span>
+                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">/mo</span>
                         </div>
                       </div>
 
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
                           Monthly Leads
                         </label>
                         <input
@@ -123,12 +122,12 @@ export default function CombinedROICalculator() {
                           name="monthlyLeads"
                           value={formData.monthlyLeads}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                         />
                       </div>
 
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
                           Current Close Rate
                         </label>
                         <div className="flex items-center gap-2">
@@ -137,7 +136,7 @@ export default function CombinedROICalculator() {
                             name="closeRate"
                             value={formData.closeRate}
                             onChange={handleChange}
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-sm"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                           />
                           <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">%</span>
                         </div>
@@ -146,7 +145,7 @@ export default function CombinedROICalculator() {
 
                     <button
                       onClick={() => setStep(2)}
-                      className="w-full font-mono text-xs md:text-sm font-semibold uppercase tracking-wider py-2 md:py-3 rounded-lg transition-all"
+                      className="w-full font-mono text-xs font-semibold uppercase tracking-wider py-2 rounded-lg transition-all"
                       style={{
                         background: "linear-gradient(135deg, #F54A48, #FA982F)",
                         color: "white",
@@ -154,7 +153,7 @@ export default function CombinedROICalculator() {
                         cursor: "pointer",
                       }}
                     >
-                      Next: Revenue Leaks <ArrowRight className="inline w-4 h-4 ml-2" />
+                      Next: Revenue Leaks →
                     </button>
                   </motion.div>
                 )}
@@ -165,15 +164,15 @@ export default function CombinedROICalculator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2">Convert: Revenue Leaks</h2>
-                    <p className="font-body text-xs md:text-sm text-[rgba(255,255,255,0.5)] mb-6">
-                      Estimate what you're losing monthly to these three leaks
+                    <h2 className="font-display text-lg font-bold text-white mb-1">Convert: Revenue Leaks</h2>
+                    <p className="font-body text-xs text-[rgba(255,255,255,0.5)] mb-5">
+                      Estimate monthly losses
                     </p>
 
-                    <div className="space-y-6 mb-8">
+                    <div className="space-y-3 mb-5">
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
-                          Missed Calls (% of revenue lost)
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
+                          Missed Calls (%)
                         </label>
                         <div className="flex items-center gap-2">
                           <input
@@ -183,18 +182,18 @@ export default function CombinedROICalculator() {
                             onChange={handleChange}
                             min="0"
                             max="100"
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                           />
-                          <span className="text-[rgba(255,255,255,0.5)] font-mono">%</span>
+                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">%</span>
                         </div>
-                        <div className="text-xs text-[rgba(255,255,255,0.4)] mt-1">
-                          ≈ ${(missedCallsLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })} monthly
+                        <div className="text-[10px] text-[rgba(255,255,255,0.3)] mt-1">
+                          ≈ ${(missedCallsLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                         </div>
                       </div>
 
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
-                          Garbage Leads (% of revenue wasted)
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
+                          Garbage Leads (%)
                         </label>
                         <div className="flex items-center gap-2">
                           <input
@@ -204,18 +203,18 @@ export default function CombinedROICalculator() {
                             onChange={handleChange}
                             min="0"
                             max="100"
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                           />
-                          <span className="text-[rgba(255,255,255,0.5)] font-mono">%</span>
+                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">%</span>
                         </div>
-                        <div className="text-xs text-[rgba(255,255,255,0.4)] mt-1">
-                          ≈ ${(garbageLeadsLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })} monthly
+                        <div className="text-[10px] text-[rgba(255,255,255,0.3)] mt-1">
+                          ≈ ${(garbageLeadsLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                         </div>
                       </div>
 
                       <div>
-                        <label className="font-body text-sm text-[rgba(255,255,255,0.7)] block mb-2">
-                          Invisible Buyers (% of revenue missed)
+                        <label className="font-body text-xs text-[rgba(255,255,255,0.7)] block mb-1">
+                          Invisible Buyers (%)
                         </label>
                         <div className="flex items-center gap-2">
                           <input
@@ -225,20 +224,20 @@ export default function CombinedROICalculator() {
                             onChange={handleChange}
                             min="0"
                             max="100"
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-xs"
                           />
-                          <span className="text-[rgba(255,255,255,0.5)] font-mono">%</span>
+                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">%</span>
                         </div>
-                        <div className="text-xs text-[rgba(255,255,255,0.4)] mt-1">
-                          ≈ ${(invisibleBuyersLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })} monthly
+                        <div className="text-[10px] text-[rgba(255,255,255,0.3)] mt-1">
+                          ≈ ${(invisibleBuyersLoss).toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-2">
                       <button
                         onClick={() => setStep(1)}
-                        className="flex-1 font-mono text-sm font-semibold uppercase tracking-wider py-3 rounded-lg transition-all"
+                        className="flex-1 font-mono text-xs font-semibold uppercase tracking-wider py-2 rounded-lg transition-all"
                         style={{
                           background: "rgba(255,255,255,0.05)",
                           color: "rgba(255,255,255,0.7)",
@@ -250,7 +249,7 @@ export default function CombinedROICalculator() {
                       </button>
                       <button
                         onClick={() => setStep(3)}
-                        className="flex-1 font-mono text-sm font-semibold uppercase tracking-wider py-3 rounded-lg transition-all"
+                        className="flex-1 font-mono text-xs font-semibold uppercase tracking-wider py-2 rounded-lg transition-all"
                         style={{
                           background: "linear-gradient(135deg, #F54A48, #FA982F)",
                           color: "white",
@@ -258,7 +257,7 @@ export default function CombinedROICalculator() {
                           cursor: "pointer",
                         }}
                       >
-                        See Results <ArrowRight className="inline w-4 h-4 ml-2" />
+                        See Results →
                       </button>
                     </div>
                   </motion.div>
@@ -270,57 +269,57 @@ export default function CombinedROICalculator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4">Your ROI Potential</h2>
+                    <h2 className="font-display text-lg font-bold text-white mb-4">Your ROI Potential</h2>
 
                     {/* Attract ROI */}
-                    <div className="rounded-xl p-4 md:p-6 mb-4 border"
+                    <div className="rounded-lg p-3 mb-3 border"
                       style={{
                         background: "rgba(255,215,0,0.08)",
                         borderColor: "rgba(255,215,0,0.3)",
                       }}>
-                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#FFD700] mb-1">Attract (Pipeline Growth)</div>
-                      <div className="font-display text-2xl md:text-3xl font-bold text-white mb-1">
+                      <div className="font-mono text-[9px] uppercase tracking-wider text-[#FFD700] mb-1">Attract</div>
+                      <div className="font-display text-lg font-bold text-white">
                         +${attractMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
-                      <div className="text-sm text-[rgba(255,255,255,0.5)]">
-                        {attractNewLeads.toFixed(1)} new qualified leads × ${avgJobValue.toLocaleString('en-US', { maximumFractionDigits: 0 })} avg job = ${attractAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/yr
+                      <div className="text-[10px] text-[rgba(255,255,255,0.4)] mt-1">
+                        ${attractAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/yr
                       </div>
                     </div>
 
                     {/* Convert ROI */}
-                    <div className="rounded-xl p-4 md:p-6 mb-4 border"
+                    <div className="rounded-lg p-3 mb-3 border"
                       style={{
                         background: "rgba(245,74,72,0.08)",
                         borderColor: "rgba(245,74,72,0.3)",
                       }}>
-                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#F54A48] mb-1">Convert (Plugged Leaks)</div>
-                      <div className="font-display text-2xl md:text-3xl font-bold text-white mb-1">
+                      <div className="font-mono text-[9px] uppercase tracking-wider text-[#F54A48] mb-1">Convert</div>
+                      <div className="font-display text-lg font-bold text-white">
                         +${convertMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
-                      <div className="text-sm text-[rgba(255,255,255,0.5)]">
-                        Eliminated: Missed Calls + Garbage Leads + Invisible Buyers = ${convertAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/yr
+                      <div className="text-[10px] text-[rgba(255,255,255,0.4)] mt-1">
+                        ${convertAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/yr
                       </div>
                     </div>
 
                     {/* Total ROI */}
-                    <div className="rounded-xl p-4 md:p-6 border mb-6"
+                    <div className="rounded-lg p-3 border mb-5"
                       style={{
                         background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
                         borderColor: "rgba(245,74,72,0.3)",
                       }}>
-                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#FA982F] mb-1">Total Combined ROI</div>
-                      <div className="font-display text-2xl md:text-4xl font-bold shift-gradient-text mb-1">
+                      <div className="font-mono text-[9px] uppercase tracking-wider text-[#FA982F] mb-1">Combined</div>
+                      <div className="font-display text-2xl font-bold shift-gradient-text">
                         +${totalMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
-                      <div className="text-sm text-[rgba(255,255,255,0.5)]">
-                        ${totalAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })} annual revenue potential
+                      <div className="text-[10px] text-[rgba(255,255,255,0.4)] mt-1">
+                        ${totalAnnualROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/yr potential
                       </div>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-2">
                       <button
                         onClick={() => setStep(1)}
-                        className="flex-1 font-mono text-sm font-semibold uppercase tracking-wider py-3 rounded-lg"
+                        className="flex-1 font-mono text-xs font-semibold uppercase tracking-wider py-2 rounded-lg"
                         style={{
                           background: "rgba(255,255,255,0.05)",
                           color: "rgba(255,255,255,0.7)",
@@ -328,11 +327,11 @@ export default function CombinedROICalculator() {
                           cursor: "pointer",
                         }}
                       >
-                        Adjust Numbers
+                        Adjust
                       </button>
                       <button
                         onClick={() => setIsOpen(false)}
-                        className="flex-1 font-mono text-sm font-semibold uppercase tracking-wider py-3 rounded-lg"
+                        className="flex-1 font-mono text-xs font-semibold uppercase tracking-wider py-2 rounded-lg"
                         style={{
                           background: "linear-gradient(135deg, #F54A48, #FA982F)",
                           color: "white",
