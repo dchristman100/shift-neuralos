@@ -517,7 +517,7 @@ export default function RevenueEnginePlans() {
 
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "20px 28px", textAlign: "center" }}>
             <p className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
-              All packages require a one-time <strong style={{ color: "rgba(255,255,255,0.7)" }}>$5,000 Revenue Engine Installation</strong> fee, collected at signing.
+              All packages require a one-time <strong style={{ color: "rgba(255,255,255,0.7)" }}>$5,000 Revenue Engine Activation</strong> fee, collected at signing.
               Ad spend paid directly by you to Google/Meta — never through ShiFt.
             </p>
             <div style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(250,152,47,0.08)", border: "1px solid rgba(250,152,47,0.25)", borderRadius: "8px", padding: "8px 16px" }}>
