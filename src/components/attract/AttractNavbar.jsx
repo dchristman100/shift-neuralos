@@ -10,8 +10,8 @@ const navLinks = [
   { label: "Empty Pipeline", href: "/AttractEmptyPipeline" },
   { label: "Results", href: "/AttractResults" },
   { label: "Campaign Insights", href: "/CampaignInsights" },
-  { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
   { label: "Demo", href: "/NeuralOSDashboard" },
+  { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
 ];
 
 export default function AttractNavbar() {
