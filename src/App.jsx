@@ -28,6 +28,7 @@ import MasterExport from './pages/MasterExport';
 import NeuralOSDashboard from './pages/NeuralOSDashboard';
 import Onboarding from './pages/Onboarding';
 import LeakDetector from './pages/LeakDetector';
+import ROICalculator from './pages/ROICalculator';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -97,6 +98,7 @@ const AuthenticatedApp = () => {
       <Route path="/ExportBookACall" element={<LayoutWrapper currentPageName="ExportBookACall"><ExportBookACall /></LayoutWrapper>} />
       <Route path="/Onboarding" element={<LayoutWrapper currentPageName="Onboarding"><Onboarding /></LayoutWrapper>} />
       <Route path="/LeakDetector" element={<LayoutWrapper currentPageName="LeakDetector"><LeakDetector /></LayoutWrapper>} />
+      <Route path="/ROICalculator" element={<LayoutWrapper currentPageName="ROICalculator"><ROICalculator /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
