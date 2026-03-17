@@ -92,7 +92,8 @@ export default function Navbar() {
                 style={{
                   color: "#9DA3B4",
                   background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)"
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  minWidth: "max-content"
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
@@ -104,7 +105,8 @@ export default function Navbar() {
                 style={{
                   background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
                   border: "1px solid rgba(255,255,255,0.08)",
-                  color: "#F8F9FC"
+                  color: "#F8F9FC",
+                  minWidth: "max-content"
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#F54A48", boxShadow: "0 0 8px rgba(245,74,72,0.5)" }}></span>
