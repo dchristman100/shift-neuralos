@@ -419,25 +419,57 @@ const REVENUE_PLANS_HTML = `<!-- REVENUE ENGINE PLANS PAGE: complete standalone 
   </div>
 </section>`;
 
-const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Quick Reference URLs for WordPress/Elementor -->
+const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPress/Elementor -->
 <!--
+  ── NEURALAOS BRAND SITE ──────────────────────────────────────────────────
+  /                   → NeuralOS Home (Hero + Problem Selector + Two Products + Proof + CTA)
+  /BrandHome          → Brand Home (same as above, React route)
+  /platform           → Platform Page (NeuralOS system overview)
+  /roofing            → Roofing Page (industry-specific landing)
+  /resources          → Resources Page (guides, tools, downloads)
+  /about              → About Page (company mission & values)
+  /careers            → Careers Page (open positions)
+  /blog               → Blog Page (roofing revenue articles)
+  /contact            → Contact Page (form + info)
   /features           → Features Page (AI tools breakdown)
   /integrations       → Integrations Page (CRM, calendar, ad platforms)
   /case-studies       → Case Studies Page (contractor success stories)
-  /blog               → Blog Page (roofing revenue articles)
-  /about              → About Page (company mission & values)
-  /careers            → Careers Page (open positions)
-  /contact            → Contact Page (form + info)
-  /privacy-policy     → Privacy Policy (Effective March 15, 2026)
-  /terms-of-service   → Terms of Service (Effective March 15, 2026)
-  /cookie-policy      → Cookie Policy (Effective March 15, 2026)
-  /how-it-works       → Convert: How It Works (3-stage process)
-  /revenue-leaks      → Convert: Revenue Leaks (3 leak types)
-  /results            → Convert: Results (Titan Roofing case study)
-  /attract/how-it-works → Attract: How It Works
-  /attract/results    → Attract: Results & pipeline proof
-  /attract/empty-pipeline → Attract: Empty Pipeline Problem
-  /revenue-engine-plans → Revenue Engine Plans (Activate/Amplify/Dominate)
+
+  ── REVENUE ENGINE PLANS ─────────────────────────────────────────────────
+  /RevenueEnginePlans → Revenue Engine Plans (Activate / Amplify / Dominate)
+  /Packages           → Legacy Packages Page (alternate plans view)
+  /Pricing            → Pricing Page
+
+  ── SHIFTCONVERT PRODUCT SITE ────────────────────────────────────────────
+  /Home               → Convert Home (Hero + Revenue Leaks + Proof + CTA)
+  /HowItWorks         → Convert: How It Works (3-stage process)
+  /RevenueLeaks       → Convert: Revenue Leaks (3 leak types)
+  /Results            → Convert: Results (Titan Roofing case study)
+  /Book               → Convert: Book a Call / Demo booking page
+
+  ── SHIFTATTRACT PRODUCT SITE ────────────────────────────────────────────
+  /AttractHome        → Attract Home (Hero + Empty Pipeline + Solution + Proof + CTA)
+  /AttractHowItWorks  → Attract: How It Works (lead gen process)
+  /AttractEmptyPipeline → Attract: Empty Pipeline Problem
+  /AttractResults     → Attract: Results & pipeline proof
+  /AttractPricing     → Attract: Pricing
+  /AttractBook        → Attract: Book a Pipeline Audit
+
+  ── LEGAL ────────────────────────────────────────────────────────────────
+  /PrivacyPolicy      → Privacy Policy (Effective March 15, 2026)
+  /TermsOfService     → Terms of Service (Effective March 15, 2026)
+  /CookiePolicy       → Cookie Policy (Effective March 15, 2026)
+
+  ── EXPORT PAGES (Internal Dev Tool) ────────────────────────────────────
+  /MasterExport       → This page — full site export hub
+  /ExportBrandNeuralOS → NeuralOS Brand: global CSS, nav, all sections
+  /ExportConvert      → ShiFt Convert: full page section-by-section
+  /ExportAttract      → ShiFt Attract: full page section-by-section
+  /ExportRevenueEnginePlans → Revenue Engine Plans: full page
+  /ExportHowItWorks   → Convert: How It Works (per-section HTML/CSS)
+  /ExportRevenueLeaks → Convert: Revenue Leaks (per-section HTML/CSS)
+  /ExportResults      → Convert: Results / Case Study (per-section HTML/CSS)
+  /ExportAttractEmptyPipeline → Attract: Empty Pipeline (per-section HTML/CSS)
 -->`;
 
 const FAQ_JS_CODE = `function shiftToggleFaq(btn){var item=btn.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.shift-faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}`;
