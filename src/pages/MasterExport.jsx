@@ -40,7 +40,7 @@ function CodeBlock({ code, id, copied, onCopy, label }) {
 }
 
 // ─── ACCORDION SECTION ──────────────────────────────────────────────────────
-function AccordionSection({ id, title, badge, items, expanded, onToggle, copied, onCopy }) {
+function AccordionSection({ id, title, badge, exportPagePath, items, expanded, onToggle, copied, onCopy }) {
   const open = expanded[id];
   return (
     <div className="rounded-xl overflow-hidden" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
@@ -48,7 +48,7 @@ function AccordionSection({ id, title, badge, items, expanded, onToggle, copied,
         onClick={() => onToggle(id)}
         className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-[rgba(255,255,255,0.02)]"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           {open ? <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: "#F54A48" }} />
             : <ChevronRight className="w-4 h-4 flex-shrink-0" style={{ color: "rgba(255,255,255,0.4)" }} />}
           <span className="font-display text-base font-bold text-white">{title}</span>
@@ -56,6 +56,17 @@ function AccordionSection({ id, title, badge, items, expanded, onToggle, copied,
             <span className="font-mono text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(245,74,72,0.1)", color: "#FA982F" }}>
               {badge}
             </span>
+          )}
+          {exportPagePath && (
+            <Link
+              to={createPageUrl(exportPagePath)}
+              target="_blank"
+              onClick={e => e.stopPropagation()}
+              className="flex items-center gap-1 font-mono text-xs px-2 py-0.5 rounded-full transition-all"
+              style={{ background: "rgba(99,179,237,0.1)", color: "#63B3ED", border: "1px solid rgba(99,179,237,0.25)" }}
+            >
+              <ExternalLink className="w-2.5 h-2.5" /> Export Page
+            </Link>
           )}
         </div>
         <CopyBtn code={items.map(i => i.code).join("\n\n")} id={`${id}-all`} copied={copied} onCopy={onCopy} />
