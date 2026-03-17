@@ -63,8 +63,10 @@ import Contact from './pages/Contact';
 import CookiePolicy from './pages/CookiePolicy';
 import ExportAttract from './pages/ExportAttract';
 import ExportAttractEmptyPipeline from './pages/ExportAttractEmptyPipeline';
+import ExportBookACall from './pages/ExportBookACall';
 import ExportBrandNeuralOS from './pages/ExportBrandNeuralOS';
 import ExportConvert from './pages/ExportConvert';
+import ExportDashboardPreview from './pages/ExportDashboardPreview';
 import ExportHowItWorks from './pages/ExportHowItWorks';
 import ExportResults from './pages/ExportResults';
 import ExportRevenueEnginePlans from './pages/ExportRevenueEnginePlans';
@@ -104,8 +106,10 @@ export const PAGES = {
     "CookiePolicy": CookiePolicy,
     "ExportAttract": ExportAttract,
     "ExportAttractEmptyPipeline": ExportAttractEmptyPipeline,
+    "ExportBookACall": ExportBookACall,
     "ExportBrandNeuralOS": ExportBrandNeuralOS,
     "ExportConvert": ExportConvert,
+    "ExportDashboardPreview": ExportDashboardPreview,
     "ExportHowItWorks": ExportHowItWorks,
     "ExportResults": ExportResults,
     "ExportRevenueEnginePlans": ExportRevenueEnginePlans,

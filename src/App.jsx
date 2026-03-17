@@ -10,6 +10,8 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import CallWidget from '@/components/ui/callwidget';
 import RevenueEnginePlans from './pages/RevenueEnginePlans';
 import ExportRevenueEnginePlans from './pages/ExportRevenueEnginePlans';
+import ExportDashboardPreview from './pages/ExportDashboardPreview';
+import ExportBookACall from './pages/ExportBookACall';
 import ExportHowItWorks from './pages/ExportHowItWorks';
 import ExportRevenueLeaks from './pages/ExportRevenueLeaks';
 import ExportResults from './pages/ExportResults';
@@ -89,6 +91,8 @@ const AuthenticatedApp = () => {
       <Route path="/CookiePolicy" element={<LayoutWrapper currentPageName="CookiePolicy"><CookiePolicy /></LayoutWrapper>} />
       <Route path="/MasterExport" element={<LayoutWrapper currentPageName="MasterExport"><MasterExport /></LayoutWrapper>} />
       <Route path="/NeuralOSDashboard" element={<LayoutWrapper currentPageName="NeuralOSDashboard"><NeuralOSDashboard /></LayoutWrapper>} />
+      <Route path="/ExportDashboardPreview" element={<LayoutWrapper currentPageName="ExportDashboardPreview"><ExportDashboardPreview /></LayoutWrapper>} />
+      <Route path="/ExportBookACall" element={<LayoutWrapper currentPageName="ExportBookACall"><ExportBookACall /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
