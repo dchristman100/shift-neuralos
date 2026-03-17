@@ -1,7 +1,5 @@
 import React from "react";
 import Navbar from "./components/landing/Navbar";
-import BrandNavbar from "./components/brand/BrandNavbar";
-import AttractNavbar from "./components/attract/AttractNavbar";
 import Footer from "./components/landing/Footer";
 
 export default function Layout({ children, currentPageName }) {
