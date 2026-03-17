@@ -876,11 +876,33 @@ ${FAQ_JS_CODE}</script>
     // Revenue Engine Plans
     zip.file("revenue-engine-plans.html", makePageHtml("Revenue Engine Plans", NEURALAOS_NAV_HTML, REVENUE_PLANS_HTML));
 
+    // Blog page static stub
+    zip.file("blog.html", makePageHtml("Blog · ShiFt NeuralOS", NEURALAOS_NAV_HTML, `<section class="section-wrap" style="text-align:center;">
+  <div class="section-inner" style="max-width:820px;">
+    <div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:#F54A48;margin-bottom:20px;">ShiFt Blog</div>
+    <h1 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:20px;">Revenue Intelligence<br><span class="shift-gradient-text">for Roofing Contractors</span></h1>
+    <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 48px;line-height:1.7;">Strategy, AI, and real-world results from the field.</p>
+  </div>
+</section>
+<section class="section-wrap" style="background:#0D0F33;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+      ${[
+        { cat: "Strategy", title: "Why Roofing Contractors Lose $47K in a Single Storm Season", excerpt: "When 200 leads flood in over two weeks, manual follow-up collapses. We break down exactly where the money goes.", color: "#F54A48", date: "March 10, 2026" },
+        { cat: "AI & Automation", title: "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever", excerpt: "78% of homeowners choose the first contractor to respond. Here's the data behind the window.", color: "#FA982F", date: "February 28, 2026" },
+        { cat: "Case Study", title: "From $750K to $7M: How Titan Roofing Dominated Dallas", excerpt: "Jake Torres wasn't outworking his competitors. He was outsmarting them.", color: "#48BB78", date: "February 14, 2026" },
+        { cat: "Lead Gen", title: "Google Local Service Ads for Roofers: A Complete 2026 Guide", excerpt: "LSAs are the highest-intent leads available. Most contractors waste 40% of their budget on unqualified clicks.", color: "#F54A48", date: "January 30, 2026" },
+        { cat: "Operations", title: "The Empty Pipeline Problem — And the Only Real Fix", excerpt: "Referrals dry up. Agencies overpromise. The only way out is a system that generates leads on demand.", color: "#FA982F", date: "January 18, 2026" },
+        { cat: "AI & Automation", title: "What Roofing Contractors Get Wrong About AI", excerpt: "It's not a chatbot. It's not a gimmick. AI-powered revenue systems are infrastructure.", color: "#F54A48", date: "January 5, 2026" },
+      ].map(p => `<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;display:flex;flex-direction:column;"><div style="height:3px;width:40px;background:${p.color};border-radius:4px;margin-bottom:16px;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:${p.color};background:${p.color}18;border:1px solid ${p.color}33;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:12px;">${p.cat}</span><h3 class="font-display" style="font-size:1.1rem;font-weight:800;color:white;margin-bottom:10px;line-height:1.4;">${p.title}</h3><p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65;flex:1;">${p.excerpt}</p><div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.3);">${p.date}</div></div>`).join("\n      ")}
+    </div>
+  </div>
+</section>`));
+
     // Shared brand pages
     const brandPages = [
       ["about", "About"],
       ["careers", "Careers"],
-      ["blog", "Blog"],
       ["contact", "Contact"],
       ["features", "Features"],
       ["integrations", "Integrations"],
