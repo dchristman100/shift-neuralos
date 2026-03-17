@@ -21,37 +21,23 @@ export default function DocumentsDownload() {
     }
   ];
 
-  const handleDownload = (filename) => {
-    const content = documents.find(d => d.filename === filename);
-    // Create blob and trigger download
-    const element = document.createElement("a");
-    element.setAttribute("href", `data:text/plain;charset=utf-8,${encodeURIComponent(getFileContent(filename))}`);
-    element.setAttribute("download", filename);
-    element.style.display = "none";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-  };
-
-  const getFileContent = (filename) => {
-    if (filename === "PRD_ShiFt_Platform.md") {
-      return `# ShiFt NeuralOS™ Platform - Product Requirements Document (PRD)
-
-**Document Version:** 1.0  
-**Date:** March 17, 2026  
-**Audience:** Implementation & Deployment Teams  
-**Status:** Production Specification
-
-[Full content saved in project at docs/PRD_ShiFt_Platform.md]`;
-    } else {
-      return `# ShiFt NeuralOS™ Platform - Functional & Technical Requirements Document (FTRD)
-
-**Document Version:** 1.0  
-**Date:** March 17, 2026  
-**Audience:** Implementation & Deployment Teams  
-**Status:** Production Specification
-
-[Full content saved in project at docs/FTRD_ShiFt_Platform.md]`;
+  const handleDownload = async (filename) => {
+    try {
+      const response = await fetch(`/api/downloadDocument?filename=${filename}`);
+      if (!response.ok) throw new Error('Download failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('Failed to download document');
     }
   };
 
