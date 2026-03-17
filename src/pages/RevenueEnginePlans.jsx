@@ -660,6 +660,30 @@ export default function RevenueEnginePlans() {
         </div>
       </section>
 
+      {/* ── ONBOARDING CTA ── */}
+      <section className="rep-section" style={{ background: "#070820" }}>
+        <div className="rep-inner" style={{ maxWidth: "720px", textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(72,187,120,0.1)", border: "1px solid rgba(72,187,120,0.3)", borderRadius: "999px", padding: "8px 20px", marginBottom: "24px" }}>
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#48BB78", display: "inline-block", flexShrink: 0 }} />
+            <span className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", textTransform: "uppercase", letterSpacing: "0.15em" }}>Already a Client?</span>
+          </div>
+          <h2 className="rep-font-display" style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 900, color: "#fff", letterSpacing: "-1.5px", marginBottom: "16px" }}>
+            Set Up Your Revenue Engine<br /><span style={{ background: "linear-gradient(135deg,#F54A48,#FA982F)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>in Under 10 Minutes</span>
+          </h2>
+          <p className="rep-font-body" style={{ fontSize: "16px", color: "rgba(255,255,255,0.55)", lineHeight: 1.75, maxWidth: "520px", margin: "0 auto 32px" }}>
+            Connect your CRM, set your KPIs, and configure your AI response parameters — our guided setup wizard walks you through every step.
+          </p>
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+            <a href="/Onboarding" className="rep-btn-primary" style={{ padding: "16px 40px", fontSize: "14px", textDecoration: "none" }}>
+              Start My Setup →
+            </a>
+          </div>
+          <p className="rep-font-mono" style={{ marginTop: "16px", fontSize: "11px", color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+            CRM · KPIs · AI Parameters · Go Live
+          </p>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ── */}
       <section className="rep-section" style={{ background: "#0D0F33", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{
