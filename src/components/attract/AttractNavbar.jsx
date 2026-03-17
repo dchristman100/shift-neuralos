@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Results", href: "/AttractResults" },
   { label: "Campaign Insights", href: "/CampaignInsights" },
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
+  { label: "Demo", href: "/NeuralOSDashboard" },
 ];
 
 export default function AttractNavbar() {
