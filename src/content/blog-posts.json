@@ -1,0 +1,62 @@
+[
+  {
+    "id": "storm-season-revenue-loss",
+    "category": "Strategy",
+    "date": "March 10, 2026",
+    "title": "Why Roofing Contractors Lose $47K in a Single Storm Season",
+    "excerpt": "When 200 leads flood in over two weeks, manual follow-up collapses. We break down exactly where the money goes — and how to stop the bleed.",
+    "readTime": "5 min read",
+    "color": "#F54A48",
+    "featured": true
+  },
+  {
+    "id": "30-second-rule",
+    "category": "AI & Automation",
+    "date": "February 28, 2026",
+    "title": "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever",
+    "excerpt": "78% of homeowners choose the first contractor to respond. Here's the data behind the window, and what it means for your operation.",
+    "readTime": "4 min read",
+    "color": "#FA982F",
+    "featured": false
+  },
+  {
+    "id": "titan-roofing-case-study",
+    "category": "Case Study",
+    "date": "February 14, 2026",
+    "title": "From $750K to $7M: How Titan Roofing Dominated Dallas",
+    "excerpt": "Jake Torres wasn't outworking his competitors. He was outsmarting them. A deep-dive into 6 years of compounding AI-driven growth.",
+    "readTime": "8 min read",
+    "color": "#48BB78",
+    "featured": false
+  },
+  {
+    "id": "google-lsa-guide-2026",
+    "category": "Lead Gen",
+    "date": "January 30, 2026",
+    "title": "Google Local Service Ads for Roofers: A Complete 2026 Guide",
+    "excerpt": "LSAs are the highest-intent leads available. Most contractors waste 40% of their budget on unqualified clicks. Here's how to fix that.",
+    "readTime": "7 min read",
+    "color": "#F54A48",
+    "featured": false
+  },
+  {
+    "id": "empty-pipeline-fix",
+    "category": "Operations",
+    "date": "January 18, 2026",
+    "title": "The Empty Pipeline Problem — And the Only Real Fix",
+    "excerpt": "Referrals dry up. Agencies overpromise. Seasonal swings kill cash flow. The only way out is a system that generates leads on demand.",
+    "readTime": "6 min read",
+    "color": "#FA982F",
+    "featured": false
+  },
+  {
+    "id": "what-contractors-get-wrong-about-ai",
+    "category": "AI & Automation",
+    "date": "January 5, 2026",
+    "title": "What Roofing Contractors Get Wrong About AI",
+    "excerpt": "It's not a chatbot. It's not a gimmick. AI-powered revenue systems are infrastructure — and the contractors using them are pulling away.",
+    "readTime": "5 min read",
+    "color": "#F54A48",
+    "featured": false
+  }
+]
