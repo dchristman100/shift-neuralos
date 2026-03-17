@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GradientButton from "../shared/GradientButton";
+import CombinedROICalculator from "./CombinedROICalculator";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../../utils";
@@ -89,14 +90,7 @@ export default function BrandNavbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm" onClick={() => {
-              const problemSelector = document.getElementById('problem-selector');
-              if (problemSelector) {
-                problemSelector.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                window.location.href = createPageUrl("BrandHome");
-              }
-            }}>Find Your Gap</GradientButton>
+            <CombinedROICalculator />
           </div>
 
           {/* Mobile menu button */}
