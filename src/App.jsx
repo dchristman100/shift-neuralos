@@ -96,6 +96,7 @@ const AuthenticatedApp = () => {
       <Route path="/ExportDashboardPreview" element={<LayoutWrapper currentPageName="ExportDashboardPreview"><ExportDashboardPreview /></LayoutWrapper>} />
       <Route path="/ExportBookACall" element={<LayoutWrapper currentPageName="ExportBookACall"><ExportBookACall /></LayoutWrapper>} />
       <Route path="/Onboarding" element={<Onboarding />} />
+      <Route path="/LeakDetector" element={<LeakDetector />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
