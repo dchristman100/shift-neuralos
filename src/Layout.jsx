@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./components/landing/Navbar";
+import BrandNavbar from "./components/brand/BrandNavbar";
+import AttractNavbar from "./components/attract/AttractNavbar";
 import Footer from "./components/landing/Footer";
 
 export default function Layout({ children, currentPageName }) {
@@ -169,7 +171,7 @@ export default function Layout({ children, currentPageName }) {
         }
       `}</style>
 
-        <Navbar />
+        {isAttractPage ? <AttractNavbar /> : isBrandPage ? <BrandNavbar /> : <Navbar />}
         {children}
         <Footer dotColor={isAttractPage ? "#FFD700" : isBrandPage ? "#FFD700" : "#F54A48"} />
       </div>
