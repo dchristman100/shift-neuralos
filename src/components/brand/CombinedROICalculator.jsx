@@ -67,7 +67,7 @@ export default function CombinedROICalculator() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={e => e.stopPropagation()}
-              className="relative rounded-2xl w-full max-w-md mt-8 mb-8"
+              className="relative rounded-2xl w-full max-w-md max-h-[calc(100vh-40px)] flex flex-col"
               style={{
                 background: "#0D0F33",
                 border: "1px solid rgba(245,74,72,0.3)",
@@ -82,7 +82,7 @@ export default function CombinedROICalculator() {
               </button>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 overflow-y-auto flex-1">
                 {step === 1 && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
