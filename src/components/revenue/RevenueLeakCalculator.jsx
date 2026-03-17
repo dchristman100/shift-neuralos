@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "crypto";
 
 // Constants per SHIFT-CALC-001 v1.0
 const CONSTANTS = {
