@@ -103,7 +103,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-[11px] font-semibold uppercase tracking-wider transition-all duration-300"
                 style={{
                   background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
-                  border: "1px solid rgba(245,74,72,0.3)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   color: "#F8F9FC"
                 }}
               >

@@ -87,7 +87,7 @@ export default function AttractNavbar() {
                 style={{
                   color: "#FA982F",
                   background: "linear-gradient(135deg, rgba(250,152,47,0.12), rgba(245,74,72,0.08))",
-                  border: "1px solid rgba(250,152,47,0.3)"
+                  border: "1px solid rgba(255,255,255,0.08)"
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FA982F]"
