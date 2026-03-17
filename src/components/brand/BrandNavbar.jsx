@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
   { label: "Platform", href: "/Platform" },
   { label: "Roofing", href: "/Roofing" },
+  { label: "Portal", href: "/CustomerPortal" },
 ];
 
 const aboutMenu = [
