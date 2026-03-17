@@ -9,6 +9,7 @@ const navLinks = [
   { label: "How It Works", href: "/AttractHowItWorks" },
   { label: "Empty Pipeline", href: "/AttractEmptyPipeline" },
   { label: "Results", href: "/AttractResults" },
+  { label: "Campaign Insights", href: "/CampaignInsights" },
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
 ];
 
