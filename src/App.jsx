@@ -94,6 +94,7 @@ const AuthenticatedApp = () => {
       <Route path="/NeuralOSDashboard" element={<LayoutWrapper currentPageName="NeuralOSDashboard"><NeuralOSDashboard /></LayoutWrapper>} />
       <Route path="/ExportDashboardPreview" element={<LayoutWrapper currentPageName="ExportDashboardPreview"><ExportDashboardPreview /></LayoutWrapper>} />
       <Route path="/ExportBookACall" element={<LayoutWrapper currentPageName="ExportBookACall"><ExportBookACall /></LayoutWrapper>} />
+      <Route path="/Onboarding" element={<Onboarding />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
