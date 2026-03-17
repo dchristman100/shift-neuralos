@@ -1326,6 +1326,85 @@ Usage:
       ],
     },
     {
+      title: "Interactive Tools & Analytics",
+      color: "#63B3ED",
+      dotColor: "#63B3ED",
+      badge: "Real-Time · Data Visualization",
+      sections: [
+        {
+          id: "revenue-leak-calculator-new",
+          title: "Revenue Leak Calculator (Three-Card Design)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /RevenueEnginePlans (embedded in page)
+    URL:   ShiFt NeuralOS/RevenueEnginePlans (embedded section)
+    Purpose: Single monthly revenue slider that calculates three revenue leak impacts in real-time
+    Sections:
+      - Header: "What Is Your Business Actually Losing?" with description
+      - Slider Card: Monthly revenue input (range $50K–$500K, step $5K, default $200K)
+      - Three Output Cards:
+        1. Missed Calls Loss (red): ~1 missed call per $10K revenue × $15K avg job × 25% close
+        2. Garbage Leads Loss (orange): ~1 lead per $4K revenue × 40% garbage × 2hrs × $50/hr
+        3. Total Documented Loss (gold): Sum of above two leaks
+    Features:
+      - Real-time calculation as slider moves
+      - Formatted currency display with thousands separator
+      - Responsive grid layout (auto-fit, minmax 280px)
+      - Context footer explaining the three leaks
+    Constants (per SHIFT-CALC-001 v1.0):
+      - Missed Calls: $15K avg job value, 25% close rate
+      - Garbage Leads: 40% garbage rate, 2 hrs/lead, $50/hr
+    Export: React component (components/revenue/RevenueLeakCalculator.jsx) -->`
+          }]
+        },
+        {
+          id: "leak-detector-tool",
+          title: "Revenue Leak Detector (CRM Analysis)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /LeakDetector
+    URL:   ShiFt NeuralOS/LeakDetector
+    Purpose: Interactive CRM analyzer identifying and suggesting fixes for revenue leaks
+    Sections:
+      - KPI Summary: Revenue at risk, Critical leaks count, Fixes applied
+      - Category Filter Pills: All / Missed Follow-Up / Slow Response / Unclosed High-Intent
+      - Leak Cards: Individual leaks with severity badge, impact $, recommended fix, confirm modal
+      - All-Fixed Celebration State: Animated success message when all leaks resolved
+    Features:
+      - Mock CRM data analysis with severity levels
+      - Interactive fix confirmation modals
+      - Animated leak card transitions
+      - Re-scan CRM button for fresh analysis
+      - Real-time KPI updates
+    Export: React component (pages/LeakDetector.jsx) -->`
+          }]
+        },
+        {
+          id: "campaign-insights-dashboard",
+          title: "Campaign Insights (ROI Attribution Dashboard)",
+          items: [{
+            label: "INFO",
+            code: `<!-- Route: /CampaignInsights
+    URL:   ShiFt NeuralOS/CampaignInsights
+    Purpose: Campaign attribution dashboard comparing ROI across lead sources (Google, Meta, Organic)
+    Sections:
+      - KPI Row: Total Spend, Revenue, Leads, Avg ROI (stat cards with animated counters)
+      - Spend vs Revenue Bar Chart (Recharts)
+      - ROI Comparison Bar Chart (Recharts)
+      - 4-Week Revenue Trend Line Chart (Recharts)
+      - Detailed Performance Table: Source, Spend, Revenue, Leads, Booked, ROI, Cost/Lead
+    Features:
+      - Mock attribution data for 3 sources (Google Ads, Meta, Organic)
+      - Recharts visualizations with responsive containers
+      - Framer Motion entrance animations
+      - Responsive grid layout
+      - CTA to book strategy call
+    Export: React component (pages/CampaignInsights.jsx) -->`
+          }]
+        },
+      ],
+    },
+    {
       title: "Backend Functions",
       color: "#F54A48",
       dotColor: "#F54A48",
