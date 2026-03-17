@@ -137,16 +137,16 @@ export default function CombinedROICalculator() {
                             name="closeRate"
                             value={formData.closeRate}
                             onChange={handleChange}
-                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white font-mono"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white font-mono text-sm"
                           />
-                          <span className="text-[rgba(255,255,255,0.5)] font-mono">%</span>
+                          <span className="text-[rgba(255,255,255,0.5)] font-mono text-xs">%</span>
                         </div>
                       </div>
                     </div>
 
                     <button
                       onClick={() => setStep(2)}
-                      className="w-full font-mono text-sm font-semibold uppercase tracking-wider py-3 rounded-lg transition-all"
+                      className="w-full font-mono text-xs md:text-sm font-semibold uppercase tracking-wider py-2 md:py-3 rounded-lg transition-all"
                       style={{
                         background: "linear-gradient(135deg, #F54A48, #FA982F)",
                         color: "white",
