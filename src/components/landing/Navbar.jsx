@@ -112,7 +112,7 @@ export default function Navbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm">See My Number</GradientButton>
+            <GradientButton size="sm" className="whitespace-nowrap">See My Number</GradientButton>
           </div>
         </div>
       </nav>

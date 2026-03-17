@@ -108,7 +108,7 @@ export default function AttractNavbar() {
               </Link>
             </div>
             
-            <GradientButton size="sm" variant="primary" className="!bg-gradient-to-r from-[#FA982F] to-[#F54A48]">
+            <GradientButton size="sm" variant="primary" className="whitespace-nowrap !bg-gradient-to-r from-[#FA982F] to-[#F54A48]">
               Audit My Pipeline
             </GradientButton>
           </div>
