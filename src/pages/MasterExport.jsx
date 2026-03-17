@@ -945,10 +945,10 @@ Usage:
       badge: "Required on ALL pages",
       exportPagePath: "ExportBrandNeuralOS",
       sections: [
-        { id: "global-css", title: "Global CSS + Fonts", badge: "Base", items: [{ label: "CSS", code: GLOBAL_CSS }] },
-        { id: "nav-css-js", title: "Navbar CSS + JS (Shared)", badge: "All Navbars", items: [{ label: "CSS", code: NAV_CSS }, { label: "JS", code: NAV_JS }] },
-        { id: "footer", title: "Footer (Product / Company / Legal)", items: [{ label: "HTML", code: FOOTER_HTML }, { label: "CSS", code: FOOTER_CSS }] },
-        { id: "faq-js", title: "FAQ Accordion JS", items: [{ label: "JS", code: FAQ_JS_CODE }] },
+        { id: "global-css", title: "Global CSS + Fonts", badge: "Base", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "CSS", code: GLOBAL_CSS }] },
+        { id: "nav-css-js", title: "Navbar CSS + JS (Shared)", badge: "All Navbars", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "CSS", code: NAV_CSS }, { label: "JS", code: NAV_JS }] },
+        { id: "footer", title: "Footer (Product / Company / Legal)", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: FOOTER_HTML }, { label: "CSS", code: FOOTER_CSS }] },
+        { id: "faq-js", title: "FAQ Accordion JS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "JS", code: FAQ_JS_CODE }] },
       ],
     },
     {
@@ -958,7 +958,7 @@ Usage:
       badge: "Revenue Engine Plans · Dashboard Preview · Platform · Roofing · About · Contact",
       exportPagePath: "ExportBrandNeuralOS",
       sections: [
-        { id: "neuralaos-nav", title: "NeuralOS Navigation Bar", items: [{ label: "HTML", code: NEURALAOS_NAV_HTML }] },
+        { id: "neuralaos-nav", title: "NeuralOS Navigation Bar", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: NEURALAOS_NAV_HTML }] },
       ],
     },
     {
@@ -968,7 +968,7 @@ Usage:
       badge: "How It Works · Revenue Leaks · Results · Dashboard Preview · Revenue Engine Plans",
       exportPagePath: "ExportConvert",
       sections: [
-        { id: "convert-nav", title: "Convert Navigation Bar", items: [{ label: "HTML", code: CONVERT_NAV_HTML }] },
+        { id: "convert-nav", title: "Convert Navigation Bar", exportPagePath: "ExportConvert", items: [{ label: "HTML", code: CONVERT_NAV_HTML }] },
       ],
     },
     {
@@ -978,7 +978,7 @@ Usage:
       badge: "How It Works · Empty Pipeline · Results · Revenue Engine Plans",
       exportPagePath: "ExportAttract",
       sections: [
-        { id: "attract-nav", title: "Attract Navigation Bar", items: [{ label: "HTML", code: ATTRACT_NAV_HTML }] },
+        { id: "attract-nav", title: "Attract Navigation Bar", exportPagePath: "ExportAttract", items: [{ label: "HTML", code: ATTRACT_NAV_HTML }] },
       ],
     },
     {
@@ -987,7 +987,7 @@ Usage:
       dotColor: "#FFD700",
       exportPagePath: "ExportBrandNeuralOS",
       sections: [
-        { id: "neuralaos-home", title: "NeuralOS Home Page (Hero + Full Assembly)", items: [{ label: "HTML", code: NEURALAOS_HOME_HTML }] },
+        { id: "neuralaos-home", title: "NeuralOS Home Page (Hero + Full Assembly)", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: NEURALAOS_HOME_HTML }] },
       ],
     },
     {
@@ -996,7 +996,7 @@ Usage:
       dotColor: "#F54A48",
       exportPagePath: "ExportConvert",
       sections: [
-        { id: "convert-home", title: "Convert Home Page (Hero + Full Assembly)", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
+        { id: "convert-home", title: "Convert Home Page (Hero + Full Assembly)", exportPagePath: "ExportConvert", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
       ],
     },
     {
@@ -1005,7 +1005,7 @@ Usage:
       dotColor: "#FA982F",
       exportPagePath: "ExportAttract",
       sections: [
-        { id: "attract-home", title: "Attract Home Page (Hero + Full Assembly)", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
+        { id: "attract-home", title: "Attract Home Page (Hero + Full Assembly)", exportPagePath: "ExportAttract", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
       ],
     },
     {
@@ -1018,6 +1018,7 @@ Usage:
         {
           id: "neuralaos-dashboard",
           title: "NeuralOS Dashboard Preview",
+          exportPagePath: "ExportDashboardPreview",
           items: [{
             label: "INFO",
             code: `<!-- Route: /NeuralOSDashboard\n     URL:   ShiFtNow.io/NeuralOSDashboard\n     Purpose: High-fidelity mock-up of the contractor portal shown to prospects to build trust\n     Sections:\n       - Live KPI row (AI conversations, bookings, avg response, monthly revenue, close rate, ROI)\n       - 8-week platform-attributed revenue line chart\n       - Leads vs Booked 7-day bar chart\n       - Filterable AI Lead Intelligence table (status, lead score, est. value, AI response time)\n       - Live AI Activity Log (booked / qualifying / follow-up / inbound / storm events)\n       - Trust strip (Live in 7 Days / Every Lead Captured / Full Transparency / 90-Day Floor)\n       - CTA → Book a Strategy Call\n     Nav: Linked from NeuralOS Brand Navbar and ShiFt Convert Navbar as "Dashboard Preview"\n     Export: React-only page (recharts + framer-motion) — no static HTML equivalent -->`
@@ -1031,7 +1032,7 @@ Usage:
       dotColor: "#FA982F",
       exportPagePath: "ExportRevenueEnginePlans",
       sections: [
-        { id: "rev-plans", title: "Revenue Engine Plans (Activate / Amplify / Dominate)", items: [{ label: "HTML", code: REVENUE_PLANS_HTML }] },
+        { id: "rev-plans", title: "Revenue Engine Plans (Activate / Amplify / Dominate)", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "HTML", code: REVENUE_PLANS_HTML }] },
       ],
     },
     {
@@ -1039,13 +1040,14 @@ Usage:
       color: "#F54A48",
       dotColor: "#F54A48",
       badge: "How It Works · Revenue Leaks · Results · Dashboard Preview · Revenue Engine Plans · Book",
+      exportPagePath: "ExportConvert",
       sections: [
-        { id: "convert-how-it-works", title: "Convert: How It Works", badge: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
-        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", badge: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
-        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", badge: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
-        { id: "convert-dashboard-preview", title: "Convert: Dashboard Preview", badge: "ExportDashboardPreview", exportPagePath: "ExportDashboardPreview", items: [{ label: "INFO", code: `<!-- Route: /NeuralOSDashboard -->\n<!-- Full section-by-section HTML available at /ExportDashboardPreview -->\n<!-- Sections: Hero → KPI Row → AI Lead Table → Trust Strip → CTA -->` }] },
-        { id: "convert-revenue-engine-plans", title: "Convert: Revenue Engine Plans", badge: "ExportRevenueEnginePlans", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /RevenueEnginePlans -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Hero → Problem → System → Proof → Calculator → Packages (Activate/Amplify/Dominate) → Comparison Table → Guarantee → CTA -->` }] },
-        { id: "convert-book", title: "Convert: Book a Call", badge: "ExportBookACall", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /Book -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
+        { id: "convert-how-it-works", title: "Convert: How It Works", exportPagePath: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
+        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", exportPagePath: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
+        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", exportPagePath: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
+        { id: "convert-dashboard-preview", title: "Convert: Dashboard Preview", exportPagePath: "ExportDashboardPreview", items: [{ label: "INFO", code: `<!-- Route: /NeuralOSDashboard -->\n<!-- Full section-by-section HTML available at /ExportDashboardPreview -->\n<!-- Sections: Hero → KPI Row → AI Lead Table → Trust Strip → CTA -->` }] },
+        { id: "convert-revenue-engine-plans", title: "Convert: Revenue Engine Plans", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /RevenueEnginePlans -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Hero → Problem → System → Proof → Calculator → Packages (Activate/Amplify/Dominate) → Comparison Table → Guarantee → CTA -->` }] },
+        { id: "convert-book", title: "Convert: Book a Call", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /Book -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
       ],
     },
     {
@@ -1053,12 +1055,13 @@ Usage:
       color: "#FA982F",
       dotColor: "#FA982F",
       badge: "How It Works · Empty Pipeline · Results · Pricing · Book",
+      exportPagePath: "ExportAttract",
       sections: [
-        { id: "attract-how-it-works", title: "Attract: How It Works", badge: "ExportAttract", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Full section-by-section export available at /ExportAttract (see sections: Attract Nav, Hero, Problems, Solution, Proof, FAQ, CTA) -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
-        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", badge: "ExportAttractEmptyPipeline", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Route: /AttractEmptyPipeline -->\n<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
-        { id: "attract-results", title: "Attract: Results & Pipeline Proof", badge: "ExportAttract", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Full section-by-section export available at /ExportAttract (see section 5: Results & Testimonials) -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
-        { id: "attract-pricing", title: "Attract: Pricing", badge: "ExportRevenueEnginePlans", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
-        { id: "attract-book", title: "Attract: Book a Pipeline Audit", badge: "ExportBookACall", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
+        { id: "attract-how-it-works", title: "Attract: How It Works", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Full section-by-section export available at /ExportAttract -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
+        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Route: /AttractEmptyPipeline -->\n<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
+        { id: "attract-results", title: "Attract: Results & Pipeline Proof", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Full section-by-section export available at /ExportAttract (section 5: Results & Testimonials) -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
+        { id: "attract-pricing", title: "Attract: Pricing", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
+        { id: "attract-book", title: "Attract: Book a Pipeline Audit", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
       ],
     },
     {
@@ -1068,16 +1071,16 @@ Usage:
       badge: "Platform · Roofing · Resources · About · Careers · Blog · Contact · Features · Integrations · Case Studies",
       exportPagePath: "ExportBrandNeuralOS",
       sections: [
-        { id: "brand-platform", title: "Platform Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Platform -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: NeuralOS system overview, AI modules, tech stack, integration diagram -->` }] },
-        { id: "brand-roofing", title: "Roofing Industry Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Roofing -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Roofing-specific pain points, ShiFt solution for contractors, testimonials -->` }] },
-        { id: "brand-resources", title: "Resources Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Resources -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Guides, calculators, playbooks, and tools for roofing contractors -->` }] },
-        { id: "brand-about", title: "About Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /About -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Mission → Pillars → Values -->` }] },
-        { id: "brand-careers", title: "Careers Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Careers -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Core Values → Open Positions -->` }] },
-        { id: "brand-blog", title: "Blog Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Blog -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Featured Article → Article Grid -->` }] },
-        { id: "brand-contact", title: "Contact Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Contact -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Contact Form + Contact Info (email, phone, address) -->` }] },
-        { id: "brand-features", title: "Features Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Features -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Feature Cards (AI Response / Qualification / Booking / Follow-Up / Analytics) -->` }] },
-        { id: "brand-integrations", title: "Integrations Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Integrations -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Integration Categories (CRM / Calendar / Ads / Comms / Automation) -->` }] },
-        { id: "brand-case-studies", title: "Case Studies Page", badge: "ExportBrandNeuralOS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /CaseStudies -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Individual Case Study Cards (stats + testimonials) -->` }] },
+        { id: "brand-platform", title: "Platform Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Platform -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: NeuralOS system overview, AI modules, tech stack, integration diagram -->` }] },
+        { id: "brand-roofing", title: "Roofing Industry Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Roofing -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Roofing-specific pain points, ShiFt solution for contractors, testimonials -->` }] },
+        { id: "brand-resources", title: "Resources Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Resources -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Guides, calculators, playbooks, and tools for roofing contractors -->` }] },
+        { id: "brand-about", title: "About Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /About -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Mission → Pillars → Values -->` }] },
+        { id: "brand-careers", title: "Careers Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Careers -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Core Values → Open Positions -->` }] },
+        { id: "brand-blog", title: "Blog Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Blog -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Featured Article → Article Grid -->` }] },
+        { id: "brand-contact", title: "Contact Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Contact -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Contact Form + Contact Info (email, phone, address) -->` }] },
+        { id: "brand-features", title: "Features Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Features -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Feature Cards (AI Response / Qualification / Booking / Follow-Up / Analytics) -->` }] },
+        { id: "brand-integrations", title: "Integrations Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Integrations -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Integration Categories (CRM / Calendar / Ads / Comms / Automation) -->` }] },
+        { id: "brand-case-studies", title: "Case Studies Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /CaseStudies -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Individual Case Study Cards (stats + testimonials) -->` }] },
       ],
     },
     {
@@ -1085,20 +1088,23 @@ Usage:
       color: "#6B7C93",
       dotColor: "#9DA3B4",
       badge: "Privacy · Terms · Cookies",
+      exportPagePath: "PrivacyPolicy",
       sections: [
-        { id: "legal-privacy", title: "Privacy Policy", items: [{ label: "INFO", code: `<!-- Route: /PrivacyPolicy\n     URL:   ShiFtNow.io/PrivacyPolicy\n     Effective: March 15, 2026\n     Sections: 13 sections covering data collection, TCPA, sharing, retention, user rights (CCPA), contact -->\n<!-- Full text rendered at /PrivacyPolicy in the React app -->` }] },
-        { id: "legal-tos", title: "Terms of Service", items: [{ label: "INFO", code: `<!-- Route: /TermsOfService\n     URL:   ShiFtNow.io/TermsOfService\n     Effective: March 15, 2026 | Version 21\n     Jurisdiction: Cherokee County, Georgia\n     Sections: 0–20 covering Definitions, 90-Day Non-Cancelable Term, No Refunds/Chargebacks, RevShare, Revenue Floor, TCPA, IP, Arbitration -->\n<!-- Full text rendered at /TermsOfService in the React app -->` }] },
-        { id: "legal-cookies", title: "Cookie Policy", items: [{ label: "INFO", code: `<!-- Route: /CookiePolicy\n     URL:   ShiFtNow.io/CookiePolicy\n     Effective: March 15, 2026\n     Sections: 12 sections covering cookie types (Necessary / Functional / Analytics / Marketing), consent, GPC, CCPA, Platform cookies -->\n<!-- Full text rendered at /CookiePolicy in the React app -->` }] },
+        { id: "legal-privacy", title: "Privacy Policy", exportPagePath: "PrivacyPolicy", items: [{ label: "INFO", code: `<!-- Route: /PrivacyPolicy\n     URL:   ShiFtNow.io/PrivacyPolicy\n     Effective: March 15, 2026\n     Sections: 13 sections covering data collection, TCPA, sharing, retention, user rights (CCPA), contact -->\n<!-- Full text rendered at /PrivacyPolicy in the React app -->` }] },
+        { id: "legal-tos", title: "Terms of Service", exportPagePath: "TermsOfService", items: [{ label: "INFO", code: `<!-- Route: /TermsOfService\n     URL:   ShiFtNow.io/TermsOfService\n     Effective: March 15, 2026 | Version 21\n     Jurisdiction: Cherokee County, Georgia\n     Sections: 0–20 covering Definitions, 90-Day Non-Cancelable Term, No Refunds/Chargebacks, RevShare, Revenue Floor, TCPA, IP, Arbitration -->\n<!-- Full text rendered at /TermsOfService in the React app -->` }] },
+        { id: "legal-cookies", title: "Cookie Policy", exportPagePath: "CookiePolicy", items: [{ label: "INFO", code: `<!-- Route: /CookiePolicy\n     URL:   ShiFtNow.io/CookiePolicy\n     Effective: March 15, 2026\n     Sections: 12 sections covering cookie types (Necessary / Functional / Analytics / Marketing), consent, GPC, CCPA, Platform cookies -->\n<!-- Full text rendered at /CookiePolicy in the React app -->` }] },
       ],
     },
     {
       title: "Complete URL Map — All Pages",
       color: "#6B7C93",
       dotColor: "#9DA3B4",
+      exportPagePath: "MasterExport",
       sections: [
         {
           id: "all-pages-url-map",
           title: "Full Site URL Reference (All Routes)",
+          exportPagePath: "MasterExport",
           items: [{ label: "URL MAP", code: OTHER_PAGES_HTML }]
         },
       ],
