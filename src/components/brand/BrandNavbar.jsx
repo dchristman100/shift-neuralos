@@ -7,9 +7,9 @@ import { createPageUrl } from "../../utils";
 
 const navLinks = [
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
+  { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
   { label: "Platform", href: "/Platform" },
   { label: "Roofing", href: "/Roofing" },
-  { label: "Resources", href: "/Resources" },
   { label: "About", href: "/About" },
   { label: "Contact", href: "/Contact" },
 ];

@@ -9,6 +9,7 @@ const navLinks = [
   { label: "How It Works", href: "/HowItWorks" },
   { label: "Revenue Leaks", href: "/RevenueLeaks" },
   { label: "Results", href: "/Results" },
+  { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
 ];
 
