@@ -18,9 +18,6 @@ const MAX_REVENUE = 500000;
 const STEP = 5000;
 const DEFAULT_REVENUE = 200000;
 
-// Force cache bust
-const CACHE_BUSTER = Date.now();
-
 // Formatting function per FTRD 5.5
 function fmt(n) {
   if (isNaN(n) || !isFinite(n)) return "--";
