@@ -934,7 +934,8 @@ Files included:
   attract/how-it-works.html   → Attract: How It Works
   attract/results.html        → Attract: Results
   attract/book.html           → Attract: Book a Pipeline Audit
-  about.html, careers.html, blog.html, contact.html, features.html,
+  blog.html                   → Blog (6 articles, category grid, static HTML stub)
+  about.html, careers.html, contact.html, features.html,
   integrations.html, case-studies.html, platform.html, roofing.html, resources.html
 
   assets/global.css           → Global CSS (include on every page)
