@@ -37,6 +37,15 @@ export default function AttractNavbar() {
         }}
       >
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
+          {/* Hamburger (mobile only) */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+
           {/* Logo + Product Badge */}
           <div className="flex items-center gap-3">
             <Link to={createPageUrl("BrandHome")} className="font-display font-bold text-xl text-white">
@@ -105,14 +114,7 @@ export default function AttractNavbar() {
             </GradientButton>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+
         </div>
       </nav>
 
