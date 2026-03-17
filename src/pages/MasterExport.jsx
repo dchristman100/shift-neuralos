@@ -507,24 +507,267 @@ const buildFullSite = () => `<!DOCTYPE html>
   </script>
   <style>
 ${GLOBAL_CSS}
+
+/* ── NAV ── */
 ${NAV_CSS}
+
+/* ── HERO ── */
+.shift-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 80px;overflow:hidden;text-align:center;}
+.shift-hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,74,72,.15) 0%,transparent 70%);pointer-events:none;animation:hero-glow 4s ease-in-out infinite;}
+@keyframes hero-glow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1);}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.1);}}
+.shift-hero-badge{display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#F54A48;}
+.shift-pulse-dot{width:8px;height:8px;background:#F54A48;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0;}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);}}
+.shift-hero-headline{font-size:clamp(2.5rem,5vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;}
+.shift-hero-sub{font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;}
+.shift-hero-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
+.btn-lg{padding:18px 40px;font-size:1rem;}
+.shift-hero-micro{font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;}
+
+/* ── SECTION HEADERS ── */
+.shift-section-header{text-align:center;margin-bottom:56px;}
+.shift-section-label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px;}
+.shift-section-title{font-size:2.25rem;font-weight:800;line-height:1.1;color:white;margin-bottom:16px;}
+@media(min-width:768px){.shift-section-title{font-size:3rem;}}
+.shift-section-desc{font-size:1rem;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.7;}
+
+/* ── PROBLEM SELECTOR ── */
+.shift-problem-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:768px){.shift-problem-grid{grid-template-columns:repeat(3,1fr);}}
+.shift-problem-card{display:block;text-decoration:none;padding:32px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);transition:all .3s ease;}
+.shift-problem-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);border-color:var(--card-color,rgba(255,255,255,.15));box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.shift-problem-icon{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.shift-problem-title{font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;}
+.shift-problem-body{font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.6;}
+.shift-problem-link{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+
+/* ── TWO PRODUCTS ── */
+.shift-products-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:768px){.shift-products-grid{grid-template-columns:repeat(2,1fr);}}
+.shift-product-card{padding:40px;border-radius:20px;backdrop-filter:blur(10px);transition:transform .3s ease;}
+.shift-product-card:hover{transform:translateY(-4px);}
+.shift-product-attract{background:linear-gradient(135deg,rgba(250,152,47,.08),rgba(250,152,47,.04));border:1px solid rgba(250,152,47,.25);}
+.shift-product-convert{background:linear-gradient(135deg,rgba(245,74,72,.08),rgba(245,74,72,.04));border:1px solid rgba(245,74,72,.25);}
+.shift-product-badge{display:inline-flex;padding:8px 16px;border-radius:999px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:1px solid;margin-bottom:20px;}
+.shift-product-title{font-size:1.75rem;font-weight:800;color:white;margin-bottom:12px;}
+.shift-product-desc{font-size:.9375rem;color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.6;}
+.shift-product-features{list-style:none;padding:0;margin-bottom:32px;}
+.shift-product-features li{display:flex;align-items:center;gap:10px;font-size:.875rem;color:rgba(255,255,255,.75);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.shift-check{font-weight:700;font-size:1rem;}
+
+/* ── TESTIMONIALS ── */
+.shift-testimonial-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:768px){.shift-testimonial-grid{grid-template-columns:repeat(3,1fr);}}
+.shift-testimonial-card{display:flex;flex-direction:column;gap:16px;}
+.shift-stars{color:#FA982F;font-size:1rem;letter-spacing:2px;}
+.shift-testimonial-quote{font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;}
+.shift-testimonial-author{display:flex;align-items:center;gap:12px;}
+.shift-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;}
+.shift-author-name{font-size:.875rem;font-weight:600;color:white;}
+.shift-author-role{font-size:.75rem;color:rgba(255,255,255,.4);}
+
+/* ── CTA ── */
+.shift-cta-box{position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.08));border:1px solid rgba(245,74,72,.15);}
+@media(min-width:768px){.shift-cta-box{padding:96px 64px;}}
+.shift-cta-glow{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);width:500px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,74,72,.15),transparent 70%);pointer-events:none;}
+.shift-cta-title{font-size:2rem;font-weight:800;color:white;margin-bottom:20px;line-height:1.2;}
+@media(min-width:768px){.shift-cta-title{font-size:3rem;}}
+.shift-cta-desc{font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;}
+.shift-cta-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;}
+.shift-cta-micro{font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;}
+
+/* ── FOOTER ── */
 ${FOOTER_CSS}
   </style>
 </head>
 <body>
-  <!-- ═══ NEURALAOS NAV (swap for Convert or Attract nav as needed) ═══ -->
+
 ${NEURALAOS_NAV_HTML}
 
-  <!-- ═══ MAIN CONTENT ═══ -->
-${NEURALAOS_HOME_HTML}
+<main style="padding-top:72px;">
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- ═══ HERO ═══ -->
+  <section class="shift-hero" id="hero">
+    <div class="shift-hero-bg"></div>
+    <div class="section-inner" style="position:relative;">
+      <div class="shift-hero-badge font-mono">
+        <span class="shift-pulse-dot"></span>
+        AI Revenue Operating System
+      </div>
+      <h1 class="shift-hero-headline font-display">
+        <span class="shift-gradient-text">Revenue Leaks</span><br/>Don't Fix Themselves
+      </h1>
+      <p class="shift-hero-sub">
+        Roofing contractors lose $35K–$100K+ monthly to broken lead systems. ShiFt NeuralOS plugs the leaks with AI that generates, qualifies, and converts leads 24/7.
+      </p>
+      <div class="shift-hero-ctas">
+        <a href="#problem-selector" class="btn-primary btn-lg">Find Your Gap →</a>
+      </div>
+      <p class="shift-hero-micro font-mono">Trusted by 847+ roofing companies across 42 states</p>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM SELECTOR ═══ -->
+  <section class="section-wrap" id="problem-selector" style="background:#0D0F33;">
+    <div class="section-inner">
+      <div class="shift-section-header">
+        <span class="shift-section-label font-mono" style="color:#FA982F;">Diagnose Your Leak</span>
+        <h2 class="shift-section-title font-display">What's Draining Your Revenue?</h2>
+        <p class="shift-section-desc">Every roofing contractor leaks revenue somewhere. Tell us where yours is hiding.</p>
+      </div>
+      <div class="shift-problem-grid">
+        <a href="/attract" class="shift-problem-card" style="--card-color:#FA982F;">
+          <div class="shift-problem-icon" style="background:rgba(250,152,47,.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M1 12h6m6 0h6"/></svg>
+          </div>
+          <h3 class="shift-problem-title font-display">Empty Pipeline</h3>
+          <p class="shift-problem-body">Not enough leads coming in. Marketing isn't producing consistent results.</p>
+          <div class="shift-problem-link font-mono" style="color:#FA982F;">→ ShiFt Attract</div>
+        </a>
+        <a href="/convert" class="shift-problem-card" style="--card-color:#F54A48;">
+          <div class="shift-problem-icon" style="background:rgba(245,74,72,.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="shift-problem-title font-display">Missed Leads</h3>
+          <p class="shift-problem-body">Leads coming in but not converting. Slow response, bad follow-up, no-shows.</p>
+          <div class="shift-problem-link font-mono" style="color:#F54A48;">→ ShiFt Convert</div>
+        </a>
+        <a href="/" class="shift-problem-card" style="--card-color:#48BB78;">
+          <div class="shift-problem-icon" style="background:rgba(72,187,120,.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          </div>
+          <h3 class="shift-problem-title font-display">Both Problems</h3>
+          <p class="shift-problem-body">Empty pipeline AND low conversion rate. You need the full NeuralOS stack.</p>
+          <div class="shift-problem-link font-mono" style="color:#48BB78;">→ Full Platform</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TWO PRODUCTS ═══ -->
+  <section class="section-wrap" id="platform">
+    <div class="section-inner">
+      <div class="shift-section-header">
+        <span class="shift-section-label font-mono" style="color:#F54A48;">The Platform</span>
+        <h2 class="shift-section-title font-display">Two Systems. One Revenue Machine.</h2>
+        <p class="shift-section-desc">ShiFt NeuralOS™ runs both sides of your revenue equation simultaneously.</p>
+      </div>
+      <div class="shift-products-grid">
+        <div class="shift-product-card shift-product-attract">
+          <div class="shift-product-badge font-mono" style="color:#FA982F;background:rgba(250,152,47,.12);border-color:rgba(250,152,47,.3);">ShiFt Attract</div>
+          <h3 class="shift-product-title font-display">Fill Your Pipeline</h3>
+          <p class="shift-product-desc">AI-powered lead generation across every channel. Google, Facebook, Instagram, TikTok—your AI works them all.</p>
+          <ul class="shift-product-features">
+            <li><span class="shift-check" style="color:#FA982F;">✓</span> Multi-channel AI campaigns</li>
+            <li><span class="shift-check" style="color:#FA982F;">✓</span> Real-time lead scoring</li>
+            <li><span class="shift-check" style="color:#FA982F;">✓</span> Storm & property intelligence</li>
+            <li><span class="shift-check" style="color:#FA982F;">✓</span> Predictable lead volume</li>
+          </ul>
+          <a href="/attract" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Explore Attract →</a>
+        </div>
+        <div class="shift-product-card shift-product-convert">
+          <div class="shift-product-badge font-mono" style="color:#F54A48;background:rgba(245,74,72,.12);border-color:rgba(245,74,72,.3);">ShiFt Convert</div>
+          <h3 class="shift-product-title font-display">Convert Every Lead</h3>
+          <p class="shift-product-desc">AI that responds in 30 seconds, qualifies instantly, and books appointments automatically—day or night.</p>
+          <ul class="shift-product-features">
+            <li><span class="shift-check" style="color:#F54A48;">✓</span> 30-second AI response</li>
+            <li><span class="shift-check" style="color:#F54A48;">✓</span> Instant lead qualification</li>
+            <li><span class="shift-check" style="color:#F54A48;">✓</span> Automated appointment booking</li>
+            <li><span class="shift-check" style="color:#F54A48;">✓</span> 24/7 follow-up sequences</li>
+          </ul>
+          <a href="/convert" class="btn-primary">Explore Convert →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVENUE ENGINE PLANS TEASER ═══ -->
+  <section class="section-wrap" style="background:#0D0F33;text-align:center;">
+    <div class="section-inner">
+      <div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:#FA982F;margin-bottom:20px;">Revenue Engine Plans</div>
+      <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:20px;">Three Packages. One Goal.<br><span class="shift-gradient-text">Booked Jobs.</span></h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 36px;line-height:1.7;">Every package includes a \$5,000 one-time Revenue Engine Installation + 90-Day Revenue Floor.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto 36px;">
+        <div style="background:rgba(245,74,72,.06);border:1px solid rgba(245,74,72,.2);border-radius:14px;padding:24px 16px;text-align:center;">
+          <div class="font-display" style="font-size:.9rem;font-weight:800;color:#F54A48;margin-bottom:8px;">ACTIVATE</div>
+          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$1,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
+        </div>
+        <div style="background:linear-gradient(180deg,rgba(245,74,72,.10),rgba(255,255,255,.03));border:1px solid rgba(245,74,72,.35);border-radius:14px;padding:24px 16px;text-align:center;position:relative;">
+          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#F54A48,#FA982F);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;color:#fff;padding:3px 12px;border-radius:999px;white-space:nowrap;">Most Popular</div>
+          <div class="font-display" style="font-size:.9rem;font-weight:800;background:linear-gradient(135deg,#F54A48,#FA982F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;">AMPLIFY</div>
+          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$3,497<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
+        </div>
+        <div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.2);border-radius:14px;padding:24px 16px;text-align:center;">
+          <div class="font-display" style="font-size:.9rem;font-weight:800;color:#FFD700;margin-bottom:8px;">DOMINATE</div>
+          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$8,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
+        </div>
+      </div>
+      <a href="/RevenueEnginePlans" class="btn-primary" style="padding:16px 40px;">View Revenue Engine Plans →</a>
+    </div>
+  </section>
+
+  <!-- ═══ SOCIAL PROOF ═══ -->
+  <section class="section-wrap" id="testimonials">
+    <div class="section-inner">
+      <div class="shift-section-header">
+        <span class="shift-section-label font-mono" style="color:#FA982F;">Results</span>
+        <h2 class="shift-section-title font-display">Trusted by <span class="shift-gradient-text">Top Contractors</span></h2>
+      </div>
+      <div class="shift-testimonial-grid">
+        <div class="glass-card shift-testimonial-card">
+          <div class="shift-stars">★★★★★</div>
+          <p class="shift-testimonial-quote">"ShiFt turned our business around. We went from chasing leads to having a waitlist. Revenue doubled in 6 months."</p>
+          <div class="shift-testimonial-author">
+            <div class="shift-avatar" style="background:linear-gradient(135deg,#F54A48,#FA982F);">M</div>
+            <div><div class="shift-author-name font-display">Marcus Johnson</div><div class="shift-author-role">Owner, Apex Roofing Co.</div></div>
+          </div>
+        </div>
+        <div class="glass-card shift-testimonial-card">
+          <div class="shift-stars">★★★★★</div>
+          <p class="shift-testimonial-quote">"The AI assistant books 40+ inspections a week for us. It's like having a sales team that never sleeps."</p>
+          <div class="shift-testimonial-author">
+            <div class="shift-avatar" style="background:linear-gradient(135deg,#FA982F,#F54A48);">S</div>
+            <div><div class="shift-author-name font-display">Sarah Chen</div><div class="shift-author-role">GM, Summit Storm Solutions</div></div>
+          </div>
+        </div>
+        <div class="glass-card shift-testimonial-card">
+          <div class="shift-stars">★★★★★</div>
+          <p class="shift-testimonial-quote">"Property intelligence alone paid for the platform in the first month. We're closing neighborhoods, not just houses."</p>
+          <div class="shift-testimonial-author">
+            <div class="shift-avatar" style="background:linear-gradient(135deg,#F54A48,#FA982F);">D</div>
+            <div><div class="shift-author-name font-display">David Martinez</div><div class="shift-author-role">CEO, Eagle Eye Roofing</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section-wrap" style="background:#0D0F33;">
+    <div class="section-inner">
+      <div class="shift-cta-box">
+        <div class="shift-cta-glow"></div>
+        <div style="position:relative;text-align:center;">
+          <h2 class="shift-cta-title font-display">Ready to <span class="shift-gradient-text">ShiFt</span> Your Revenue?</h2>
+          <p class="shift-cta-desc">Get a free revenue audit and see exactly how much money you're leaving on the table.</p>
+          <div class="shift-cta-buttons">
+            <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary btn-lg">Book a Strategy Call →</a>
+            <a href="/RevenueEnginePlans" class="btn-outline btn-lg">View Plans</a>
+          </div>
+          <p class="shift-cta-micro font-mono">Live in 7 days · 90-Day Revenue Floor · No long-term contracts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 ${FOOTER_HTML}
 
-  <script>
+<script>
 ${NAV_JS}
 ${FAQ_JS_CODE}
-  </script>
+</script>
 </body>
 </html>`;
 
