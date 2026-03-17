@@ -623,7 +623,7 @@ export default function MasterExport() {
       color: "#63B3ED",
       dotColor: "#63B3ED",
       badge: "Trust-Building · Prospect-Facing",
-      exportPagePath: "NeuralOSDashboard",
+      exportPagePath: "ExportDashboardPreview",
       sections: [
         {
           id: "neuralaos-dashboard",
@@ -664,11 +664,11 @@ export default function MasterExport() {
       dotColor: "#FA982F",
       badge: "How It Works · Empty Pipeline · Results · Pricing · Book",
       sections: [
-        { id: "attract-how-it-works", title: "Attract: How It Works", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
-        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
-        { id: "attract-results", title: "Attract: Results & Pipeline Proof", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
-        { id: "attract-pricing", title: "Attract: Pricing", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
-        { id: "attract-book", title: "Attract: Book a Pipeline Audit", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Embed: Pipeline Audit booking widget + qualifier form -->` }] },
+        { id: "attract-how-it-works", title: "Attract: How It Works", badge: "ExportAttract", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Full section-by-section export available at /ExportAttract (see sections: Attract Nav, Hero, Problems, Solution, Proof, FAQ, CTA) -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
+        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", badge: "ExportAttractEmptyPipeline", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Route: /AttractEmptyPipeline -->\n<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
+        { id: "attract-results", title: "Attract: Results & Pipeline Proof", badge: "ExportAttract", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Full section-by-section export available at /ExportAttract (see section 5: Results & Testimonials) -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
+        { id: "attract-pricing", title: "Attract: Pricing", badge: "ExportRevenueEnginePlans", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
+        { id: "attract-book", title: "Attract: Book a Pipeline Audit", badge: "ExportBookACall", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
       ],
     },
     {
