@@ -335,6 +335,23 @@ export default function NeuralOSDashboard() {
           ))}
         </motion.div>
 
+        {/* ── Leak Detector CTA ── */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
+          style={{ marginTop: 24, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap", background: "rgba(245,74,72,0.06)", border: "1px solid rgba(245,74,72,0.2)", borderRadius: 14, padding: "20px 28px" }}>
+          <div>
+            <div style={{ fontFamily: "'Montserrat Alternates',sans-serif", fontSize: 16, fontWeight: 800, color: "white", marginBottom: 4 }}>
+              🔍 Revenue Leak Detector
+            </div>
+            <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)" }}>
+              Scan your CRM for missed follow-ups, slow responses & unclosed high-intent leads
+            </div>
+          </div>
+          <a href="/LeakDetector"
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 24px", borderRadius: 10, background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", textDecoration: "none", whiteSpace: "nowrap", boxShadow: "0 4px 16px rgba(245,74,72,0.3)" }}>
+            Detect Leaks →
+          </a>
+        </motion.div>
+
         {/* ── CTA ── */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
           style={{ marginTop: 40, textAlign: "center", padding: "56px 32px", borderRadius: 20, background: "linear-gradient(135deg,rgba(245,74,72,0.1),rgba(250,152,47,0.07))", border: "1px solid rgba(245,74,72,0.2)", position: "relative", overflow: "hidden" }}>

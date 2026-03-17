@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Results", href: "/Results" },
   { label: "Dashboard Preview", href: "/NeuralOSDashboard" },
   { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
+  { label: "Leak Detector", href: "/LeakDetector" },
 ];
 
 export default function Navbar() {
