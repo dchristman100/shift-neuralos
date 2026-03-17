@@ -29,13 +29,12 @@ import NeuralOSDashboard from './pages/NeuralOSDashboard';
 import Onboarding from './pages/Onboarding';
 import LeakDetector from './pages/LeakDetector';
 
-const { Pages, Layout, mainPage } = pagesConfig;
+const { Pages, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
 const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
 
-const LayoutWrapper = ({ children, currentPageName }) => Layout ?
-  <Layout currentPageName={currentPageName}>{children}</Layout>
-  : <>{children}</>;
+const LayoutWrapper = ({ children, currentPageName }) =>
+  <Layout currentPageName={currentPageName}>{children}</Layout>;
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
