@@ -62,7 +62,10 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      <Route path="/" element={
+      <Route path="/" element={<LayoutWrapper currentPageName="BrandHome"><BrandHome /></LayoutWrapper>} />
+      <Route path="/BrandHome" element={<LayoutWrapper currentPageName="BrandHome"><BrandHome /></LayoutWrapper>} />
+      {/* legacy default kept below but overridden above */}
+      <Route path="/legacy-default" element={
         <LayoutWrapper currentPageName={mainPageKey}>
           <MainPage />
         </LayoutWrapper>
