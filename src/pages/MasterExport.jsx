@@ -574,7 +574,7 @@ export default function MasterExport() {
       title: "ShiFt Convert Header",
       color: "#F54A48",
       dotColor: "#F54A48",
-      badge: "How It Works · Revenue Leaks · Results · Revenue Engine Plans",
+      badge: "How It Works · Revenue Leaks · Results · Dashboard Preview · Revenue Engine Plans",
       exportPagePath: "ExportConvert",
       sections: [
         { id: "convert-nav", title: "Convert Navigation Bar", items: [{ label: "HTML", code: CONVERT_NAV_HTML }] },
