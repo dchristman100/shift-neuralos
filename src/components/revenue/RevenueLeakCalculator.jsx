@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "crypto";
 
 // Constants per SHIFT-CALC-001 v1.0
 const CONSTANTS = {
@@ -17,6 +18,9 @@ const MIN_REVENUE = 50000;
 const MAX_REVENUE = 500000;
 const STEP = 5000;
 const DEFAULT_REVENUE = 200000;
+
+// Force cache bust
+const CACHE_BUSTER = Date.now();
 
 // Formatting function per FTRD 5.5
 function fmt(n) {
