@@ -3,48 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { X, Menu } from "lucide-react";
 
-const MENU_SECTIONS = [
-  {
-    label: "Products",
-    items: [
-      { label: "ShiFt Attract", sub: "AI Lead Generation", href: "/AttractHome", color: "#FA982F", dot: true },
-      { label: "ShiFt Convert", sub: "AI Lead Conversion", href: "/Home", color: "#F54A48", dot: true },
-      { label: "NeuralOS Dashboard", sub: "Live Revenue Intelligence", href: "/NeuralOSDashboard", color: "#FFD700" },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { label: "Leak Detector", sub: "Find & fix revenue leaks", href: "/LeakDetector", color: "#F54A48" },
-      { label: "Revenue Calculator", sub: "See your revenue opportunity", href: "/Home#calculator", color: "#FA982F" },
-      { label: "Revenue Engine Plans", sub: "Activate · Amplify · Dominate", href: "/RevenueEnginePlans", color: "#FFD700" },
-      { label: "Onboarding Setup", sub: "Connect CRM & go live", href: "/Onboarding", color: "#48BB78" },
-    ],
-  },
-  {
-    label: "Learn",
-    items: [
-      { label: "How It Works", sub: "The 3-stage process", href: "/HowItWorks", color: "#FA982F" },
-      { label: "Revenue Leaks", sub: "The 3 leaks costing you money", href: "/RevenueLeaks", color: "#F54A48" },
-      { label: "Results", sub: "$750K → $7M case study", href: "/Results", color: "#48BB78" },
-      { label: "Case Studies", sub: "Contractor success stories", href: "/CaseStudies", color: "#48BB78" },
-      { label: "Blog", sub: "Revenue intelligence insights", href: "/Blog", color: "#FA982F" },
-    ],
-  },
-  {
-    label: "Company",
-    items: [
-      { label: "About", sub: "Our mission & team", href: "/About", color: "#9DA3B4" },
-      { label: "Features", sub: "Platform capabilities", href: "/Features", color: "#9DA3B4" },
-      { label: "Integrations", sub: "CRM, calendar & ad platforms", href: "/Integrations", color: "#9DA3B4" },
-      { label: "Contact", sub: "Get in touch", href: "/Contact", color: "#9DA3B4" },
-    ],
-  },
-];
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -52,11 +13,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
+  }, [mobileOpen]);
+
+  const navLinks = [
+    { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
+    { label: "Dashboard", href: "/NeuralOSDashboard" },
+    { label: "Platform", href: "/Platform" },
+    { label: "About", href: "/About" },
+    { label: "Contact", href: "/Contact" },
+  ];
 
   return (
     <>
@@ -72,167 +40,137 @@ export default function Navbar() {
       >
         <div className="max-w-[1140px] mx-auto flex items-center justify-between h-full">
 
-          {/* LEFT — Hamburger + Logo */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              className="flex items-center justify-center w-10 h-10 rounded-xl transition-all"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "white" }}
+          {/* Logo */}
+          <Link to="/BrandHome" className="flex items-center gap-2 flex-shrink-0">
+            <span className="font-display font-bold text-xl text-white">
+              ShiFt<span style={{ color: "#F54A48" }}>.</span>
+            </span>
+            <span
+              className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full font-mono font-semibold uppercase tracking-wider"
+              style={{ fontSize: "9px", background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.3)", color: "#FFD700" }}
             >
-              <Menu className="w-5 h-5" />
-            </button>
+              NeuralOS™
+            </span>
+          </Link>
 
-            <Link
-              to="/BrandHome"
-              className="flex items-center gap-2"
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className="font-display font-bold text-xl text-white">
-                ShiFt<span style={{ color: "#F54A48" }}>.</span>
-              </span>
-              <span
-                className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full font-mono font-semibold uppercase tracking-wider"
-                style={{ fontSize: "9px", background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.3)", color: "#FFD700" }}
+          {/* Desktop Nav Links */}
+          <div className="hidden lg:flex items-center gap-7">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="font-body text-sm transition-colors duration-200 hover:text-white"
+                style={{ color: "rgba(255,255,255,0.55)" }}
               >
-                NeuralOS™
-              </span>
-            </Link>
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          {/* RIGHT — CTA */}
-          <a
-            href="https://makea.shiftnow.io/widget/bookings/reality"
-            target="_blank"
-            rel="noreferrer"
-            className="font-mono font-bold uppercase tracking-wider transition-all"
-            style={{
-              fontSize: "11px",
-              padding: "10px 22px",
-              borderRadius: "10px",
-              background: "linear-gradient(135deg,#F54A48,#FA982F)",
-              color: "#fff",
-              textDecoration: "none",
-              boxShadow: "0 4px 16px rgba(245,74,72,0.3)",
-            }}
+          {/* RIGHT — Product Pills + CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Attract / Convert pills */}
+            <div className="flex items-center gap-1 p-1 rounded-lg"
+              style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <Link
+                to="/AttractHome"
+                className="flex items-center gap-2 px-3 py-2 rounded-md font-mono text-[11px] font-semibold uppercase tracking-wider transition-all"
+                style={{ color: "#9DA3B4", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-500" />
+                Attract
+              </Link>
+              <Link
+                to="/Home"
+                className="flex items-center gap-2 px-3 py-2 rounded-md font-mono text-[11px] font-semibold uppercase tracking-wider transition-all"
+                style={{ color: "#9DA3B4", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-500" />
+                Convert
+              </Link>
+            </div>
+
+            <a
+              href="https://makea.shiftnow.io/widget/bookings/reality"
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono font-bold uppercase tracking-wider transition-all"
+              style={{
+                fontSize: "11px",
+                padding: "10px 20px",
+                borderRadius: "10px",
+                background: "linear-gradient(135deg,#F54A48,#FA982F)",
+                color: "#fff",
+                textDecoration: "none",
+                boxShadow: "0 4px 16px rgba(245,74,72,0.3)",
+              }}
+            >
+              Book a Call →
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "white" }}
           >
-            Book a Call →
-          </a>
+            <Menu className="w-5 h-5" />
+          </button>
         </div>
       </nav>
 
-      {/* ── MEGA MENU DRAWER ── */}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {menuOpen && (
+        {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              onClick={() => setMobileOpen(false)}
               className="fixed inset-0 z-[60]"
               style={{ background: "rgba(7,8,32,0.7)", backdropFilter: "blur(4px)" }}
             />
-
-            {/* Drawer */}
             <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
+              initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed top-0 left-0 bottom-0 z-[70] overflow-y-auto"
-              style={{
-                width: "min(420px, 92vw)",
-                background: "#0A0C28",
-                borderRight: "1px solid rgba(255,255,255,0.08)",
-              }}
+              style={{ width: "min(380px, 90vw)", background: "#0A0C28", borderRight: "1px solid rgba(255,255,255,0.08)" }}
             >
-              {/* Drawer Header */}
-              <div
-                className="flex items-center justify-between px-6 py-5 sticky top-0 z-10"
-                style={{ background: "#0A0C28", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-              >
-                <Link to="/BrandHome" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
-                  <span className="font-display font-bold text-lg text-white">
-                    ShiFt<span style={{ color: "#F54A48" }}>.</span>
-                  </span>
-                  <span
-                    className="font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full"
-                    style={{ fontSize: "9px", background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.3)", color: "#FFD700" }}
-                  >
-                    NeuralOS™
-                  </span>
+              <div className="flex items-center justify-between px-6 py-5 sticky top-0"
+                style={{ background: "#0A0C28", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                <Link to="/BrandHome" onClick={() => setMobileOpen(false)} className="font-display font-bold text-lg text-white">
+                  ShiFt<span style={{ color: "#F54A48" }}>.</span>
                 </Link>
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center w-9 h-9 rounded-xl"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.6)" }}
-                >
+                <button onClick={() => setMobileOpen(false)}
+                  className="w-9 h-9 flex items-center justify-center rounded-xl"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.6)" }}>
                   <X className="w-4 h-4" />
                 </button>
               </div>
-
-              {/* Drawer Sections */}
-              <div className="px-6 py-6 space-y-8">
-                {MENU_SECTIONS.map((section) => (
-                  <div key={section.label}>
-                    <div
-                      className="font-mono uppercase tracking-widest mb-3"
-                      style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.2em" }}
-                    >
-                      {section.label}
-                    </div>
-                    <div className="space-y-1">
-                      {section.items.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="flex items-center gap-3 px-3 py-3 rounded-xl transition-all group"
-                          style={{ textDecoration: "none" }}
-                          onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
-                          onMouseLeave={e => e.currentTarget.style.background = "transparent"}
-                        >
-                          <span
-                            className="flex-shrink-0 w-2 h-2 rounded-full"
-                            style={{ background: item.color, boxShadow: `0 0 6px ${item.color}80` }}
-                          />
-                          <div>
-                            <div className="font-display font-bold text-white" style={{ fontSize: "14px" }}>
-                              {item.label}
-                            </div>
-                            <div className="font-body" style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
-                              {item.sub}
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+              <div className="px-6 py-6 flex flex-col gap-5">
+                {navLinks.map((link) => (
+                  <Link key={link.label} to={link.href} onClick={() => setMobileOpen(false)}
+                    className="font-display text-xl font-semibold text-white" style={{ textDecoration: "none" }}>
+                    {link.label}
+                  </Link>
                 ))}
-
-                {/* Bottom CTA */}
-                <div
-                  className="rounded-2xl p-5 text-center"
-                  style={{ background: "linear-gradient(135deg,rgba(245,74,72,0.1),rgba(250,152,47,0.07))", border: "1px solid rgba(245,74,72,0.2)" }}
-                >
-                  <div className="font-display font-bold text-white mb-1" style={{ fontSize: "15px" }}>Ready to ShiFt?</div>
-                  <div className="font-body mb-4" style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)" }}>
-                    Book a free 30-min revenue audit
-                  </div>
-                  <a
-                    href="https://makea.shiftnow.io/widget/bookings/reality"
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => setMenuOpen(false)}
-                    className="font-mono font-bold uppercase tracking-wider block w-full py-3 rounded-xl"
-                    style={{ fontSize: "11px", background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", textDecoration: "none", letterSpacing: "0.1em" }}
-                  >
-                    Book a Strategy Call →
-                  </a>
+                <div className="flex gap-3 pt-2">
+                  <Link to="/AttractHome" onClick={() => setMobileOpen(false)}
+                    className="flex-1 text-center py-2 rounded-lg font-mono text-xs font-bold uppercase tracking-wider"
+                    style={{ background: "rgba(250,152,47,0.1)", border: "1px solid rgba(250,152,47,0.3)", color: "#FA982F", textDecoration: "none" }}>
+                    Attract
+                  </Link>
+                  <Link to="/Home" onClick={() => setMobileOpen(false)}
+                    className="flex-1 text-center py-2 rounded-lg font-mono text-xs font-bold uppercase tracking-wider"
+                    style={{ background: "rgba(245,74,72,0.1)", border: "1px solid rgba(245,74,72,0.3)", color: "#F54A48", textDecoration: "none" }}>
+                    Convert
+                  </Link>
                 </div>
+                <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" rel="noreferrer"
+                  className="block text-center py-3 rounded-xl font-mono font-bold uppercase tracking-wider mt-2"
+                  style={{ background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", textDecoration: "none", fontSize: "12px" }}>
+                  Book a Strategy Call →
+                </a>
               </div>
             </motion.div>
           </>
