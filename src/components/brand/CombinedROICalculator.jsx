@@ -61,14 +61,14 @@ export default function CombinedROICalculator() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={e => e.stopPropagation()}
-              className="relative rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="relative rounded-2xl w-full max-w-xl my-8"
               style={{
                 background: "#0D0F33",
                 border: "1px solid rgba(245,74,72,0.3)",
@@ -83,15 +83,15 @@ export default function CombinedROICalculator() {
               </button>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 {step === 1 && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-2xl font-bold text-white mb-2">ShiFt ROI Calculator</h2>
-                    <p className="font-body text-sm text-[rgba(255,255,255,0.5)] mb-8">
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2">ShiFt ROI Calculator</h2>
+                    <p className="font-body text-xs md:text-sm text-[rgba(255,255,255,0.5)] mb-6">
                       See the combined revenue impact of Attract + Convert
                     </p>
 
@@ -165,8 +165,8 @@ export default function CombinedROICalculator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-2xl font-bold text-white mb-2">Convert: Revenue Leaks</h2>
-                    <p className="font-body text-sm text-[rgba(255,255,255,0.5)] mb-8">
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2">Convert: Revenue Leaks</h2>
+                    <p className="font-body text-xs md:text-sm text-[rgba(255,255,255,0.5)] mb-6">
                       Estimate what you're losing monthly to these three leaks
                     </p>
 
@@ -270,16 +270,16 @@ export default function CombinedROICalculator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                   >
-                    <h2 className="font-display text-2xl font-bold text-white mb-6">Your ROI Potential</h2>
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4">Your ROI Potential</h2>
 
                     {/* Attract ROI */}
-                    <div className="rounded-xl p-6 mb-6 border"
+                    <div className="rounded-xl p-4 md:p-6 mb-4 border"
                       style={{
                         background: "rgba(255,215,0,0.08)",
                         borderColor: "rgba(255,215,0,0.3)",
                       }}>
-                      <div className="font-mono text-xs uppercase tracking-wider text-[#FFD700] mb-2">Attract (Pipeline Growth)</div>
-                      <div className="font-display text-3xl font-bold text-white mb-2">
+                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#FFD700] mb-1">Attract (Pipeline Growth)</div>
+                      <div className="font-display text-2xl md:text-3xl font-bold text-white mb-1">
                         +${attractMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
                       <div className="text-sm text-[rgba(255,255,255,0.5)]">
@@ -288,13 +288,13 @@ export default function CombinedROICalculator() {
                     </div>
 
                     {/* Convert ROI */}
-                    <div className="rounded-xl p-6 mb-6 border"
+                    <div className="rounded-xl p-4 md:p-6 mb-4 border"
                       style={{
                         background: "rgba(245,74,72,0.08)",
                         borderColor: "rgba(245,74,72,0.3)",
                       }}>
-                      <div className="font-mono text-xs uppercase tracking-wider text-[#F54A48] mb-2">Convert (Plugged Leaks)</div>
-                      <div className="font-display text-3xl font-bold text-white mb-2">
+                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#F54A48] mb-1">Convert (Plugged Leaks)</div>
+                      <div className="font-display text-2xl md:text-3xl font-bold text-white mb-1">
                         +${convertMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
                       <div className="text-sm text-[rgba(255,255,255,0.5)]">
@@ -303,13 +303,13 @@ export default function CombinedROICalculator() {
                     </div>
 
                     {/* Total ROI */}
-                    <div className="rounded-xl p-6 border mb-6"
+                    <div className="rounded-xl p-4 md:p-6 border mb-6"
                       style={{
                         background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.12))",
                         borderColor: "rgba(245,74,72,0.3)",
                       }}>
-                      <div className="font-mono text-xs uppercase tracking-wider text-[#FA982F] mb-2">Total Combined ROI</div>
-                      <div className="font-display text-4xl font-bold shift-gradient-text mb-2">
+                      <div className="font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#FA982F] mb-1">Total Combined ROI</div>
+                      <div className="font-display text-2xl md:text-4xl font-bold shift-gradient-text mb-1">
                         +${totalMonthlyROI.toLocaleString('en-US', { maximumFractionDigits: 0 })}/mo
                       </div>
                       <div className="text-sm text-[rgba(255,255,255,0.5)]">
