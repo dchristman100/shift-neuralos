@@ -25,6 +25,7 @@ import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import MasterExport from './pages/MasterExport';
 import NeuralOSDashboard from './pages/NeuralOSDashboard';
+import Onboarding from './pages/Onboarding';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
