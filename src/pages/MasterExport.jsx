@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import JSZip from "jszip";
 import { Copy, Check, Download, ChevronDown, ChevronRight, Globe, Layers, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
