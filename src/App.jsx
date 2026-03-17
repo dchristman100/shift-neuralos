@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import CallWidget from '@/components/ui/callwidget';
+import Layout from './layout';
 import RevenueEnginePlans from './pages/RevenueEnginePlans';
 import ExportRevenueEnginePlans from './pages/ExportRevenueEnginePlans';
 import ExportDashboardPreview from './pages/ExportDashboardPreview';
