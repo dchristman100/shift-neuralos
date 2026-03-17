@@ -88,6 +88,7 @@ const AuthenticatedApp = () => {
       <Route path="/TermsOfService" element={<LayoutWrapper currentPageName="TermsOfService"><TermsOfService /></LayoutWrapper>} />
       <Route path="/CookiePolicy" element={<LayoutWrapper currentPageName="CookiePolicy"><CookiePolicy /></LayoutWrapper>} />
       <Route path="/MasterExport" element={<LayoutWrapper currentPageName="MasterExport"><MasterExport /></LayoutWrapper>} />
+      <Route path="/NeuralOSDashboard" element={<LayoutWrapper currentPageName="NeuralOSDashboard"><NeuralOSDashboard /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
