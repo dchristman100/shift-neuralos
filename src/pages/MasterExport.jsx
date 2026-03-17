@@ -1134,7 +1134,7 @@ Usage:
               <span className="font-display text-xl font-bold text-white">Export Entire Site</span>
             </div>
             <p className="text-sm mb-6 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Download a fully self-contained <strong className="text-white">ShiFtNeuralOS-FullSite.html</strong> file with all global styles, the NeuralOS nav, hero, and footer assembled and ready to open in any browser or import to Elementor.
+              Downloads <strong className="text-white">ShiFtNeuralOS-FullSite.html</strong> (single assembled page) <strong className="text-white">+</strong> <strong className="text-white">ShiFtNeuralOS-FullSite.zip</strong> containing every page as a separate HTML file with shared CSS/JS assets and a README.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <button
@@ -1143,7 +1143,7 @@ Usage:
                 style={{ background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", boxShadow: "0 4px 24px rgba(245,74,72,0.35)" }}
               >
                 <Download className="w-4 h-4" />
-                {downloading ? "Downloading..." : "Download Full Site HTML"}
+                {downloading ? "Building ZIP..." : "Download Full Site HTML + ZIP"}
               </button>
               <button
                 onClick={() => { const html = buildFullSite(); handleCopy(html, "full-site"); }}
