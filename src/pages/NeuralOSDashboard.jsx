@@ -347,10 +347,10 @@ export default function NeuralOSDashboard() {
               Scan your CRM for missed follow-ups, slow responses & unclosed high-intent leads
             </div>
           </div>
-          <Link to="/LeakDetector"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 24px", borderRadius: 10, background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", textDecoration: "none", whiteSpace: "nowrap", boxShadow: "0 4px 16px rgba(245,74,72,0.3)" }}>
+          <button onClick={() => window.location.href = "/LeakDetector"}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 24px", borderRadius: 10, background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", textDecoration: "none", whiteSpace: "nowrap", boxShadow: "0 4px 16px rgba(245,74,72,0.3)", border: "none", cursor: "pointer" }}>
             Detect Leaks →
-          </Link>
+          </button>
         </motion.div>
 
         {/* ── CTA ── */}
