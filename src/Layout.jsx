@@ -171,7 +171,7 @@ export default function Layout({ children, currentPageName }) {
         }
       `}</style>
 
-        {isAttractPage ? <AttractNavbar /> : isBrandPage ? <BrandNavbar /> : <Navbar />}
+        <Navbar />
         {children}
         <Footer dotColor={isAttractPage ? "#FFD700" : isBrandPage ? "#FFD700" : "#F54A48"} />
       </div>
