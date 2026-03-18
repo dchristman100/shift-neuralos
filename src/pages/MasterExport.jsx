@@ -1361,38 +1361,43 @@ NOTES:
       title: "ShiFt NeuralOS Brand Home",
       color: "#FFD700",
       dotColor: "#FFD700",
+      exportPagePath: "BrandHome",
       badge: "CURRENT — extracted from BrandHero + ProblemSelector + TwoProducts + SocialProof + CTA",
       sections: [
-        { id: "brand-home-full", title: "Brand Home — Full Page HTML (All Sections)", items: [{ label: "HTML", code: BRAND_HOME_HTML }] },
+        { id: "brand-home-full", title: "Brand Home — Full Page HTML (All Sections)", exportPagePath: "BrandHome", items: [{ label: "HTML", code: BRAND_HOME_HTML }] },
       ],
     },
     {
       title: "ShiFt Convert Home",
       color: "#F54A48",
       dotColor: "#F54A48",
+      exportPagePath: "Home",
       badge: "CURRENT — HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQ + CTA",
       sections: [
-        { id: "convert-home-full", title: "Convert Home — Full Page HTML (All 8 Sections)", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
+        { id: "convert-home-full", title: "Convert Home — Full Page HTML (All 8 Sections)", exportPagePath: "Home", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
       ],
     },
     {
       title: "ShiFt Attract Home",
       color: "#FA982F",
       dotColor: "#FA982F",
+      exportPagePath: "AttractHome",
       badge: "CURRENT — AttractHero + EmptyPipelineProblems + AttractSolution + ROI + SocialProof + FAQ + CTA",
       sections: [
-        { id: "attract-home-full", title: "Attract Home — Full Page HTML (All Sections)", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
+        { id: "attract-home-full", title: "Attract Home — Full Page HTML (All Sections)", exportPagePath: "AttractHome", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
       ],
     },
     {
       title: "Calculator — Find Your Gap",
       color: "#F54A48",
       dotColor: "#FA982F",
+      exportPagePath: "Calculator",
       badge: "CURRENT — SHIFT-CALC-001 v1.0 · Interactive slider + 3 output cards",
       sections: [
         {
           id: "calculator-full",
           title: "Calculator — Full Interactive HTML (slider, formulas, CTA)",
+          exportPagePath: "Calculator",
           items: [{ label: "HTML + JS", code: CALCULATOR_HTML }],
         },
       ],
