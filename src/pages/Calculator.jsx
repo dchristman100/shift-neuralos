@@ -457,7 +457,7 @@ export default function Calculator() {
               marginBottom: "8px",
             }}
           >
-            ShiFt costs $897/month.
+            Start Closing Your Gap
           </p>
           <p
             style={{
