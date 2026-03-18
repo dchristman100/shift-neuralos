@@ -148,7 +148,7 @@ export default function BrandNavbar() {
               </div>
 
               <div className="pt-4">
-                <GradientButton size="lg" className="w-full">
+                <GradientButton size="lg" className="w-full" href="/Calculator">
                   Find Your Gap
                 </GradientButton>
               </div>
