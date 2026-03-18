@@ -1246,21 +1246,23 @@ export default function MasterExport() {
 
     zip.file("calculator/index.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ShiFt — Find Your Gap</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}</style></head><body>${NEURALAOS_NAV_HTML}${CALCULATOR_HTML}${FOOTER_HTML}<script>${NAV_JS}</script></body></html>`);
   zip.file("SCREENSHOT-ONLY-PAGES.txt", SCREENSHOT_NOTE.replace(/<!--/g, "").replace(/-->/g, "").replace(/=+/g, "==="));
-    zip.file("README.txt", `ShiFt NeuralOS — Full Site Export v2
+    zip.file("README.txt", `ShiFt NeuralOS — Full Site Export v3
 =====================================
 Generated: ${new Date().toISOString()}
 Source: Extracted directly from live React component files
 
-UPDATED IN THIS VERSION:
-  - BrandHome: BrandHero + ProblemSelector (4 cards) + TwoProducts + SocialProof + CTA
-  - ConvertHome: HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQSection + CTA
-  - AttractHome: AttractHero + EmptyPipelineProblems + AttractSolution + ROI (static) + SocialProof + CTA
-  - All navbars updated to current links (ROI Calculator CTA, correct routes)
+UPDATED IN THIS VERSION (v3):
+  - NeuralOS Navbar: Platform / Roofing / Demo / Revenue Engine Plans links
+  - NeuralOS Navbar: "Find Your Gap" → /Calculator (was /RevenueEnginePlans)
+  - BrandHero: "Find Your Gap" CTA → /Calculator
+  - Calculator: NEW PAGE — SHIFT-CALC-001 v1.0 interactive revenue loss calculator
+    Slider $50K–$500K, 3 output cards, full JS, keyboard accessibility, "Start Closing Your Gap" CTA
 
 FILES:
   index.html / brand-home.html  → NeuralOS Brand Home (fully assembled)
   convert/index.html            → ShiFt Convert Home (all 8 sections)
   attract/index.html            → ShiFt Attract Home (all sections)
+  calculator/index.html         → Revenue Loss Calculator (interactive, SHIFT-CALC-001 v1.0)
   assets/global.css             → Global CSS
   assets/nav.css                → Navbar CSS
   assets/footer.css             → Footer CSS
