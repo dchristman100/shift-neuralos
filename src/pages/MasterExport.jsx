@@ -1228,7 +1228,7 @@ export default function MasterExport() {
     const singleUrl = URL.createObjectURL(singleBlob);
     const singleA = document.createElement("a");
     singleA.href = singleUrl;
-    singleA.download = "ShiFtNeuralOS-BrandHome.html";
+    singleA.download = "ShiFtNeuralOS-BrandHome-v3.html";
     singleA.click();
     URL.revokeObjectURL(singleUrl);
 
@@ -1280,7 +1280,7 @@ NOTES:
     const zipUrl = URL.createObjectURL(zipBlob);
     const zipA = document.createElement("a");
     zipA.href = zipUrl;
-    zipA.download = "ShiFtNeuralOS-FullSite-v2.zip";
+    zipA.download = "ShiFtNeuralOS-FullSite-v3.zip";
     zipA.click();
     URL.revokeObjectURL(zipUrl);
 
@@ -1473,7 +1473,7 @@ NOTES:
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border mb-6 font-mono text-xs uppercase tracking-widest"
             style={{ background: "rgba(245,74,72,0.08)", borderColor: "rgba(245,74,72,0.3)", color: "#F54A48" }}>
             <Globe className="w-4 h-4" />
-            Master Export Hub · v2 — Current Source
+            Master Export Hub · v3 — Current Source
           </div>
           <h1 className="font-display text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
             Site Export Center
@@ -1516,10 +1516,10 @@ NOTES:
           <div className="relative">
             <div className="flex items-center justify-center gap-2 mb-3">
               <Layers className="w-6 h-6" style={{ color: "#FA982F" }} />
-              <span className="font-display text-xl font-bold text-white">Export Entire Site (v2 — Current)</span>
+              <span className="font-display text-xl font-bold text-white">Export Entire Site (v3 — Current)</span>
             </div>
             <p className="text-sm mb-6 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Downloads <strong className="text-white">Brand Home HTML</strong> + <strong className="text-white">ZIP</strong> with brand-home, convert/index, attract/index, shared assets, and README.
+              Downloads <strong className="text-white">Brand Home HTML</strong> + <strong className="text-white">ZIP</strong> with brand-home, convert/index, attract/index, <strong className="text-white">calculator/index</strong>, shared assets, and README.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <button
@@ -1528,7 +1528,7 @@ NOTES:
                 style={{ background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", boxShadow: "0 4px 24px rgba(245,74,72,0.35)" }}
               >
                 <Download className="w-4 h-4" />
-                {downloading ? "Building ZIP..." : "Download Current HTML + ZIP"}
+                {downloading ? "Building ZIP..." : "Download v3 HTML + ZIP"}
               </button>
               <button
                 onClick={() => handleCopy(buildFullSite(), "full-site")}
@@ -1570,7 +1570,7 @@ NOTES:
 
         <div className="mt-10 p-5 rounded-xl text-center" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-            ShiFt NeuralOS™ Master Export v2 · HTML extracted from live React source files · Last updated March 2026
+            ShiFt NeuralOS™ Master Export v3 · HTML extracted from live React source files · Last updated March 2026
           </p>
         </div>
       </div>
