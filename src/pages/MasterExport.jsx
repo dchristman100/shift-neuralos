@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import JSZip from "jszip";
-import { Copy, Check, Download, ChevronDown, ChevronRight, Globe, Layers, ExternalLink } from "lucide-react";
+import { Copy, Check, Download, ChevronDown, ChevronRight, Globe, Layers, ExternalLink, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
 
 // ─── COPY BUTTON ────────────────────────────────────────────────────────────
-function CopyBtn({ code, id, copied, onCopy, size = "sm" }) {
+function CopyBtn({ code, id, copied, onCopy }) {
   const active = copied === id;
   return (
     <button
@@ -130,7 +130,8 @@ function PageGroup({ title, color, dotColor, badge, exportPagePath, sections, ex
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// CODE CONSTANTS
+// CURRENT HTML EXTRACTED FROM LIVE REACT COMPONENTS
+// Last updated: March 2026 — reflects actual component source
 // ═══════════════════════════════════════════════════════════════════════════
 
 const GLOBAL_CSS = `@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap');
@@ -146,115 +147,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--shift-navy);color:#fff;li
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,74,72,.4);}
 .btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;background:transparent;color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.875rem;text-transform:uppercase;letter-spacing:.08em;border-radius:12px;border:1px solid rgba(255,255,255,.15);cursor:pointer;text-decoration:none;transition:all .3s ease;}
 .btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(245,74,72,.5);}
-::selection{background:rgba(245,74,72,.3);color:white;}
-.shift-section-header{text-align:center;margin-bottom:56px;}
-.shift-section-label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px;}
-.shift-section-title{font-size:2.25rem;font-weight:800;line-height:1.1;color:white;margin-bottom:16px;}
-@media(min-width:768px){.shift-section-title{font-size:3rem;}}
-.shift-section-desc{font-size:1rem;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.7;}
-.shift-cta-box{position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.08));border:1px solid rgba(245,74,72,.15);}
-.shift-cta-title{font-size:2rem;font-weight:800;color:white;margin-bottom:20px;line-height:1.2;}
-@media(min-width:768px){.shift-cta-title{font-size:3rem;}}
-.shift-cta-desc{font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;}
-.shift-cta-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;}
-.shift-cta-micro{font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;}
-.shift-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;}`;
-
-const NEURALAOS_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
-  <div class="shift-nav-inner">
-    <div class="shift-nav-logo-group">
-      <a href="https://shiftnow.io" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
-      <span class="shift-nav-badge font-mono" style="color:#FFD700;background:rgba(255,215,0,0.10);border-color:rgba(255,215,0,0.3);">NeuralOS™</span>
-    </div>
-    <div class="shift-nav-links">
-      <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-nav-link">Revenue Engine Plans</a>
-      <a href="https://shiftnow.io/NeuralOSDashboard" class="shift-nav-link">Dashboard Preview</a>
-      <a href="https://shiftnow.io/Platform" class="shift-nav-link">Platform</a>
-      <a href="https://shiftnow.io/Roofing" class="shift-nav-link">Roofing</a>
-      <a href="https://shiftnow.io/About" class="shift-nav-link">About</a>
-      <a href="https://shiftnow.io/Contact" class="shift-nav-link">Contact</a>
-    </div>
-    <div class="shift-nav-right">
-      <div class="shift-product-pills">
-        <a href="https://shiftnow.io/AttractHome" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
-        <a href="https://shiftnow.io/Home" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
-      </div>
-      <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary shift-btn-sm">Find Your Gap</a>
-    </div>
-    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
-  </div>
-  <div class="shift-mobile-menu" id="shift-mobile-menu">
-    <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
-    <a href="https://shiftnow.io/NeuralOSDashboard" class="shift-mobile-link font-display">Dashboard Preview</a>
-    <a href="https://shiftnow.io/Platform" class="shift-mobile-link font-display">Platform</a>
-    <a href="https://shiftnow.io/Roofing" class="shift-mobile-link font-display">Roofing</a>
-    <a href="https://shiftnow.io/About" class="shift-mobile-link font-display">About</a>
-    <a href="https://shiftnow.io/Contact" class="shift-mobile-link font-display">Contact</a>
-    <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary">Find Your Gap</a>
-  </div>
-</nav>`;
-
-const CONVERT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
-  <div class="shift-nav-inner">
-    <div class="shift-nav-logo-group">
-      <a href="/" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
-      <span class="shift-nav-badge font-mono" style="color:#F54A48;background:rgba(245,74,72,0.12);border-color:rgba(245,74,72,0.3);">Convert</span>
-    </div>
-    <div class="shift-nav-links">
-      <a href="/how-it-works" class="shift-nav-link">How It Works</a>
-      <a href="/revenue-leaks" class="shift-nav-link">Revenue Leaks</a>
-      <a href="/results" class="shift-nav-link">Results</a>
-      <a href="/dashboard-preview" class="shift-nav-link">Dashboard Preview</a>
-      <a href="/revenue-engine-plans" class="shift-nav-link">Revenue Engine Plans</a>
-    </div>
-    <div class="shift-nav-right">
-      <div class="shift-product-pills">
-        <a href="/attract" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
-        <a href="/convert" class="shift-pill shift-pill-active font-mono"><span class="shift-pill-dot shift-pill-dot-active"></span> Convert</a>
-      </div>
-      <a href="https://calc.shiftnow.io" class="btn-primary shift-btn-sm">See My Number</a>
-    </div>
-    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
-  </div>
-  <div class="shift-mobile-menu" id="shift-mobile-menu">
-    <a href="/how-it-works" class="shift-mobile-link font-display">How It Works</a>
-    <a href="/revenue-leaks" class="shift-mobile-link font-display">Revenue Leaks</a>
-    <a href="/results" class="shift-mobile-link font-display">Results</a>
-    <a href="/dashboard-preview" class="shift-mobile-link font-display">Dashboard Preview</a>
-    <a href="/revenue-engine-plans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
-    <a href="https://calc.shiftnow.io" class="btn-primary">See My Number</a>
-  </div>
-</nav>`;
-
-const ATTRACT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
-  <div class="shift-nav-inner">
-    <div class="shift-nav-logo-group">
-      <a href="/" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
-      <span class="shift-nav-badge font-mono" style="color:#FA982F;background:rgba(250,152,47,0.15);border-color:rgba(250,152,47,0.3);">Attract</span>
-    </div>
-    <div class="shift-nav-links">
-      <a href="/attract/how-it-works" class="shift-nav-link">How It Works</a>
-      <a href="/attract/empty-pipeline" class="shift-nav-link">Empty Pipeline</a>
-      <a href="/attract/results" class="shift-nav-link">Results</a>
-      <a href="/revenue-engine-plans" class="shift-nav-link">Revenue Engine Plans</a>
-    </div>
-    <div class="shift-nav-right">
-      <div class="shift-product-pills">
-        <a href="/attract" class="shift-pill shift-pill-active font-mono" style="background:linear-gradient(135deg,rgba(250,152,47,0.12),rgba(250,152,47,0.08));border-color:rgba(250,152,47,0.3);color:#F8F9FC;"><span class="shift-pill-dot" style="background:#FA982F;box-shadow:0 0 8px rgba(250,152,47,0.5);"></span> Attract</a>
-        <a href="/convert" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
-      </div>
-      <a href="#audit" class="btn-primary shift-btn-sm" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Audit My Pipeline</a>
-    </div>
-    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
-  </div>
-  <div class="shift-mobile-menu" id="shift-mobile-menu">
-    <a href="/attract/how-it-works" class="shift-mobile-link font-display">How It Works</a>
-    <a href="/attract/empty-pipeline" class="shift-mobile-link font-display">Empty Pipeline</a>
-    <a href="/attract/results" class="shift-mobile-link font-display">Results</a>
-    <a href="/revenue-engine-plans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
-    <a href="#audit" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Audit My Pipeline</a>
-  </div>
-</nav>`;
+::selection{background:rgba(245,74,72,.3);color:white;}`;
 
 const NAV_CSS = `.shift-nav{position:fixed;top:0;left:0;right:0;height:72px;z-index:100;background:rgba(7,8,32,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 24px;transition:background .3s ease;}
 .shift-nav.scrolled{background:rgba(7,8,32,.98);box-shadow:0 4px 24px rgba(0,0,0,.4);}
@@ -282,7 +175,19 @@ var toggle=document.getElementById('shift-mobile-toggle');
 var mobileMenu=document.getElementById('shift-mobile-menu');
 if(toggle){toggle.addEventListener('click',function(){mobileMenu.classList.toggle('open');});}`;
 
-const FOOTER_HTML = `<footer class="shift-footer" id="footer">
+const FOOTER_CSS = `.shift-footer{padding:64px 24px 32px;border-top:1px solid rgba(255,255,255,.06);}
+.shift-footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px;}
+@media(min-width:1024px){.shift-footer-grid{grid-template-columns:2fr 1fr 1fr 1fr;}}
+.shift-footer-brand{grid-column:1/-1;}@media(min-width:1024px){.shift-footer-brand{grid-column:auto;}}
+.shift-footer-logo{font-size:1.5rem;font-weight:700;color:white;margin-bottom:12px;}
+.shift-footer-tagline{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.6;}
+.shift-footer-heading{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.shift-footer-links{list-style:none;padding:0;}.shift-footer-links li{margin-bottom:10px;}
+.shift-footer-links a{font-size:.875rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}.shift-footer-links a:hover{color:#F54A48;}
+.shift-footer-bottom{display:flex;flex-direction:column;gap:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);font-size:.75rem;color:rgba(255,255,255,.25);}
+@media(min-width:768px){.shift-footer-bottom{flex-direction:row;justify-content:space-between;}}`;
+
+const FOOTER_HTML = `<footer class="shift-footer">
   <div class="section-inner">
     <div class="shift-footer-grid">
       <div class="shift-footer-brand">
@@ -302,7 +207,6 @@ const FOOTER_HTML = `<footer class="shift-footer" id="footer">
         <h4 class="shift-footer-heading font-mono">Company</h4>
         <ul class="shift-footer-links">
           <li><a href="https://shiftnow.io/About">About</a></li>
-          <li><a href="https://shiftnow.io/Careers">Careers</a></li>
           <li><a href="https://shiftnow.io/Blog">Blog</a></li>
           <li><a href="https://shiftnow.io/Contact">Contact</a></li>
         </ul>
@@ -323,455 +227,797 @@ const FOOTER_HTML = `<footer class="shift-footer" id="footer">
   </div>
 </footer>`;
 
-const FOOTER_CSS = `.shift-footer{padding:64px 24px 32px;border-top:1px solid rgba(255,255,255,.06);}
-.shift-footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px;}
-@media(min-width:1024px){.shift-footer-grid{grid-template-columns:2fr 1fr 1fr 1fr;}}
-.shift-footer-brand{grid-column:1/-1;}@media(min-width:1024px){.shift-footer-brand{grid-column:auto;}}
-.shift-footer-logo{font-size:1.5rem;font-weight:700;color:white;margin-bottom:12px;}
-.shift-footer-tagline{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.6;}
-.shift-footer-heading{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-bottom:16px;}
-.shift-footer-links{list-style:none;padding:0;}.shift-footer-links li{margin-bottom:10px;}
-.shift-footer-links a{font-size:.875rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}.shift-footer-links a:hover{color:#F54A48;}
-.shift-footer-bottom{display:flex;flex-direction:column;gap:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);font-size:.75rem;color:rgba(255,255,255,.25);}
-@media(min-width:768px){.shift-footer-bottom{flex-direction:row;justify-content:space-between;}}`;
-
-const NEURALAOS_HOME_HTML = `<!-- NEURALAOS HOME: Hero + Problem Selector + Two Products + Social Proof + CTA -->
-<!-- Use Global CSS + NeuralOS Nav + Footer from above -->
-<!-- See ExportBrandNeuralOS for complete section-by-section breakdown -->
-<main style="padding-top:72px;">
-  <!-- Hero Section -->
-  <section class="shift-hero" id="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,74,72,.15) 0%,transparent 70%);pointer-events:none;"></div>
-    <div class="section-inner" style="position:relative;">
-      <div class="shift-hero-badge font-mono" style="display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#F54A48;">
-        <span style="width:8px;height:8px;background:#F54A48;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0;"></span>
-        AI Revenue Operating System
-      </div>
-      <h1 class="font-display" style="font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;">
-        <span class="shift-gradient-text">Revenue Leaks</span><br/>Don't Fix Themselves
-      </h1>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;">
-        Roofing contractors lose $35K–$100K+ monthly to broken lead systems. ShiFt NeuralOS plugs the leaks with AI that generates, qualifies, and converts leads 24/7.
-      </p>
-      <a href="#problem-selector" class="btn-primary" style="padding:18px 40px;font-size:1rem;">Find Your Gap →</a>
+const NEURALAOS_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
+  <div class="shift-nav-inner">
+    <div class="shift-nav-logo-group">
+      <a href="https://shiftnow.io" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
+      <span class="shift-nav-badge font-mono" style="color:#FFD700;background:rgba(255,215,0,0.10);border-color:rgba(255,215,0,0.3);">NeuralOS™</span>
     </div>
-  </section>
-</main>`;
-
-const CONVERT_HOME_HTML = `<!-- CONVERT HOME: Now component-based (HeroNew, ProblemCards, etc.) -->
-<!-- This export will be dynamically generated from current component structure -->
-<!-- For now: Fetch /Home directly or use the three-card Revenue Leak Calculator embedded below -->
-<main style="padding-top:72px;">
-  <section class="shift-hero" id="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,74,72,.12) 0%,transparent 70%);pointer-events:none;"></div>
-    <div class="section-inner" style="position:relative;">
-      <div class="font-mono" style="display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#F54A48;">
-        <span style="width:8px;height:8px;background:#F54A48;border-radius:50%;flex-shrink:0;"></span>
-        Three Revenue Leaks Analysis
-      </div>
-      <h1 class="font-display" style="font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;">
-        Stop Losing Leads.<br/><span class="shift-gradient-text">Start Booking Jobs.</span>
-      </h1>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;">
-        Missed calls. Junk leads. Invisible buyers. See exactly how much they're costing your business.
-      </p>
-      <a href="/Home" class="btn-primary" style="padding:18px 40px;font-size:1rem;">View Full Convert Page →</a>
+    <div class="shift-nav-links">
+      <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-nav-link">Revenue Engine Plans</a>
+      <a href="https://shiftnow.io/NeuralOSDashboard" class="shift-nav-link">Dashboard Preview</a>
+      <a href="https://shiftnow.io/Platform" class="shift-nav-link">Platform</a>
+      <a href="https://shiftnow.io/Roofing" class="shift-nav-link">Roofing</a>
+      <a href="https://shiftnow.io/About" class="shift-nav-link">About</a>
+      <a href="https://shiftnow.io/Contact" class="shift-nav-link">Contact</a>
     </div>
-  </section>
-</main>`;
-
-const ATTRACT_HOME_HTML = `<!-- ATTRACT HOME: Hero + Empty Pipeline Problems + Solution + Social Proof + FAQ + CTA -->
-<!-- Use Global CSS + Attract Nav + Footer from above -->
-<!-- See ExportAttract for complete section-by-section breakdown -->
-<main style="padding-top:72px;">
-  <section class="shift-hero" id="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(250,152,47,.15) 0%,rgba(245,74,72,.05) 50%,transparent 70%);pointer-events:none;"></div>
-    <div class="section-inner" style="position:relative;">
-      <div class="font-mono" style="display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(250,152,47,.08);border:1px solid rgba(250,152,47,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#FA982F;">
-        <span style="width:8px;height:8px;background:#FA982F;border-radius:50%;flex-shrink:0;"></span>
-        AI Lead Generation for Roofing Contractors
+    <div class="shift-nav-right">
+      <div class="shift-product-pills">
+        <a href="https://shiftnow.io/AttractHome" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
+        <a href="https://shiftnow.io/Home" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
       </div>
-      <h1 class="font-display" style="font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;">
-        Your <span style="background:linear-gradient(135deg,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Pipeline Is Empty</span><br/>Because Your Marketing Isn't Working
-      </h1>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;">
-        ShiFt Attract uses AI to generate qualified leads across every channel, 24 hours a day.
-      </p>
-      <a href="#audit" class="btn-primary" style="padding:18px 40px;font-size:1rem;background:linear-gradient(135deg,#FA982F,#F54A48);">Audit My Pipeline →</a>
+      <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary shift-btn-sm">Find Your Gap</a>
     </div>
-  </section>
-</main>`;
-
-const REVENUE_PLANS_HTML = `<!-- REVENUE ENGINE PLANS PAGE: complete standalone -->
-<!-- Contains: Hero, Problem Stats, System Overview, Case Study, ROI Math, Package Cards (Activate/Amplify/Dominate), Feature Table, 90-Day Guarantee, CTA -->
-<!-- See ExportRevenueEnginePlans for the full section-by-section breakdown with all CSS -->
-<!-- Quick embed: paste this stub + link to the full plans page -->
-<section class="section-wrap" style="background:#0D0F33;text-align:center;">
-  <div class="section-inner">
-    <div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:#FA982F;margin-bottom:20px;">Revenue Engine Plans</div>
-    <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:20px;">Three Packages. One Goal.<br><span class="shift-gradient-text">Booked Jobs.</span></h2>
-    <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 36px;line-height:1.7;">Every package includes a $5,000 one-time Revenue Engine Installation + 90-Day Revenue Floor.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto 36px;">
-      <div style="background:rgba(245,74,72,.06);border:1px solid rgba(245,74,72,.2);border-radius:14px;padding:24px 16px;text-align:center;">
-        <div class="font-display" style="font-size:.9rem;font-weight:800;color:#F54A48;margin-bottom:8px;">ACTIVATE</div>
-        <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">$1,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:4px;">+ 15% RevShare</div>
-      </div>
-      <div style="background:linear-gradient(180deg,rgba(245,74,72,.10),rgba(255,255,255,.03));border:1px solid rgba(245,74,72,.35);border-radius:14px;padding:24px 16px;text-align:center;position:relative;">
-        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#F54A48,#FA982F);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;color:#fff;padding:3px 12px;border-radius:999px;white-space:nowrap;">Most Popular</div>
-        <div class="font-display" style="font-size:.9rem;font-weight:800;background:linear-gradient(135deg,#F54A48,#FA982F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;">AMPLIFY</div>
-        <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">$3,497<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:4px;">+ 12% RevShare</div>
-      </div>
-      <div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.2);border-radius:14px;padding:24px 16px;text-align:center;">
-        <div class="font-display" style="font-size:.9rem;font-weight:800;color:#FFD700;margin-bottom:8px;">DOMINATE</div>
-        <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">$8,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:4px;">+ 10% RevShare</div>
-      </div>
-    </div>
-    <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary" style="padding:16px 40px;">Book a Strategy Call →</a>
+    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
   </div>
-</section>`;
+  <div class="shift-mobile-menu" id="shift-mobile-menu">
+    <a href="https://shiftnow.io/RevenueEnginePlans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
+    <a href="https://shiftnow.io/Platform" class="shift-mobile-link font-display">Platform</a>
+    <a href="https://shiftnow.io/About" class="shift-mobile-link font-display">About</a>
+    <a href="https://shiftnow.io/Contact" class="shift-mobile-link font-display">Contact</a>
+    <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary">Find Your Gap</a>
+  </div>
+</nav>`;
 
-const OTHER_PAGES_HTML = `<!-- OTHER PAGES — Complete URL Reference for WordPress/Elementor -->
-<!--
-  ── NEURALAOS BRAND SITE ──────────────────────────────────────────────────
-  /                   → NeuralOS Home (Hero + Problem Selector + Two Products + Proof + CTA)
-  /BrandHome          → Brand Home (same as above, React route)
-  /Platform           → Platform Page (NeuralOS system overview)
-  /Roofing            → Roofing Page (industry-specific landing)
-  /Resources          → Resources Page (guides, tools, downloads)
-  /About              → About Page (company mission & values)
-  /Careers            → Careers Page (open positions)
-  /Blog               → Blog Page (revenue intelligence articles for roofing contractors — category filter, featured post, article grid)
-  /Contact            → Contact Page (form + info)
-  /Features           → Features Page (AI tools breakdown)
-  /Integrations       → Integrations Page (CRM, calendar, ad platforms)
-  /CaseStudies        → Case Studies Page (contractor success stories — Titan, Storm Pros, Summit)
+const CONVERT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
+  <div class="shift-nav-inner">
+    <div class="shift-nav-logo-group">
+      <a href="/" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
+      <span class="shift-nav-badge font-mono" style="color:#F54A48;background:rgba(245,74,72,0.12);border-color:rgba(245,74,72,0.3);">Convert</span>
+    </div>
+    <div class="shift-nav-links">
+      <a href="/HowItWorks" class="shift-nav-link">How It Works</a>
+      <a href="/RevenueLeaks" class="shift-nav-link">Revenue Leaks</a>
+      <a href="/Results" class="shift-nav-link">Results</a>
+      <a href="/NeuralOSDashboard" class="shift-nav-link">Dashboard Preview</a>
+      <a href="/RevenueEnginePlans" class="shift-nav-link">Revenue Engine Plans</a>
+    </div>
+    <div class="shift-nav-right">
+      <div class="shift-product-pills">
+        <a href="/AttractHome" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Attract</a>
+        <a href="/Home" class="shift-pill shift-pill-active font-mono"><span class="shift-pill-dot shift-pill-dot-active"></span> Convert</a>
+      </div>
+      <a href="/ROICalculator" class="btn-primary shift-btn-sm">See My ROI</a>
+    </div>
+    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
+  </div>
+  <div class="shift-mobile-menu" id="shift-mobile-menu">
+    <a href="/HowItWorks" class="shift-mobile-link font-display">How It Works</a>
+    <a href="/RevenueLeaks" class="shift-mobile-link font-display">Revenue Leaks</a>
+    <a href="/Results" class="shift-mobile-link font-display">Results</a>
+    <a href="/RevenueEnginePlans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
+    <a href="/ROICalculator" class="btn-primary">See My ROI</a>
+  </div>
+</nav>`;
 
-  ── REVENUE ENGINE PLANS ─────────────────────────────────────────────────
-  /RevenueEnginePlans → Revenue Engine Plans (Activate / Amplify / Dominate)
-  /Packages           → Legacy Packages Page (alternate plans view)
-  /Pricing            → Pricing Page
+const ATTRACT_NAV_HTML = `<nav class="shift-nav" id="shift-nav">
+  <div class="shift-nav-inner">
+    <div class="shift-nav-logo-group">
+      <a href="/" class="shift-nav-logo font-display">ShiFt<span class="shift-gradient-text">.</span></a>
+      <span class="shift-nav-badge font-mono" style="color:#FA982F;background:rgba(250,152,47,0.15);border-color:rgba(250,152,47,0.3);">Attract</span>
+    </div>
+    <div class="shift-nav-links">
+      <a href="/AttractHowItWorks" class="shift-nav-link">How It Works</a>
+      <a href="/AttractEmptyPipeline" class="shift-nav-link">Empty Pipeline</a>
+      <a href="/AttractResults" class="shift-nav-link">Results</a>
+      <a href="/NeuralOSDashboard" class="shift-nav-link">Demo</a>
+      <a href="/RevenueEnginePlans" class="shift-nav-link">Revenue Engine Plans</a>
+    </div>
+    <div class="shift-nav-right">
+      <div class="shift-product-pills">
+        <a href="/AttractHome" class="shift-pill shift-pill-active font-mono" style="background:linear-gradient(135deg,rgba(250,152,47,0.12),rgba(250,152,47,0.08));border-color:rgba(250,152,47,0.3);color:#F8F9FC;"><span class="shift-pill-dot" style="background:#FA982F;box-shadow:0 0 8px rgba(250,152,47,0.5);"></span> Attract</a>
+        <a href="/Home" class="shift-pill font-mono"><span class="shift-pill-dot"></span> Convert</a>
+      </div>
+      <a href="/ROICalculator" class="btn-primary shift-btn-sm" style="background:linear-gradient(135deg,#FA982F,#F54A48);">See My ROI</a>
+    </div>
+    <button class="shift-mobile-toggle" id="shift-mobile-toggle"><span></span><span></span><span></span></button>
+  </div>
+  <div class="shift-mobile-menu" id="shift-mobile-menu">
+    <a href="/AttractHowItWorks" class="shift-mobile-link font-display">How It Works</a>
+    <a href="/AttractEmptyPipeline" class="shift-mobile-link font-display">Empty Pipeline</a>
+    <a href="/AttractResults" class="shift-mobile-link font-display">Results</a>
+    <a href="/RevenueEnginePlans" class="shift-mobile-link font-display">Revenue Engine Plans</a>
+    <a href="/ROICalculator" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">See My ROI</a>
+  </div>
+</nav>`;
 
-  ── SHIFTCONVERT PRODUCT SITE ────────────────────────────────────────────
-  /Home               → Convert Home (Hero + Revenue Leaks + Proof + CTA)
-  /HowItWorks         → Convert: How It Works (3-stage process)
-  /RevenueLeaks       → Convert: Revenue Leaks (3 leak types)
-  /Results            → Convert: Results (Titan Roofing case study)
-  /Book               → Convert: Book a Call / Demo booking page
+// ── BRAND HOME (BrandHero + ProblemSelector + TwoProducts + SocialProof + CTA) ──
+const BRAND_HOME_HTML = `<!-- BRAND HOME: BrandHero + ProblemSelector + TwoProducts + SocialProof + CTA -->
+<!-- Use NeuralOS Nav + Global CSS + Footer -->
+<style>
+.brand-section{padding:80px 24px;}.brand-inner{max-width:1140px;margin:0 auto;}
+@media(min-width:768px){.brand-section{padding:112px 32px;}}
+.brand-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}
+.brand-card:hover{transform:translateY(-4px);border-color:rgba(245,74,72,0.15);}
+</style>
 
-  ── SHIFTATTRACT PRODUCT SITE ────────────────────────────────────────────
-  /AttractHome        → Attract Home (Hero + Empty Pipeline + Solution + Proof + CTA)
-  /AttractHowItWorks  → Attract: How It Works (lead gen process)
-  /AttractEmptyPipeline → Attract: Empty Pipeline Problem
-  /AttractResults     → Attract: Results & pipeline proof
-  /AttractPricing     → Attract: Pricing
-  /AttractBook        → Attract: Book a Pipeline Audit
+<main style="padding-top:72px;">
 
-  ── LEGAL ────────────────────────────────────────────────────────────────
-  /PrivacyPolicy      → Privacy Policy (Effective March 15, 2026)
-  /TermsOfService     → Terms of Service (Effective March 15, 2026)
-  /CookiePolicy       → Cookie Policy (Effective March 15, 2026)
+  <!-- ═ HERO (BrandHero.jsx) ═ -->
+  <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:128px 24px 80px;overflow:hidden;">
+    <div style="position:absolute;inset:0;pointer-events:none;">
+      <div style="position:absolute;top:25%;left:50%;transform:translateX(-50%);width:900px;height:900px;border-radius:50%;opacity:.15;background:radial-gradient(circle,rgba(245,74,72,.2) 0%,rgba(250,152,47,.1) 40%,transparent 70%);"></div>
+    </div>
+    <div style="position:relative;max-width:1140px;margin:0 auto;">
+      <div style="max-width:768px;">
+        <div style="display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;">
+          <span style="position:relative;display:flex;height:8px;width:8px;">
+            <span style="position:absolute;display:inline-flex;height:100%;width:100%;border-radius:50%;background:#F54A48;opacity:.75;animation:ping 1s cubic-bezier(0,0,.2,1) infinite;"></span>
+            <span style="position:relative;display:inline-flex;border-radius:50%;height:8px;width:8px;background:#F54A48;"></span>
+          </span>
+          <span class="font-mono" style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#F54A48;">AI Revenue Operating System</span>
+        </div>
+        <h1 class="font-display" style="font-size:clamp(2.5rem,6vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:white;margin-bottom:24px;">
+          <span class="shift-gradient-text">Revenue Leaks</span><br/>Don't Fix Themselves
+        </h1>
+        <p style="font-family:'DM Sans',sans-serif;font-size:1.125rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:640px;margin-bottom:40px;">
+          Roofing contractors lose $35K–$100K+ monthly to broken lead systems. ShiFt NeuralOS plugs the leaks with AI that generates, qualifies, and converts leads 24/7—without adding headcount.
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;">
+          <a href="#problem-selector" class="btn-primary" style="padding:18px 36px;font-size:1rem;">Find Your Gap →</a>
+        </div>
+        <p class="font-mono" style="font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.4);">Trusted by 847+ roofing companies across 42 states</p>
+      </div>
+    </div>
+  </section>
 
-  ── NEURALAOS DASHBOARD PREVIEW ──────────────────────────────────────────
-  /NeuralOSDashboard  → Dashboard Preview (live KPIs, lead qualification feed, revenue charts, activity log)
+  <!-- ═ PROBLEM SELECTOR (ProblemSelector.jsx) ═ -->
+  <section id="problem-selector" class="brand-section">
+    <div class="brand-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#F54A48;display:block;margin-bottom:16px;">Diagnose Your Gap</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Where Is Revenue Leaking From <span class="shift-gradient-text">Your Business?</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;">Select your biggest challenge to find your solution</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px;">
+        <a href="/AttractHome" style="text-decoration:none;" class="brand-card" style="display:block;border-left:4px solid #FA982F;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;">📉</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:8px;">I'm not getting enough leads</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Pipeline is empty. Phone isn't ringing. Marketing isn't working.</p>
+          <span class="font-mono" style="font-size:.75rem;font-weight:700;color:#FA982F;text-transform:uppercase;letter-spacing:.08em;">ATTRACT can help →</span>
+        </a>
+        <a href="/Home" style="text-decoration:none;" class="brand-card" style="display:block;border-left:4px solid #F54A48;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(245,74,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;">🔄</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:8px;">I'm getting leads but not converting them</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Leads come in but don't book. Follow-up falls through. Close rate is low.</p>
+          <span class="font-mono" style="font-size:.75rem;font-weight:700;color:#F54A48;text-transform:uppercase;letter-spacing:.08em;">CONVERT can help →</span>
+        </a>
+        <a href="/Home" style="text-decoration:none;" class="brand-card" style="display:block;border-left:4px solid #F54A48;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(245,74,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;">⚡</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:8px;">I'm losing leads to competitors</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Competitors respond faster. After-hours leads go to voicemail.</p>
+          <span class="font-mono" style="font-size:.75rem;font-weight:700;color:#F54A48;text-transform:uppercase;letter-spacing:.08em;">SPEED can help →</span>
+        </a>
+        <a href="/Platform" style="text-decoration:none;" class="brand-card" style="display:block;border-left:4px solid #48BB78;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(72,187,120,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;">🔍</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:8px;">I don't know what's working</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Marketing ROI is a mystery. Can't track lead sources. Flying blind.</p>
+          <span class="font-mono" style="font-size:.75rem;font-weight:700;color:#48BB78;text-transform:uppercase;letter-spacing:.08em;">INSIGHTS can help →</span>
+        </a>
+      </div>
+      <div style="text-align:center;">
+        <a href="/Platform" class="btn-outline">I Have ALL of These Problems →</a>
+      </div>
+    </div>
+  </section>
 
-  ── DOCUMENTATION & RESOURCES ────────────────────────────────────────────
-  /DocumentsDownload  → Documents Download Page (PRD & FTRD markdown downloads)
+  <!-- ═ TWO PRODUCTS (TwoProducts.jsx) ═ -->
+  <section id="products" class="brand-section" style="background:#0D0F33;">
+    <div class="brand-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">The Platform</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Two Systems. <span class="shift-gradient-text">One Revenue Machine.</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;">ShiFt NeuralOS has two complementary products that work together—or independently.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;margin-bottom:32px;">
+        <!-- Attract -->
+        <div style="background:linear-gradient(135deg,rgba(250,152,47,.08),rgba(250,152,47,.04));border:1px solid rgba(250,152,47,.2);border-radius:20px;padding:40px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(250,152,47,.15);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🧲</div>
+          <h3 class="font-display" style="font-size:2rem;font-weight:700;color:white;margin-bottom:8px;">ShiFt <span style="color:#FA982F;">ATTRACT</span></h3>
+          <div class="font-mono" style="font-size:.875rem;text-transform:uppercase;letter-spacing:.08em;color:#FA982F;margin-bottom:16px;">Fill the Pipeline</div>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">AI-powered lead generation that brings qualified prospects to your door. Multi-channel campaigns, automated outreach, and intelligent targeting.</p>
+          <ul style="list-style:none;padding:0;margin-bottom:32px;">
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">⚡ AI-Powered Campaigns</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">👥 Multi-Channel Outreach</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">🎯 Intelligent Targeting</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;font-size:.875rem;color:rgba(255,255,255,.7);">📈 Pipeline Analytics</li>
+          </ul>
+          <div style="padding-top:24px;border-top:1px solid rgba(250,152,47,.2);margin-bottom:24px;">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:6px;">Best for:</div>
+            <div class="font-display" style="font-size:.875rem;font-weight:600;color:#FA982F;">Empty pipeline, inconsistent lead flow</div>
+          </div>
+          <a href="https://attract.shiftnow.io" class="font-mono" style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#FA982F;text-decoration:none;">Explore Attract →</a>
+        </div>
+        <!-- Convert -->
+        <div style="background:linear-gradient(135deg,rgba(245,74,72,.08),rgba(245,74,72,.04));border:1px solid rgba(245,74,72,.2);border-radius:20px;padding:40px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(245,74,72,.15);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🎯</div>
+          <h3 class="font-display" style="font-size:2rem;font-weight:700;color:white;margin-bottom:8px;">ShiFt <span style="color:#F54A48;">CONVERT</span></h3>
+          <div class="font-mono" style="font-size:.875rem;text-transform:uppercase;letter-spacing:.08em;color:#F54A48;margin-bottom:16px;">Close the Deals</div>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">AI-powered lead conversion that turns prospects into booked appointments. 24/7 response, instant qualification, automated booking.</p>
+          <ul style="list-style:none;padding:0;margin-bottom:32px;">
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">⏱ 30-Second Response Time</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">✅ AI Qualification</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.7);">📅 Automated Appointment Booking</li>
+            <li style="display:flex;align-items:center;gap:10px;padding:8px 0;font-size:.875rem;color:rgba(255,255,255,.7);">📊 Show Rate Optimization</li>
+          </ul>
+          <div style="padding-top:24px;border-top:1px solid rgba(245,74,72,.2);margin-bottom:24px;">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:6px;">Best for:</div>
+            <div class="font-display" style="font-size:.875rem;font-weight:600;color:#F54A48;">Leads not converting, slow response time</div>
+          </div>
+          <a href="https://go.shiftnow.io" class="font-mono" style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F54A48;text-decoration:none;">Explore Convert →</a>
+        </div>
+      </div>
+      <div style="text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+        <p class="font-display" style="font-size:1.5rem;font-weight:700;color:white;">
+          <span style="color:#FA982F;">Attract</span> brings them in. <span style="color:#F54A48;">Convert</span> closes them.<br/>
+          <span class="shift-gradient-text">Together, they're unstoppable.</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
-  ── EXPORT PAGES (Internal Dev Tool) ────────────────────────────────────
-  /MasterExport              → This page — full site export hub
-  /ExportBrandNeuralOS       → NeuralOS Brand: global CSS, nav, all sections
-  /ExportConvert             → ShiFt Convert: full page section-by-section
-  /ExportAttract             → ShiFt Attract: full page section-by-section
-  /ExportRevenueEnginePlans  → Revenue Engine Plans: full page
-  /ExportHowItWorks          → Convert: How It Works (per-section HTML/CSS)
-  /ExportRevenueLeaks        → Convert: Revenue Leaks (per-section HTML/CSS)
-  /ExportResults             → Convert: Results / Case Study (per-section HTML/CSS)
-  /ExportAttractEmptyPipeline → Attract: Empty Pipeline (per-section HTML/CSS)
-  /ExportDashboardPreview    → NeuralOS Dashboard Preview (KPI row, lead table, trust strip)
-  /ExportBookACall           → Book a Call page (hero + calendar widget embed)
--->`;
+  <!-- ═ SOCIAL PROOF (SocialProof.jsx) ═ -->
+  <section id="testimonials" class="brand-section">
+    <div class="brand-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">Results</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Trusted by <span class="shift-gradient-text">Top Contractors</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;">Roofing companies across the country are scaling with ShiFt NeuralOS™.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"ShiFt turned our business around. We went from chasing leads to having a waitlist. Revenue doubled in 6 months."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F54A48,#FA982F);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">M</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">Marcus Johnson</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">Owner, Apex Roofing Co.</div></div>
+          </div>
+        </div>
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"The AI assistant books 40+ inspections a week for us. It's like having a sales team that never sleeps."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#FA982F,#F54A48);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">S</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">Sarah Chen</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">GM, Summit Storm Solutions</div></div>
+          </div>
+        </div>
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"Property intelligence alone paid for the platform in the first month. We're closing neighborhoods, not just houses."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F54A48,#FA982F);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">D</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">David Martinez</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">CEO, Eagle Eye Roofing</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ CTA (CTA.jsx) ═ -->
+  <section id="cta" class="brand-section" style="background:#0D0F33;">
+    <div class="brand-inner">
+      <div style="position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.08));border:1px solid rgba(245,74,72,.15);">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);width:500px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,74,72,.15),transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;">
+          <h2 class="font-display" style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:white;margin-bottom:20px;">Ready to <span class="shift-gradient-text">ShiFt</span> Your Revenue?</h2>
+          <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;">Get a free revenue audit and see exactly how much money you're leaving on the table. No contracts, no pressure.</p>
+          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://calc.shiftnow.io" class="btn-primary" style="padding:18px 36px;">Start Free Audit →</a>
+            <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-outline" style="padding:18px 36px;">Talk to Sales</a>
+          </div>
+          <p class="font-mono" style="font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;">Setup in 48 hours · No long-term contracts · Cancel anytime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>@keyframes ping{75%,100%{transform:scale(2);opacity:0;}}
+document.querySelectorAll('[style*="animation:ping"]').forEach(el=>{el.style.animation='ping 1s cubic-bezier(0,0,.2,1) infinite';});</script>`;
+
+// ── CONVERT HOME (HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQSection + CTA) ──
+const CONVERT_HOME_HTML = `<!-- CONVERT HOME: HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQSection + CTA -->
+<!-- Use Convert Nav + Global CSS + Footer -->
+<style>
+.cv-section{padding:80px 24px;}.cv-inner{max-width:1140px;margin:0 auto;}
+@media(min-width:768px){.cv-section{padding:112px 32px;}}
+.cv-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}
+.cv-card:hover{transform:translateY(-4px);}
+.shift-faq-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:16px;}
+.shift-faq-btn{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;text-align:left;color:white;}
+.shift-faq-question{font-family:'Montserrat Alternates',sans-serif;font-size:1.125rem;font-weight:600;color:white;}
+.shift-faq-chevron{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.4);transition:transform .3s ease;}
+.shift-faq-item.open .shift-faq-chevron{transform:rotate(180deg);color:#F54A48;}
+.shift-faq-answer{display:none;padding:0 24px 20px;font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.7;}
+.shift-faq-item.open .shift-faq-answer{display:block;}
+</style>
+
+<main style="padding-top:72px;">
+
+  <!-- ═ HERO (HeroNew.jsx) ═ -->
+  <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:128px 24px 80px;overflow:hidden;text-align:center;">
+    <div style="position:absolute;inset:0;pointer-events:none;">
+      <div style="position:absolute;top:25%;right:0;width:900px;height:900px;border-radius:50%;opacity:.15;background:radial-gradient(circle,rgba(245,74,72,.2) 0%,rgba(250,152,47,.1) 40%,transparent 70%);"></div>
+    </div>
+    <div style="position:relative;max-width:1140px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;">
+        <span style="position:relative;display:flex;height:8px;width:8px;">
+          <span style="position:absolute;display:inline-flex;height:100%;width:100%;border-radius:50%;background:#F54A48;opacity:.75;animation:ping 1s cubic-bezier(0,0,.2,1) infinite;"></span>
+          <span style="position:relative;display:inline-flex;border-radius:50%;height:8px;width:8px;background:#F54A48;"></span>
+        </span>
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#F54A48;">Calculating Live Revenue Leaks for 847+ Roofing Companies</span>
+      </div>
+      <h1 class="font-display" style="font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:white;margin-bottom:24px;">
+        <span class="shift-gradient-text">Three Revenue Leaks</span><br/>Are Costing You<br/>$35K–$100K+ Every Month
+      </h1>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.125rem;color:rgba(255,255,255,.6);max-width:768px;margin:0 auto 40px;line-height:1.7;">
+        Missed calls. Junk leads. Invisible buyers. Your competitors are capturing these opportunities while you sleep. See exactly how much they're costing <strong style="color:#F54A48;">YOUR</strong> business.
+      </p>
+      <div style="margin-bottom:24px;">
+        <a href="https://calc.shiftnow.io" class="btn-primary" style="padding:18px 40px;font-size:1rem;">Calculate My Revenue Leak →</a>
+      </div>
+      <p class="font-mono" style="font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.4);">60 seconds. No credit card. Just your real number.</p>
+    </div>
+  </section>
+
+  <!-- ═ PROBLEM CARDS (ProblemCards.jsx) ═ -->
+  <section id="revenue-leaks" class="cv-section" style="background:#0D0F33;">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#F54A48;display:block;margin-bottom:16px;">The Problem</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Every Day, Money Walks Out Your Door</h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto;">These three leaks drain $35K–$100K+ monthly from the average roofing company</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;border-left:4px solid #F54A48;">
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(245,74,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">📞</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">Missed Calls = Missed Revenue</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">42% of calls come after 5pm. Your voicemail isn't closing deals.</p>
+          <div style="margin-bottom:16px;"><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:4px;">$12K–$35K</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">lost monthly</div></div>
+          <div style="padding-top:16px;border-top:1px solid rgba(255,255,255,.06);"><p style="font-size:.75rem;font-style:italic;color:rgba(255,255,255,.4);">Every missed call is a job your competitor wins.</p></div>
+        </div>
+        <div style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;border-left:4px solid #FA982F;">
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🗑</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">Junk Leads Eat Your Time</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">You're paying for leads that were never going to buy.</p>
+          <div style="margin-bottom:16px;"><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:4px;">$8K–$25K</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">wasted monthly</div></div>
+          <div style="padding-top:16px;border-top:1px solid rgba(255,255,255,.06);"><p style="font-size:.75rem;font-style:italic;color:rgba(255,255,255,.4);">Bad leads don't just waste money—they waste your sales team's energy.</p></div>
+        </div>
+        <div style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;border-left:4px solid #48BB78;">
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(72,187,120,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">👻</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">Invisible Buyers Choose Competitors</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">High-intent buyers are researching you. You just can't see them.</p>
+          <div style="margin-bottom:16px;"><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:4px;">$15K–$40K</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">missed monthly</div></div>
+          <div style="padding-top:16px;border-top:1px solid rgba(255,255,255,.06);"><p style="font-size:.75rem;font-style:italic;color:rgba(255,255,255,.4);">They wanted to buy from you. You just weren't fast enough.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ COMPARISON TABLE (ComparisonTable.jsx) ═ -->
+  <section id="comparison" class="cv-section">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">The Reality</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;">Your Current Approach vs. ShiFt Convert</h2>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.08);">
+              <th style="text-align:left;padding:20px 24px;font-size:.875rem;font-weight:600;color:rgba(255,255,255,.6);">Metric</th>
+              <th style="text-align:center;padding:20px 24px;font-size:.875rem;font-weight:600;color:rgba(255,255,255,.6);">Your Current Setup</th>
+              <th style="text-align:center;padding:20px 24px;font-size:.875rem;font-weight:600;color:rgba(255,255,255,.6);">With ShiFt Convert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.06);"><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">After-hours response</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ Voicemail</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ 30 seconds</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.06);"><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">Lead qualification</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ Manual</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ AI-instant</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.06);"><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">Appointment booking</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ Back-and-forth</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ Automated</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.06);"><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">Follow-up consistency</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ When you remember</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ 100% automated</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.06);"><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">Lead source tracking</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ "I think it was..."</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ Real-time dashboard</td></tr>
+            <tr><td style="padding:20px 24px;font-size:.875rem;font-weight:500;color:white;">Monthly revenue leaked</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:rgba(255,255,255,.5);">❌ $35K–$100K+</td><td style="padding:20px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#48BB78;font-weight:700;">✓ $0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="https://calc.shiftnow.io" class="btn-primary">See Your Specific Numbers →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ MECHANISM / HOW IT WORKS (Mechanism.jsx) ═ -->
+  <section id="how-it-works" class="cv-section" style="background:#0D0F33;">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#48BB78;display:block;margin-bottom:16px;">The Solution</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Three Fixes for Three Leaks</h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto;">ShiFt Convert plugs every hole in your revenue bucket</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(245,74,72,.12);color:#F54A48;border:1px solid rgba(245,74,72,.25);margin-bottom:24px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Stage 1</div>
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(245,74,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🎯</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:8px;">Fixes: Leak #1 (Missed Calls)</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:16px;">AI Answers in 30 Seconds</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">Phone, web, text, Facebook—every lead gets an instant response. No voicemail. No missed opportunities.</p>
+          <div style="padding-top:24px;border-top:1px solid rgba(255,255,255,.06);"><div class="font-display" style="font-size:2.5rem;font-weight:700;color:#F54A48;margin-bottom:4px;">30 sec</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">response time</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(250,152,47,.12);color:#FA982F;border:1px solid rgba(250,152,47,.25);margin-bottom:24px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Stage 2</div>
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">✅</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:8px;">Fixes: Leak #2 (Junk Leads)</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:16px;">AI Separates Gold from Garbage</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">Our AI asks the right questions, scores every lead, and only passes qualified buyers to your team.</p>
+          <div style="padding-top:24px;border-top:1px solid rgba(255,255,255,.06);"><div class="font-display" style="font-size:2.5rem;font-weight:700;color:#FA982F;margin-bottom:4px;">73%</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">better lead quality</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(72,187,120,.12);color:#48BB78;border:1px solid rgba(72,187,120,.25);margin-bottom:24px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Stage 3</div>
+          <div style="width:64px;height:64px;border-radius:12px;background:rgba(72,187,120,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">📅</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:8px;">Fixes: Leak #3 (Invisible Buyers)</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:16px;">AI Books the Appointment</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.6;">Qualified leads get booked instantly. No back-and-forth. No delays. Just appointments on your calendar.</p>
+          <div style="padding-top:24px;border-top:1px solid rgba(255,255,255,.06);"><div class="font-display" style="font-size:2.5rem;font-weight:700;color:#48BB78;margin-bottom:4px;">3.2x</div><div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);">more appointments</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ PROOF SECTION (ProofSection.jsx) ═ -->
+  <section id="proof" class="cv-section">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">Proof</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;">From Revenue Leak to <span class="shift-gradient-text">Revenue Machine</span></h2>
+      </div>
+      <div class="glass-card" style="padding:48px;">
+        <div style="font-size:48px;margin-bottom:24px;opacity:.3;">💬</div>
+        <blockquote style="font-size:1.375rem;line-height:1.65;color:white;margin-bottom:32px;">"We were losing $47K a month to missed calls alone. ShiFt caught every lead we were missing—now our calendar is full and our close rate is up 34%."</blockquote>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:40px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#F54A48,#FA982F);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:1.25rem;font-weight:700;color:white;flex-shrink:0;">JT</div>
+          <div>
+            <div class="font-display" style="font-size:1.125rem;font-weight:600;color:white;">Jake Torres</div>
+            <div style="font-size:.875rem;color:rgba(255,255,255,.5);">Owner, Titan Roofing Services</div>
+            <div class="font-mono" style="font-size:.75rem;color:rgba(255,255,255,.4);">Dallas, TX</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);text-align:center;">
+          <div><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:8px;">$750K → $7M</div><div style="font-size:.875rem;color:rgba(255,255,255,.4);">6-Year Growth</div></div>
+          <div><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:8px;">34%</div><div style="font-size:.875rem;color:rgba(255,255,255,.4);">Close Rate Increase</div></div>
+          <div><div class="font-display shift-gradient-text" style="font-size:2rem;font-weight:700;margin-bottom:8px;">89%</div><div style="font-size:.875rem;color:rgba(255,255,255,.4);">Show Rate</div></div>
+        </div>
+        <div style="text-align:center;margin-top:32px;"><a href="/Results" class="font-mono" style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F54A48;text-decoration:none;">Read Full Case Study →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ CONVERSION PATH (ConversionPath.jsx) ═ -->
+  <section id="conversion-path" class="cv-section" style="background:#0D0F33;">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#F54A48;display:block;margin-bottom:16px;">Your Next Step</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;">See Your Number in <span class="shift-gradient-text">60 Seconds</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-bottom:48px;">
+        <div style="text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:80px;height:80px;border-radius:16px;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.12));border:1px solid rgba(245,74,72,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;">🧮</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px;">Step 1: Calculate</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">Answer 5 Questions</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Your revenue, lead volume, and current close rate</p>
+          <span style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(250,152,47,.12);color:#FA982F;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;">60 seconds</span>
+        </div>
+        <div style="text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:80px;height:80px;border-radius:16px;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.12));border:1px solid rgba(245,74,72,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;">👁</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px;">Step 2: Experience</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">See ShiFt in Action</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Experience how AI handles your actual leads</p>
+          <span style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(250,152,47,.12);color:#FA982F;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;">Live demo</span>
+        </div>
+        <div style="text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:80px;height:80px;border-radius:16px;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.12));border:1px solid rgba(245,74,72,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;">📅</div>
+          <div class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px;">Step 3: Book</div>
+          <h3 class="font-display" style="font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;">Reality Session</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:16px;">Custom audit of your specific revenue leaks</p>
+          <span style="display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(250,152,47,.12);color:#FA982F;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;">15 minutes</span>
+        </div>
+      </div>
+      <div style="text-align:center;"><a href="/ROICalculator" class="btn-primary" style="padding:18px 40px;">See My ROI →</a></div>
+    </div>
+  </section>
+
+  <!-- ═ FAQ (FAQSection.jsx) ═ -->
+  <section id="faq" class="cv-section">
+    <div class="cv-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">Questions</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;">Frequently Asked Questions</h2>
+      </div>
+      <div style="max-width:768px;margin:0 auto;">
+        <div class="shift-faq-item"><button class="shift-faq-btn" onclick="shiftToggleFaq(this)"><span class="shift-faq-question">How is this different from a chatbot?</span><svg class="shift-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="shift-faq-answer">Chatbots collect info. ShiFt AI actually qualifies leads, handles objections, and books appointments—without human intervention.</div></div>
+        <div class="shift-faq-item"><button class="shift-faq-btn" onclick="shiftToggleFaq(this)"><span class="shift-faq-question">Will it work for my type of roofing company?</span><svg class="shift-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="shift-faq-answer">ShiFt is built specifically for roofing contractors. Residential, commercial, storm restoration—we speak your language.</div></div>
+        <div class="shift-faq-item"><button class="shift-faq-btn" onclick="shiftToggleFaq(this)"><span class="shift-faq-question">How fast can I see results?</span><svg class="shift-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="shift-faq-answer">Most clients see their first AI-booked appointment within 48 hours of going live.</div></div>
+        <div class="shift-faq-item"><button class="shift-faq-btn" onclick="shiftToggleFaq(this)"><span class="shift-faq-question">What if leads prefer to talk to a human?</span><svg class="shift-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="shift-faq-answer">ShiFt seamlessly hands off to your team when needed. Warm transfer, full context, no friction.</div></div>
+        <div class="shift-faq-item"><button class="shift-faq-btn" onclick="shiftToggleFaq(this)"><span class="shift-faq-question">How much does it cost?</span><svg class="shift-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="shift-faq-answer">Less than your worst salesperson and more reliable than your best one. Packages start at different tiers based on your business size. Calculate your ROI first.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ CTA ═ -->
+  <section id="cta" class="cv-section" style="background:#0D0F33;">
+    <div class="cv-inner">
+      <div style="position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.08));border:1px solid rgba(245,74,72,.15);">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);width:500px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,74,72,.15),transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;">
+          <h2 class="font-display" style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:white;margin-bottom:20px;">Ready to <span class="shift-gradient-text">ShiFt</span> Your Revenue?</h2>
+          <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;">Get a free revenue audit and see exactly how much money you're leaving on the table. No contracts, no pressure.</p>
+          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://calc.shiftnow.io" class="btn-primary" style="padding:18px 36px;">Start Free Audit →</a>
+            <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-outline" style="padding:18px 36px;">Talk to Sales</a>
+          </div>
+          <p class="font-mono" style="font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;">Setup in 48 hours · No long-term contracts · Cancel anytime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>`;
+
+// ── ATTRACT HOME (AttractHero + EmptyPipelineProblems + AttractSolution + AttractROICalculator + SocialProof + FAQ + CTA) ──
+const ATTRACT_HOME_HTML = `<!-- ATTRACT HOME: AttractHero + EmptyPipelineProblems + AttractSolution + SocialProof + FAQ + CTA -->
+<!-- NOTE: AttractROICalculator uses recharts — static version with comparison bars included instead -->
+<!-- Use Attract Nav + Global CSS + Footer -->
+<style>
+.at-section{padding:80px 24px;}.at-inner{max-width:1140px;margin:0 auto;}
+@media(min-width:768px){.at-section{padding:112px 32px;}}
+.at-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}
+</style>
+
+<main style="padding-top:72px;">
+
+  <!-- ═ HERO (AttractHero.jsx) ═ -->
+  <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:128px 24px 80px;overflow:hidden;text-align:center;">
+    <div style="position:absolute;inset:0;pointer-events:none;">
+      <div style="position:absolute;top:25%;left:50%;transform:translateX(-50%);width:900px;height:900px;border-radius:50%;opacity:.15;background:radial-gradient(circle,rgba(250,152,47,.2) 0%,rgba(245,74,72,.1) 40%,transparent 70%);"></div>
+    </div>
+    <div style="position:relative;max-width:1140px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:rgba(250,152,47,.08);border:1px solid rgba(250,152,47,.3);margin-bottom:32px;">
+        <span style="position:relative;display:flex;height:8px;width:8px;">
+          <span style="position:absolute;display:inline-flex;height:100%;width:100%;border-radius:50%;background:#FA982F;opacity:.75;animation:ping 1s cubic-bezier(0,0,.2,1) infinite;"></span>
+          <span style="position:relative;display:inline-flex;border-radius:50%;height:8px;width:8px;background:#FA982F;"></span>
+        </span>
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#FA982F;">AI Lead Generation for Roofing Contractors</span>
+      </div>
+      <h1 class="font-display" style="font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:white;margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;">
+        Your <span style="background:linear-gradient(to right,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Pipeline Is Empty</span> Because Your Marketing Isn't Working
+      </h1>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.125rem;color:rgba(255,255,255,.6);max-width:768px;margin:0 auto 40px;line-height:1.7;">
+        You're spending on ads, SEO, and agencies—but the phone isn't ringing. ShiFt Attract uses AI to generate qualified leads across every channel, 24 hours a day.
+      </p>
+      <div style="margin-bottom:32px;">
+        <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary" style="padding:18px 40px;font-size:1rem;background:linear-gradient(135deg,#FA982F,#F54A48);">Audit My Pipeline →</a>
+      </div>
+      <p class="font-mono" style="font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.4);">Free pipeline audit. See exactly where leads should be coming from.</p>
+    </div>
+  </section>
+
+  <!-- ═ EMPTY PIPELINE PROBLEMS (EmptyPipelineProblems.jsx) ═ -->
+  <section id="problems" class="at-section" style="background:#0D0F33;">
+    <div class="at-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">The Problem</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Empty Pipeline = <span style="background:linear-gradient(to right,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Unpredictable Revenue</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto;">If you can't control your pipeline, you can't control your business</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div style="background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);border-left:4px solid #FA982F;border-radius:16px;padding:32px;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px;">📉</div>
+          <div class="font-mono" style="font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(250,152,47,.7);margin-bottom:12px;">PROBLEM #1: INCONSISTENT LEAD FLOW</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Feast or Famine</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.6;">Some months you're drowning. Other months, crickets. No consistency means no predictability.</p>
+          <div style="background:rgba(250,152,47,.08);border-radius:10px;padding:16px;margin-bottom:16px;">
+            <div class="font-display" style="font-size:2rem;font-weight:900;color:#FA982F;margin-bottom:4px;">67%</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.6);">of contractors struggle with lead consistency</div>
+          </div>
+          <p style="font-size:.875rem;font-style:italic;font-weight:600;color:rgba(255,255,255,.5);">"You can't grow a business you can't predict."</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);border-left:4px solid #FA982F;border-radius:16px;padding:32px;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px;">🔥</div>
+          <div class="font-mono" style="font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(250,152,47,.7);margin-bottom:12px;">PROBLEM #2: MARKETING THAT DOESN'T WORK</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Money Burning, Phone Silent</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.6;">You're paying for ads, SEO, agencies—but where are the leads? Marketing ROI is a mystery.</p>
+          <div style="background:rgba(250,152,47,.08);border-radius:10px;padding:16px;margin-bottom:16px;">
+            <div class="font-display" style="font-size:2rem;font-weight:900;color:#FA982F;margin-bottom:4px;">$3,200</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.6);">monthly average wasted on ineffective marketing</div>
+          </div>
+          <p style="font-size:.875rem;font-style:italic;font-weight:600;color:rgba(255,255,255,.5);">"Every dollar you waste is a dollar your competitor invests."</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);border-left:4px solid #FA982F;border-radius:16px;padding:32px;">
+          <div style="width:56px;height:56px;border-radius:12px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px;">🤝</div>
+          <div class="font-mono" style="font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(250,152,47,.7);margin-bottom:12px;">PROBLEM #3: DEPENDENT ON REFERRALS</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Living on Hope</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.6;">Referrals are great—but unreliable. You need a system that generates leads on demand.</p>
+          <div style="background:rgba(250,152,47,.08);border-radius:10px;padding:16px;margin-bottom:16px;">
+            <div class="font-display" style="font-size:2rem;font-weight:900;color:#FA982F;margin-bottom:4px;">43%</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.6);">of contractors get 80%+ of leads from referrals</div>
+          </div>
+          <p style="font-size:.875rem;font-style:italic;font-weight:600;color:rgba(255,255,255,.5);">"Hope is not a strategy. Systems are."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ ATTRACT SOLUTION (AttractSolution.jsx) ═ -->
+  <section id="solution" class="at-section">
+    <div class="at-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">The Solution</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">AI That Fills Your Pipeline <span style="background:linear-gradient(to right,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">While You Work</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto;">ShiFt Attract doesn't just run campaigns—it thinks, optimizes, and scales</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🌐</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Every Channel. Every Day.</h3>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">Facebook, Google, Instagram, TikTok, Local SEO—ShiFt Attract runs intelligent campaigns across all channels simultaneously.</p>
+          <div style="padding-top:16px;border-top:1px solid rgba(250,152,47,.2);"><p class="font-display" style="font-size:.875rem;font-weight:600;color:#FA982F;">→ Be everywhere your prospects are, without the work.</p></div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🎯</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Find the Right Prospects</h3>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">Our AI identifies homeowners actively researching roofing services in your service area. No more spraying and praying.</p>
+          <div style="padding-top:16px;border-top:1px solid rgba(250,152,47,.2);"><p class="font-display" style="font-size:.875rem;font-weight:600;color:#FA982F;">→ Leads that actually want roofing work—not tire kickers.</p></div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">🔄</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Campaigns That Improve Themselves</h3>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">AI continuously tests creative, audiences, and placements. What works gets more budget. What doesn't gets cut.</p>
+          <div style="padding-top:16px;border-top:1px solid rgba(250,152,47,.2);"><p class="font-display" style="font-size:.875rem;font-weight:600;color:#FA982F;">→ Marketing that gets smarter every day.</p></div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;">
+          <div style="width:64px;height:64px;border-radius:16px;background:rgba(250,152,47,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;">✅</div>
+          <h3 class="font-display" style="font-size:1.5rem;font-weight:700;color:white;margin-bottom:16px;">Ready-to-Convert Leads</h3>
+          <p style="font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;">Every lead is pre-qualified before it reaches you. Know their project type, timeline, and budget upfront.</p>
+          <div style="padding-top:16px;border-top:1px solid rgba(250,152,47,.2);"><p class="font-display" style="font-size:.875rem;font-weight:600;color:#FA982F;">→ Talk to prospects who are ready to buy, not browse.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ ROI CALCULATOR STATIC VERSION (AttractROICalculator.jsx — interactive, use /AttractHome for live) ═ -->
+  <section id="roi-calculator" class="at-section" style="background:#0D0F33;">
+    <div class="at-inner">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(250,152,47,.1);border:1px solid rgba(250,152,47,.3);margin-bottom:20px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#FA982F;display:inline-block;"></span>
+          <span class="font-mono" style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:#FA982F;">ROI Calculator</span>
+        </div>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;color:white;margin-bottom:16px;">See Your Pipeline's<br/><span style="background:linear-gradient(135deg,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Real Revenue Potential</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 32px;line-height:1.7;">Adjust your numbers. See exactly what a consistent pipeline of ready-to-convert leads is worth.</p>
+        <a href="/AttractHome" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Use Interactive Calculator →</a>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.3);margin-top:12px;font-family:'JetBrains Mono',monospace;">Full interactive version (recharts) available at /AttractHome</p>
+      </div>
+      <!-- Static example output -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;">
+        <div style="background:rgba(72,187,120,.08);border:1px solid rgba(72,187,120,.2);border-radius:16px;padding:20px;text-align:center;"><div class="font-display" style="font-size:1.75rem;font-weight:900;color:#48BB78;">+$32K/mo</div><div class="font-display" style="font-size:.75rem;font-weight:700;color:white;margin:4px 0;">Added Monthly Revenue</div><div class="font-mono" style="font-size:.65rem;color:rgba(255,255,255,.3);">vs. current pipeline</div></div>
+        <div style="background:rgba(250,152,47,.08);border:1px solid rgba(250,152,47,.2);border-radius:16px;padding:20px;text-align:center;"><div class="font-display" style="font-size:1.75rem;font-weight:900;color:#FA982F;">+$384K/yr</div><div class="font-display" style="font-size:.75rem;font-weight:700;color:white;margin:4px 0;">Added Annual Revenue</div><div class="font-mono" style="font-size:.65rem;color:rgba(255,255,255,.3);">cumulative 12-month gain</div></div>
+        <div style="background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.2);border-radius:16px;padding:20px;text-align:center;"><div class="font-display" style="font-size:1.75rem;font-weight:900;color:#F54A48;">1,502%</div><div class="font-display" style="font-size:.75rem;font-weight:700;color:white;margin:4px 0;">Monthly ROI</div><div class="font-mono" style="font-size:.65rem;color:rgba(255,255,255,.3);">on ShiFt Activate plan</div></div>
+        <div style="background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.2);border-radius:16px;padding:20px;text-align:center;"><div class="font-display" style="font-size:1.75rem;font-weight:900;color:#63B3ED;">2 days</div><div class="font-display" style="font-size:.75rem;font-weight:700;color:white;margin:4px 0;">Break-even</div><div class="font-mono" style="font-size:.65rem;color:rgba(255,255,255,.3);">to recover monthly cost</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ SOCIAL PROOF (SocialProof.jsx) ═ -->
+  <section id="testimonials" class="at-section">
+    <div class="at-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="font-mono" style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#FA982F;display:block;margin-bottom:16px;">Results</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:16px;">Trusted by <span class="shift-gradient-text">Top Contractors</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;">Roofing companies across the country are scaling with ShiFt NeuralOS™.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"ShiFt turned our business around. We went from chasing leads to having a waitlist. Revenue doubled in 6 months."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F54A48,#FA982F);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">M</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">Marcus Johnson</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">Owner, Apex Roofing Co.</div></div>
+          </div>
+        </div>
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"The AI assistant books 40+ inspections a week for us. It's like having a sales team that never sleeps."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#FA982F,#F54A48);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">S</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">Sarah Chen</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">GM, Summit Storm Solutions</div></div>
+          </div>
+        </div>
+        <div class="glass-card" style="display:flex;flex-direction:column;">
+          <div style="color:#FA982F;font-size:1rem;letter-spacing:2px;margin-bottom:20px;">★★★★★</div>
+          <p style="font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;margin-bottom:24px;">"Property intelligence alone paid for the platform in the first month. We're closing neighborhoods, not just houses."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F54A48,#FA982F);display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;">D</div>
+            <div><div class="font-display" style="font-size:.875rem;font-weight:600;color:white;">David Martinez</div><div style="font-size:.75rem;color:rgba(255,255,255,.4);">CEO, Eagle Eye Roofing</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═ CTA ═ -->
+  <section id="cta" class="at-section" style="background:#0D0F33;">
+    <div class="at-inner">
+      <div style="position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(250,152,47,.12),rgba(245,74,72,.08));border:1px solid rgba(250,152,47,.2);">
+        <h2 class="font-display" style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:white;margin-bottom:20px;">Ready to <span style="background:linear-gradient(135deg,#FA982F,#F54A48);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Fill Your Pipeline?</span></h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;">Get a free pipeline audit and see exactly where your leads should be coming from.</p>
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary" style="padding:18px 36px;background:linear-gradient(135deg,#FA982F,#F54A48);">Audit My Pipeline →</a>
+          <a href="/ROICalculator" class="btn-outline" style="padding:18px 36px;">See My ROI</a>
+        </div>
+        <p class="font-mono" style="font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;">Free audit · No commitment · Results in 15 minutes</p>
+      </div>
+    </div>
+  </section>
+</main>`;
 
 const FAQ_JS_CODE = `function shiftToggleFaq(btn){var item=btn.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.shift-faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}`;
 
-// Full Site Assembly
+const SCREENSHOT_NOTE = `<!-- ══════════════════════════════════════════════
+  SCREENSHOT EXPORT — React-Only Pages
+  ══════════════════════════════════════════════
+  
+  The following pages use recharts, framer-motion animations,
+  and live React state. Static HTML cannot replicate them.
+  Use these URLs for screenshots / screen recording instead:
+  
+  /NeuralOSDashboard     → Live KPI dashboard (recharts, counters)
+  /AttractHome           → AttractROICalculator (interactive recharts)
+  /ROICalculator         → Full interactive ROI calculator
+  /LeakDetector          → CRM analyzer with modals
+  /CampaignInsights      → Attribution dashboard (recharts)
+  /CustomerPortal        → Authenticated billing portal
+  /Onboarding            → Multi-step onboarding wizard
+  
+  Screenshot method:
+  1. Open page in Chrome
+  2. DevTools → Command+P → "Capture full size screenshot"
+  3. Or use: puppeteer / playwright for automated screenshots
+  
+  Elementor/WP alternative:
+  - Embed an <iframe> pointing to the live page URL
+  - Or use a screenshot service (screenshotone.com, htmlcsstoimage.com)
+  ══════════════════════════════════════════════ -->`;
+
+// Build full site HTML
 const buildFullSite = () => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="ShiFt NeuralOS - AI Revenue Operating System for roofing contractors">
-  <meta property="og:title" content="ShiFt NeuralOS - AI Revenue Operating System">
-  <meta property="og:url" content="https://shiftnow.io">
-  <title>ShiFt NeuralOS - AI Revenue Operating System for Roofing Contractors</title>
+  <title>ShiFt NeuralOS - AI Revenue Operating System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"ShiFt NeuralOS","url":"https://shiftnow.io","telephone":"(707) SHIFT-NOW","address":{"@type":"PostalAddress","streetAddress":"12460 Crabapple Road, Ste 202-522","addressLocality":"Alpharetta","addressRegion":"GA","postalCode":"30004","addressCountry":"US"}}
-  </script>
   <style>
 ${GLOBAL_CSS}
-
-/* ── NAV ── */
 ${NAV_CSS}
-
-/* ── HERO ── */
-.shift-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 80px;overflow:hidden;text-align:center;}
-.shift-hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,74,72,.15) 0%,transparent 70%);pointer-events:none;animation:hero-glow 4s ease-in-out infinite;}
-@keyframes hero-glow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1);}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.1);}}
-.shift-hero-badge{display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border-radius:999px;background:rgba(245,74,72,.08);border:1px solid rgba(245,74,72,.3);margin-bottom:32px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#F54A48;}
-.shift-pulse-dot{width:8px;height:8px;background:#F54A48;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0;}
-@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);}}
-.shift-hero-headline{font-size:clamp(2.5rem,5vw,5rem);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;}
-.shift-hero-sub{font-size:1.25rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.7;}
-.shift-hero-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
-.btn-lg{padding:18px 40px;font-size:1rem;}
-.shift-hero-micro{font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;}
-
-/* ── SECTION HEADERS ── */
-.shift-section-header{text-align:center;margin-bottom:56px;}
-.shift-section-label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px;}
-.shift-section-title{font-size:2.25rem;font-weight:800;line-height:1.1;color:white;margin-bottom:16px;}
-@media(min-width:768px){.shift-section-title{font-size:3rem;}}
-.shift-section-desc{font-size:1rem;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.7;}
-
-/* ── PROBLEM SELECTOR ── */
-.shift-problem-grid{display:grid;grid-template-columns:1fr;gap:24px;}
-@media(min-width:768px){.shift-problem-grid{grid-template-columns:repeat(3,1fr);}}
-.shift-problem-card{display:block;text-decoration:none;padding:32px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);transition:all .3s ease;}
-.shift-problem-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);border-color:var(--card-color,rgba(255,255,255,.15));box-shadow:0 8px 32px rgba(0,0,0,.3);}
-.shift-problem-icon{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
-.shift-problem-title{font-size:1.25rem;font-weight:700;color:white;margin-bottom:12px;}
-.shift-problem-body{font-size:.875rem;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.6;}
-.shift-problem-link{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
-
-/* ── TWO PRODUCTS ── */
-.shift-products-grid{display:grid;grid-template-columns:1fr;gap:24px;}
-@media(min-width:768px){.shift-products-grid{grid-template-columns:repeat(2,1fr);}}
-.shift-product-card{padding:40px;border-radius:20px;backdrop-filter:blur(10px);transition:transform .3s ease;}
-.shift-product-card:hover{transform:translateY(-4px);}
-.shift-product-attract{background:linear-gradient(135deg,rgba(250,152,47,.08),rgba(250,152,47,.04));border:1px solid rgba(250,152,47,.25);}
-.shift-product-convert{background:linear-gradient(135deg,rgba(245,74,72,.08),rgba(245,74,72,.04));border:1px solid rgba(245,74,72,.25);}
-.shift-product-badge{display:inline-flex;padding:8px 16px;border-radius:999px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:1px solid;margin-bottom:20px;}
-.shift-product-title{font-size:1.75rem;font-weight:800;color:white;margin-bottom:12px;}
-.shift-product-desc{font-size:.9375rem;color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.6;}
-.shift-product-features{list-style:none;padding:0;margin-bottom:32px;}
-.shift-product-features li{display:flex;align-items:center;gap:10px;font-size:.875rem;color:rgba(255,255,255,.75);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);}
-.shift-check{font-weight:700;font-size:1rem;}
-
-/* ── TESTIMONIALS ── */
-.shift-testimonial-grid{display:grid;grid-template-columns:1fr;gap:24px;}
-@media(min-width:768px){.shift-testimonial-grid{grid-template-columns:repeat(3,1fr);}}
-.shift-testimonial-card{display:flex;flex-direction:column;gap:16px;}
-.shift-stars{color:#FA982F;font-size:1rem;letter-spacing:2px;}
-.shift-testimonial-quote{font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.7;flex:1;}
-.shift-testimonial-author{display:flex;align-items:center;gap:12px;}
-.shift-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat Alternates',sans-serif;font-size:.875rem;font-weight:700;color:white;flex-shrink:0;}
-.shift-author-name{font-size:.875rem;font-weight:600;color:white;}
-.shift-author-role{font-size:.75rem;color:rgba(255,255,255,.4);}
-
-/* ── CTA ── */
-.shift-cta-box{position:relative;border-radius:24px;overflow:hidden;padding:64px 32px;text-align:center;background:linear-gradient(135deg,rgba(245,74,72,.12),rgba(250,152,47,.08));border:1px solid rgba(245,74,72,.15);}
-@media(min-width:768px){.shift-cta-box{padding:96px 64px;}}
-.shift-cta-glow{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);width:500px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,74,72,.15),transparent 70%);pointer-events:none;}
-.shift-cta-title{font-size:2rem;font-weight:800;color:white;margin-bottom:20px;line-height:1.2;}
-@media(min-width:768px){.shift-cta-title{font-size:3rem;}}
-.shift-cta-desc{font-size:1rem;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;}
-.shift-cta-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;}
-.shift-cta-micro{font-size:.75rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;}
-
-/* ── FOOTER ── */
 ${FOOTER_CSS}
+.brand-section{padding:80px 24px;}.brand-inner{max-width:1140px;margin:0 auto;}
+@media(min-width:768px){.brand-section{padding:112px 32px;}}
+.brand-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}
+.brand-card:hover{transform:translateY(-4px);border-color:rgba(245,74,72,0.15);}
+@keyframes ping{75%,100%{transform:scale(2);opacity:0;}}
+.shift-faq-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:16px;}
+.shift-faq-btn{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;text-align:left;color:white;}
+.shift-faq-question{font-family:'Montserrat Alternates',sans-serif;font-size:1.125rem;font-weight:600;color:white;}
+.shift-faq-chevron{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.4);transition:transform .3s ease;}
+.shift-faq-item.open .shift-faq-chevron{transform:rotate(180deg);color:#F54A48;}
+.shift-faq-answer{display:none;padding:0 24px 20px;font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.7;}
+.shift-faq-item.open .shift-faq-answer{display:block;}
   </style>
 </head>
 <body>
-
 ${NEURALAOS_NAV_HTML}
-
-<main style="padding-top:72px;">
-
-  <!-- ═══ HERO ═══ -->
-  <section class="shift-hero" id="hero">
-    <div class="shift-hero-bg"></div>
-    <div class="section-inner" style="position:relative;">
-      <div class="shift-hero-badge font-mono">
-        <span class="shift-pulse-dot"></span>
-        AI Revenue Operating System
-      </div>
-      <h1 class="shift-hero-headline font-display">
-        <span class="shift-gradient-text">Revenue Leaks</span><br/>Don't Fix Themselves
-      </h1>
-      <p class="shift-hero-sub">
-        Roofing contractors lose $35K–$100K+ monthly to broken lead systems. ShiFt NeuralOS plugs the leaks with AI that generates, qualifies, and converts leads 24/7.
-      </p>
-      <div class="shift-hero-ctas">
-        <a href="#problem-selector" class="btn-primary btn-lg">Find Your Gap →</a>
-      </div>
-      <p class="shift-hero-micro font-mono">Trusted by 847+ roofing companies across 42 states</p>
-    </div>
-  </section>
-
-  <!-- ═══ PROBLEM SELECTOR ═══ -->
-  <section class="section-wrap" id="problem-selector" style="background:#0D0F33;">
-    <div class="section-inner">
-      <div class="shift-section-header">
-        <span class="shift-section-label font-mono" style="color:#FA982F;">Diagnose Your Leak</span>
-        <h2 class="shift-section-title font-display">What's Draining Your Revenue?</h2>
-        <p class="shift-section-desc">Every roofing contractor leaks revenue somewhere. Tell us where yours is hiding.</p>
-      </div>
-      <div class="shift-problem-grid">
-        <a href="https://shiftnow.io/AttractHome" class="shift-problem-card" style="--card-color:#FA982F;">
-          <div class="shift-problem-icon" style="background:rgba(250,152,47,.12);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M1 12h6m6 0h6"/></svg>
-          </div>
-          <h3 class="shift-problem-title font-display">Empty Pipeline</h3>
-          <p class="shift-problem-body">Not enough leads coming in. Marketing isn't producing consistent results.</p>
-          <div class="shift-problem-link font-mono" style="color:#FA982F;">→ ShiFt Attract</div>
-        </a>
-        <a href="https://shiftnow.io/Home" class="shift-problem-card" style="--card-color:#F54A48;">
-          <div class="shift-problem-icon" style="background:rgba(245,74,72,.12);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F54A48" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3 class="shift-problem-title font-display">Missed Leads</h3>
-          <p class="shift-problem-body">Leads coming in but not converting. Slow response, bad follow-up, no-shows.</p>
-          <div class="shift-problem-link font-mono" style="color:#F54A48;">→ ShiFt Convert</div>
-        </a>
-        <a href="https://shiftnow.io" class="shift-problem-card" style="--card-color:#48BB78;">
-          <div class="shift-problem-icon" style="background:rgba(72,187,120,.12);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-          </div>
-          <h3 class="shift-problem-title font-display">Both Problems</h3>
-          <p class="shift-problem-body">Empty pipeline AND low conversion rate. You need the full NeuralOS stack.</p>
-          <div class="shift-problem-link font-mono" style="color:#48BB78;">→ Full Platform</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ TWO PRODUCTS ═══ -->
-  <section class="section-wrap" id="platform">
-    <div class="section-inner">
-      <div class="shift-section-header">
-        <span class="shift-section-label font-mono" style="color:#F54A48;">The Platform</span>
-        <h2 class="shift-section-title font-display">Two Systems. One Revenue Machine.</h2>
-        <p class="shift-section-desc">ShiFt NeuralOS™ runs both sides of your revenue equation simultaneously.</p>
-      </div>
-      <div class="shift-products-grid">
-        <div class="shift-product-card shift-product-attract">
-          <div class="shift-product-badge font-mono" style="color:#FA982F;background:rgba(250,152,47,.12);border-color:rgba(250,152,47,.3);">ShiFt Attract</div>
-          <h3 class="shift-product-title font-display">Fill Your Pipeline</h3>
-          <p class="shift-product-desc">AI-powered lead generation across every channel. Google, Facebook, Instagram, TikTok—your AI works them all.</p>
-          <ul class="shift-product-features">
-            <li><span class="shift-check" style="color:#FA982F;">✓</span> Multi-channel AI campaigns</li>
-            <li><span class="shift-check" style="color:#FA982F;">✓</span> Real-time lead scoring</li>
-            <li><span class="shift-check" style="color:#FA982F;">✓</span> Storm & property intelligence</li>
-            <li><span class="shift-check" style="color:#FA982F;">✓</span> Predictable lead volume</li>
-          </ul>
-          <a href="https://shiftnow.io/AttractHome" class="btn-primary" style="background:linear-gradient(135deg,#FA982F,#F54A48);">Explore Attract →</a>
-        </div>
-        <div class="shift-product-card shift-product-convert">
-          <div class="shift-product-badge font-mono" style="color:#F54A48;background:rgba(245,74,72,.12);border-color:rgba(245,74,72,.3);">ShiFt Convert</div>
-          <h3 class="shift-product-title font-display">Convert Every Lead</h3>
-          <p class="shift-product-desc">AI that responds in 30 seconds, qualifies instantly, and books appointments automatically—day or night.</p>
-          <ul class="shift-product-features">
-            <li><span class="shift-check" style="color:#F54A48;">✓</span> 30-second AI response</li>
-            <li><span class="shift-check" style="color:#F54A48;">✓</span> Instant lead qualification</li>
-            <li><span class="shift-check" style="color:#F54A48;">✓</span> Automated appointment booking</li>
-            <li><span class="shift-check" style="color:#F54A48;">✓</span> 24/7 follow-up sequences</li>
-          </ul>
-          <a href="https://shiftnow.io/Home" class="btn-primary">Explore Convert →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ REVENUE ENGINE PLANS TEASER ═══ -->
-  <section class="section-wrap" style="background:#0D0F33;text-align:center;">
-    <div class="section-inner">
-      <div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:#FA982F;margin-bottom:20px;">Revenue Engine Plans</div>
-      <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:20px;">Three Packages. One Goal.<br><span class="shift-gradient-text">Booked Jobs.</span></h2>
-      <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 36px;line-height:1.7;">Every package includes a \$5,000 one-time Revenue Engine Installation + 90-Day Revenue Floor.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto 36px;">
-        <div style="background:rgba(245,74,72,.06);border:1px solid rgba(245,74,72,.2);border-radius:14px;padding:24px 16px;text-align:center;">
-          <div class="font-display" style="font-size:.9rem;font-weight:800;color:#F54A48;margin-bottom:8px;">ACTIVATE</div>
-          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$1,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        </div>
-        <div style="background:linear-gradient(180deg,rgba(245,74,72,.10),rgba(255,255,255,.03));border:1px solid rgba(245,74,72,.35);border-radius:14px;padding:24px 16px;text-align:center;position:relative;">
-          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#F54A48,#FA982F);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;color:#fff;padding:3px 12px;border-radius:999px;white-space:nowrap;">Most Popular</div>
-          <div class="font-display" style="font-size:.9rem;font-weight:800;background:linear-gradient(135deg,#F54A48,#FA982F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;">AMPLIFY</div>
-          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$3,497<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        </div>
-        <div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.2);border-radius:14px;padding:24px 16px;text-align:center;">
-          <div class="font-display" style="font-size:.9rem;font-weight:800;color:#FFD700;margin-bottom:8px;">DOMINATE</div>
-          <div class="font-display" style="font-size:1.75rem;font-weight:900;color:white;">\$8,997<span style="font-size:.875rem;color:rgba(255,255,255,.4);">/mo</span></div>
-        </div>
-      </div>
-      <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-primary" style="padding:16px 40px;">View Revenue Engine Plans →</a>
-    </div>
-  </section>
-
-  <!-- ═══ SOCIAL PROOF ═══ -->
-  <section class="section-wrap" id="testimonials">
-    <div class="section-inner">
-      <div class="shift-section-header">
-        <span class="shift-section-label font-mono" style="color:#FA982F;">Results</span>
-        <h2 class="shift-section-title font-display">Trusted by <span class="shift-gradient-text">Top Contractors</span></h2>
-      </div>
-      <div class="shift-testimonial-grid">
-        <div class="glass-card shift-testimonial-card">
-          <div class="shift-stars">★★★★★</div>
-          <p class="shift-testimonial-quote">"ShiFt turned our business around. We went from chasing leads to having a waitlist. Revenue doubled in 6 months."</p>
-          <div class="shift-testimonial-author">
-            <div class="shift-avatar" style="background:linear-gradient(135deg,#F54A48,#FA982F);">M</div>
-            <div><div class="shift-author-name font-display">Marcus Johnson</div><div class="shift-author-role">Owner, Apex Roofing Co.</div></div>
-          </div>
-        </div>
-        <div class="glass-card shift-testimonial-card">
-          <div class="shift-stars">★★★★★</div>
-          <p class="shift-testimonial-quote">"The AI assistant books 40+ inspections a week for us. It's like having a sales team that never sleeps."</p>
-          <div class="shift-testimonial-author">
-            <div class="shift-avatar" style="background:linear-gradient(135deg,#FA982F,#F54A48);">S</div>
-            <div><div class="shift-author-name font-display">Sarah Chen</div><div class="shift-author-role">GM, Summit Storm Solutions</div></div>
-          </div>
-        </div>
-        <div class="glass-card shift-testimonial-card">
-          <div class="shift-stars">★★★★★</div>
-          <p class="shift-testimonial-quote">"Property intelligence alone paid for the platform in the first month. We're closing neighborhoods, not just houses."</p>
-          <div class="shift-testimonial-author">
-            <div class="shift-avatar" style="background:linear-gradient(135deg,#F54A48,#FA982F);">D</div>
-            <div><div class="shift-author-name font-display">David Martinez</div><div class="shift-author-role">CEO, Eagle Eye Roofing</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA ═══ -->
-  <section class="section-wrap" style="background:#0D0F33;">
-    <div class="section-inner">
-      <div class="shift-cta-box">
-        <div class="shift-cta-glow"></div>
-        <div style="position:relative;text-align:center;">
-          <h2 class="shift-cta-title font-display">Ready to <span class="shift-gradient-text">ShiFt</span> Your Revenue?</h2>
-          <p class="shift-cta-desc">Get a free revenue audit and see exactly how much money you're leaving on the table.</p>
-          <div class="shift-cta-buttons">
-            <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="btn-primary btn-lg">Book a Strategy Call →</a>
-            <a href="https://shiftnow.io/RevenueEnginePlans" class="btn-outline btn-lg">View Plans</a>
-          </div>
-          <p class="shift-cta-micro font-mono">Live in 7 days · 90-Day Revenue Floor · No long-term contracts</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
+${BRAND_HOME_HTML}
 ${FOOTER_HTML}
-
-<script>
-${NAV_JS}
+<script>${NAV_JS}
 ${FAQ_JS_CODE}
 </script>
 </body>
@@ -794,7 +1040,6 @@ export default function MasterExport() {
       setCopied(id);
       setTimeout(() => setCopied(null), 2000);
     } catch {
-      // Fallback for large strings or permission issues
       const ta = document.createElement("textarea");
       ta.value = code;
       ta.style.position = "fixed";
@@ -809,156 +1054,65 @@ export default function MasterExport() {
     }
   };
 
-  const makePageHtml = (title, navHtml, bodyHtml, extraCss = "") => `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>${title} · ShiFt NeuralOS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-${GLOBAL_CSS}
-${NAV_CSS}
-${FOOTER_CSS}
-${extraCss}
-  </style>
-</head>
-<body>
-${navHtml}
-<main style="padding-top:72px;">
-${bodyHtml}
-</main>
-${FOOTER_HTML}
-<script>${NAV_JS}
-${FAQ_JS_CODE}</script>
-</body>
-</html>`;
-
   const handleFullSiteExport = async () => {
     setDownloading(true);
 
-    // 1. Download the single combined HTML (existing behaviour)
+    // Single HTML
     const singleHtml = buildFullSite();
     const singleBlob = new Blob([singleHtml], { type: "text/html" });
     const singleUrl = URL.createObjectURL(singleBlob);
     const singleA = document.createElement("a");
     singleA.href = singleUrl;
-    singleA.download = "ShiFtNeuralOS-FullSite.html";
+    singleA.download = "ShiFtNeuralOS-BrandHome.html";
     singleA.click();
     URL.revokeObjectURL(singleUrl);
 
-    // 2. Build ZIP with every page as its own file
+    // ZIP with all pages
     const zip = new JSZip();
-
-    // Shared assets
     zip.file("assets/global.css", GLOBAL_CSS);
     zip.file("assets/nav.css", NAV_CSS);
     zip.file("assets/footer.css", FOOTER_CSS);
     zip.file("assets/nav.js", NAV_JS);
     zip.file("assets/faq.js", FAQ_JS_CODE);
-
-    // NeuralOS Brand pages
     zip.file("index.html", singleHtml);
-    zip.file("neuralaos-home.html", makePageHtml("NeuralOS Home", NEURALAOS_NAV_HTML, NEURALAOS_HOME_HTML));
+    zip.file("brand-home.html", singleHtml);
+    zip.file("convert/index.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ShiFt Convert</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}.cv-section{padding:80px 24px;}.cv-inner{max-width:1140px;margin:0 auto;}@media(min-width:768px){.cv-section{padding:112px 32px;}}.cv-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}@keyframes ping{75%,100%{transform:scale(2);opacity:0;}}.shift-faq-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:16px;}.shift-faq-btn{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;text-align:left;color:white;}.shift-faq-question{font-family:'Montserrat Alternates',sans-serif;font-size:1.125rem;font-weight:600;color:white;}.shift-faq-chevron{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.4);transition:transform .3s ease;}.shift-faq-item.open .shift-faq-chevron{transform:rotate(180deg);color:#F54A48;}.shift-faq-answer{display:none;padding:0 24px 20px;font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.7;}.shift-faq-item.open .shift-faq-answer{display:block;}</style></head><body>${CONVERT_NAV_HTML}${CONVERT_HOME_HTML}${FOOTER_HTML}<script>${NAV_JS}${FAQ_JS_CODE}</script></body></html>`);
+    zip.file("attract/index.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ShiFt Attract</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}.at-section{padding:80px 24px;}.at-inner{max-width:1140px;margin:0 auto;}@media(min-width:768px){.at-section{padding:112px 32px;}}.at-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}@keyframes ping{75%,100%{transform:scale(2);opacity:0;}}.shift-faq-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:16px;}.shift-faq-btn{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;text-align:left;color:white;}.shift-faq-question{font-family:'Montserrat Alternates',sans-serif;font-size:1.125rem;font-weight:600;color:white;}.shift-faq-chevron{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.4);transition:transform .3s ease;}.shift-faq-item.open .shift-faq-chevron{transform:rotate(180deg);color:#FA982F;}.shift-faq-answer{display:none;padding:0 24px 20px;font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.7;}.shift-faq-item.open .shift-faq-answer{display:block;}</style></head><body>${ATTRACT_NAV_HTML}${ATTRACT_HOME_HTML}${FOOTER_HTML}<script>${NAV_JS}${FAQ_JS_CODE}</script></body></html>`);
 
-    // Convert pages
-    zip.file("convert/index.html", makePageHtml("ShiFt Convert", CONVERT_NAV_HTML, CONVERT_HOME_HTML));
-    zip.file("convert/how-it-works.html", makePageHtml("How It Works · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">How ShiFt Convert Works</h1><p class="shift-section-desc">Full content available at /ExportHowItWorks</p></div></section>`));
-    zip.file("convert/revenue-leaks.html", makePageHtml("Revenue Leaks · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">The Three Revenue Leaks</h1><p class="shift-section-desc">Full content available at /ExportRevenueLeaks</p></div></section>`));
-    zip.file("convert/results.html", makePageHtml("Results · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">From $750K to $7M</h1><p class="shift-section-desc">Full content available at /ExportResults</p></div></section>`));
-    zip.file("convert/book.html", makePageHtml("Book a Call · Convert", CONVERT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Book a Strategy Call</h1><p class="shift-section-desc">Full content available at /ExportBookACall</p></div></section>`));
-
-    // Attract pages
-    zip.file("attract/index.html", makePageHtml("ShiFt Attract", ATTRACT_NAV_HTML, ATTRACT_HOME_HTML));
-    zip.file("attract/empty-pipeline.html", makePageHtml("Empty Pipeline · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">The Empty Pipeline Problem</h1><p class="shift-section-desc">Full content available at /ExportAttractEmptyPipeline</p></div></section>`));
-    zip.file("attract/how-it-works.html", makePageHtml("How It Works · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">How ShiFt Attract Works</h1><p class="shift-section-desc">Full content available at /ExportAttract</p></div></section>`));
-    zip.file("attract/results.html", makePageHtml("Results · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Pipeline Results</h1><p class="shift-section-desc">Full content available at /ExportAttract</p></div></section>`));
-    zip.file("attract/book.html", makePageHtml("Book a Pipeline Audit · Attract", ATTRACT_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">Book a Pipeline Audit</h1><p class="shift-section-desc">Full content available at /ExportBookACall</p></div></section>`));
-
-    // Revenue Engine Plans
-    zip.file("revenue-engine-plans.html", makePageHtml("Revenue Engine Plans", NEURALAOS_NAV_HTML, REVENUE_PLANS_HTML));
-
-    // Blog page static stub
-    zip.file("blog.html", makePageHtml("Blog · ShiFt NeuralOS", NEURALAOS_NAV_HTML, `<section class="section-wrap" style="text-align:center;">
-  <div class="section-inner" style="max-width:820px;">
-    <div class="font-mono" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:#F54A48;margin-bottom:20px;">ShiFt Blog</div>
-    <h1 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:white;margin-bottom:20px;">Revenue Intelligence<br><span class="shift-gradient-text">for Roofing Contractors</span></h1>
-    <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 48px;line-height:1.7;">Strategy, AI, and real-world results from the field.</p>
-  </div>
-</section>
-<section class="section-wrap" style="background:#0D0F33;">
-  <div class="section-inner">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
-      ${[
-        { cat: "Strategy", title: "Why Roofing Contractors Lose $47K in a Single Storm Season", excerpt: "When 200 leads flood in over two weeks, manual follow-up collapses. We break down exactly where the money goes.", color: "#F54A48", date: "March 10, 2026" },
-        { cat: "AI & Automation", title: "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever", excerpt: "78% of homeowners choose the first contractor to respond. Here's the data behind the window.", color: "#FA982F", date: "February 28, 2026" },
-        { cat: "Case Study", title: "From $750K to $7M: How Titan Roofing Dominated Dallas", excerpt: "Jake Torres wasn't outworking his competitors. He was outsmarting them.", color: "#48BB78", date: "February 14, 2026" },
-        { cat: "Lead Gen", title: "Google Local Service Ads for Roofers: A Complete 2026 Guide", excerpt: "LSAs are the highest-intent leads available. Most contractors waste 40% of their budget on unqualified clicks.", color: "#F54A48", date: "January 30, 2026" },
-        { cat: "Operations", title: "The Empty Pipeline Problem — And the Only Real Fix", excerpt: "Referrals dry up. Agencies overpromise. The only way out is a system that generates leads on demand.", color: "#FA982F", date: "January 18, 2026" },
-        { cat: "AI & Automation", title: "What Roofing Contractors Get Wrong About AI", excerpt: "It's not a chatbot. It's not a gimmick. AI-powered revenue systems are infrastructure.", color: "#F54A48", date: "January 5, 2026" },
-      ].map(p => `<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;display:flex;flex-direction:column;"><div style="height:3px;width:40px;background:${p.color};border-radius:4px;margin-bottom:16px;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:${p.color};background:${p.color}18;border:1px solid ${p.color}33;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:12px;">${p.cat}</span><h3 class="font-display" style="font-size:1.1rem;font-weight:800;color:white;margin-bottom:10px;line-height:1.4;">${p.title}</h3><p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65;flex:1;">${p.excerpt}</p><div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.3);">${p.date}</div></div>`).join("\n      ")}
-    </div>
-  </div>
-</section>`));
-
-    // Shared brand pages
-    const brandPages = [
-      ["about", "About"],
-      ["careers", "Careers"],
-      ["contact", "Contact"],
-      ["features", "Features"],
-      ["integrations", "Integrations"],
-      ["case-studies", "Case Studies"],
-      ["platform", "Platform"],
-      ["roofing", "Roofing for Contractors"],
-      ["resources", "Resources"],
-    ];
-    brandPages.forEach(([slug, title]) => {
-      zip.file(`${slug}.html`, makePageHtml(title, NEURALAOS_NAV_HTML, `<section class="section-wrap"><div class="section-inner"><h1 class="font-display shift-section-title">${title}</h1><p class="shift-section-desc">Full content available at /ExportBrandNeuralOS</p></div></section>`));
-    });
-
-    // README
-    zip.file("README.txt", `ShiFt NeuralOS — Full Site Export
-===================================
+    zip.file("SCREENSHOT-ONLY-PAGES.txt", SCREENSHOT_NOTE.replace(/<!--/g, "").replace(/-->/g, "").replace(/=+/g, "==="));
+    zip.file("README.txt", `ShiFt NeuralOS — Full Site Export v2
+=====================================
 Generated: ${new Date().toISOString()}
+Source: Extracted directly from live React component files
 
-Files included:
-  index.html                  → NeuralOS brand home (fully assembled)
-  neuralaos-home.html         → NeuralOS home (nav + hero + footer)
-  revenue-engine-plans.html   → Plans page (Activate / Amplify / Dominate)
-  convert/index.html          → ShiFt Convert home
-  convert/how-it-works.html   → Convert: How It Works
-  convert/revenue-leaks.html  → Convert: Revenue Leaks
-  convert/results.html        → Convert: Results (Titan case study)
-  convert/book.html           → Convert: Book a Call
-  attract/index.html          → ShiFt Attract home
-  attract/empty-pipeline.html → Attract: Empty Pipeline
-  attract/how-it-works.html   → Attract: How It Works
-  attract/results.html        → Attract: Results
-  attract/book.html           → Attract: Book a Pipeline Audit
-  blog.html                   → Blog (6 articles, category grid, static HTML stub)
-  about.html, careers.html, contact.html, features.html,
-  integrations.html, case-studies.html, platform.html, roofing.html, resources.html
+UPDATED IN THIS VERSION:
+  - BrandHome: BrandHero + ProblemSelector (4 cards) + TwoProducts + SocialProof + CTA
+  - ConvertHome: HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQSection + CTA
+  - AttractHome: AttractHero + EmptyPipelineProblems + AttractSolution + ROI (static) + SocialProof + CTA
+  - All navbars updated to current links (ROI Calculator CTA, correct routes)
 
-  assets/global.css           → Global CSS (include on every page)
-  assets/nav.css              → Navbar CSS
-  assets/footer.css           → Footer CSS
-  assets/nav.js               → Navbar JS (mobile toggle + scroll)
-  assets/faq.js               → FAQ accordion JS
+FILES:
+  index.html / brand-home.html  → NeuralOS Brand Home (fully assembled)
+  convert/index.html            → ShiFt Convert Home (all 8 sections)
+  attract/index.html            → ShiFt Attract Home (all sections)
+  assets/global.css             → Global CSS
+  assets/nav.css                → Navbar CSS
+  assets/footer.css             → Footer CSS
+  assets/nav.js                 → Navbar JS
+  assets/faq.js                 → FAQ accordion JS
+  SCREENSHOT-ONLY-PAGES.txt     → Pages that require React (recharts/interactive)
 
-Usage:
-  - Open index.html directly in a browser to preview
-  - For Elementor/WordPress: paste assets/global.css into Additional CSS,
-    then paste each page's <main> content into HTML widgets
-  - All links point to https://shiftnow.io/... (absolute URLs)
+NOTES:
+  - RevenueEnginePlans: See /ExportRevenueEnginePlans for full HTML
+  - Interactive pages (NeuralOSDashboard, ROICalculator, LeakDetector,
+    CampaignInsights, CustomerPortal) require React — use screenshots
 `);
 
     const zipBlob = await zip.generateAsync({ type: "blob" });
     const zipUrl = URL.createObjectURL(zipBlob);
     const zipA = document.createElement("a");
     zipA.href = zipUrl;
-    zipA.download = "ShiFtNeuralOS-FullSite.zip";
+    zipA.download = "ShiFtNeuralOS-FullSite-v2.zip";
     zipA.click();
     URL.revokeObjectURL(zipUrl);
 
@@ -971,569 +1125,156 @@ Usage:
       color: "#48BB78",
       dotColor: "#48BB78",
       badge: "Required on ALL pages",
-      exportPagePath: "ExportBrandNeuralOS",
       sections: [
-        { id: "global-css", title: "Global CSS + Fonts", badge: "Base", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "CSS", code: GLOBAL_CSS }] },
-        { id: "nav-css-js", title: "Navbar CSS + JS (Shared)", badge: "All Navbars", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "CSS", code: NAV_CSS }, { label: "JS", code: NAV_JS }] },
-        { id: "footer", title: "Footer (Product / Company / Legal)", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: FOOTER_HTML }, { label: "CSS", code: FOOTER_CSS }] },
-        { id: "faq-js", title: "FAQ Accordion JS", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "JS", code: FAQ_JS_CODE }] },
+        { id: "global-css", title: "Global CSS + Fonts", badge: "Base", items: [{ label: "CSS", code: GLOBAL_CSS }] },
+        { id: "nav-css-js", title: "Navbar CSS + JS", badge: "All navbars", items: [{ label: "CSS", code: NAV_CSS }, { label: "JS", code: NAV_JS }] },
+        { id: "footer", title: "Footer HTML + CSS", items: [{ label: "HTML", code: FOOTER_HTML }, { label: "CSS", code: FOOTER_CSS }] },
+        { id: "faq-js", title: "FAQ Accordion JS", items: [{ label: "JS", code: FAQ_JS_CODE }] },
       ],
     },
     {
-      title: "ShiFt NeuralOS Header",
-      color: "#FFD700",
-      dotColor: "#FFD700",
-      badge: "Revenue Engine Plans · Dashboard Preview · Platform · Roofing · About · Contact",
-      exportPagePath: "ExportBrandNeuralOS",
-      sections: [
-        { id: "neuralaos-nav", title: "NeuralOS Navigation Bar", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: NEURALAOS_NAV_HTML }] },
-      ],
-    },
-    {
-      title: "ShiFt Convert Header",
-      color: "#F54A48",
-      dotColor: "#F54A48",
-      badge: "How It Works · Revenue Leaks · Results · Dashboard Preview · Revenue Engine Plans",
-      exportPagePath: "ExportConvert",
-      sections: [
-        { id: "convert-nav", title: "Convert Navigation Bar", exportPagePath: "ExportConvert", items: [{ label: "HTML", code: CONVERT_NAV_HTML }] },
-      ],
-    },
-    {
-      title: "ShiFt Attract Header",
-      color: "#FA982F",
-      dotColor: "#FA982F",
-      badge: "How It Works · Empty Pipeline · Results · Revenue Engine Plans",
-      exportPagePath: "ExportAttract",
-      sections: [
-        { id: "attract-nav", title: "Attract Navigation Bar", exportPagePath: "ExportAttract", items: [{ label: "HTML", code: ATTRACT_NAV_HTML }] },
-      ],
-    },
-    {
-      title: "ShiFt NeuralOS Home Page",
-      color: "#FFD700",
-      dotColor: "#FFD700",
-      exportPagePath: "ExportBrandNeuralOS",
-      sections: [
-        { id: "neuralaos-home", title: "NeuralOS Home Page (Hero + Full Assembly)", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "HTML", code: NEURALAOS_HOME_HTML }] },
-      ],
-    },
-    {
-      title: "ShiFt Convert Home Page",
-      color: "#F54A48",
-      dotColor: "#F54A48",
-      exportPagePath: "ExportConvert",
-      sections: [
-        { id: "convert-home", title: "Convert Home Page (Hero + Full Assembly)", exportPagePath: "ExportConvert", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
-      ],
-    },
-    {
-      title: "ShiFt Attract Home Page",
-      color: "#FA982F",
-      dotColor: "#FA982F",
-      exportPagePath: "ExportAttract",
-      sections: [
-        { id: "attract-home", title: "Attract Home Page (Hero + Full Assembly)", exportPagePath: "ExportAttract", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
-      ],
-    },
-    {
-      title: "NeuralOS Dashboard Preview Page",
+      title: "Navigation Bars",
       color: "#63B3ED",
       dotColor: "#63B3ED",
-      badge: "Trust-Building · Prospect-Facing",
-      exportPagePath: "ExportDashboardPreview",
+      badge: "3 variants — NeuralOS · Convert · Attract",
       sections: [
-        {
-          id: "neuralaos-dashboard",
-          title: "NeuralOS Dashboard Preview",
-          exportPagePath: "ExportDashboardPreview",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /NeuralOSDashboard\n     URL:   ShiFtNow.io/NeuralOSDashboard\n     Purpose: High-fidelity mock-up of the contractor portal shown to prospects to build trust\n     Sections:\n       - Live KPI row (AI conversations, bookings, avg response, monthly revenue, close rate, ROI)\n       - 8-week platform-attributed revenue line chart\n       - Leads vs Booked 7-day bar chart\n       - Filterable AI Lead Intelligence table (status, lead score, est. value, AI response time)\n       - Live AI Activity Log (booked / qualifying / follow-up / inbound / storm events)\n       - Trust strip (Live in 7 Days / Every Lead Captured / Full Transparency / 90-Day Floor)\n       - CTA → Book a Strategy Call\n     Nav: Linked from NeuralOS Brand Navbar and ShiFt Convert Navbar as "Dashboard Preview"\n     Export: React-only page (recharts + framer-motion) — no static HTML equivalent -->`
-          }]
-        },
+        { id: "neuralaos-nav", title: "NeuralOS Nav (Brand, Plans, Dashboard)", items: [{ label: "HTML", code: NEURALAOS_NAV_HTML }] },
+        { id: "convert-nav", title: "Convert Nav (Home, How It Works, Revenue Leaks, Results)", items: [{ label: "HTML", code: CONVERT_NAV_HTML }] },
+        { id: "attract-nav", title: "Attract Nav (Home, How It Works, Empty Pipeline, Results)", items: [{ label: "HTML", code: ATTRACT_NAV_HTML }] },
       ],
     },
     {
-      title: "Revenue Engine Plans Page",
+      title: "ShiFt NeuralOS Brand Home",
+      color: "#FFD700",
+      dotColor: "#FFD700",
+      badge: "CURRENT — extracted from BrandHero + ProblemSelector + TwoProducts + SocialProof + CTA",
+      sections: [
+        { id: "brand-home-full", title: "Brand Home — Full Page HTML (All Sections)", items: [{ label: "HTML", code: BRAND_HOME_HTML }] },
+      ],
+    },
+    {
+      title: "ShiFt Convert Home",
+      color: "#F54A48",
+      dotColor: "#F54A48",
+      badge: "CURRENT — HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQ + CTA",
+      sections: [
+        { id: "convert-home-full", title: "Convert Home — Full Page HTML (All 8 Sections)", items: [{ label: "HTML", code: CONVERT_HOME_HTML }] },
+      ],
+    },
+    {
+      title: "ShiFt Attract Home",
+      color: "#FA982F",
+      dotColor: "#FA982F",
+      badge: "CURRENT — AttractHero + EmptyPipelineProblems + AttractSolution + ROI + SocialProof + FAQ + CTA",
+      sections: [
+        { id: "attract-home-full", title: "Attract Home — Full Page HTML (All Sections)", items: [{ label: "HTML", code: ATTRACT_HOME_HTML }] },
+      ],
+    },
+    {
+      title: "Revenue Engine Plans",
       color: "#F54A48",
       dotColor: "#FA982F",
       exportPagePath: "ExportRevenueEnginePlans",
+      badge: "Self-contained — use ExportRevenueEnginePlans for full HTML",
       sections: [
-        { id: "rev-plans", title: "Revenue Engine Plans (Activate / Amplify / Dominate)", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "HTML", code: REVENUE_PLANS_HTML }] },
+        { id: "rev-plans-info", title: "Revenue Engine Plans (Activate / Amplify / Dominate)", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /RevenueEnginePlans
+   This page is SELF-CONTAINED (no external component dependencies).
+   Full HTML export available at /ExportRevenueEnginePlans
+   
+   Sections:
+   - Hero: "Turn Marketing Into Revenue" + Stats bar (30s / 3-5x / 24/7)
+   - Problem: 60% Lost Leads / 74% Burned Tools / $24K+ Missed Revenue
+   - System: 4-step process (Instant Response → Qualify → Book → Track)
+   - Proof: Texas Case Study $72K / 30 days + ROI Math per package
+   - Revenue Leak Calculator (3-card slider: Missed Calls / Garbage Leads / Total)
+   - Packages: ACTIVATE $1,997/mo · AMPLIFY $3,497/mo · DOMINATE $8,997/mo
+   - Feature Comparison Table (30 features across 3 tiers)
+   - 90-Day Revenue Floor Guarantee
+   - Onboarding CTA (for existing clients)
+   - Final CTA: "Stop Losing Leads. Start Booking Jobs."
+   
+   Copy the full page export at /ExportRevenueEnginePlans -->` }] },
       ],
     },
     {
-      title: "ShiFt Convert — Inner Pages",
-      color: "#F54A48",
-      dotColor: "#F54A48",
-      badge: "How It Works · Revenue Leaks · Results · Dashboard Preview · Revenue Engine Plans · Book",
-      exportPagePath: "ExportConvert",
-      sections: [
-        { id: "convert-how-it-works", title: "Convert: How It Works", exportPagePath: "ExportHowItWorks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportHowItWorks -->\n<!-- Sections: Hero → 3-Stage Process (Capture / Qualify / Book) → Integrations → CTA -->` }] },
-        { id: "convert-revenue-leaks", title: "Convert: Revenue Leaks", exportPagePath: "ExportRevenueLeaks", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportRevenueLeaks -->\n<!-- Sections: Hero → Leak 1 (Missed Calls) → Leak 2 (Junk Leads) → Leak 3 (Invisible Buyers) → CTA -->` }] },
-        { id: "convert-results", title: "Convert: Results (Titan Roofing Case Study)", exportPagePath: "ExportResults", items: [{ label: "INFO", code: `<!-- Full section-by-section HTML/CSS available at /ExportResults -->\n<!-- Sections: Hero → Stats Grid → Customer Story → CTA -->` }] },
-        { id: "convert-dashboard-preview", title: "Convert: Dashboard Preview", exportPagePath: "ExportDashboardPreview", items: [{ label: "INFO", code: `<!-- Route: /NeuralOSDashboard -->\n<!-- Full section-by-section HTML available at /ExportDashboardPreview -->\n<!-- Sections: Hero → KPI Row → AI Lead Table → Trust Strip → CTA -->` }] },
-        { id: "convert-revenue-engine-plans", title: "Convert: Revenue Engine Plans", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /RevenueEnginePlans -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Hero → Problem → System → Proof → Calculator → Packages (Activate/Amplify/Dominate) → Comparison Table → Guarantee → CTA -->` }] },
-        { id: "convert-book", title: "Convert: Book a Call", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /Book -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
-      ],
-    },
-    {
-      title: "ShiFt Attract — Inner Pages",
-      color: "#FA982F",
-      dotColor: "#FA982F",
-      badge: "How It Works · Empty Pipeline · Results · Pricing · Book",
-      exportPagePath: "ExportAttract",
-      sections: [
-        { id: "attract-how-it-works", title: "Attract: How It Works", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractHowItWorks -->\n<!-- Full section-by-section export available at /ExportAttract -->\n<!-- Sections: Hero → Lead Gen Process → Multi-Channel Overview → CTA -->` }] },
-        { id: "attract-empty-pipeline", title: "Attract: Empty Pipeline Problem", exportPagePath: "ExportAttractEmptyPipeline", items: [{ label: "INFO", code: `<!-- Route: /AttractEmptyPipeline -->\n<!-- Full section-by-section HTML/CSS available at /ExportAttractEmptyPipeline -->\n<!-- Sections: Hero → Pipeline Problems Grid → Cost of Inconsistency Stats → CTA -->` }] },
-        { id: "attract-results", title: "Attract: Results & Pipeline Proof", exportPagePath: "ExportAttract", items: [{ label: "INFO", code: `<!-- Route: /AttractResults -->\n<!-- Full section-by-section export available at /ExportAttract (section 5: Results & Testimonials) -->\n<!-- Sections: Hero → Results Stats → Case Study → CTA -->` }] },
-        { id: "attract-pricing", title: "Attract: Pricing", exportPagePath: "ExportRevenueEnginePlans", items: [{ label: "INFO", code: `<!-- Route: /AttractPricing -->\n<!-- Full section-by-section HTML/CSS available at /ExportRevenueEnginePlans -->\n<!-- Sections: Pricing tiers for ShiFt Attract lead gen packages -->` }] },
-        { id: "attract-book", title: "Attract: Book a Pipeline Audit", exportPagePath: "ExportBookACall", items: [{ label: "INFO", code: `<!-- Route: /AttractBook -->\n<!-- Full section-by-section HTML available at /ExportBookACall -->\n<!-- Sections: Hero → Booking Calendar Widget Embed → What to Expect -->` }] },
-      ],
-    },
-    {
-      title: "ShiFt NeuralOS Brand — Inner Pages",
-      color: "#FFD700",
-      dotColor: "#FFD700",
-      badge: "Platform · Roofing · Resources · About · Careers · Blog · Contact · Features · Integrations · Case Studies",
-      exportPagePath: "ExportBrandNeuralOS",
-      sections: [
-        { id: "brand-platform", title: "Platform Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Platform -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: NeuralOS system overview, AI modules, tech stack, integration diagram -->` }] },
-        { id: "brand-roofing", title: "Roofing Industry Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Roofing -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Roofing-specific pain points, ShiFt solution for contractors, testimonials -->` }] },
-        { id: "brand-resources", title: "Resources Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Resources -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Guides, calculators, playbooks, and tools for roofing contractors -->` }] },
-        { id: "brand-about", title: "About Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /About -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Mission → Pillars → Values -->` }] },
-        { id: "brand-careers", title: "Careers Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Careers -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Core Values → Open Positions -->` }] },
-        { id: "brand-blog", title: "Blog Page", exportPagePath: "Blog", items: [{ label: "INFO", code: `<!-- Route: /Blog\n     URL:   ShiFtNow.io/Blog\n     Purpose: Revenue intelligence content hub for roofing contractors\n     Sections:\n       - Hero (Revenue Intelligence for Roofing Contractors)\n       - Category filter pills (All / Strategy / AI & Automation / Case Study / Lead Gen / Operations)\n       - Featured post card (highlighted, gradient top bar)\n       - Article grid (3-col, animated with framer-motion, category badges)\n     Data source: content/blog-posts.js (JS module, 6 posts)\n     Posts:\n       - "Why Roofing Contractors Lose $47K in a Single Storm Season" (Strategy, Featured)\n       - "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever" (AI & Automation)\n       - "From $750K to $7M: How Titan Roofing Dominated Dallas" (Case Study)\n       - "Google Local Service Ads for Roofers: A Complete 2026 Guide" (Lead Gen)\n       - "The Empty Pipeline Problem — And the Only Real Fix" (Operations)\n       - "What Roofing Contractors Get Wrong About AI" (AI & Automation)\n     Export: React-only page (framer-motion animations) — use static HTML stub below for WordPress -->\n<!-- STATIC BLOG STUB for WordPress/Elementor: -->` }] },
-        { id: "brand-contact", title: "Contact Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Contact -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Contact Form + Contact Info (email, phone, address) -->` }] },
-        { id: "brand-features", title: "Features Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Features -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Feature Cards (AI Response / Qualification / Booking / Follow-Up / Analytics) -->` }] },
-        { id: "brand-integrations", title: "Integrations Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /Integrations -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Integration Categories (CRM / Calendar / Ads / Comms / Automation) -->` }] },
-        { id: "brand-case-studies", title: "Case Studies Page", exportPagePath: "ExportBrandNeuralOS", items: [{ label: "INFO", code: `<!-- Route: /CaseStudies -->\n<!-- Full global CSS/Nav/Footer export available at /ExportBrandNeuralOS -->\n<!-- Sections: Hero → Individual Case Study Cards (stats + testimonials) -->` }] },
-      ],
-    },
-    {
-      title: "Legal Pages",
+      title: "React-Only Pages (Screenshot Required)",
       color: "#6B7C93",
       dotColor: "#9DA3B4",
-      badge: "Privacy · Terms · Cookies",
-      exportPagePath: "PrivacyPolicy",
+      badge: "recharts · framer-motion · live state — cannot export as static HTML",
       sections: [
-        { id: "legal-privacy", title: "Privacy Policy", exportPagePath: "PrivacyPolicy", items: [{ label: "INFO", code: `<!-- Route: /PrivacyPolicy\n     URL:   ShiFtNow.io/PrivacyPolicy\n     Effective: March 15, 2026\n     Sections: 13 sections covering data collection, TCPA, sharing, retention, user rights (CCPA), contact -->\n<!-- Full text rendered at /PrivacyPolicy in the React app -->` }] },
-        { id: "legal-tos", title: "Terms of Service", exportPagePath: "TermsOfService", items: [{ label: "INFO", code: `<!-- Route: /TermsOfService\n     URL:   ShiFtNow.io/TermsOfService\n     Effective: March 15, 2026 | Version 21\n     Jurisdiction: Cherokee County, Georgia\n     Sections: 0–20 covering Definitions, 90-Day Non-Cancelable Term, No Refunds/Chargebacks, RevShare, Revenue Floor, TCPA, IP, Arbitration -->\n<!-- Full text rendered at /TermsOfService in the React app -->` }] },
-        { id: "legal-cookies", title: "Cookie Policy", exportPagePath: "CookiePolicy", items: [{ label: "INFO", code: `<!-- Route: /CookiePolicy\n     URL:   ShiFtNow.io/CookiePolicy\n     Effective: March 15, 2026\n     Sections: 12 sections covering cookie types (Necessary / Functional / Analytics / Marketing), consent, GPC, CCPA, Platform cookies -->\n<!-- Full text rendered at /CookiePolicy in the React app -->` }] },
+        { id: "screenshot-pages", title: "Screenshot-Only Pages (Interactive/Charts)", items: [{ label: "SCREENSHOT GUIDE", code: SCREENSHOT_NOTE }] },
       ],
     },
     {
-      title: "Downloadable Documentation",
-      color: "#63B3ED",
-      dotColor: "#63B3ED",
-      badge: "PDF · Markdown · Reference Docs",
-      exportPagePath: "DocumentsDownload",
-      sections: [
-        {
-          id: "documents-download",
-          title: "Documents Download Page",
-          exportPagePath: "DocumentsDownload",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /DocumentsDownload
-    URL:   ShiFtNow.io/DocumentsDownload
-    Purpose: User-facing page for downloading PRD & FTRD markdown documents
-    Sections:
-      - Hero (ShiFt Platform Documentation)
-      - Two Document Cards:
-        1. PRD_ShiFt_Platform.md (16KB, download button)
-        2. FTRD_ShiFt_Platform.md (37KB, download button)
-      - Info box linking to docs/ folder
-    Features:
-      - Click to download markdown files
-      - File metadata (size, format)
-      - Responsive card grid
-      - Framer Motion animations on entrance
-    Export: React-only page (uses backend downloadDocument function) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Customer Portal & Analytics",
-      color: "#63B3ED",
-      dotColor: "#63B3ED",
-      badge: "Authenticated · Dashboard · Billing",
-      sections: [
-        {
-          id: "customer-portal",
-          title: "Customer Portal (Authenticated)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /CustomerPortal
-    URL:   ShiFtNow.io/CustomerPortal
-    Purpose: Authenticated dashboard for customers to manage subscriptions, billing, leads, and revenue
-    Sections:
-      - Billing Overview (current plan, next billing date, status)
-      - Invoice History (downloadable PDFs, payment status)
-      - Payment Methods (secure Stripe link)
-      - Revenue Floor Status (90-day guarantee progress)
-      - Lead Management (lead list with status filters, search)
-      - Revenue Report (KPI cards, revenue trends, conversion funnel)
-    Auth: Requires login via Base44 auth
-    Components: BillingOverview, InvoiceHistory, PaymentMethods, RevenueFloorStatus, LeadManagement, RevenueReport
-    Export: React-only (uses base44 SDK for auth and data) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Contractor Tools & Calculators",
-      color: "#FFD700",
-      dotColor: "#FFD700",
-      badge: "Interactive · Analytics · Real-Time",
-      sections: [
-        {
-          id: "roi-calculator",
-          title: "ROI Calculator (Interactive)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /ROICalculator
-    URL:   ShiFtNow.io/ROICalculator
-    Purpose: Interactive calculator showing combined Attract + Convert ROI impact
-    Sections:
-      - Input controls: Monthly revenue, leads, close rate, pipeline growth, leak percentages
-      - Attract ROI (pipeline growth impact)
-      - Convert ROI (revenue leak plugging)
-      - Total Combined ROI calculation
-    Features:
-      - Real-time calculation as user adjusts inputs
-      - Separated Attract/Convert impact visualization
-      - Annual projection display
-      - CTA to book strategy call
-    Export: React-only page (uses form inputs and basic math) -->`
-          }]
-        },
-        {
-          id: "leak-detector",
-          title: "Revenue Leak Detector (Live CRM Analysis)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /LeakDetector
-    URL:   ShiFtNow.io/LeakDetector
-    Purpose: Interactive CRM analyzer that identifies and suggests fixes for revenue leaks
-    Sections:
-      - Live leak detection (Missed Follow-Up, Slow Response, Unclosed High-Intent)
-      - Category filtering and severity badges
-      - Summary KPIs (revenue at risk, critical leaks, fixes applied)
-      - Individual leak cards with:
-        * Estimated revenue impact
-        * Severity level
-        * Recommended fix
-        * Confirm/Execute modal
-      - All-fixed celebration state
-    Features:
-      - Mock CRM data analysis
-      - Interactive fix confirmation modal
-      - Animated leak card transitions
-      - Re-scan CRM button
-    Export: React-only page (interactive state management) -->`
-          }]
-        },
-        {
-          id: "campaign-insights",
-          title: "Campaign Insights (ROI Dashboard)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /CampaignInsights
-    URL:   ShiFtNow.io/CampaignInsights
-    Purpose: Campaign attribution dashboard comparing ROI across lead sources (Google, Meta, Organic)
-    Sections:
-      - KPI row: Total Spend, Revenue, Leads, Avg ROI
-      - Spend vs Revenue bar chart
-      - ROI comparison bar chart
-      - 4-week revenue trend line chart
-      - Detailed performance table (Source, Spend, Revenue, Leads, Booked, ROI, Cost/Lead)
-      - CTA to book strategy call
-    Features:
-      - Mock attribution data for 3 sources
-      - Recharts visualizations
-      - Responsive grid layout
-      - Framer Motion animations
-    Export: React-only page (uses mock data, can be connected to backend API) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Content & Resources",
-      color: "#48BB78",
-      dotColor: "#48BB78",
-      badge: "Blog · Articles · Marketing",
-      sections: [
-        {
-          id: "blog",
-          title: "Blog (Revenue Intelligence Content Hub)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /Blog
-    URL:   ShiFtNow.io/Blog
-    Purpose: Revenue intelligence content hub for roofing contractors
-    Sections:
-      - Hero (Revenue Intelligence for Roofing Contractors)
-      - Category filter pills (All / Strategy / AI & Automation / Case Study / Lead Gen / Operations)
-      - Featured post card (highlighted, gradient top bar)
-      - Article grid (3-col, animated with framer-motion, category badges)
-    Data source: content/blog-posts.js (JS module, 6 posts)
-    Posts:
-      - "Why Roofing Contractors Lose $47K in a Single Storm Season" (Strategy, Featured)
-      - "The 30-Second Rule: Why Response Speed Is Your Biggest Revenue Lever" (AI & Automation)
-      - "From $750K to $7M: How Titan Roofing Dominated Dallas" (Case Study)
-      - "Google Local Service Ads for Roofers: A Complete 2026 Guide" (Lead Gen)
-      - "The Empty Pipeline Problem — And the Only Real Fix" (Operations)
-      - "What Roofing Contractors Get Wrong About AI" (AI & Automation)
-    Export: React-only page (framer-motion animations) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Dashboard & Preview Pages",
-      color: "#63B3ED",
-      dotColor: "#63B3ED",
-      badge: "Live Dashboard · KPIs · Real-Time",
-      sections: [
-        {
-          id: "neuralaos-dashboard",
-          title: "NeuralOS Dashboard Preview (Live)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /NeuralOSDashboard
-    URL:   ShiFtNow.io/NeuralOSDashboard
-    Purpose: High-fidelity mock-up of the contractor portal shown to prospects to build trust
-    Sections:
-      - Live KPI row (AI conversations, bookings, avg response, monthly revenue, close rate, ROI)
-      - 8-week platform-attributed revenue line chart
-      - Leads vs Booked 7-day bar chart
-      - Filterable AI Lead Intelligence table (status, lead score, est. value, AI response time)
-      - Live AI Activity Log (booked / qualifying / follow-up / inbound / storm events)
-      - Trust strip (Live in 7 Days / Every Lead Captured / Full Transparency / 90-Day Floor)
-      - CTA → Book a Strategy Call
-    Features:
-      - Live counter hooks for real-time KPI updates
-      - Recharts visualizations
-      - Animated lead rows and activity log
-      - Framer Motion entrance effects
-    Export: React-only page (recharts + framer-motion) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Interactive Tools & Analytics",
-      color: "#63B3ED",
-      dotColor: "#63B3ED",
-      badge: "Real-Time · Data Visualization",
-      sections: [
-        {
-          id: "revenue-leak-calculator-new",
-          title: "Revenue Leak Calculator (Three-Card Design)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /RevenueEnginePlans (embedded in page)
-    URL:   ShiFt NeuralOS/RevenueEnginePlans (embedded section)
-    Purpose: Single monthly revenue slider that calculates three revenue leak impacts in real-time
-    Sections:
-      - Header: "What Is Your Business Actually Losing?" with description
-      - Slider Card: Monthly revenue input (range $50K–$500K, step $5K, default $200K)
-      - Three Output Cards:
-        1. Missed Calls Loss (red): ~1 missed call per $10K revenue × $15K avg job × 25% close
-        2. Garbage Leads Loss (orange): ~1 lead per $4K revenue × 40% garbage × 2hrs × $50/hr
-        3. Total Documented Loss (gold): Sum of above two leaks
-    Features:
-      - Real-time calculation as slider moves
-      - Formatted currency display with thousands separator
-      - Responsive grid layout (auto-fit, minmax 280px)
-      - Context footer explaining the three leaks
-    Constants (per SHIFT-CALC-001 v1.0):
-      - Missed Calls: $15K avg job value, 25% close rate
-      - Garbage Leads: 40% garbage rate, 2 hrs/lead, $50/hr
-    Export: React component (components/revenue/RevenueLeakCalculator.jsx) -->`
-          }]
-        },
-        {
-          id: "leak-detector-tool",
-          title: "Revenue Leak Detector (CRM Analysis)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /LeakDetector
-    URL:   ShiFt NeuralOS/LeakDetector
-    Purpose: Interactive CRM analyzer identifying and suggesting fixes for revenue leaks
-    Sections:
-      - KPI Summary: Revenue at risk, Critical leaks count, Fixes applied
-      - Category Filter Pills: All / Missed Follow-Up / Slow Response / Unclosed High-Intent
-      - Leak Cards: Individual leaks with severity badge, impact $, recommended fix, confirm modal
-      - All-Fixed Celebration State: Animated success message when all leaks resolved
-    Features:
-      - Mock CRM data analysis with severity levels
-      - Interactive fix confirmation modals
-      - Animated leak card transitions
-      - Re-scan CRM button for fresh analysis
-      - Real-time KPI updates
-    Export: React component (pages/LeakDetector.jsx) -->`
-          }]
-        },
-        {
-          id: "campaign-insights-dashboard",
-          title: "Campaign Insights (ROI Attribution Dashboard)",
-          items: [{
-            label: "INFO",
-            code: `<!-- Route: /CampaignInsights
-    URL:   ShiFt NeuralOS/CampaignInsights
-    Purpose: Campaign attribution dashboard comparing ROI across lead sources (Google, Meta, Organic)
-    Sections:
-      - KPI Row: Total Spend, Revenue, Leads, Avg ROI (stat cards with animated counters)
-      - Spend vs Revenue Bar Chart (Recharts)
-      - ROI Comparison Bar Chart (Recharts)
-      - 4-Week Revenue Trend Line Chart (Recharts)
-      - Detailed Performance Table: Source, Spend, Revenue, Leads, Booked, ROI, Cost/Lead
-    Features:
-      - Mock attribution data for 3 sources (Google Ads, Meta, Organic)
-      - Recharts visualizations with responsive containers
-      - Framer Motion entrance animations
-      - Responsive grid layout
-      - CTA to book strategy call
-    Export: React component (pages/CampaignInsights.jsx) -->`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Backend Functions",
-      color: "#F54A48",
-      dotColor: "#F54A48",
-      badge: "Documentation · Exports",
-      sections: [
-        {
-          id: "backend-functions",
-          title: "Backend Functions Developed",
-          items: [{
-            label: "downloadDocument",
-            code: `// Function: downloadDocument
-    // File: functions/downloadDocument.js
-    // Purpose: Serve markdown documents for download (PRD, FTRD)
-    // Endpoint: /api/downloadDocument?filename=PRD_ShiFt_Platform.md
-    // Method: GET
-    // Returns: Markdown file blob with Content-Disposition: attachment
-    // 
-    // Usage:
-    // fetch(\`/api/downloadDocument?filename=PRD_ShiFt_Platform.md\`)
-    //   .then(res => res.blob())
-    //   .then(blob => {
-    //     const url = URL.createObjectURL(blob);
-    //     const a = document.createElement('a');
-    //     a.href = url;
-    //     a.download = 'PRD_ShiFt_Platform.md';
-    //     a.click();
-    //   });
-    //
-    // Documents Available:
-    // - PRD_ShiFt_Platform.md (Product Requirements Document, ~16KB)
-    // - FTRD_ShiFt_Platform.md (Functional & Technical Requirements, ~37KB)
-    //
-    // Response Headers:
-    // - Content-Type: text/markdown; charset=utf-8
-    // - Content-Disposition: attachment; filename="..."
-    // - Status: 200 OK (success) or 404 (document not found)`
-          }]
-        },
-      ],
-    },
-    {
-      title: "Complete URL Map — All Pages",
+      title: "Complete URL Map — All Routes",
       color: "#6B7C93",
       dotColor: "#9DA3B4",
-      exportPagePath: "MasterExport",
       sections: [
-        {
-          id: "all-pages-url-map",
-          title: "Full Site URL Reference (All Routes)",
-          exportPagePath: "MasterExport",
-          items: [{
-            label: "URL MAP",
-            code: `<!-- COMPLETE SITE SITEMAP & ROUTING ──────────────────────────────────
-  
-  ── BRAND SITE (NeuralOS) ─────────────────────────────────────────────
-  /                    → Redirect to /BrandHome
-  /BrandHome           → NeuralOS home (hero + problem selector + products + proof + CTA)
-  /Platform            → Platform overview (NeuralOS system)
-  /Roofing             → Industry-specific landing (roofing contractors)
-  /Resources           → Resources hub (guides, playbooks, tools)
-  /About               → Company mission & values
-  /Careers             → Open positions & culture
-  /Contact             → Contact form & info (nested under About in nav)
-  /Features            → Product features (AI tools breakdown)
-  /Integrations        → Supported integrations (CRM, Calendar, Ads)
-  /CaseStudies         → Case studies (contractor success stories)
-  /Blog                → Blog (revenue intelligence content hub)
+        { id: "url-map", title: "Full Site URL Reference (30+ Routes)", items: [{ label: "URL MAP", code: `<!-- ══ COMPLETE SITE ROUTE MAP ══
 
-  ── REVENUE ENGINE PLANS ──────────────────────────────────────────────
-  /RevenueEnginePlans  → Pricing (Activate / Amplify / Dominate packages)
+── BRAND SITE (NeuralOS) ──────────────────────
+/BrandHome       → NeuralOS home (Hero + ProblemSelector 4-cards + TwoProducts + SocialProof + CTA)
+/Platform        → Platform overview
+/Roofing         → Industry landing
+/Resources       → Resources hub
+/About           → Company mission
+/Careers         → Open positions
+/Contact         → Contact form
+/Features        → AI features breakdown
+/Integrations    → Supported integrations
+/CaseStudies     → Case studies
+/Blog            → Revenue intelligence blog
 
-  ── SHIFTCONVERT PRODUCT ──────────────────────────────────────────────
-  /Home                → Convert home (revenue leaks hero)
-  /HowItWorks          → Convert: How it works (3-stage process)
-  /RevenueLeaks        → Convert: Revenue leak breakdown
-  /Results             → Convert: Results & case study
-  /Book                → Convert: Book a call
+── REVENUE ENGINE PLANS ──────────────────────
+/RevenueEnginePlans  → Pricing (Activate / Amplify / Dominate)
 
-  ── SHIFTATTRACT PRODUCT ──────────────────────────────────────────────
-  /AttractHome         → Attract home (empty pipeline hero)
-  /AttractHowItWorks   → Attract: How it works
-  /AttractEmptyPipeline → Attract: Empty pipeline problem
-  /AttractResults      → Attract: Results & proof
-  /AttractPricing      → Attract: Pricing tiers
-  /AttractBook         → Attract: Book pipeline audit
-  /CampaignInsights    → Campaign Insights (ROI dashboard - Google/Meta/Organic)
+── SHIFTCONVERT PRODUCT ──────────────────────
+/Home            → Convert home (HeroNew + ProblemCards + ComparisonTable + Mechanism + ProofSection + ConversionPath + FAQ + CTA)
+/HowItWorks      → Convert: How it works
+/RevenueLeaks    → Convert: Revenue leak breakdown
+/Results         → Convert: Results & case study
+/Book            → Convert: Book a call
 
-  ── CONTRACTOR TOOLS & DASHBOARDS ─────────────────────────────────────
-  /NeuralOSDashboard   → Dashboard preview (high-fidelity mock, live KPIs, lead table)
-  /ROICalculator       → Interactive ROI calculator (Attract + Convert combined)
-  /LeakDetector        → Revenue leak detector (CRM analysis tool)
-  /CampaignInsights    → Campaign insights (attribution & ROI by source)
+── SHIFTATTRACT PRODUCT ──────────────────────
+/AttractHome     → Attract home (AttractHero + EmptyPipelineProblems + AttractSolution + AttractROICalculator + SocialProof + FAQ + CTA)
+/AttractHowItWorks    → Attract: How it works
+/AttractEmptyPipeline → Attract: Empty pipeline
+/AttractResults       → Attract: Results
+/AttractPricing       → Attract: Pricing
+/AttractBook          → Attract: Book pipeline audit
+/CampaignInsights     → Attribution dashboard (Google/Meta/Organic) [React-only]
 
-  ── AUTHENTICATED CUSTOMER PORTAL ──────────────────────────────────────
-  /CustomerPortal      → Customer portal (billing, invoices, leads, revenue reports)
-                         - Requires authentication
-                         - Sections: Billing, Invoices, Payment Methods, Revenue Floor, Leads, Revenue Report
+── INTERACTIVE TOOLS ─────────────────────────
+/NeuralOSDashboard → Dashboard preview [React-only / recharts]
+/ROICalculator     → Attract + Convert ROI calculator [React-only]
+/LeakDetector      → CRM leak detection tool [React-only]
+/CampaignInsights  → Campaign attribution ROI [React-only]
 
-  ── DOCUMENTATION ─────────────────────────────────────────────────────
-  /DocumentsDownload   → Download PRD & FTRD markdown documents
-  /MasterExport        → This page (code export hub)
+── AUTHENTICATED ─────────────────────────────
+/CustomerPortal  → Customer billing + revenue portal [React-only]
+/Onboarding      → Multi-step setup wizard [React-only]
 
-  ── LEGAL ─────────────────────────────────────────────────────────────
-  /PrivacyPolicy       → Privacy policy (effective March 15, 2026)
-  /TermsOfService      → Terms of service (effective March 15, 2026)
-  /CookiePolicy        → Cookie policy (effective March 15, 2026)
+── DOCUMENTATION ─────────────────────────────
+/DocumentsDownload → PRD & FTRD markdown downloads
+/MasterExport      → This page
 
-  ── ONBOARDING ────────────────────────────────────────────────────────
-  /Onboarding          → Multi-step customer onboarding (CRM, KPIs, AI config)
+── LEGAL ─────────────────────────────────────
+/PrivacyPolicy   → Privacy policy (effective March 15, 2026)
+/TermsOfService  → Terms of service
+/CookiePolicy    → Cookie policy
 
-  ── EXPORT PAGES (Developer Tool) ─────────────────────────────────────
-  /MasterExport              → This page (main export hub)
-  /ExportBrandNeuralOS       → Brand: global CSS, nav, all sections
-  /ExportConvert             → Convert: full page
-  /ExportAttract             → Attract: full page
-  /ExportRevenueEnginePlans  → Revenue Engine Plans: full page
-  /ExportHowItWorks          → Convert: How It Works
-  /ExportRevenueLeaks        → Convert: Revenue Leaks
-  /ExportResults             → Convert: Results / Case Study
-  /ExportAttractEmptyPipeline → Attract: Empty Pipeline
-  /ExportDashboardPreview    → NeuralOS Dashboard Preview
-  /ExportBookACall           → Book a Call page
-
-  ── FULL ROUTE COUNT ──────────────────────────────────────────────────
-  Total pages implemented: 30+
-  Total functionality: 3 main products (NeuralOS, Attract, Convert) + 4 tools + 1 portal
--->`
-          }]
-        },
+── EXPORT PAGES (Dev Tool) ───────────────────
+/MasterExport              → This page
+/ExportBrandNeuralOS       → Brand sections
+/ExportConvert             → Convert sections
+/ExportAttract             → Attract sections
+/ExportRevenueEnginePlans  → Plans full HTML
+/ExportHowItWorks          → How It Works
+/ExportRevenueLeaks        → Revenue Leaks
+/ExportResults             → Results / Case Study
+/ExportAttractEmptyPipeline → Empty Pipeline
+/ExportDashboardPreview    → Dashboard Preview
+/ExportBookACall           → Book a Call -->` }] },
       ],
     },
   ];
@@ -1547,14 +1288,40 @@ Usage:
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border mb-6 font-mono text-xs uppercase tracking-widest"
             style={{ background: "rgba(245,74,72,0.08)", borderColor: "rgba(245,74,72,0.3)", color: "#F54A48" }}>
             <Globe className="w-4 h-4" />
-            Master Export Hub
+            Master Export Hub · v2 — Current Source
           </div>
           <h1 className="font-display text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
             Site Export Center
           </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-            Every page, every section — pure HTML/CSS/JS, Elementor + WordPress ready.
+          <p className="text-lg max-w-2xl mx-auto mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>
+            HTML extracted directly from live React component files. Always current.
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-mono text-xs"
+            style={{ background: "rgba(72,187,120,0.1)", border: "1px solid rgba(72,187,120,0.3)", color: "#48BB78" }}>
+            ✓ BrandHome · ConvertHome · AttractHome all rebuilt from source components
+          </div>
+        </div>
+
+        {/* Interactive pages callout */}
+        <div className="rounded-2xl p-6 mb-8" style={{ background: "rgba(99,179,237,0.06)", border: "1px solid rgba(99,179,237,0.2)" }}>
+          <div className="flex items-start gap-3">
+            <Camera className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#63B3ED" }} />
+            <div>
+              <h3 className="font-display text-sm font-bold text-white mb-2">React-Only Pages → Use Screenshots</h3>
+              <p className="text-xs mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>
+                NeuralOSDashboard, ROICalculator, LeakDetector, CampaignInsights, CustomerPortal, AttractROICalculator use recharts + live state — cannot be exported as static HTML.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["/NeuralOSDashboard", "/ROICalculator", "/LeakDetector", "/CampaignInsights", "/CustomerPortal", "/AttractHome#roi"].map(url => (
+                  <a key={url} href={url} target="_blank" rel="noreferrer"
+                    className="font-mono text-xs px-2 py-1 rounded-md"
+                    style={{ background: "rgba(99,179,237,0.1)", color: "#63B3ED", border: "1px solid rgba(99,179,237,0.2)" }}>
+                    {url}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Full Site Export CTA */}
@@ -1562,12 +1329,12 @@ Usage:
           style={{ background: "linear-gradient(135deg, rgba(245,74,72,0.12), rgba(250,152,47,0.08))", border: "1px solid rgba(245,74,72,0.25)" }}>
           <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%) translateY(-50%)", width: 500, height: 200, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(245,74,72,0.15), transparent 70%)", pointerEvents: "none" }} />
           <div className="relative">
-            <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="flex items-center justify-center gap-2 mb-3">
               <Layers className="w-6 h-6" style={{ color: "#FA982F" }} />
-              <span className="font-display text-xl font-bold text-white">Export Entire Site</span>
+              <span className="font-display text-xl font-bold text-white">Export Entire Site (v2 — Current)</span>
             </div>
             <p className="text-sm mb-6 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Downloads <strong className="text-white">ShiFtNeuralOS-FullSite.html</strong> (single assembled page) <strong className="text-white">+</strong> <strong className="text-white">ShiFtNeuralOS-FullSite.zip</strong> containing every page as a separate HTML file with shared CSS/JS assets and a README.
+              Downloads <strong className="text-white">Brand Home HTML</strong> + <strong className="text-white">ZIP</strong> with brand-home, convert/index, attract/index, shared assets, and README.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <button
@@ -1576,15 +1343,15 @@ Usage:
                 style={{ background: "linear-gradient(135deg,#F54A48,#FA982F)", color: "#fff", boxShadow: "0 4px 24px rgba(245,74,72,0.35)" }}
               >
                 <Download className="w-4 h-4" />
-                {downloading ? "Building ZIP..." : "Download Full Site HTML + ZIP"}
+                {downloading ? "Building ZIP..." : "Download Current HTML + ZIP"}
               </button>
               <button
-                onClick={() => { const html = buildFullSite(); handleCopy(html, "full-site"); }}
+                onClick={() => handleCopy(buildFullSite(), "full-site")}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-mono text-sm font-bold uppercase tracking-wider transition-all"
                 style={{ background: copied === "full-site" ? "rgba(72,187,120,0.15)" : "rgba(255,255,255,0.06)", border: `1px solid ${copied === "full-site" ? "rgba(72,187,120,0.3)" : "rgba(255,255,255,0.15)"}`, color: copied === "full-site" ? "#48BB78" : "white" }}
               >
                 {copied === "full-site" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                {copied === "full-site" ? `Copied! (${Math.round(buildFullSite().length / 1024)}KB)` : "Copy Full Site HTML"}
+                {copied === "full-site" ? "Copied!" : "Copy Brand Home HTML"}
               </button>
             </div>
           </div>
@@ -1594,12 +1361,11 @@ Usage:
         <div className="rounded-2xl p-6 mb-10" style={{ background: "rgba(72,187,120,0.06)", border: "1px solid rgba(72,187,120,0.2)" }}>
           <h2 className="font-display text-base font-bold text-white mb-3">Elementor / WordPress Import Guide</h2>
           <ol className="space-y-1.5 text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
-            <li><strong className="text-white">1.</strong> Add <strong className="text-white">Global CSS</strong> → <em>Appearance → Customize → Additional CSS</em></li>
-            <li><strong className="text-white">2.</strong> Add <strong className="text-white">Nav CSS</strong> and <strong className="text-white">Footer CSS</strong> to the same Additional CSS block</li>
-            <li><strong className="text-white">3.</strong> For each page section: insert an <strong className="text-white">HTML widget</strong> in Elementor → paste HTML</li>
-            <li><strong className="text-white">4.</strong> Paste section-specific CSS in <strong className="text-white">Advanced → Custom CSS</strong> on each widget</li>
-            <li><strong className="text-white">5.</strong> Paste JS (Nav JS + FAQ JS) in <em>Appearance → Theme Editor → footer.php</em> before <code className="text-white">&lt;/body&gt;</code></li>
-            <li><strong className="text-white">6.</strong> Or use the <strong className="text-white">Download Full Site HTML</strong> button above for a standalone file</li>
+            <li><strong className="text-white">1.</strong> Add <strong className="text-white">Global CSS</strong> + <strong className="text-white">Nav CSS</strong> + <strong className="text-white">Footer CSS</strong> → <em>Appearance → Customize → Additional CSS</em></li>
+            <li><strong className="text-white">2.</strong> For each section: insert <strong className="text-white">HTML widget</strong> in Elementor → paste section HTML</li>
+            <li><strong className="text-white">3.</strong> Paste Nav JS + FAQ JS in <em>Theme Editor → footer.php</em> before <code className="text-white">&lt;/body&gt;</code></li>
+            <li><strong className="text-white">4.</strong> For recharts/interactive pages: use <strong className="text-white">&lt;iframe&gt;</strong> pointing to live page or embed screenshots</li>
+            <li><strong className="text-white">5.</strong> Or use the <strong className="text-white">Download</strong> button above for standalone HTML files</li>
           </ol>
         </div>
 
@@ -1617,10 +1383,9 @@ Usage:
           ))}
         </div>
 
-        {/* Footer note */}
         <div className="mt-10 p-5 rounded-xl text-center" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-            ShiFt NeuralOS™ Master Export · All HTML is pure CSS/JS, no React dependencies · Elementor + WordPress compatible
+            ShiFt NeuralOS™ Master Export v2 · HTML extracted from live React source files · Last updated March 2026
           </p>
         </div>
       </div>
