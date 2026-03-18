@@ -954,6 +954,174 @@ const ATTRACT_HOME_HTML = `<!-- ATTRACT HOME: AttractHero + EmptyPipelineProblem
   </section>
 </main>`;
 
+const CALCULATOR_HTML = `<!-- CALCULATOR PAGE: "What Is Your Business Actually Losing?" — SHIFT-CALC-001 v1.0 -->
+<!-- Use NeuralOS Nav + Global CSS + Footer -->
+<style>
+.calc-font-display { font-family: 'Montserrat Alternates', sans-serif; }
+.calc-font-mono { font-family: 'JetBrains Mono', monospace; }
+.calc-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px; border-radius: 3px; outline: none; cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 24px; height: 24px; border-radius: 50%; background: #F54A48; cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(245,74,72,0.2), 0 2px 8px rgba(0,0,0,0.4); transition: box-shadow 0.2s ease;
+}
+.calc-slider::-webkit-slider-thumb:hover { box-shadow: 0 0 0 6px rgba(245,74,72,0.3), 0 2px 12px rgba(0,0,0,0.5); }
+.calc-slider::-moz-range-thumb {
+  width: 24px; height: 24px; border-radius: 50%; background: #F54A48; cursor: pointer; border: none;
+  box-shadow: 0 0 0 4px rgba(245,74,72,0.2);
+}
+.calc-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 36px 28px; text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.calc-card:hover { transform: translateY(-3px); }
+</style>
+
+<main style="padding-top:72px;">
+  <section style="min-height:100vh;background:#070820;padding:100px 24px 80px;">
+    <div style="max-width:860px;margin:0 auto;">
+
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:60px;">
+        <div class="calc-font-mono" style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#F54A48;margin-bottom:20px;">
+          <span style="width:6px;height:12px;background:linear-gradient(135deg,#F54A48,#FA982F);border-radius:2px;display:inline-block;"></span>
+          Revenue Loss Calculator · SHIFT-CALC-001 v1.0
+        </div>
+        <h1 class="calc-font-display" style="font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.08;letter-spacing:-2px;color:#fff;margin-bottom:20px;">
+          What Is Your Business<br>
+          <span style="background:linear-gradient(135deg,#F54A48,#FA982F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Actually Losing?</span>
+        </h1>
+        <p style="font-size:18px;color:rgba(255,255,255,0.55);max-width:580px;margin:0 auto;line-height:1.7;">
+          Move the slider to your monthly revenue. Watch your three revenue leaks calculate in real time.
+        </p>
+      </div>
+
+      <!-- Slider Card -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:44px 40px;margin-bottom:40px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+          <div>
+            <div class="calc-font-mono" style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-bottom:6px;">Your Monthly Revenue</div>
+            <div class="calc-font-display" id="rev-display" aria-label="Monthly Revenue" aria-valuetext="$200,000"
+              style="font-size:clamp(36px,6vw,52px);font-weight:900;line-height:1;background:linear-gradient(135deg,#F54A48,#FA982F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+              $200,000
+            </div>
+          </div>
+          <div class="calc-font-mono" style="font-size:12px;color:rgba(255,255,255,0.25);text-align:right;">per month</div>
+        </div>
+        <input type="range" class="calc-slider" id="rev-slider"
+          min="50000" max="500000" step="5000" value="200000"
+          aria-label="Monthly Revenue" aria-valuemin="50000" aria-valuemax="500000" aria-valuenow="200000"
+          style="background:linear-gradient(to right,#F54A48 33.33%,rgba(255,255,255,0.1) 33.33%);"
+          oninput="updateCalc(parseInt(this.value))" />
+        <div style="display:flex;justify-content:space-between;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);">
+          <span>$50,000</span><span>$500,000</span>
+        </div>
+      </div>
+
+      <!-- Three Output Cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:40px;">
+        <!-- Card 1 -->
+        <div class="calc-card" style="border-color:rgba(245,74,72,0.25);">
+          <div class="calc-font-mono" style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:14px;">Missed Calls Loss</div>
+          <div class="calc-font-display" id="out-missed" aria-live="polite"
+            style="font-size:clamp(32px,5vw,44px);font-weight:900;color:#F54A48;margin-bottom:14px;line-height:1;">$18,750</div>
+          <div class="calc-font-mono" id="out-missed-formula"
+            style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.55;">~20 missed calls × $15K avg job × 25% close rate</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="calc-card" style="border-color:rgba(250,152,47,0.25);">
+          <div class="calc-font-mono" style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:14px;">Garbage Leads Loss</div>
+          <div class="calc-font-display" id="out-garbage" aria-live="polite"
+            style="font-size:clamp(32px,5vw,44px);font-weight:900;color:#FA982F;margin-bottom:14px;line-height:1;">$2,000</div>
+          <div class="calc-font-mono" id="out-garbage-formula"
+            style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.55;">~50 leads × 40% garbage × 2hrs × $50/hr</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="calc-card" style="border-color:rgba(255,215,0,0.3);background:rgba(255,215,0,0.04);">
+          <div class="calc-font-mono" style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:14px;">Total Documented Loss</div>
+          <div class="calc-font-display" id="out-total" aria-live="polite"
+            style="font-size:clamp(32px,5vw,44px);font-weight:900;color:#FFD700;margin-bottom:14px;line-height:1;">$20,750</div>
+          <div class="calc-font-mono" style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.55;">Missed calls + Garbage leads</div>
+        </div>
+      </div>
+
+      <!-- Context footer -->
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:28px 32px;margin-bottom:48px;text-align:center;">
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;margin:0;font-style:italic;">
+          These three leaks represent documented, measurable revenue your business is losing every month.
+          The calculator uses conservative industry averages — your actual leaks may be higher.
+          Figures calculated per SHIFT-CALC-001 v1.0.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;">
+        <p class="calc-font-display" style="font-size:clamp(22px,4vw,32px);font-weight:800;color:#fff;margin-bottom:8px;">
+          Start Closing Your Gap
+        </p>
+        <p style="font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.6;">
+          You're losing <strong id="cta-total" style="color:#FFD700;">$20,750</strong> every month. The math is simple.
+        </p>
+        <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank"
+          style="display:inline-flex;align-items:center;gap:10px;padding:18px 48px;background:linear-gradient(135deg,#F54A48,#FA982F);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.08em;border-radius:12px;text-decoration:none;box-shadow:0 4px 32px rgba(245,74,72,0.35);">
+          Book a Strategy Call →
+        </a>
+        <p class="calc-font-mono" style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.1em;">
+          Live in 7 days · 90-Day Revenue Floor · No long-term contracts
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+// SHIFT-CALC-001 v1.0 — Calculator JS
+var MISSED_CALLS_AVG_JOB = 15000;
+var MISSED_CALLS_CLOSE_RATE = 0.25;
+var MISSED_CALLS_PER_DOLLAR = 1/10000;
+var GARBAGE_PERCENT = 0.40;
+var HOURS_PER_LEAD = 2;
+var HOURLY_RATE = 50;
+var LEADS_PER_DOLLAR = 1/4000;
+
+function fmt(n) {
+  if (isNaN(n) || !isFinite(n)) return '--';
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+function updateCalc(rev) {
+  rev = Math.max(50000, Math.min(500000, rev));
+  var M = Math.round(rev * MISSED_CALLS_PER_DOLLAR);
+  var missedLoss = M * MISSED_CALLS_AVG_JOB * MISSED_CALLS_CLOSE_RATE;
+  var L = Math.round(rev * LEADS_PER_DOLLAR);
+  var garbageLoss = L * GARBAGE_PERCENT * HOURS_PER_LEAD * HOURLY_RATE;
+  var totalLoss = missedLoss + garbageLoss;
+  var pct = ((rev - 50000) / (500000 - 50000)) * 100;
+
+  document.getElementById('rev-display').textContent = '$' + rev.toLocaleString('en-US');
+  document.getElementById('rev-display').setAttribute('aria-valuetext', '$' + rev.toLocaleString('en-US'));
+  document.getElementById('rev-slider').style.background = 'linear-gradient(to right,#F54A48 ' + pct + '%,rgba(255,255,255,0.1) ' + pct + '%)';
+  document.getElementById('out-missed').textContent = fmt(missedLoss);
+  document.getElementById('out-missed-formula').textContent = '~' + M + ' missed calls × $15K avg job × 25% close rate';
+  document.getElementById('out-garbage').textContent = fmt(garbageLoss);
+  document.getElementById('out-garbage-formula').textContent = '~' + L + ' leads × 40% garbage × 2hrs × $' + HOURLY_RATE + '/hr';
+  document.getElementById('out-total').textContent = fmt(totalLoss);
+  document.getElementById('cta-total').textContent = fmt(totalLoss);
+}
+// Init at default $200K
+updateCalc(200000);
+// Keyboard accessibility
+document.getElementById('rev-slider').addEventListener('keydown', function(e) {
+  var step = e.shiftKey ? 50000 : 5000;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { this.value = Math.min(500000, parseInt(this.value) + step); updateCalc(parseInt(this.value)); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { this.value = Math.max(50000, parseInt(this.value) - step); updateCalc(parseInt(this.value)); e.preventDefault(); }
+});
+</script>`;
+
 const FAQ_JS_CODE = `function shiftToggleFaq(btn){var item=btn.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.shift-faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}`;
 
 const SCREENSHOT_NOTE = `<!-- ══════════════════════════════════════════════
