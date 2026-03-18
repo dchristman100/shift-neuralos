@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "../../utils";
 
 const navLinks = [
-  { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
-  { label: "Demo", href: "/NeuralOSDashboard" },
   { label: "Platform", href: "/Platform" },
   { label: "Roofing", href: "/Roofing" },
+  { label: "Demo", href: "/NeuralOSDashboard" },
+  { label: "Revenue Engine Plans", href: "/RevenueEnginePlans" },
 ];
 
 const sideMenuLinks = [
