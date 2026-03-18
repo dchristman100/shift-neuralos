@@ -3,6 +3,27 @@ import JSZip from "jszip";
 import { Copy, Check, Download, ChevronDown, ChevronRight, Globe, Layers, ExternalLink, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
+import {
+  HOW_IT_WORKS_HTML,
+  REVENUE_LEAKS_HTML,
+  RESULTS_HTML,
+  FEATURES_HTML,
+  INTEGRATIONS_HTML,
+  CASE_STUDIES_HTML,
+  BLOG_HTML,
+  ABOUT_HTML,
+  CAREERS_HTML,
+  CONTACT_HTML,
+  PLATFORM_HTML,
+  ROOFING_HTML,
+  RESOURCES_HTML,
+  ATTRACT_HOW_IT_WORKS_HTML,
+  ATTRACT_RESULTS_HTML,
+  ATTRACT_EMPTY_PIPELINE_HTML,
+  PRIVACY_POLICY_HTML,
+  TERMS_OF_SERVICE_HTML,
+  COOKIE_POLICY_HTML,
+} from "./MasterExportPageData";
 
 // ─── COPY BUTTON ────────────────────────────────────────────────────────────
 function CopyBtn({ code, id, copied, onCopy }) {
