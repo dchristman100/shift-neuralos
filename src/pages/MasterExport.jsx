@@ -351,7 +351,7 @@ const BRAND_HOME_HTML = `<!-- BRAND HOME: BrandHero + ProblemSelector + TwoProdu
           Roofing contractors lose $35K–$100K+ monthly to broken lead systems. ShiFt NeuralOS plugs the leaks with AI that generates, qualifies, and converts leads 24/7—without adding headcount.
         </p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;">
-          <a href="#problem-selector" class="btn-primary" style="padding:18px 36px;font-size:1rem;">Find Your Gap →</a>
+          <a href="https://shiftnow.io/Calculator" class="btn-primary" style="padding:18px 36px;font-size:1rem;">Find Your Gap →</a>
         </div>
         <p class="font-mono" style="font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.4);">Trusted by 847+ roofing companies across 42 states</p>
       </div>
