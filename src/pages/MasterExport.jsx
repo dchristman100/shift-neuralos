@@ -1336,6 +1336,19 @@ NOTES:
       ],
     },
     {
+      title: "Calculator — Find Your Gap",
+      color: "#F54A48",
+      dotColor: "#FA982F",
+      badge: "CURRENT — SHIFT-CALC-001 v1.0 · Interactive slider + 3 output cards",
+      sections: [
+        {
+          id: "calculator-full",
+          title: "Calculator — Full Interactive HTML (slider, formulas, CTA)",
+          items: [{ label: "HTML + JS", code: CALCULATOR_HTML }],
+        },
+      ],
+    },
+    {
       title: "Revenue Engine Plans",
       color: "#F54A48",
       dotColor: "#FA982F",
