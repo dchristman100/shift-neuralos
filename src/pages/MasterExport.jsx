@@ -1266,6 +1266,31 @@ export default function MasterExport() {
     zip.file("attract/index.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ShiFt Attract</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}.at-section{padding:80px 24px;}.at-inner{max-width:1140px;margin:0 auto;}@media(min-width:768px){.at-section{padding:112px 32px;}}.at-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;transition:all .3s ease;}@keyframes ping{75%,100%{transform:scale(2);opacity:0;}}.shift-faq-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:16px;}.shift-faq-btn{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;text-align:left;color:white;}.shift-faq-question{font-family:'Montserrat Alternates',sans-serif;font-size:1.125rem;font-weight:600;color:white;}.shift-faq-chevron{width:20px;height:20px;flex-shrink:0;color:rgba(255,255,255,.4);transition:transform .3s ease;}.shift-faq-item.open .shift-faq-chevron{transform:rotate(180deg);color:#FA982F;}.shift-faq-answer{display:none;padding:0 24px 20px;font-size:.9375rem;color:rgba(255,255,255,.6);line-height:1.7;}.shift-faq-item.open .shift-faq-answer{display:block;}</style></head><body>${ATTRACT_NAV_HTML}${ATTRACT_HOME_HTML}${FOOTER_HTML}<script>${NAV_JS}${FAQ_JS_CODE}</script></body></html>`);
 
     zip.file("calculator/index.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ShiFt — Find Your Gap</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}</style></head><body>${NEURALAOS_NAV_HTML}${CALCULATOR_HTML}${FOOTER_HTML}<script>${NAV_JS}</script></body></html>`);
+  // Convert pages
+  const CONVERT_WRAP = (title, body) => `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${title} — ShiFt Convert</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}</style></head><body>${CONVERT_NAV_HTML}${body}${FOOTER_HTML}<script>${NAV_JS}</script></body></html>`;
+  zip.file("how-it-works/index.html", CONVERT_WRAP("How It Works", HOW_IT_WORKS_HTML));
+  zip.file("revenue-leaks/index.html", CONVERT_WRAP("Revenue Leaks", REVENUE_LEAKS_HTML));
+  zip.file("results/index.html", CONVERT_WRAP("Results", RESULTS_HTML));
+  // Attract pages
+  const ATTRACT_WRAP = (title, body) => `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${title} — ShiFt Attract</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}</style></head><body>${ATTRACT_NAV_HTML}${body}${FOOTER_HTML}<script>${NAV_JS}</script></body></html>`;
+  zip.file("attract-how-it-works/index.html", ATTRACT_WRAP("How It Works", ATTRACT_HOW_IT_WORKS_HTML));
+  zip.file("attract-empty-pipeline/index.html", ATTRACT_WRAP("Empty Pipeline", ATTRACT_EMPTY_PIPELINE_HTML));
+  zip.file("attract-results/index.html", ATTRACT_WRAP("Results", ATTRACT_RESULTS_HTML));
+  // NeuralOS pages
+  const NEURAL_WRAP = (title, body) => `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${title} — ShiFt NeuralOS</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>${GLOBAL_CSS}${NAV_CSS}${FOOTER_CSS}</style></head><body>${NEURALAOS_NAV_HTML}${body}${FOOTER_HTML}<script>${NAV_JS}</script></body></html>`;
+  zip.file("platform/index.html", NEURAL_WRAP("Platform", PLATFORM_HTML));
+  zip.file("roofing/index.html", NEURAL_WRAP("Roofing", ROOFING_HTML));
+  zip.file("features/index.html", NEURAL_WRAP("Features", FEATURES_HTML));
+  zip.file("integrations/index.html", NEURAL_WRAP("Integrations", INTEGRATIONS_HTML));
+  zip.file("case-studies/index.html", NEURAL_WRAP("Case Studies", CASE_STUDIES_HTML));
+  zip.file("blog/index.html", NEURAL_WRAP("Blog", BLOG_HTML));
+  zip.file("about/index.html", NEURAL_WRAP("About", ABOUT_HTML));
+  zip.file("careers/index.html", NEURAL_WRAP("Careers", CAREERS_HTML));
+  zip.file("contact/index.html", NEURAL_WRAP("Contact", CONTACT_HTML));
+  zip.file("resources/index.html", NEURAL_WRAP("Resources", RESOURCES_HTML));
+  zip.file("privacy-policy/index.html", NEURAL_WRAP("Privacy Policy", PRIVACY_POLICY_HTML));
+  zip.file("terms-of-service/index.html", NEURAL_WRAP("Terms of Service", TERMS_OF_SERVICE_HTML));
+  zip.file("cookie-policy/index.html", NEURAL_WRAP("Cookie Policy", COOKIE_POLICY_HTML));
   zip.file("SCREENSHOT-ONLY-PAGES.txt", SCREENSHOT_NOTE.replace(/<!--/g, "").replace(/-->/g, "").replace(/=+/g, "==="));
     zip.file("README.txt", `ShiFt NeuralOS — Full Site Export v3
 =====================================
