@@ -1422,7 +1422,11 @@ NOTES:
 /AttractBook          → Attract: Book pipeline audit
 /CampaignInsights     → Attribution dashboard (Google/Meta/Organic) [React-only]
 
-── INTERACTIVE TOOLS ─────────────────────────
+── CALCULATOR (Static HTML exportable) ───────
+/Calculator        → Revenue Loss Calculator (SHIFT-CALC-001 v1.0)
+                     Slider $50K–$500K, 3 output cards, live JS, CTA
+
+── INTERACTIVE TOOLS (React-only) ───────────
 /NeuralOSDashboard → Dashboard preview [React-only / recharts]
 /ROICalculator     → Attract + Convert ROI calculator [React-only]
 /LeakDetector      → CRM leak detection tool [React-only]
