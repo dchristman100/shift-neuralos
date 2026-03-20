@@ -452,9 +452,14 @@ export default function RevenueEnginePlans() {
                   </div>
                 </div>
 
-                <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" rel="noreferrer" className="rep-btn-primary" style={{ marginBottom: "24px", textDecoration: "none" }}>
+                <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" rel="noreferrer" className="rep-btn-primary" style={{ marginBottom: "12px", textDecoration: "none" }}>
                   Book a Strategy Call
                 </a>
+
+                <button className="rep-btn-ghost" style={{ marginBottom: "24px" }}
+                  onClick={() => window.open("https://makea.shiftnow.io/widget/bookings/reality", "_blank")}>
+                  Choose this Plan
+                </button>
 
                 <div style={{ flex: 1 }}>
                   <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px" }}>Everything in ACTIVATE, plus:</div>
