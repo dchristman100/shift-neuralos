@@ -400,10 +400,20 @@ export default function RevenueEnginePlans() {
                 <div className="rep-font-display rep-grad-text" style={{ fontSize: "36px", fontWeight: 900, letterSpacing: "-1px", marginBottom: "8px" }}>AMPLIFY</div>
                 <div className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "24px" }}>Organic + Local Service Ads</div>
 
-                <div style={{ background: "rgba(245,74,72,0.08)", border: "1px solid rgba(245,74,72,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
-                  <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
-                  <div className="rep-font-display rep-grad-text" style={{ fontSize: "20px", fontWeight: 800 }}>$30K–$60K/mo</div>
-                  <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "6px", fontWeight: 700 }}>5x–6x Target ROI Expected</div>
+                <div style={{ background: "rgba(245,74,72,0.08)", border: "1px solid rgba(245,74,72,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px" }}>
+                  <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px", textAlign: "center" }}>Revenue Outcome Target</div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
+                    {[["Appts/mo", "10–20"], ["Jobs/mo", "2–4"]].map(([lbl, val]) => (
+                      <div key={lbl} style={{ background: "rgba(255,255,255,0.04)", borderRadius: "7px", padding: "8px", textAlign: "center" }}>
+                        <div className="rep-font-mono" style={{ fontSize: "9px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "3px" }}>{lbl}</div>
+                        <div className="rep-font-display rep-grad-text" style={{ fontSize: "16px", fontWeight: 800 }}>{val}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <div className="rep-font-display rep-grad-text" style={{ fontSize: "18px", fontWeight: 800 }}>$30K–$60K/mo</div>
+                    <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "5px", fontWeight: 700 }}>5x–6x Target ROI Expected</div>
+                  </div>
                 </div>
 
                 <div style={{ marginBottom: "24px" }}>
