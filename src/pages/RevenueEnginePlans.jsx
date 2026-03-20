@@ -476,10 +476,20 @@ export default function RevenueEnginePlans() {
                 <div className="rep-font-display" style={{ fontSize: "36px", fontWeight: 900, letterSpacing: "-1px", color: "#FFD700", marginBottom: "8px" }}>DOMINATE</div>
                 <div className="rep-font-body" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "24px" }}>Full Omnichannel Revenue Engine</div>
 
-                <div style={{ background: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px", textAlign: "center" }}>
-                  <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Revenue Outcome Target</div>
-                  <div className="rep-font-display" style={{ fontSize: "20px", fontWeight: 800, color: "#FFD700" }}>$60K–$120K/mo</div>
-                  <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "6px", fontWeight: 700 }}>7x–8x+ Target ROI Expected</div>
+                <div style={{ background: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.2)", borderRadius: "10px", padding: "16px", marginBottom: "24px" }}>
+                  <div className="rep-font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px", textAlign: "center" }}>Revenue Outcome Target</div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
+                    {[["Appts/mo", "25+"], ["Jobs/mo", "5+"]].map(([lbl, val]) => (
+                      <div key={lbl} style={{ background: "rgba(255,255,255,0.04)", borderRadius: "7px", padding: "8px", textAlign: "center" }}>
+                        <div className="rep-font-mono" style={{ fontSize: "9px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "3px" }}>{lbl}</div>
+                        <div className="rep-font-display" style={{ fontSize: "16px", fontWeight: 800, color: "#FFD700" }}>{val}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <div className="rep-font-display" style={{ fontSize: "18px", fontWeight: 800, color: "#FFD700" }}>$60K–$120K/mo</div>
+                    <div className="rep-font-mono" style={{ fontSize: "11px", color: "#48BB78", marginTop: "5px", fontWeight: 700 }}>7x–8x+ Target ROI Expected</div>
+                  </div>
                 </div>
 
                 <div style={{ marginBottom: "24px" }}>
