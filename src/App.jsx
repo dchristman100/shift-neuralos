@@ -25,6 +25,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import MasterExport from './pages/MasterExport';
+import ExportNeuralOSDashboard from './pages/ExportNeuralOSDashboard';
+import ExportROICalculator from './pages/ExportROICalculator';
 import NeuralOSDashboard from './pages/NeuralOSDashboard';
 import Onboarding from './pages/Onboarding';
 import LeakDetector from './pages/LeakDetector';
