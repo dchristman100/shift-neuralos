@@ -108,6 +108,8 @@ const AuthenticatedApp = () => {
       <Route path="/DocumentsDownload" element={<LayoutWrapper currentPageName="DocumentsDownload"><DocumentsDownload /></LayoutWrapper>} />
       <Route path="/CustomerPortal" element={<LayoutWrapper currentPageName="CustomerPortal"><CustomerPortal /></LayoutWrapper>} />
       <Route path="/Calculator" element={<LayoutWrapper currentPageName="Calculator"><Calculator /></LayoutWrapper>} />
+      <Route path="/ExportNeuralOSDashboard" element={<LayoutWrapper currentPageName="ExportNeuralOSDashboard"><ExportNeuralOSDashboard /></LayoutWrapper>} />
+      <Route path="/ExportROICalculator" element={<LayoutWrapper currentPageName="ExportROICalculator"><ExportROICalculator /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
