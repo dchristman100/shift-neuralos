@@ -657,7 +657,8 @@ const PACKAGES_HTML = `<!-- PACKAGES SECTION -->
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
             <span class="font-mono" style="font-size:10px;color:#FA982F;text-transform:uppercase;letter-spacing:0.1em;">Limited to 3 per market</span>
           </div>
-          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-ghost" style="margin-bottom:24px;text-decoration:none;display:block;text-align:center;">Install the System</a>
+          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-primary" style="margin-bottom:12px;text-decoration:none;display:block;text-align:center;">Book a Strategy Call</a>
+          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-ghost" style="margin-bottom:24px;text-decoration:none;display:block;text-align:center;">Choose this Plan</a>
           <div style="flex:1;">
             <div class="rep-feature-row"><span class="rep-check">✓</span>AI response &lt;30 seconds · 24/7</div>
             <div class="rep-feature-row"><span class="rep-check">✓</span>Roofing-native conversation flows</div>
@@ -698,7 +699,8 @@ const PACKAGES_HTML = `<!-- PACKAGES SECTION -->
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FA982F" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
             <span class="font-mono" style="font-size:10px;color:#FA982F;text-transform:uppercase;letter-spacing:0.1em;">Limited to 3 per market</span>
           </div>
-          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-primary" style="margin-bottom:24px;text-decoration:none;display:block;text-align:center;">Book a Strategy Call</a>
+          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-primary" style="margin-bottom:12px;text-decoration:none;display:block;text-align:center;">Book a Strategy Call</a>
+          <a href="https://makea.shiftnow.io/widget/bookings/reality" target="_blank" class="rep-btn-ghost" style="margin-bottom:24px;text-decoration:none;display:block;text-align:center;">Choose this Plan</a>
           <div style="flex:1;">
             <div class="font-mono" style="font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Everything in ACTIVATE, plus:</div>
             <div class="rep-feature-row"><span class="rep-check">✓</span>Google Local Service Ads management</div>
