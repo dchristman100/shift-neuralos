@@ -392,7 +392,7 @@ export default function RevenueEnginePlans() {
               </div>
             </div>
 
-            {/* AMPLIFY — Featured */
+            {/* AMPLIFY — Featured */}
             <div className="rep-pkg-card featured">
               <div style={{ position: "absolute", top: 0, right: 0, background: "var(--grad)", padding: "6px 16px", borderRadius: "0 20px 0 10px" }}>
                 <span className="rep-font-mono" style={{ fontSize: "10px", color: "#fff", fontWeight: 700 }}>Most Popular</span>
