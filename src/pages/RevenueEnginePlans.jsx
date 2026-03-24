@@ -368,7 +368,7 @@ export default function RevenueEnginePlans() {
                   Book a Strategy Call
                 </a>
 
-                <a href="https://reality.shiftnow.io/sales?price=1997&buildprice=5000" target="_blank" rel="noreferrer" className="rep-btn-ghost" style={{ marginBottom: "24px", textDecoration: "none", display: "block", textAlign: "center" }}>
+                <a href="https://reality.shiftnow.io/sales?plan_name=ACTIVATE" target="_blank" rel="noreferrer" className="rep-btn-ghost" style={{ marginBottom: "24px", textDecoration: "none", display: "block", textAlign: "center" }}>
                   Choose this Plan
                 </a>
 
@@ -455,7 +455,7 @@ export default function RevenueEnginePlans() {
                   Book a Strategy Call
                 </a>
 
-                <a href="https://reality.shiftnow.io/sales?price=3497&buildprice=5000" target="_blank" rel="noreferrer" className="rep-btn-ghost" style={{ marginBottom: "24px", textDecoration: "none", display: "block", textAlign: "center" }}>
+                <a href="https://reality.shiftnow.io/sales?plan_name=AMPLIFY" target="_blank" rel="noreferrer" className="rep-btn-ghost" style={{ marginBottom: "24px", textDecoration: "none", display: "block", textAlign: "center" }}>
                   Choose this Plan
                 </a>
 
