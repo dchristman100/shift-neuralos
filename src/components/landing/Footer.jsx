@@ -32,9 +32,14 @@ export default function Footer({ dotColor = "#FFD700" }) {
             <div className="font-display font-bold text-xl text-white mb-3">
               ShiFt<span style={{ color: dotColor }}>.</span>
             </div>
-            <p className="font-body text-sm text-[rgba(255,255,255,0.4)] leading-relaxed mb-4">
+            <p className="font-body text-sm text-[rgba(255,255,255,0.4)] leading-relaxed mb-3">
               The AI Revenue Operating System for roofing contractors.
             </p>
+            <address className="not-italic font-body text-sm text-[rgba(255,255,255,0.4)] leading-relaxed mb-4">
+              <a href="tel:+17077443866" className="hover:text-white transition-colors duration-200 block">(707) 744-3866</a>
+              <span className="block">12460 Crabapple Rd, Ste. 202-522</span>
+              <span className="block">Alpharetta, GA 30004</span>
+            </address>
             <div className="flex items-center gap-3">
               <a
                 href="https://www.facebook.com/ShiFtAlwaysOn"
