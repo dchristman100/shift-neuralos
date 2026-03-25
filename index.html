@@ -2,18 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- DNS prefetch + preconnect for critical third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://makea.shiftnow.io" />
+
+    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
     <link rel="manifest" href="/manifest.json" />
     <title>ShiFt NeuralOS™ | AI Revenue System for Roofers</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RZCQTL0GS"></script>
+
+    <!-- Google Analytics — load after page is interactive -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-6RZCQTL0GS');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RZCQTL0GS"></script>
+
+    <!-- Critical inline styles to eliminate render-blocking and reduce CLS -->
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: #070820;
+        color: #fff;
+        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root { min-height: 100vh; }
+      /* Prevent CLS from font swap */
+      @font-face {
+        font-family: 'DM Sans';
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Montserrat Alternates';
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-display: swap;
+      }
+    </style>
+
     <meta name="description" content="ShiFt Convert stops revenue leaks from missed calls, junk leads, and invisible buyers. AI-powered lead conversion for roofing contractors — respond in 30 seconds, qualify leads instantly, and book more jobs." />
   </head>
   <body>
@@ -69,7 +105,17 @@
       <p>Book a free 30-minute strategy call at makea.shiftnow.io to get a custom revenue audit and see exactly how much money you are leaving on the table. No contracts, no pressure. Setup in 48 hours. No long-term contracts. Cancel anytime.</p>
     </div>
 
-    <div id="root"></div>
+    <div id="root">
+      <!-- Inline loading skeleton to reduce LCP/CLS while React hydrates -->
+      <div id="page-skeleton" style="min-height:100vh;background:#070820;display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;">
+          <div style="font-family:'Montserrat Alternates',system-ui,sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:12px;">ShiFt<span style="color:#F54A48;">.</span></div>
+          <div style="width:40px;height:3px;background:linear-gradient(90deg,#F54A48,#FA982F);border-radius:2px;margin:0 auto;animation:shift-load 1.2s ease-in-out infinite;"></div>
+        </div>
+      </div>
+      <style>#page-skeleton{transition:opacity 0.3s ease;}@keyframes shift-load{0%,100%{opacity:0.3;transform:scaleX(0.6);}50%{opacity:1;transform:scaleX(1);}}</style>
+      <script>document.addEventListener('DOMContentLoaded',function(){var s=document.getElementById('page-skeleton');if(s)setTimeout(function(){s.style.display='none';},100);});</script>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
