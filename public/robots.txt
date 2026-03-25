@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Block internal/admin/export-only routes
+Disallow: /MasterExport
+Disallow: /ExportRevenueEnginePlans
+Disallow: /ExportHowItWorks
+Disallow: /ExportRevenueLeaks
+Disallow: /ExportResults
+Disallow: /ExportAttractEmptyPipeline
+Disallow: /ExportDashboardPreview
+Disallow: /ExportBookACall
+Disallow: /ExportNeuralOSDashboard
+Disallow: /ExportROICalculator
+Disallow: /ExportBrandNeuralOS
+Disallow: /ExportConvert
+Disallow: /ExportAttract
+Disallow: /DocumentsDownload
+Disallow: /Onboarding
+Disallow: /CustomerPortal
+
+Sitemap: https://shiftnow.io/sitemap.xml
