@@ -1,14 +1,85 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/landing/Navbar";
 import BrandNavbar from "./components/brand/BrandNavbar";
 import AttractNavbar from "./components/attract/AttractNavbar";
 import Footer from "./components/landing/Footer";
 
 export default function Layout({ children, currentPageName }) {
-  // Determine which navbar to show based on page
-  const isBrandPage = ['BrandHome', 'About', 'Platform', 'Roofing', 'Resources', 'Contact', 'Careers'].includes(currentPageName);
-  const isAttractPage = ['AttractHome', 'AttractHowItWorks', 'AttractEmptyPipeline', 'AttractResults', 'AttractPricing', 'AttractBook'].includes(currentPageName);
-  
+  const pageName = currentPageName;
+  // ✅ Facebook Pixel Tracking (added, rest unchanged)
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.fbq) return;
+
+    // Track page view (SPA navigation)
+    window.fbq?.("track", "PageView");
+
+    // Track 50% scroll depth
+    const trackScroll = () => {
+      const scrollPercent =
+        window.scrollY / (document.body.scrollHeight - window.innerHeight);
+
+      if (scrollPercent > 0.5) {
+        window.fbq?.("track", "ViewContent", {
+          content_type: "scroll_50",
+          page: pageName,
+        });
+        window.removeEventListener("scroll", trackScroll);
+      }
+    };
+
+    window.addEventListener("scroll", trackScroll);
+
+    // Track outbound clicks
+    const trackClicks = (e) => {
+      const target = e.target.closest("a");
+      if (target && target.hostname !== window.location.hostname) {
+        window.fbq?.("track", "OutboundClick", {
+          content_name: target.textContent?.trim(),
+          destination: target.href,
+        });
+      }
+    };
+
+    document.addEventListener("click", trackClicks);
+
+    // Track form submissions (Lead)
+    const trackForms = (e) => {
+      if (e.target.tagName === "FORM" || e.target.closest("form")) {
+        window.fbq?.("track", "Lead", {
+          content_name: pageName,
+        });
+      }
+    };
+
+    document.addEventListener("submit", trackForms);
+
+    return () => {
+      window.removeEventListener("scroll", trackScroll);
+      document.removeEventListener("click", trackClicks);
+      document.removeEventListener("submit", trackForms);
+    };
+  }, [pageName]);
+
+  // Page type detection (unchanged)
+  const isBrandPage = [
+    "BrandHome",
+    "About",
+    "Platform",
+    "Roofing",
+    "Resources",
+    "Contact",
+    "Careers",
+  ].includes(currentPageName);
+
+  const isAttractPage = [
+    "AttractHome",
+    "AttractHowItWorks",
+    "AttractEmptyPipeline",
+    "AttractResults",
+    "AttractPricing",
+    "AttractBook",
+  ].includes(currentPageName);
+
   // Determine schema markup type based on page
   const getSchemaMarkup = () => {
     if (isAttractPage) {
@@ -33,7 +104,7 @@ export default function Layout({ children, currentPageName }) {
         }
       };
     }
-    
+
     if (isBrandPage) {
       return {
         "@context": "https://schema.org",
@@ -65,7 +136,7 @@ export default function Layout({ children, currentPageName }) {
         }
       };
     }
-    
+
     return {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -92,7 +163,7 @@ export default function Layout({ children, currentPageName }) {
       }
     };
   };
-  
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -102,62 +173,62 @@ export default function Layout({ children, currentPageName }) {
         <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap');
 
-        :root {
-          --shift-navy-deep: #070820;
-          --shift-navy-core: #0D0F33;
-          --shift-coral: #F54A48;
-          --shift-orange: #FA982F;
+          :root {
+            --shift-navy-deep: #070820;
+            --shift-navy-core: #0D0F33;
+            --shift-coral: #F54A48;
+            --shift-orange: #FA982F;
           --shift-glass: rgba(255,255,255,0.04);
           --shift-glass-border: rgba(255,255,255,0.06);
-          --shift-gradient: linear-gradient(135deg, #F54A48, #FA982F);
-        }
+            --shift-gradient: linear-gradient(135deg, #F54A48, #FA982F);
+          }
 
         .shift-app {
-          -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-        }
+          }
 
-        .font-display {
-          font-family: 'Montserrat Alternates', sans-serif;
-        }
-        .font-mono {
-          font-family: 'JetBrains Mono', monospace;
-        }
+          .font-display {
+            font-family: 'Montserrat Alternates', sans-serif;
+          }
+          .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+          }
         .font-body {
           font-family: 'DM Sans', sans-serif;
         }
 
-        .shift-gradient-text {
-          background: var(--shift-gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          .shift-gradient-text {
+            background: var(--shift-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           background-clip: text;
         }
 
         .shift-gradient-bg {
           background: var(--shift-gradient);
-        }
+          }
 
         /* Scrollbar */
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
+          ::-webkit-scrollbar {
+            width: 6px;
+          }
         ::-webkit-scrollbar-track {
           background: var(--shift-navy-deep);
         }
-        ::-webkit-scrollbar-thumb {
-          background: rgba(255,255,255,0.1);
-          border-radius: 3px;
-        }
+          ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+          }
         ::-webkit-scrollbar-thumb:hover {
           background: rgba(255,255,255,0.2);
         }
 
         /* Selection */
-        ::selection {
-          background: rgba(245,74,72,0.3);
-          color: white;
-        }
+          ::selection {
+            background: rgba(245,74,72,0.3);
+            color: white;
+          }
 
         /* Smooth scroll */
         html {
@@ -169,7 +240,7 @@ export default function Layout({ children, currentPageName }) {
           color: white;
           background: var(--shift-navy-deep);
         }
-      `}</style>
+        `}</style>
 
         {isAttractPage ? <AttractNavbar /> : isBrandPage ? <BrandNavbar /> : <Navbar />}
         {children}

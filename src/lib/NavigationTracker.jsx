@@ -10,6 +10,28 @@ export default function NavigationTracker() {
     const { Pages, mainPage } = pagesConfig;
     const mainPageKey = mainPage ?? Object.keys(Pages)[0];
 
+    // Facebook Pixel PageView tracking on navigation
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.fbq) {
+            const pathname = location.pathname;
+            let pageName = mainPageKey;
+
+            if (pathname !== '/' && pathname !== '') {
+                const pathSegment = pathname.replace(/^\//, '').split('/')[0];
+                const pageKeys = Object.keys(Pages);
+                const matchedKey = pageKeys.find(
+                    key => key.toLowerCase() === pathSegment.toLowerCase()
+                );
+                pageName = matchedKey || 'Unknown';
+            }
+
+            window.fbq('track', 'PageView', {
+                page: pageName,
+                path: pathname
+            });
+        }
+    }, [location.pathname]);
+
     // Log user activity when navigating to a page
     useEffect(() => {
         // Extract page name from pathname
